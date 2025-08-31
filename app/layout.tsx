@@ -1,0 +1,57 @@
+import type { Metadata } from "next";
+import "./globals.css";
+
+export const metadata: Metadata = {
+  metadataBase: new URL("https://www.stoneandresin.com"),
+  title: {
+    default: "Stone & Resin | Resin-Bound Surfaces in Amelia & Cincinnati, OH",
+    template: "%s | Stone & Resin"
+  },
+  description: "Premium resin-bound driveways, patios, walkways, and pool decks. Permeable, UV-stable, low maintenance. Serving Amelia & Cincinnati, Ohio.",
+  openGraph: {
+    type: "website",
+    url: "https://www.stoneandresin.com",
+    title: "Stone & Resin | Resin-Bound Surfaces in Ohio",
+    description: "Permeable, UV-stable surfaces that stay beautiful longer.",
+    images: ["/placeholder.jpg"]
+  },
+  alternates: {
+    canonical: "https://www.stoneandresin.com"
+  }
+};
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  const orgJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "HomeAndConstructionBusiness",
+    "name": "Stone & Resin",
+    "url": "https://www.stoneandresin.com",
+    "telephone": "+1-513-787-8798",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "3326 State Route 132",
+      "addressLocality": "Amelia",
+      "addressRegion": "OH",
+      "postalCode": "45102",
+      "addressCountry": "US"
+    },
+    "areaServed": ["Amelia OH", "Cincinnati OH", "Clermont County OH"],
+    "sameAs": [
+      "https://www.facebook.com/",
+      "https://www.instagram.com/"
+    ],
+    "logo": "/favicon.ico"
+  };
+
+  return (
+    <html lang="en">
+      <body>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }}
+        />
+        {children}
+      </body>
+    </html>
+  );
+}
