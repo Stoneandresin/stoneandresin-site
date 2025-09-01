@@ -1,17 +1,12 @@
 "use client";
-
-// Import Slick styles directly here so the carousel renders correctly.
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 import Slider from 'react-slick';
 import Image from 'next/image';
 import { vubaColors } from './colors';
 
-// Helper to convert a colour name into a slug for file names.  This
-// function lowercases the name, replaces ampersands with "and", and
-// collapses non-alphanumeric characters into single hyphens.
-function slugify(name) {
+function slugify(name: string) {
   return name
     .toLowerCase()
     .replace(/&/g, 'and')
@@ -32,7 +27,7 @@ export default function ColorsSlider() {
     pauseOnHover: true,
     responsive: [
       { breakpoint: 1024, settings: { slidesToShow: 2 } },
-      { breakpoint: 640,  settings: { slidesToShow: 1 } },
+      { breakpoint: 640, settings: { slidesToShow: 1 } },
     ],
   };
 
@@ -41,34 +36,30 @@ export default function ColorsSlider() {
       <h2 id="colors-heading" className="text-3xl font-bold mb-6">
         View Our Color Blends
       </h2>
-      {/* Allow slides to overflow so the scale effect on hover isn't clipped */}
+      {/* prevent scaled tiles from clipping */}
       <div className="[&_.slick-list]:overflow-visible">
         <Slider {...settings}>
-          {vubaColors.map((color) => {
-            // Prefer an explicitly provided image URL on the color object; otherwise
-            // use a generic placeholder image so that missing local files don't break
-            // the build.  If you add local photos into `public/colors/vuba` with
-            // slugified names, they will automatically override this placeholder.
-            const file = color.image ?? '/colors/placeholder.jpg';
+          {vubaColors.map((c) => {
+            const file = `/colors/vuba/${slugify(c.name)}.jpg`;
+            const src: string = (c as any).image || file;
             return (
-              <div key={color.name} className="px-3">
+              <div key={c.name} className="px-3">
                 <a
-                  href={color.href}
+                  href={c.href}
                   target="_blank"
                   rel="noopener noreferrer nofollow"
                   className="group block rounded-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
-                  aria-label={`Open ${color.name} on Vuba in a new tab`}
+                  aria-label={`Open ${c.name} on Vuba in a new tab`}
                 >
                   <div className="rounded-xl border border-gray-200 bg-white shadow-sm overflow-hidden transition-transform duration-200 group-hover:scale-[1.05] group-hover:shadow-md">
                     <Image
-                      src={file}
-                      alt={`Resin-bound color: ${color.name}`}
+                      src={src}
+                      alt={`Resin-bound color: ${c.name}`}
                       width={480}
                       height={320}
                       className="w-full h-48 object-cover"
-                      priority={false}
                     />
-                    <div className="p-3 text-center font-medium">{color.name}</div>
+                    <div className="p-3 text-center font-medium">{c.name}</div>
                   </div>
                 </a>
               </div>
