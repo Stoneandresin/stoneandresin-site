@@ -5,6 +5,7 @@ import Testimonials from "@/components/Testimonials"
 import FAQ from "@/components/FAQ"
 import Footer from "@/components/Footer"
 import Link from "next/link"
+import ColorsSlider from "@/components/ColorsSlider";
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
       <Hero />
       <Portfolio />
       <Testimonials />
+            <ColorsSlider />
       <section className="container py-14">
         <div className="card p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
           <div>
