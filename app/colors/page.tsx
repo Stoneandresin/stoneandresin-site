@@ -8,7 +8,7 @@ export const metadata = {
 export default function ColorsPage() {
   return (
     <main className="container mx-auto px-4 py-8">
-    <ColorsSlider />
+    <C<olorsSlider />
     </main>
   );
 }
