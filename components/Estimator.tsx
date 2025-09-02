@@ -5,7 +5,7 @@ type Condition = 'new_slab' | 'cracked' | 'heavy_repair'
 
 const PRICING = {
   // Customer-facing base range per sq ft (already includes Premium UV resin cost & your margin)
-  base: { low: 18, high: 24 }, // $/sf — adjust as needed
+  base: { low: 15, high: 20 }, // $/sf — adjust as needed
 
   // Site condition multipliers (prep effort)
   condition: {
