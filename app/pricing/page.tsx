@@ -39,11 +39,11 @@ export default function PricingPage(){
             <div key={i} className="card p-6">
               <div className="text-lg font-bold">{t.name}</div>
               <div className="text-2xl font-extrabold mt-2">{t.price}</div>
-+              <ul className="mt-4 subtle space-y-1 list-disc list-inside">
-+                {t.features.map((f, j) => (
-+                  <li key={j}>{f}</li>
-+                ))}
-+              </ul>
+              <ul className="mt-4 subtle space-y-1 list-disc list-inside">
+                {t.features.map((f, j) => (
+                  <li key={j}>{f}</li>
+                ))}
+              </ul>
             </div>
           ))}
         </div>
