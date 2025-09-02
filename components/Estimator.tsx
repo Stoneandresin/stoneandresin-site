@@ -82,13 +82,22 @@ export default function Estimator() {
         <div>
           <label className="label">Area (sq ft)</label>
           <input
-            className="input"
-            type="number"
-            min={0}
-            step={10}
-            value={sqft}
-            onChange={(e) => setSqft(Number(e.target.value))}
-          />
+  type="number"
+  inputMode="numeric"
+  min={1}
+  step={1}
+  className="w-full border rounded px-4 py-2"
+  // If sqft is 0, show an empty string so there’s no visible “0”
+  value={sqft === 0 ? '' : sqft}
+  onChange={(e) => {
+    const raw = e.target.value;
+    // Remove any leading zeros
+    const sanitized = raw.replace(/^0+/, '');
+    // If the field is cleared, set to 0; otherwise parse the number
+    setSqft(sanitized === '' ? 0 : Number(sanitized));
+  }}
+  placeholder="Area (sq ft)"
+/>
         </div>
 
         <div>
@@ -125,9 +134,14 @@ export default function Estimator() {
           <input className="input" type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
         </div>
         <div>
-          <label className="label">Phone</label>
-          <input className="input" value={phone} onChange={(e) => setPhone(e.target.value)} />
-        </div>
+  <label className="label">Phone</label>
+  <input
+    className="input"
+    type="tel"
+    value={phone}
+    onChange={(e) => setPhone(e.target.value)}
+  />
+</div>
         <div>
           <label className="label">ZIP code</label>
           <input className="input" value={zip} onChange={(e) => setZip(e.target.value)} />
