@@ -87,8 +87,8 @@ export default function Estimator() {
   min={1}
   step={1}
   className="w-full border rounded px-4 py-2"
-  // If sqft is 0, show an empty string so the’s no visible “0”
-  value={sqft === 0 ? '' : sqft}
+// If sqft is 0, show an empty string so there's no visible "0"
+value={sqft === 0 ? '' : sqft}
   onChange={(e) => {
     const raw = e.target.value;
     // Remove any leading zeros
