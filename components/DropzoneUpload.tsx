@@ -1,72 +1,99 @@
+// components/DropzoneUpload.tsx
 "use client";
 import { useState } from "react";
-type Item = { name:string; status:"queued"|"uploading"|"done"|"error"; url?:string; err?:string };
 
-export default function DropzoneUpload() {
+type UploadItem = {
+  name: string;
+  status: "queued" | "uploading" | "done" | "error";
+  url?: string;
+  err?: string;
+};
+
+export default function DropzoneUpload({
+  onAfterBatch,
+  uploadFile,
+}: {
+  onAfterBatch: () => Promise<void>;
+  uploadFile: (file: File) => Promise<{ secure_url: string }>;
+}) {
   const [dragOver, setDragOver] = useState(false);
-  const [items, setItems] = useState<Item[]>([]);
-
-  const afterBatch = async () => {
-    await fetch("/api/reindex", {
-      method: "POST",
-      headers: { "x-admin-key": sessionStorage.getItem("ADMIN_KEY") || "" },
-    }).catch(()=>{});
-  };
-
-  async function getSignature() {
-    const res = await fetch("/api/cloudinary/sign", {
-      method: "POST",
-      headers: { "x-admin-key": sessionStorage.getItem("ADMIN_KEY") || "" },
-    });
-    if (!res.ok) throw new Error("sign failed");
-    return res.json() as Promise<{ cloudName:string; apiKey:string; folder:string; timestamp:number; signature:string }>;
-  }
-
-  async function uploadSigned(file: File) {
-    const { cloudName, apiKey, folder, timestamp, signature } = await getSignature();
-    const form = new FormData();
-    form.append("file", file);
-    form.append("api_key", apiKey);
-    form.append("timestamp", String(timestamp));
-    form.append("folder", folder);
-    form.append("signature", signature);
-    const endpoint = `https://api.cloudinary.com/v1_1/${cloudName}/upload`;
-    const res = await fetch(endpoint, { method: "POST", body: form });
-    if (!res.ok) throw new Error(`Cloudinary ${res.status}`);
-    return res.json() as Promise<{ secure_url: string }>;
-  }
+  const [items, setItems] = useState<UploadItem[]>([]);
 
   const onDrop = async (e: React.DragEvent<HTMLDivElement>) => {
-    e.preventDefault(); setDragOver(false);
-    const files = Array.from(e.dataTransfer.files || []).filter(f => f.type.startsWith("image/"));
+    e.preventDefault();
+    setDragOver(false);
+    const files = Array.from(e.dataTransfer.files || []).filter(f =>
+      f.type.startsWith("image/")
+    );
     if (!files.length) return;
 
-    setItems(prev => [...files.map(f => ({ name:f.name, status:"queued" as const })), ...prev]);
+    setItems(prev => [
+      ...files.map(f => ({ name: f.name, status: "queued" as const })),
+      ...prev,
+    ]);
 
-    for (const f of files) {
-      setItems(prev => prev.map(i => i.name===f.name ? { ...i, status:"uploading" } : i));
+    for (const file of files) {
+      setItems(prev =>
+        prev.map(it =>
+          it.name === file.name ? { ...it, status: "uploading" } : it
+        )
+      );
       try {
-        const r = await uploadSigned(f);
-        setItems(prev => prev.map(i => i.name===f.name ? { ...i, status:"done", url:r.secure_url } : i));
-      } catch (err:any) {
-        setItems(prev => prev.map(i => i.name===f.name ? { ...i, status:"error", err:String(err?.message||err) } : i));
+        const res = await uploadFile(file);
+        setItems(prev =>
+          prev.map(it =>
+            it.name === file.name
+              ? { ...it, status: "done", url: res.secure_url }
+              : it
+          )
+        );
+      } catch (err: any) {
+        setItems(prev =>
+          prev.map(it =>
+            it.name === file.name
+              ? { ...it, status: "error", err: String(err?.message || err) }
+              : it
+          )
+        );
       }
     }
-    await afterBatch();
+    await onAfterBatch();
   };
 
   return (
     <div
-      onDragOver={(e)=>{e.preventDefault(); setDragOver(true);}}
-      onDragLeave={()=>setDragOver(false)}
+      onDragOver={e => {
+        e.preventDefault();
+        setDragOver(true);
+      }}
+      onDragLeave={() => setDragOver(false)}
       onDrop={onDrop}
       className={[
         "border-2 border-dashed rounded-2xl p-10 text-center transition",
-        dragOver ? "bg-gray-50 border-black" : "border-gray-300"
+        dragOver ? "bg-gray-50 border-black" : "border-gray-300",
       ].join(" ")}
     >
       <div className="text-lg font-medium mb-2">Drag & drop images here</div>
-      <div className="text-sm text-gray-600">Use filenames like <code>jobid-before-1.jpg</code> and <code>jobid-after-1.jpg</code>.</div>
+      <div className="text-sm text-gray-600">
+        Name files like <code>jobid-before-1.jpg</code> and{" "}
+        <code>jobid-after-1.jpg</code>.
+      </div>
+
+      {items.length > 0 && (
+        <ul className="mt-4 space-y-1 text-sm text-left">
+          {items.map(it => (
+            <li key={it.name} className="flex gap-3 items-center">
+              <span className="w-64 truncate">{it.name}</span>
+              {it.status === "queued" && <span className="text-gray-500">queued</span>}
+              {it.status === "uploading" && <span className="text-blue-600">uploading…</span>}
+              {it.status === "done" && <span className="text-green-600">done</span>}
+              {it.status === "error" && (
+                <span className="text-red-600">error: {it.err}</span>
+              )}
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 }
