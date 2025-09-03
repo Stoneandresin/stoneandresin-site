@@ -1,7 +1,7 @@
 export default function Testimonials(){
   const items = [
     { name: "M. M., Amelia", text: "Our driveway drains perfectly after storms—and it looks amazing.", rating: 5 },
-    { name: "K. R., Cincinnati", text: "Color hasn’t faded through summer sun. Crew was professional.", rating: 5 },
+{ name: "K. R., Cincinnati", text: "Color hasn't faded through summer sun. Crew was professional.", rating: 5 },
     { name: "R. D., Anderson", text: "Fast install, zero puddles, and easy cleanup. Worth it.", rating: 5 }
   ]
   return (
