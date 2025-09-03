@@ -77,7 +77,7 @@ export default function ContactForm() {
       </button>
       {status === "sent" && (
         <p className="text-emerald-700 text-sm md:col-span-2">
-          Thanks! We’ll be in touch shortly.
+         Thanks! We'll be in touch shortly.
         </p>
       )}
       {status === "error" && (
