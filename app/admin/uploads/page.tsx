@@ -1,7 +1,7 @@
 // app/admin/uploads/page.tsx
 "use client";
 import { useEffect, useState, useCallback } from "react";
-
+import DropzoneUpload from "@/components/Dropzone"; //
 declare global {
   interface Window { cloudinary: any }
 }
