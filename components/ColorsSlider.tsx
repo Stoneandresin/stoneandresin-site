@@ -67,8 +67,8 @@ export default function ColorsSlider() {
           })}
         </Slider>
       </div>
-      <p className="mt-3 text-xs text-gray-500">
-        You’ll be taken to Vuba Stone for each blend. Images used with installer permission.
+     <p className="mt-3 text-xs text-gray-500">
+      You'll be taken to Vuba Stone for each blend. Images used with installer permission.
       </p>
     </section>
   );
