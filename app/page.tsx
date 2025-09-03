@@ -1,31 +1,13 @@
-import Navbar from "@/components/Navbar"
-import Hero from "@/components/Hero"
-import Portfolio from "@/components/Portfolio"
-import Testimonials from "@/components/Testimonials"
-import FAQ from "@/components/FAQ"
-import Footer from "@/components/Footer"
-import Link from "next/link"
-import ColorsSlider from "@/components/ColorsSlider";
-
+// app/page.tsx
 export default function Home() {
   return (
-    <main>
-      <Navbar />
-      <Hero />
-      <Portfolio />
-      <Testimonials />
-            <ColorsSlider />
-      <section className="container py-14">
-        <div className="card p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-          <div>
-            <h2 className="text-2xl font-bold">Ready for a precise quote?</h2>
-            <p className="subtle">We’ll visit your site, confirm prep, and finalize your price.</p>
-          </div>
-          <Link href="/contact" className="btn">Book a Consultation</Link>
-        </div>
-      </section>
-      <FAQ />
-      <Footer />
+    <main className='mx-auto max-w-5xl p-6 space-y-6'>
+      <header>
+        <h1 className='text-3xl font-bold'>Stone & Resin</h1>
+        <p className='text-gray-600 mt-2'>
+          Premium resin-bound surfaces for driveways, patios, pool decks, and walkways in Greater Cincinnati.
+        </p>
+      </header>
     </main>
-  )
+  );
 }
