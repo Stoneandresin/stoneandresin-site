@@ -10,7 +10,7 @@ export default function AboutPage(){
       <section className="container py-14 space-y-6">
         <h1 className="section-title">Built in Amelia, serving Ohio</h1>
         <p className="subtle max-w-3xl">
-          We’re a local, family‑run contractor specializing in resin‑bound surfaces—permeable, UV‑stable systems that stand up to Ohio weather. 
+         We're a local, family-run contractor specializing in resin-bound surfaces—permeable, UV-stable systems that stand up to Ohio weather.
           We repair, prepare, and install with meticulous care. Community matters; so does craftsmanship.
         </p>
         <div className="grid md:grid-cols-3 gap-6">
