@@ -2,19 +2,12 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
 import ColorsSlider from "@/components/ColorsSlider";
 
-/**
- * Simple hero + estimator on the homepage.
- * The Vuba carousel (ColorsSlider) appears right under the hero.
- */
-
-// ----- Estimator logic (light/moderate/heavy site conditions) -----
+// ----- Simple estimator settings -----
 type Condition = "light" | "moderate" | "heavy";
 
-const BASE_PPSF = 15; // $ / sq ft (adjust in one place)
+const BASE_PPSF = 15; // $ / sq ft
 const MULTIPLIER: Record<Condition, number> = {
   light: 1.0,
   moderate: 1.2,
@@ -32,7 +25,6 @@ function fmtUSD(n: number) {
 function estimate(area: number, condition: Condition) {
   const ppsf = BASE_PPSF * MULTIPLIER[condition];
   const mid = area * ppsf;
-  // Show a range to set expectations (edges, drainage, prep variance, etc.)
   const low = Math.max(0, mid * 0.95);
   const high = mid * 1.25;
   return { low, high, ppsf };
@@ -41,7 +33,6 @@ function estimate(area: number, condition: Condition) {
 export default function Home() {
   const [area, setArea] = useState<number>(400);
   const [condition, setCondition] = useState<Condition>("moderate");
-
   const { low, high, ppsf } = useMemo(
     () => estimate(area || 0, condition),
     [area, condition]
@@ -49,8 +40,6 @@ export default function Home() {
 
   return (
     <main>
-      <Navbar />
-
       {/* Hero */}
       <section className="container py-12">
         <div className="max-w-3xl">
@@ -64,7 +53,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Vuba blends carousel — appears right under hero */}
+      {/* Vuba blends carousel — right under hero */}
       <section className="container py-12">
         <h2 className="sr-only">Vuba Color Blends</h2>
         <ColorsSlider />
@@ -73,12 +62,10 @@ export default function Home() {
       {/* Estimator */}
       <section className="container py-12">
         <div className="grid gap-6 md:grid-cols-2">
-          <div className="card p-6 rounded-xl border border-gray-200 shadow-sm">
+          <div className="p-6 rounded-xl border border-gray-200 shadow-sm">
             <h2 className="text-xl font-bold">Instant Estimate</h2>
 
-            <label className="block mt-4 text-sm font-medium">
-              Area (sq ft)
-            </label>
+            <label className="block mt-4 text-sm font-medium">Area (sq ft)</label>
             <input
               type="number"
               inputMode="numeric"
@@ -89,9 +76,7 @@ export default function Home() {
               placeholder="e.g., 400"
             />
 
-            <label className="block mt-4 text-sm font-medium">
-              Site condition
-            </label>
+            <label className="block mt-4 text-sm font-medium">Site condition</label>
             <select
               value={condition}
               onChange={(e) => setCondition(e.target.value as Condition)}
@@ -103,12 +88,12 @@ export default function Home() {
             </select>
 
             <p className="mt-4 text-sm text-gray-500">
-              Base price: {fmtUSD(BASE_PPSF)} / sq ft · Condition multiplier:{" "}
+              Base price: {fmtUSD(BASE_PPSF)} / sq ft · Multiplier:{" "}
               {MULTIPLIER[condition].toFixed(1)}× · Effective: {fmtUSD(ppsf)} / sq ft
             </p>
           </div>
 
-          <div className="card p-6 rounded-xl border border-gray-200 shadow-sm">
+          <div className="p-6 rounded-xl border border-gray-200 shadow-sm">
             <h3 className="text-lg font-bold">Estimated Range</h3>
             <p className="mt-3 text-3xl font-extrabold">
               {fmtUSD(low)} – {fmtUSD(high)}
@@ -129,8 +114,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      <Footer />
     </main>
   );
 }
+
