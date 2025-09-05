@@ -76,8 +76,14 @@ export default function Home() {
               type="number"
               inputMode="numeric"
               min={0}
-              value={area}
-              onChange={(e) => setArea(parseInt(e.target.value || "0", 10))}
+              value={area === 0 ? "" : area}
+              onChange={(e) => {
+                const raw = e.target.value;
+                // Remove any leading zeros
+                const sanitized = raw.replace(/^0+/, "");
+                // If cleared, set to 0; otherwise parse number
+                setArea(sanitized === "" ? 0 : Number(sanitized));
+              }}
               className="mt-1 w-full rounded-md border px-3 py-2"
               placeholder="e.g., 400"
             />
