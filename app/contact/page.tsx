@@ -1,6 +1,5 @@
 // app/contact/page.tsx (server component)
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+
 import ContactForm from "./ContactForm";
 
 // Metadata for the contact page.
