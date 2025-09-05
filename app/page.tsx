@@ -110,12 +110,13 @@ export default function Home() {
               <li>Ask about commercial specs and maintenance plans.</li>
             </ul>
             <div className="mt-6">
-              <a
-                href="/contact"
-                className="inline-flex items-center rounded-md border px-4 py-2 font-medium hover:bg-gray-50"
-              >
-                Request a firm quote
-              </a>
+                <a
+    href="/contact"
+    className="inline-flex items-center rounded-md px-4 py-2 font-medium bg-black text-white hover:opacity-90"
+  >
+    Get a firm quote
+  </a>
+
             </div>
           </div>
         </div>
