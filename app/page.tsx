@@ -54,10 +54,17 @@ export default function Home() {
       </section>
 
       {/* Vuba blends carousel — right under hero */}
-      <section className="container py-12">
-        <h2 className="sr-only">Vuba Color Blends</h2>
-        <ColorsSlider />
-      </section>
+<section className="container py-12">
+  <h2 className="text-2xl font-bold mb-4">Choose Your Vuba Blend</h2>
+  <ColorsSlider />
+  <p className="mt-4 text-sm text-gray-600">
+    See a blend you love?{" "}
+    <a href="/contact" className="underline">
+      Request a sample & site visit →
+    </a>
+  </p>
+</section>
+
 
       {/* Estimator */}
       <section className="container py-12">
