@@ -65,7 +65,6 @@ export default function Home() {
   </p>
 </section>
 
-
       {/* Estimator */}
       <section className="container py-12">
         <div className="grid gap-6 md:grid-cols-2">
