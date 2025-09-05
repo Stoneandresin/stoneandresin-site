@@ -5,7 +5,7 @@ export const metadata = {
 export default function PricingPage(){
   return (
     <main>
-      <Navbar />
+     
       <section className="container py-14">
         <h1 className="section-title mb-4">Transparent pricing</h1>
         <p className="subtle max-w-2xl">
@@ -45,7 +45,7 @@ export default function PricingPage(){
           ))}
         </div>
       </section>
-      <Footer />
+      
     </main>
   )
 }
