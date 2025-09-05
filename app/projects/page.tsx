@@ -4,7 +4,7 @@ export default function ProjectsPage(){
   const items = Array.from({length:9}).map((_,i)=>({title:`Project ${i+1}`, img:"/placeholder.jpg"}))
   return (
     <main>
-      <Navbar />
+      
       <section className="container py-14">
         <h1 className="section-title mb-6">Recent projects</h1>
         <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
@@ -16,7 +16,7 @@ export default function ProjectsPage(){
           ))}
         </div>
       </section>
-      <Footer />
+      
     </main>
   )
 }
