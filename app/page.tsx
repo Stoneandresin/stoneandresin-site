@@ -33,7 +33,7 @@ function estimate(area: number, condition: Condition) {
 export default function Home() {
   const [area, setArea] = useState<number>(400);
   const [condition, setCondition] = useState<Condition>("moderate");
-  const { low, high, ppsf } = useMemo(
+  const { low, high } = useMemo(
     () => estimate(area || 0, condition),
     [area, condition]
   );
@@ -47,23 +47,23 @@ export default function Home() {
             Resin-Bound Surfaces, Installed Right.
           </h1>
           <p className="mt-3 text-gray-600">
-            Premium, permeable Vuba stone systems for driveways, patios, walkways,
-            and pool decks across Greater Cincinnati.
+            Premium, permeable Vuba stone systems for driveways, patios,
+            walkways, and pool decks across Greater Cincinnati.
           </p>
         </div>
       </section>
 
       {/* Vuba blends carousel — right under hero */}
-<section className="container py-12">
-  <h2 className="text-2xl font-bold mb-4">Choose Your Vuba Blend</h2>
-  <ColorsSlider />
-  <p className="mt-4 text-sm text-gray-600">
-    See a blend you love?{" "}
-    <a href="/contact" className="underline">
-      Request a sample & site visit →
-    </a>
-  </p>
-</section>
+      <section className="container py-12">
+        <h2 className="text-2xl font-bold mb-4">Choose Your Vuba Blend</h2>
+        <ColorsSlider />
+        <p className="mt-4 text-sm text-gray-600">
+          See a blend you love?{" "}
+          <a href="/contact" className="underline">
+            Request a sample & site visit →
+          </a>
+        </p>
+      </section>
 
       {/* Estimator */}
       <section className="container py-12">
@@ -92,11 +92,6 @@ export default function Home() {
               <option value="moderate">Moderate (typical)</option>
               <option value="heavy">Heavy (extra prep/drainage)</option>
             </select>
-
-            <p className="mt-4 text-sm text-gray-500">
-              Base price: {fmtUSD(BASE_PPSF)} / sq ft · Multiplier:{" "}
-              {MULTIPLIER[condition].toFixed(1)}× · Effective: {fmtUSD(ppsf)} / sq ft
-            </p>
           </div>
 
           <div className="p-6 rounded-xl border border-gray-200 shadow-sm">
@@ -110,13 +105,12 @@ export default function Home() {
               <li>Ask about commercial specs and maintenance plans.</li>
             </ul>
             <div className="mt-6">
-                <a
-    href="/contact"
-    className="inline-flex items-center rounded-md px-4 py-2 font-medium bg-black text-white hover:opacity-90"
-  >
-    Get a firm quote
-  </a>
-
+              <a
+                href="/contact"
+                className="inline-flex items-center rounded-md px-4 py-2 font-medium bg-black text-white hover:opacity-90"
+              >
+                Get a firm quote
+              </a>
             </div>
           </div>
         </div>
