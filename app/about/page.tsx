@@ -3,7 +3,7 @@ export const metadata = { title: "About" }
 export default function AboutPage(){
   return (
     <main>
-      <Navbar />
+      
       <section className="container py-14 space-y-6">
         <h1 className="section-title">Built in Amelia, serving Ohio</h1>
         <p className="subtle max-w-3xl">
@@ -16,7 +16,7 @@ export default function AboutPage(){
           <div className="card p-6"><div className="font-bold">Local & accountable</div><p className="subtle">Amelia‑based crew, Ohio references, and clear warranties.</p></div>
         </div>
       </section>
-      <Footer />
+      
     </main>
   )
 }
