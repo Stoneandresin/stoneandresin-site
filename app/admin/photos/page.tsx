@@ -1,5 +1,6 @@
 // app/admin/photos/page.tsx
 'use client';
+export const dynamic = 'force-dynamic';
 
 import { useState } from 'react';
 import {
@@ -10,11 +11,23 @@ import {
 
 type Item = { id: string; url: string };
 
-export const dynamic = 'force-dynamic'; // avoid static pre-render
-
 export default function AdminPhotosPage() {
-  const [items, setItems] = useState<Item[]>([]);
+  const cloudName = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME;
   const unsignedPreset = process.env.NEXT_PUBLIC_CLOUDINARY_UNSIGNED_PRESET;
+
+  if (!cloudName || !unsignedPreset) {
+    return (
+      <main className="mx-auto max-w-md p-6">
+        <h1 className="text-2xl font-semibold mb-2">Photos (temporarily unavailable)</h1>
+        <p className="text-sm text-gray-600">
+          Missing Cloudinary envs. Set <code>NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME</code> and
+          <code> NEXT_PUBLIC_CLOUDINARY_UNSIGNED_PRESET</code> in Vercel, then redeploy.
+        </p>
+      </main>
+    );
+  }
+
+  const [items, setItems] = useState<Item[]>([]);
 
   const handleUpload = (res: CloudinaryUploadWidgetResults) => {
     const info = res?.info;
@@ -31,8 +44,9 @@ export default function AdminPhotosPage() {
       <header className="mb-6 flex items-center justify-between">
         <h1 className="text-2xl font-semibold">Admin · Photos</h1>
         <CldUploadWidget
-          uploadPreset={unsignedPreset!}
+          uploadPreset={unsignedPreset}
           options={{
+            cloudName,
             multiple: true,
             sources: ['local', 'camera', 'url', 'google_drive'],
             maxFiles: 20,
@@ -51,12 +65,6 @@ export default function AdminPhotosPage() {
           )}
         </CldUploadWidget>
       </header>
-
-      {!unsignedPreset && (
-        <p className="mb-4 rounded-md bg-yellow-50 p-3 text-sm text-yellow-900">
-          <strong>Missing env:</strong> Set <code>NEXT_PUBLIC_CLOUDINARY_UNSIGNED_PRESET</code> in Vercel.
-        </p>
-      )}
 
       <section>
         {items.length === 0 ? (

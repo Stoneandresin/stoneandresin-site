@@ -1,5 +1,6 @@
 // app/admin/uploads/page.tsx
-"use client";
+'use client';
+export const dynamic = 'force-dynamic';
 import { useEffect, useState, useCallback } from "react";
 import DropzoneUpload from "@/components/DropzoneUpload";
 
@@ -17,10 +18,22 @@ type UploadItem = {
 };
 
 export default function Uploads() {
-  const [ok, setOk] = useState(false);
+  const cloudName = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME;
+  const unsignedPreset = process.env.NEXT_PUBLIC_CLOUDINARY_UNSIGNED_PRESET;
 
-  const cloudName = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME!;
-  const unsignedPreset = process.env.NEXT_PUBLIC_CLOUDINARY_UNSIGNED_PRESET!;
+  if (!cloudName || !unsignedPreset) {
+    return (
+      <main className="mx-auto max-w-md p-6">
+        <h1 className="text-2xl font-semibold mb-2">Uploads (temporarily unavailable)</h1>
+        <p className="text-sm text-gray-600">
+          Missing Cloudinary envs. Set <code>NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME</code> and
+          <code> NEXT_PUBLIC_CLOUDINARY_UNSIGNED_PRESET</code> in Vercel, then redeploy.
+        </p>
+      </main>
+    );
+  }
+
+  const [ok, setOk] = useState(false);
 
   // Load Cloudinary widget script (keeps your existing button working)
   useEffect(() => {
