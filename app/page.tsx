@@ -38,8 +38,7 @@ export default function Home() {
   const { low, high } = useMemo(
     () => estimate(area || 0, condition),
     [area, condition]
-  );
-
+ 
   return (
     <main>
       {/* Hero */}
