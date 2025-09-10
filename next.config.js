@@ -1,6 +1,7 @@
+cat > next.config.js <<'JS'
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Ensure both `/about` and `/about/` work in static exports.
+  // Ensure both `/about` and `/about/` work.
   trailingSlash: true,
   experimental: { typedRoutes: true },
   reactStrictMode: true,
@@ -14,3 +15,4 @@ const nextConfig = {
 };
 
 module.exports = nextConfig;
+JS
