@@ -1,0 +1,4 @@
+- Run: npm ci; npm run build; npx tsc --noEmit
+- Success: build + type-check pass
+- Conventions: Next.js app router; components in /components; Cloudinary for images
+- Env (no secrets in Git): LEAD_WEBHOOK_URL, CLOUDINARY_CLOUD_NAME, CLOUDINARY_UPLOAD_PRESET
