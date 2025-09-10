@@ -3,6 +3,8 @@
 
 import { useMemo, useState } from "react";
 import ColorsSlider from "@/components/ColorsSlider";
+import Image from "next/image";
+
 
 // ----- Simple estimator settings -----
 type Condition = "light" | "moderate" | "heavy";
@@ -120,8 +122,17 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section>
+        <section className="mt-8 flex justify-center">
+          <Image
+            src="/AAC1A118-5584-4B37-9504-1F0C01C4B1D1.jpg"
+            alt="Vuba Stone Certified Installer badge"
+            width={300}
+            height={450}
+            className="rounded-md shadow"
+          />
+        </section>
+
     </main>
-  );
+
 }
 
