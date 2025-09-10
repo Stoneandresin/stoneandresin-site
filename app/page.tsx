@@ -38,7 +38,8 @@ export default function Home() {
   const { low, high } = useMemo(
     () => estimate(area || 0, condition),
     [area, condition]
- 
+  );
+
   return (
     <main>
       {/* Hero */}
@@ -120,7 +121,8 @@ export default function Home() {
               </a>
             </div>
           </div>
-        </div>
+          </div>
+        </section>
         <section className="mt-8 flex justify-center">
           <Image
             src="/AAC1A118-5584-4B37-9504-1F0C01C4B1D1.jpg"
@@ -132,6 +134,6 @@ export default function Home() {
         </section>
 
     </main>
-
+  );
 }
 
