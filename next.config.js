@@ -16,6 +16,11 @@ const nextConfig = {
         hostname: 'vuba-stone.com',
         pathname: '/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'res.cloudinary.com',
+        pathname: '/**',
+      },
     ],
   },
 };
