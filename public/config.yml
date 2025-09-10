@@ -1,0 +1,33 @@
+backend:
+  name: git-gateway
+  branch: main
+
+site_url: https://stoneandresin.com
+logo_url: /favicon.ico
+
+media_library:
+  name: cloudinary
+  config:
+    cloud_name: ${ddpjhsiyu}
+    api_key: ${158876361571836}    # Optional folder inside Cloudinary:
+    default_transformations:
+      - - fetch_format: auto
+          quality: auto
+
+media_folder: "static/uploads"         # fallback if Cloudinary is offline
+public_folder: "/uploads"
+
+collections:
+  - name: "galleries"
+    label: "Galleries"
+    label_singular: "Gallery"
+    folder: "content/galleries"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime", required: false }
+      - { label: "Location", name: "location", widget: "string", required: false }
+      - { label: "Description", name: "body", widget: "markdown", required: false }
+      - { label: "Before Photo", name: "beforePhoto", widget: "image" }
+      - { label: "After Photo", name: "afterPhoto", widget: "image" }

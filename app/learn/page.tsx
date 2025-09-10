@@ -1,5 +1,3 @@
-import Navbar from "@/components/Navbar"
-import Footer from "@/components/Footer"
 import Link from "next/link"
 
 export const metadata = { title: "Learn" }
@@ -12,7 +10,7 @@ export default function LearnPage(){
   ]
   return (
     <main>
-      <Navbar />
+      
       <section className="container py-14">
         <h1 className="section-title mb-6">Guides & resources</h1>
         <div className="grid md:grid-cols-3 gap-6">
@@ -25,7 +23,7 @@ export default function LearnPage(){
           ))}
         </div>
       </section>
-      <Footer />
+      
     </main>
   )
 }
