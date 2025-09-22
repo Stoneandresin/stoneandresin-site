@@ -30,9 +30,35 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const orgJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "HomeAndConstructionBusiness",
+    "name": "Stone & Resin",
+    "url": "https://www.stoneandresin.com",
+    "telephone": "+1-513-787-8798",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "3326 State Route 132",
+      "addressLocality": "Amelia",
+      "addressRegion": "OH",
+      "postalCode": "45102",
+      "addressCountry": "US"
+    },
+    "areaServed": ["Amelia OH", "Cincinnati OH"],
+    "sameAs": [
+      "https://www.bbb.org/us/oh/amelia/profile/construction-services/spaulding-quality-renovations-0292-90050955",
+      "https://www.facebook.com/",
+      "https://www.instagram.com/"
+    ],
+    "logo": "/favicon.ico"
+  };
   return (
     <html lang="en">
       <body className="antialiased">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }}
+        />
         <Navbar />
         <main>{children}</main>
         <Footer />
