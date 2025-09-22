@@ -5,7 +5,6 @@ import { useMemo, useState } from "react";
 import ColorsSlider from "@/components/ColorsSlider";
 import Image from "next/image";
 
-
 // ----- Simple estimator settings -----
 type Condition = "light" | "moderate" | "heavy";
 
@@ -38,7 +37,8 @@ export default function Home() {
   const { low, high } = useMemo(
     () => estimate(area || 0, condition),
     [area, condition]
- 
+  );
+
   return (
     <main>
       {/* Hero */}
@@ -130,8 +130,7 @@ export default function Home() {
             className="rounded-md shadow"
           />
         </section>
-
+      </section>
     </main>
-
+  );
 }
-
