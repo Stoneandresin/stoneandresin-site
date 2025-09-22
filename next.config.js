@@ -1,4 +1,3 @@
-cat > next.config.js <<'JS'
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   // Ensure both `/about` and `/about/` work.
@@ -15,4 +14,3 @@ const nextConfig = {
 };
 
 module.exports = nextConfig;
-JS
