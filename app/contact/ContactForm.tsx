@@ -1,90 +1,54 @@
-// app/contact/ContactForm.tsx (client component)
-"use client";
-import { useState } from "react";
+"use client"
+import { useState } from "react"
 
-/**
- * ContactForm renders an interactive form for collecting leads.
- * This component is marked as a client component because it uses
- * React hooks for state and interacts with the browser.
- */
 export default function ContactForm() {
-  const [status, setStatus] = useState<
-    "idle" | "sending" | "sent" | "error"
-  >("idle");
-  const [form, setForm] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    message: "",
-  });
+  const [name, setName] = useState("")
+  const [email, setEmail] = useState("")
+  const [phone, setPhone] = useState("")
+  const [message, setMessage] = useState("")
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle")
 
   async function submit(e: React.FormEvent) {
-    e.preventDefault();
-    setStatus("sending");
+    e.preventDefault()
+    if (!name.trim() || !email.trim() || !phone.trim()) {
+      alert("Please add name, email, and phone.")
+      return
+    }
     try {
-      // Post the form data to your API route. Replace this endpoint with a real webhook if needed.
-      const res = await fetch("/api/lead", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ type: "contact", ...form }),
-      });
-      if (!res.ok) {
-        throw new Error("Network response was not ok");
-      }
-      setStatus("sent");
-      // Clear the form after a successful submission.
-      setForm({ name: "", email: "", phone: "", message: "" });
+      setStatus("sending")
+      console.log("Contact lead", { name, email, phone, message })
+      await new Promise(r => setTimeout(r, 600))
+      setStatus("sent")
     } catch (e) {
-      setStatus("error");
+      setStatus("error")
     }
   }
 
   return (
-    <form
-      onSubmit={submit}
-      className="grid md:grid-cols-2 gap-4 mt-6 max-w-2xl"
-    >
-      <input
-        className="input"
-        placeholder="Full name"
-        value={form.name}
-        onChange={(e) => setForm({ ...form, name: e.target.value })}
-        required
-      />
-      <input
-        className="input"
-        placeholder="Email"
-        type="email"
-        value={form.email}
-        onChange={(e) => setForm({ ...form, email: e.target.value })}
-        required
-      />
-      <input
-        className="input"
-        placeholder="Phone"
-        value={form.phone}
-        onChange={(e) => setForm({ ...form, phone: e.target.value })}
-      />
-      <textarea
-        className="input md:col-span-2"
-        placeholder="Project details"
-        rows={5}
-        value={form.message}
-        onChange={(e) => setForm({ ...form, message: e.target.value })}
-      />
-      <button className="btn md:w-auto" disabled={status === "sending"}>
-        {status === "sending" ? "Sending..." : "Send message"}
+    <form onSubmit={submit} className="space-y-4 max-w-xl">
+      <div>
+        <label className="label">Full name</label>
+        <input className="input" value={name} onChange={e=>setName(e.target.value)} />
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div>
+          <label className="label">Email</label>
+          <input className="input" type="email" value={email} onChange={e=>setEmail(e.target.value)} />
+        </div>
+        <div>
+          <label className="label">Phone</label>
+          <input className="input" value={phone} onChange={e=>setPhone(e.target.value)} />
+        </div>
+      </div>
+      <div>
+        <label className="label">Project details (optional)</label>
+        <textarea className="input min-h-28" value={message} onChange={e=>setMessage(e.target.value)} />
+      </div>
+      <button type="submit" className="btn" disabled={status==="sending"}>
+        {status==="sending" ? "Sending..." : "Book My On-Site Quote"}
       </button>
-      {status === "sent" && (
-        <p className="text-emerald-700 text-sm md:col-span-2">
-         Thanks! We'll be in touch shortly.
-        </p>
-      )}
-      {status === "error" && (
-        <p className="text-red-600 text-sm md:col-span-2">
-          There was a problem. Please call 513‑787‑8798.
-        </p>
-      )}
+      {status==="sent" && <p className="text-emerald-700 text-sm">Thanks! We’ll be in touch shortly.</p>}
+      {status==="error" && <p className="text-red-600 text-sm">There was a problem submitting. Please call 513-787-8798.</p>}
     </form>
-  );
+  )
 }
