@@ -1,4 +1,5 @@
 // ... your imports ...
+import { useState, useMemo } from "react";
 
 export default function Page() {
   const [area, setArea] = useState<number>(400);
