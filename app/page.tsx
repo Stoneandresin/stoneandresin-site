@@ -4,6 +4,8 @@
 import { useMemo, useState } from "react";
 import ColorsSlider from "@/components/ColorsSlider";
 import Image from "next/image";
+import QuoteModal from "@/components/QuoteModal";
+
 
 // ----- Simple estimator settings -----
 type Condition = "light" | "moderate" | "heavy";
@@ -33,6 +35,8 @@ function estimate(area: number, condition: Condition) {
 
 export default function Home() {
   const [area, setArea] = useState<number>(400);
+  const [open, setOpen] = useState(false);
+
   const [condition, setCondition] = useState<Condition>("moderate");
   const { low, high } = useMemo(
     () => estimate(area || 0, condition),
@@ -113,9 +117,9 @@ export default function Home() {
             </ul>
             <div className="mt-6">
               <a
-                href="/contact"
+                href="#" onClick={() => setOpen(true)}
                 className="inline-flex items-center rounded-md px-4 py-2 font-medium bg-black text-white hover:opacity-90"
-              >
+              
                 Get a firm quote
               </a>
             </div>
@@ -132,5 +136,7 @@ export default function Home() {
         </section>
       </section>
     </main>
+        <QuoteModal open={open} onClose={() => setOpen(false)} />
+
   );
 }
