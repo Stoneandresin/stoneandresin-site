@@ -34,7 +34,7 @@ function estimate(area: number, condition: Condition) {
 }
 
 export default function Home() {
-  const [area, setArea] = useState<number>(400);
+  const [area, setArea] = useState<number>(0);
   const [open, setOpen] = useState(false);
 
   const [condition, setCondition] = useState<Condition>("moderate");
@@ -119,7 +119,7 @@ export default function Home() {
               <a
                 href="#" onClick={() => setOpen(true)}
                 className="inline-flex items-center rounded-md px-4 py-2 font-medium bg-black text-white hover:opacity-90"
-              
+              >
                 Get a firm quote
               </a>
             </div>
@@ -135,8 +135,7 @@ export default function Home() {
           />
         </section>
       </section>
+      <QuoteModal open={open} onClose={() => setOpen(false)} />
     </main>
-        <QuoteModal open={open} onClose={() => setOpen(false)} />
-
   );
 }
