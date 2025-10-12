@@ -39,7 +39,7 @@ export default function Home() {
   const { low, high } = useMemo(
     () => estimate(area || 0, condition),
     [area, condition]
-  ); // <-- This parenthesis closes useMemo
+  ); // THIS LINE IS CRITICAL! <- Do not insert a blank line after this.
 
   return (
     <>
