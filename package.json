@@ -8,6 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@builder.io/sdk-react": "^3.0.0",
     "@cloudinary/url-gen": "^1.22.0",
     "next": "^14.2.32",
     "next-cloudinary": "^6.16.0",
