@@ -29,7 +29,7 @@ function money(n: number) {
 }
 
 export default function Estimator() {
-  const [sqft, setSqft] = useState<number>(400)
+  const [sqft, setSqft] = useState<number>(0)
   const [condition, setCondition] = useState<Condition>('cracked')
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
