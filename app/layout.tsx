@@ -1,6 +1,7 @@
 // app/layout.tsx
 import type { Metadata } from "next";
 import "./globals.css";
+import Script from "next/script";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
@@ -61,6 +62,30 @@ export default function RootLayout({
         <Navbar />
         <main>{children}</main>
         <Footer />
+              <Script id="ld-localbusiness" type="application/ld+json" strategy="afterInteractive">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "LocalBusiness",
+          "name": "Spalding Quality Renovations – Stone & Resin",
+          "image": "https://www.stoneandresin.com/hero.jpg",
+          "url": "https://www.stoneandresin.com",
+          "telephone": "+1-513-787-8798",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Amelia",
+            "addressRegion": "OH",
+            "postalCode": "45102",
+            "addressCountry": "US"
+          },
+          "areaServed": ["Cincinnati","Batavia","Anderson Township","Milford","Loveland"],
+          "priceRange": "$$",
+          "aggregateRating": {
+            "@type":"AggregateRating",
+            "ratingValue":"4.9",
+            "reviewCount":"212"
+          }
+        })}
+      </Script>
       </body>
     </html>
   );
