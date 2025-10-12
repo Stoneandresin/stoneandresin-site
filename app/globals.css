@@ -24,3 +24,7 @@ body { @apply bg-white text-gray-900; }
 .card { @apply rounded-2xl shadow-sm border border-gray-100 bg-white; }
 .input { @apply w-full rounded-xl border border-gray-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-emerald-500; }
 .label { @apply text-sm font-medium text-gray-700; }
+
+a[href="/projects"] {
+  display: none !important;
+}
