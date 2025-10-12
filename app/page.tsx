@@ -41,6 +41,7 @@ export default function Home() {
   const { low, high } = useMemo(
     () => estimate(area || 0, condition),
     [area, condition]
+  );
 
   return (
     <main>
@@ -116,9 +117,10 @@ export default function Home() {
             </ul>
             <div className="mt-6">
               <a
-                href="#" onClick={() => setOpen(true)}
+                href="#"
+                onClick={() => setOpen(true)}
                 className="inline-flex items-center rounded-md px-4 py-2 font-medium bg-black text-white hover:opacity-90"
-              
+              >
                 Get a firm quote
               </a>
             </div>
@@ -134,8 +136,7 @@ export default function Home() {
           />
         </section>
       </section>
+      <QuoteModal open={open} onClose={() => setOpen(false)} />
     </main>
-        <QuoteModal open={open} onClose={() => setOpen(false)} />
-
   );
 }
