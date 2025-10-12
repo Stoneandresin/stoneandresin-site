@@ -16,7 +16,7 @@ export default function Footer() {
           <div className="font-semibold mb-3">Company</div>
           <ul className="space-y-2 subtle">
             <li><Link href="/about" className="hover:underline">About</Link></li>
-            <li><Link href="/projects" className="hover:underline">Projects</Link></li>
+            {/* <li><Link href="/projects" className="hover:underline">Projects</Link></li> */}
             <li><Link href="/learn" className="hover:underline">Learn</Link></li>
           </ul>
         </div>
