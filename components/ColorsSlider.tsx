@@ -36,8 +36,12 @@ export default function ColorsSlider() {
       <h2 id="colors-heading" className="text-3xl font-bold mb-6">
         View Our Color Blends
       </h2>
-      {/* prevent scaled tiles from clipping */}
-      <div className="[&_.slick-list]:overflow-visible">
+      {/* prevent scaled tiles from clipping and prevent unwanted page scroll while swiping */}
+      <div
+        className="[&_.slick-list]:overflow-visible"
+        style={{ touchAction: "pan-y" }}
+        onTouchMove={e => e.stopPropagation()}
+      >
         <Slider {...settings}>
           {vubaColors.map((c) => {
             const file = `/colors/vuba/${slugify(c.name)}.jpg`;
