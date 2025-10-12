@@ -39,7 +39,7 @@ export default function Home() {
   const { low, high } = useMemo(
     () => estimate(area || 0, condition),
     [area, condition]
-  ); // THIS LINE IS CRITICAL! <- Do not insert a blank line after this.
+  ); // <-- closes useMemo (required)
 
   return (
     <>
@@ -83,9 +83,7 @@ export default function Home() {
                 value={area === 0 ? "" : area}
                 onChange={(e) => {
                   const raw = e.target.value;
-                  // Remove any leading zeros
                   const sanitized = raw.replace(/^0+/, "");
-                  // If cleared, set to 0; otherwise parse number
                   setArea(sanitized === "" ? 0 : Number(sanitized));
                 }}
                 className="mt-1 w-full rounded-md border px-3 py-2"
@@ -125,6 +123,7 @@ export default function Home() {
               </div>
             </div>
           </div>
+
           <section className="mt-8 flex justify-center">
             <Image
               src="/AAC1A118-5584-4B37-9504-1F0C01C4B1D1.jpg"
@@ -136,6 +135,7 @@ export default function Home() {
           </section>
         </section>
       </main>
+
       <QuoteModal open={open} onClose={() => setOpen(false)} />
     </>
   );
