@@ -10,6 +10,12 @@ const nextConfig = {
       { protocol: 'https', hostname: 'vuba-stone.com', pathname: '/**' },
       { protocol: 'https', hostname: 'res.cloudinary.com', pathname: '/**' }
     ]
+  },
+  async redirects() {
+    return [
+      { source: '/projects', destination: '/', permanent: true },
+      { source: '/projects/', destination: '/', permanent: true },
+    ];
   }
 };
 
