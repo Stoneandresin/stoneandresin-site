@@ -1,5 +1,6 @@
 'use client'
-import { useMemo, useState } from 'react'
+
+import { useMemo, useState, type ChangeEvent, type FormEvent } from 'react'
 
 type Condition = 'new_slab' | 'cracked' | 'heavy_repair'
 
@@ -29,18 +30,20 @@ function money(n: number) {
 }
 
 export default function Estimator() {
-  const [sqft, setSqft] = useState<number>(400)
+  const [sqft, setSqft] = useState<number>(0)
   const [condition, setCondition] = useState<Condition>('cracked')
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [phone, setPhone] = useState('')
   const [zip, setZip] = useState('')
   const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle')
+  const [errorMsg, setErrorMsg] = useState<string | null>(null)
 
   // --- live pricing calc (Premium-only; no finish selector) ---
   const { low, high } = useMemo(() => {
     const sqftClean = clampSqft(sqft)
-    const mult = PRICING.condition[condition]
+    const condKey: keyof typeof PRICING.condition = condition
+    const mult = PRICING.condition[condKey]
 
     let lowRaw = sqftClean * PRICING.base.low * mult
     let highRaw = sqftClean * PRICING.base.high * mult
@@ -54,21 +57,40 @@ export default function Estimator() {
     return { low: round(lowRaw), high: round(highRaw) }
   }, [sqft, condition])
 
-  async function submitLead(e: React.FormEvent) {
+  async function submitLead(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()
     // minimal client-side validation
     if (!name.trim() || !email.trim() || !phone.trim() || !zip.trim()) {
       alert('Please complete name, email, phone, and ZIP so we can confirm your quote.')
       return
     }
+    setErrorMsg(null)
     setStatus('sending')
     try {
-      // Replace with your webhook when ready.
-      console.log('Lead submitted', { name, email, phone, zip, sqft, condition, low, high })
-      await new Promise((r) => setTimeout(r, 600))
+      const res = await fetch('/api/lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name,
+          email,
+          phone,
+          zip,
+          sqft: clampSqft(sqft),
+          condition,
+          estimate: { low, high },
+        }),
+      })
+
+      const data: any = await res.json().catch(() => ({}))
+      if (!res.ok || data?.ok === false) {
+        const msg = data?.error ? String(data.error) : `Request failed (${res.status})`
+        throw new Error(msg)
+      }
       setStatus('sent')
-    } catch (err) {
+    } catch (err: unknown) {
       console.error(err)
+      const msg = err instanceof Error ? err.message : 'Unknown error'
+      setErrorMsg(msg)
       setStatus('error')
     }
   }
@@ -80,31 +102,46 @@ export default function Estimator() {
 
       <div className="grid grid-cols-2 gap-4">
         <div>
-          <label className="label">Area (sq ft)</label>
+          <label className="label" htmlFor="sqftInput">Area (sq ft)</label>
           <input
             className="input"
             type="number"
             min={0}
             step={10}
-            value={sqft}
-            onChange={(e) => setSqft(Number(e.target.value))}
+            id="sqftInput"
+            placeholder="e.g., 400"
+            aria-describedby="sqftHelp"
+            value={sqft === 0 ? '' : sqft}
+            onChange={(e: ChangeEvent<HTMLInputElement>) => {
+              const raw = e.target.value
+              if (raw === '') {
+                setSqft(0)
+                return
+              }
+              const n = Number(raw)
+              setSqft(Number.isFinite(n) ? n : 0)
+            }}
           />
+          <p id="sqftHelp" className="text-xs subtle mt-1">Measure length × width of each area and add them up. Adjust the sqft to update your estimate.</p>
         </div>
 
         <div>
-          <label className="label">Surface condition</label>
+          <label className="label" htmlFor="conditionSelect">Surface condition</label>
           <select
             className="input"
             value={condition}
-            onChange={(e) => setCondition(e.target.value as Condition)}
+            id="conditionSelect"
+            aria-describedby="conditionHelp"
+            onChange={(e: ChangeEvent<HTMLSelectElement>) => setCondition(e.target.value as Condition)}
           >
             <option value="new_slab">New / sound slab</option>
             <option value="cracked">Cracked / moderate repair</option>
             <option value="heavy_repair">Heavily damaged / buildup</option>
           </select>
+          <p id="conditionHelp" className="text-xs subtle mt-1">Not sure? Choose “Cracked / moderate repair” — we’ll confirm during your site visit.</p>
         </div>
 
-        {/* Estimate card */}
+        {/* Estimate card (always visible) */}
         <div className="card p-4 col-span-2">
           <div className="text-sm uppercase tracking-wide subtle">Estimated range</div>
           <div className="text-2xl font-extrabold mt-1">
@@ -118,27 +155,31 @@ export default function Estimator() {
 
         <div>
           <label className="label">Full name</label>
-          <input className="input" value={name} onChange={(e) => setName(e.target.value)} />
+          <input className="input" value={name} onChange={(e: ChangeEvent<HTMLInputElement>) => setName(e.target.value)} required />
         </div>
         <div>
           <label className="label">Email</label>
-          <input className="input" type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+          <input className="input" type="email" value={email} onChange={(e: ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)} required />
         </div>
         <div>
           <label className="label">Phone</label>
-          <input className="input" value={phone} onChange={(e) => setPhone(e.target.value)} />
+          <input className="input" type="tel" value={phone} onChange={(e: ChangeEvent<HTMLInputElement>) => setPhone(e.target.value)} required />
         </div>
         <div>
           <label className="label">ZIP code</label>
-          <input className="input" value={zip} onChange={(e) => setZip(e.target.value)} />
+          <input className="input" inputMode="numeric" pattern="[0-9]*" value={zip} onChange={(e: ChangeEvent<HTMLInputElement>) => setZip(e.target.value)} required />
         </div>
       </div>
 
-      <button type="submit" className="btn w-full md:w-auto" disabled={status === 'sending'}>
+      <button type="submit" className="btn w-full md:w-auto" disabled={status === 'sending' || status === 'sent'}>
         {status === 'sending' ? 'Sending...' : 'Book My On-Site Quote'}
       </button>
       {status === 'sent' && <p className="text-emerald-700 text-sm">Thanks! We’ll be in touch shortly.</p>}
-      {status === 'error' && <p className="text-red-600 text-sm">There was a problem submitting. Please call 513-787-8798.</p>}
+      {status === 'error' && (
+        <p className="text-red-600 text-sm" role="alert">
+          There was a problem submitting ({errorMsg || 'unknown'}). Please call 513-787-8798.
+        </p>
+      )}
     </form>
   )
 }

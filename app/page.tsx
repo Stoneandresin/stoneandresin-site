@@ -1,46 +1,10 @@
 "use client";
 
-import { useMemo, useState } from "react";
 import ColorsSlider from "@/components/ColorsSlider";
 import Image from "next/image";
-import QuoteModal from '@/components/QuoteModal';
-
-// ----- Simple estimator settings -----
-type Condition = "light" | "moderate" | "heavy";
-
-const BASE_PPSF = 15; // $ / sq ft
-const MULTIPLIER: Record<Condition, number> = {
-  light: 1.0,
-  moderate: 1.2,
-  heavy: 1.4,
-};
-
-function fmtUSD(n: number) {
-  return n.toLocaleString(undefined, {
-    style: "currency",
-    currency: "USD",
-    maximumFractionDigits: 0,
-  });
-}
-
-function estimate(area: number, condition: Condition) {
-  const ppsf = BASE_PPSF * MULTIPLIER[condition];
-  const mid = area * ppsf;
-  const low = Math.max(0, mid * 0.95);
-  const high = mid * 1.25;
-  return { low, high, ppsf };
-}
+import Estimator from "@/components/Estimator";
 
 export default function Home() {
-  const [area, setArea] = useState<number>(400);
-  const [open, setOpen] = useState(false);
-  const [condition, setCondition] = useState<Condition>("moderate");
-
-  const { low, high } = useMemo(
-    () => estimate(area || 0, condition),
-    [area, condition]
-  );//
-
   return (
     <>
       <main>
@@ -59,7 +23,7 @@ export default function Home() {
         {/* Vuba blends carousel — right under hero */}
         <section className="container py-12">
           <h2 className="text-2xl font-bold mb-4">Choose Your Vuba Blend</h2>
-          <ColorsSlider />
+          <ColorsSlider showHeading={false} className="py-0" />
           <p className="mt-4 text-sm text-gray-600">
             See a blend you love?{" "}
             <a href="/contact" className="underline">
@@ -70,57 +34,7 @@ export default function Home() {
 
         {/* Estimator */}
         <section className="container py-12">
-          <div className="grid gap-6 md:grid-cols-2">
-            <div className="p-6 rounded-xl border border-gray-200 shadow-sm">
-              <h2 className="text-xl font-bold">Instant Estimate</h2>
-              <label className="block mt-4 text-sm font-medium">Area (sq ft)</label>
-              <input
-                type="number"
-                inputMode="numeric"
-                min={0}
-                value={area === 0 ? "" : area}
-                onChange={(e) => {
-                  const raw = e.target.value;
-                  const sanitized = raw.replace(/^0+/, "");
-                  setArea(sanitized === "" ? 0 : Number(sanitized));
-                }}
-                className="mt-1 w-full rounded-md border px-3 py-2"
-                placeholder="e.g., 400"
-              />
-
-              <label className="block mt-4 text-sm font-medium">Site condition</label>
-              <select
-                value={condition}
-                onChange={(e) => setCondition(e.target.value as Condition)}
-                className="mt-1 w-full rounded-md border px-3 py-2"
-              >
-                <option value="light">Light (minimal prep)</option>
-                <option value="moderate">Moderate (typical)</option>
-                <option value="heavy">Heavy (extra prep/drainage)</option>
-              </select>
-            </div>
-
-            <div className="p-6 rounded-xl border border-gray-200 shadow-sm">
-              <h3 className="text-lg font-bold">Estimated Range</h3>
-              <p className="mt-3 text-3xl font-extrabold">
-                {fmtUSD(low)} – {fmtUSD(high)}
-              </p>
-              <ul className="mt-4 text-sm text-gray-600 list-disc list-inside space-y-1">
-                <li>Final quote confirmed after site visit.</li>
-                <li>Prep, drainage, edges, and blend selection affect price.</li>
-                <li>Ask about commercial specs and maintenance plans.</li>
-              </ul>
-              <div className="mt-6">
-                <a
-                  href="#"
-                  onClick={() => setOpen(true)}
-                  className="inline-flex items-center rounded-md px-4 py-2 font-medium bg-black text-white hover:opacity-90"
-                >
-                  Get a firm quote
-                </a>
-              </div>
-            </div>
-          </div>
+          <Estimator />
 
           <section className="mt-8 flex justify-center">
             <Image
@@ -133,8 +47,6 @@ export default function Home() {
           </section>
         </section>
       </main>
-
-      <QuoteModal open={open} onClose={() => setOpen(false)} />
     </>
   );
 }

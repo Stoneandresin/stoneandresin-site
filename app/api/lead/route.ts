@@ -18,9 +18,6 @@ export async function POST(req: NextRequest) {
     }
 
     const url = process.env.LEAD_WEBHOOK_URL;
-    if (!url) {
-      return NextResponse.json({ ok: false, error: "LEAD_WEBHOOK_URL not set" }, { status: 500 });
-    }
 
     const payload = {
       source: "stoneandresin.com",
@@ -31,6 +28,12 @@ export async function POST(req: NextRequest) {
       userAgent: req.headers.get("user-agent") ?? undefined,
       ip: req.headers.get("x-forwarded-for") ?? req.ip ?? undefined,
     };
+
+    if (!url) {
+      // Fallback: accept the lead and log it when webhook is not configured
+      console.warn("[lead] LEAD_WEBHOOK_URL not set. Logging payload only.", payload);
+      return NextResponse.json({ ok: true, note: "lead accepted (no webhook configured)" }, { status: 200 });
+    }
 
     const res = await fetch(url, {
       method: "POST",

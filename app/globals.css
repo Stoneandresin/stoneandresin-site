@@ -29,6 +29,7 @@ a[href="/projects"] {
   display: none !important;
 }
 
-html, body {
-  overflow-x: hidden;
-}
+/* Avoid globally hiding horizontal overflow to prevent clipping of fixed/off-canvas widgets.
+   Control overflow at the component level (e.g., ColorsSlider) instead. */
+/* Avoid globally hiding horizontal overflow to prevent clipping of fixed/off-canvas widgets.
+   Control overflow at the component level (e.g., ColorsSlider) instead. */
