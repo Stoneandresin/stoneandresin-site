@@ -28,3 +28,7 @@ body { @apply bg-white text-gray-900; }
 a[href="/projects"] {
   display: none !important;
 }
+
+html, body {
+  overflow-x: hidden;
+}
