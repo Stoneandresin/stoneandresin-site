@@ -13,7 +13,6 @@ export default function Navbar() {
         </Link>
         <nav className="hidden md:flex items-center gap-6">
           <Link href="/#surfaces" className="hover:underline">Surfaces</Link>
-          <Link href="/projects" className="hover:underline">Projects</Link>
           <Link href="/pricing" className="hover:underline">Pricing</Link>
           <Link href="/learn" className="hover:underline">Learn</Link>
           <Link href="/about" className="hover:underline">About</Link>
@@ -25,7 +24,6 @@ export default function Navbar() {
         <div className="md:hidden border-t border-gray-100 bg-white">
           <div className="container py-3 flex flex-col gap-3">
             <Link href="/#surfaces" onClick={()=>setOpen(false)}>Surfaces</Link>
-            <Link href="/projects" onClick={()=>setOpen(false)}>Projects</Link>
             <Link href="/pricing" onClick={()=>setOpen(false)}>Pricing</Link>
             <Link href="/learn" onClick={()=>setOpen(false)}>Learn</Link>
             <Link href="/about" onClick={()=>setOpen(false)}>About</Link>
