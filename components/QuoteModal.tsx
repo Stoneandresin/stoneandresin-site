@@ -100,8 +100,8 @@ export default function QuoteModal({
                         n <= step ? 'bg-emerald-600' : 'bg-gray-300'
                       }`}
                     />
-                  ))
-                ))}
+                  ))}
+                </div>
 
                 {step === 1 && (
                   <div className="space-y-3">
