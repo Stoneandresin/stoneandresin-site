@@ -6,7 +6,7 @@ A ready‑to‑run website built to outperform NatureStone.com with transparent 
 - Next.js 14 (App Router) + Tailwind CSS
 - **Instant Price Estimator** with lead capture
 - **Lead API** `/api/lead` forwards to `LEAD_WEBHOOK_URL`
-- Pages: Home, Pricing, Projects, Learn (with sample posts), About, Contact, Privacy
+- Pages: Home, Pricing, Learn (with sample posts), About, Contact, Privacy
 - JSON‑LD Organization schema, sitemap, robots.txt
 - Accessible components (labels, contrast‑friendly, keyboard‑nav menu)
 

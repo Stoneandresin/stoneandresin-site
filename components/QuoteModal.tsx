@@ -69,7 +69,7 @@ export default function QuoteModal({
   if (!open) return null;
 
   return (
-    <div aria-modal className="fixed inset-0 z-[100]">
+    <div aria-modal="true" className="fixed inset-0 z-[100]">
       <div
         className="absolute inset-0 bg-black/40"
         onClick={closeModal}
@@ -100,8 +100,8 @@ export default function QuoteModal({
                         n <= step ? 'bg-emerald-600' : 'bg-gray-300'
                       }`}
                     />
-                  ))
-                ))}
+                  ))}
+                </div>
 
                 {step === 1 && (
                   <div className="space-y-3">
