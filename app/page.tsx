@@ -36,15 +36,18 @@ export default function Home() {
   const [open, setOpen] = useState(false);
 
   const [condition, setCondition] = useState<Condition>("moderate");
-  const { low, high } = useMemo(
-    () => estimate(area || 0, condition),
-    [area, condition]
-  ); // <-- closes useMemo (required)
-
+  
+    
+  constt { low, high } = useMemo(() => estimate(area || 0, condition), [area, condition]);
   return (
-    <>
-      <main>
-        {/* Hero */}
+  <>
+   <> 
+
+     <main>
+       
+
+      
+  {/* Hero */}
         <section className="container py-12">
           <div className="max-w-3xl">
             <h1 className="text-4xl font-extrabold tracking-tight">
@@ -94,7 +97,9 @@ export default function Home() {
               <select
                 value={condition}
                 onChange={(e) => setCondition(e.target.value as Condition)}
-                className="mt-1 w-full rounded-md border px-3 py-2"
+   
+
+    className="mt-1 w-full rounded-md border px-3 py-2"
               >
                 <option value="light">Light (minimal prep)</option>
                 <option value="moderate">Moderate (typical)</option>
@@ -120,7 +125,7 @@ export default function Home() {
                 >
                   Get a firm quote
                 </a>
-              </div>
+            </div>
             </div>
           </div>
 
