@@ -3,7 +3,7 @@
 import { useMemo, useState } from "react";
 import ColorsSlider from "@/components/ColorsSlider";
 import Image from "next/image";
-import QuoteModal from "@/components/QuoteModal";
+import QuoteModal from '@/components/QuoteModal';
 
 // ----- Simple estimator settings -----
 type Condition = "light" | "moderate" | "heavy";
