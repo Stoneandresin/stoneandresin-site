@@ -35,3 +35,21 @@ body { @apply bg-white text-gray-900; }
 /* Reveal on scroll animation */
 .reveal { opacity: 0; transform: translateY(8px); transition: opacity .5s ease, transform .5s ease; }
 .reveal.is-inview { opacity: 1; transform: translateY(0); }
+
+@layer components {
+  /* Site contrast */
+  .page-bg { @apply bg-slate-50; } /* light gray page background for contrast */
+
+  /* Navy header + inverted CTA */
+  .nav-dark { @apply bg-indigo-950 text-white border-b border-indigo-900; }
+  .btn-ghost-invert { @apply inline-flex items-center justify-center rounded-md px-3 py-2 font-semibold text-white/90 ring-1 ring-white/25 hover:bg-white/10 hover:text-white; }
+  .link-invert { @apply text-white/80 hover:text-white; }
+
+  /* Navy brand accents already used elsewhere */
+  .text-gradient { @apply bg-gradient-to-r from-indigo-700 via-blue-600 to-sky-500 bg-clip-text text-transparent; }
+  .btn-brand { @apply inline-flex items-center justify-center rounded-md px-4 py-2 font-semibold text-white bg-gradient-to-r from-indigo-700 to-blue-600 hover:from-indigo-800 hover:to-blue-700 shadow-lg shadow-indigo-200/40; }
+  .btn-outline { @apply inline-flex items-center justify-center rounded-md border border-gray-300 bg-white text-gray-700 hover:bg-gray-50; }
+}
+/* Embla helpers */
+.embla { overflow: hidden; }
+.embla__container { will-change: transform; }

@@ -5,32 +5,37 @@ import { useState } from "react"
 export default function Navbar() {
   const [open, setOpen] = useState(false)
   return (
-    <header className="sticky top-0 z-50 bg-white/80 backdrop-blur border-b border-gray-100">
-      <div className="container flex items-center justify-between py-3">
-        <Link href="/" className="flex items-center gap-2 font-extrabold text-xl">
-          <span className="inline-block h-6 w-6 rounded-full" style={{background:"var(--brand)"}}/>
-          Stone<span className="text-gray-500">&</span>Resin
+    <nav className="sticky top-0 z-50 nav-dark">
+      <div className="container mx-auto px-4 flex items-center justify-between py-3">
+        <Link href="/" className="flex items-center gap-2 font-extrabold text-xl link-invert">
+          <span className="inline-block h-6 w-6 rounded-full" style={{ background: "var(--brand)" }} />
+          Stone<span className="text-white/60">&</span>Resin
         </Link>
-        <nav className="hidden md:flex items-center gap-6">
-          <Link href="/#surfaces" className="hover:underline">Surfaces</Link>
-          <Link href="/pricing" className="hover:underline">Pricing</Link>
-          <Link href="/learn" className="hover:underline">Learn</Link>
-          <Link href="/about" className="hover:underline">About</Link>
-          <Link href="/contact" className="btn" aria-label="Get an instant estimate">Get Instant Estimate</Link>
-        </nav>
-        <button aria-label="Toggle menu" className="md:hidden btn-outline" onClick={()=>setOpen(o=>!o)}>Menu</button>
+
+        <div className="hidden md:flex items-center gap-6">
+          <Link href="/#surfaces" className="link-invert">Surfaces</Link>
+          <Link href="/pricing" className="link-invert">Pricing</Link>
+          <Link href="/learn" className="link-invert">Learn</Link>
+          <Link href="/about" className="link-invert">About</Link>
+          <Link href="/contact" className="btn-brand" aria-label="Get an instant estimate">Get Instant Estimate</Link>
+        </div>
+
+        <button aria-label="Toggle menu" className="md:hidden btn-ghost-invert" onClick={() => setOpen(o => !o)}>
+          Menu
+        </button>
       </div>
+
       {open && (
-        <div className="md:hidden border-t border-gray-100 bg-white">
-          <div className="container py-3 flex flex-col gap-3">
-            <Link href="/#surfaces" onClick={()=>setOpen(false)}>Surfaces</Link>
-            <Link href="/pricing" onClick={()=>setOpen(false)}>Pricing</Link>
-            <Link href="/learn" onClick={()=>setOpen(false)}>Learn</Link>
-            <Link href="/about" onClick={()=>setOpen(false)}>About</Link>
-            <Link href="/contact" className="btn" onClick={()=>setOpen(false)}>Get Instant Estimate</Link>
+        <div className="md:hidden border-t border-indigo-900 bg-indigo-950">
+          <div className="container mx-auto px-4 py-3 flex flex-col gap-3">
+            <Link href="/#surfaces" className="link-invert" onClick={() => setOpen(false)}>Surfaces</Link>
+            <Link href="/pricing" className="link-invert" onClick={() => setOpen(false)}>Pricing</Link>
+            <Link href="/learn" className="link-invert" onClick={() => setOpen(false)}>Learn</Link>
+            <Link href="/about" className="link-invert" onClick={() => setOpen(false)}>About</Link>
+            <Link href="/contact" className="btn-brand" onClick={() => setOpen(false)}>Get Instant Estimate</Link>
           </div>
         </div>
       )}
-    </header>
+    </nav>
   )
 }

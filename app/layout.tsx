@@ -54,38 +54,38 @@ export default function RootLayout({
   };
   return (
     <html lang="en">
-      <body className="antialiased">
+      <body className="page-bg text-slate-900 antialiased">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }}
         />
         <Navbar />
-        <main>{children}</main>
+        {children}
         <Footer />
-              <Script id="ld-localbusiness" type="application/ld+json" strategy="afterInteractive">
-        {JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "LocalBusiness",
-          "name": "Spalding Quality Renovations – Stone & Resin",
-          "image": "https://www.stoneandresin.com/hero.jpg",
-          "url": "https://www.stoneandresin.com",
-          "telephone": "+1-513-787-8798",
-          "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Amelia",
-            "addressRegion": "OH",
-            "postalCode": "45102",
-            "addressCountry": "US"
-          },
-          "areaServed": ["Cincinnati","Batavia","Anderson Township","Milford","Loveland"],
-          "priceRange": "$$",
-          "aggregateRating": {
-            "@type":"AggregateRating",
-            "ratingValue":"4.9",
-            "reviewCount":"212"
-          }
-        })}
-      </Script>
+        <Script id="ld-localbusiness" type="application/ld+json" strategy="afterInteractive">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            "name": "Spalding Quality Renovations – Stone & Resin",
+            "image": "https://www.stoneandresin.com/hero.jpg",
+            "url": "https://www.stoneandresin.com",
+            "telephone": "+1-513-787-8798",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Amelia",
+              "addressRegion": "OH",
+              "postalCode": "45102",
+              "addressCountry": "US"
+            },
+            "areaServed": ["Cincinnati","Batavia","Anderson Township","Milford","Loveland"],
+            "priceRange": "$$",
+            "aggregateRating": {
+              "@type":"AggregateRating",
+              "ratingValue":"4.9",
+              "reviewCount":"212"
+            }
+          })}
+        </Script>
       </body>
     </html>
   );
