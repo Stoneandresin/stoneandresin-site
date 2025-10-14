@@ -39,15 +39,15 @@ export default function PostPage({ params }: { params: { slug: string } }){
                 <div className="flex items-start gap-2">
                   <span className="text-green-600 leading-6">✔</span>
                   <div>
-                    <div className="text-xs uppercase tracking-wide text-green-700">Vuba</div>
-                    <p className="text-sm text-gray-800">Aliphatic, UV‑stable resins designed for outdoor use</p>
+                    <span className="inline-flex items-center rounded-full bg-green-100 text-green-700 px-2 py-0.5 text-[11px] font-medium">Vuba</span>
+                    <p className="text-sm text-gray-800 mt-1">Aliphatic, UV‑stable resins designed for outdoor use</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-2">
                   <span className="text-gray-400 leading-6">—</span>
                   <div>
-                    <div className="text-xs uppercase tracking-wide text-gray-600">Typical alternatives</div>
-                    <p className="text-sm text-gray-700">Often aromatic resins that can amber/yellow</p>
+                    <span className="inline-flex items-center rounded-full bg-gray-100 text-gray-700 px-2 py-0.5 text-[11px] font-medium">Typical alternatives</span>
+                    <p className="text-sm text-gray-700 mt-1">Often aromatic resins that can amber/yellow</p>
                   </div>
                 </div>
               </div>
@@ -58,15 +58,15 @@ export default function PostPage({ params }: { params: { slug: string } }){
                 <div className="flex items-start gap-2">
                   <span className="text-green-600 leading-6">✔</span>
                   <div>
-                    <div className="text-xs uppercase tracking-wide text-green-700">Vuba</div>
-                    <p className="text-sm text-gray-800">Permeable resin‑bound system to reduce puddling</p>
+                    <span className="inline-flex items-center rounded-full bg-green-100 text-green-700 px-2 py-0.5 text-[11px] font-medium">Vuba</span>
+                    <p className="text-sm text-gray-800 mt-1">Permeable resin‑bound system to reduce puddling</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-2">
                   <span className="text-gray-400 leading-6">—</span>
                   <div>
-                    <div className="text-xs uppercase tracking-wide text-gray-600">Typical alternatives</div>
-                    <p className="text-sm text-gray-700">Frequently non‑porous, higher puddling and runoff</p>
+                    <span className="inline-flex items-center rounded-full bg-gray-100 text-gray-700 px-2 py-0.5 text-[11px] font-medium">Typical alternatives</span>
+                    <p className="text-sm text-gray-700 mt-1">Frequently non‑porous, higher puddling and runoff</p>
                   </div>
                 </div>
               </div>
@@ -77,15 +77,15 @@ export default function PostPage({ params }: { params: { slug: string } }){
                 <div className="flex items-start gap-2">
                   <span className="text-green-600 leading-6">✔</span>
                   <div>
-                    <div className="text-xs uppercase tracking-wide text-green-700">Vuba</div>
-                    <p className="text-sm text-gray-800">Pre‑tested, graded blends matched to resin</p>
+                    <span className="inline-flex items-center rounded-full bg-green-100 text-green-700 px-2 py-0.5 text-[11px] font-medium">Vuba</span>
+                    <p className="text-sm text-gray-800 mt-1">Pre‑tested, graded blends matched to resin</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-2">
                   <span className="text-gray-400 leading-6">—</span>
                   <div>
-                    <div className="text-xs uppercase tracking-wide text-gray-600">Typical alternatives</div>
-                    <p className="text-sm text-gray-700">Mixed sources; size/consistency can vary</p>
+                    <span className="inline-flex items-center rounded-full bg-gray-100 text-gray-700 px-2 py-0.5 text-[11px] font-medium">Typical alternatives</span>
+                    <p className="text-sm text-gray-700 mt-1">Mixed sources; size/consistency can vary</p>
                   </div>
                 </div>
               </div>
@@ -96,15 +96,15 @@ export default function PostPage({ params }: { params: { slug: string } }){
                 <div className="flex items-start gap-2">
                   <span className="text-green-600 leading-6">✔</span>
                   <div>
-                    <div className="text-xs uppercase tracking-wide text-green-700">Vuba</div>
-                    <p className="text-sm text-gray-800">Clear spec and trained installer network</p>
+                    <span className="inline-flex items-center rounded-full bg-green-100 text-green-700 px-2 py-0.5 text-[11px] font-medium">Vuba</span>
+                    <p className="text-sm text-gray-800 mt-1">Clear spec and trained installer network</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-2">
                   <span className="text-gray-400 leading-6">—</span>
                   <div>
-                    <div className="text-xs uppercase tracking-wide text-gray-600">Typical alternatives</div>
-                    <p className="text-sm text-gray-700">Specs vary by installer; less standardization</p>
+                    <span className="inline-flex items-center rounded-full bg-gray-100 text-gray-700 px-2 py-0.5 text-[11px] font-medium">Typical alternatives</span>
+                    <p className="text-sm text-gray-700 mt-1">Specs vary by installer; less standardization</p>
                   </div>
                 </div>
               </div>
@@ -115,15 +115,15 @@ export default function PostPage({ params }: { params: { slug: string } }){
                 <div className="flex items-start gap-2">
                   <span className="text-green-600 leading-6">✔</span>
                   <div>
-                    <div className="text-xs uppercase tracking-wide text-green-700">Vuba</div>
-                    <p className="text-sm text-gray-800">Dedicated support before, during, and after install</p>
+                    <span className="inline-flex items-center rounded-full bg-green-100 text-green-700 px-2 py-0.5 text-[11px] font-medium">Vuba</span>
+                    <p className="text-sm text-gray-800 mt-1">Dedicated support before, during, and after install</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-2">
                   <span className="text-gray-400 leading-6">—</span>
                   <div>
-                    <div className="text-xs uppercase tracking-wide text-gray-600">Typical alternatives</div>
-                    <p className="text-sm text-gray-700">Limited or ad‑hoc support</p>
+                    <span className="inline-flex items-center rounded-full bg-gray-100 text-gray-700 px-2 py-0.5 text-[11px] font-medium">Typical alternatives</span>
+                    <p className="text-sm text-gray-700 mt-1">Limited or ad‑hoc support</p>
                   </div>
                 </div>
               </div>
@@ -134,15 +134,15 @@ export default function PostPage({ params }: { params: { slug: string } }){
                 <div className="flex items-start gap-2">
                   <span className="text-green-600 leading-6">✔</span>
                   <div>
-                    <div className="text-xs uppercase tracking-wide text-green-700">Vuba</div>
-                    <p className="text-sm text-gray-800">Documented system warranty options</p>
+                    <span className="inline-flex items-center rounded-full bg-green-100 text-green-700 px-2 py-0.5 text-[11px] font-medium">Vuba</span>
+                    <p className="text-sm text-gray-800 mt-1">Documented system warranty options</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-2">
                   <span className="text-gray-400 leading-6">—</span>
                   <div>
-                    <div className="text-xs uppercase tracking-wide text-gray-600">Typical alternatives</div>
-                    <p className="text-sm text-gray-700">Varies widely by product and installer</p>
+                    <span className="inline-flex items-center rounded-full bg-gray-100 text-gray-700 px-2 py-0.5 text-[11px] font-medium">Typical alternatives</span>
+                    <p className="text-sm text-gray-700 mt-1">Varies widely by product and installer</p>
                   </div>
                 </div>
               </div>
