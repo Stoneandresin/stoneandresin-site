@@ -38,14 +38,20 @@ export default function Home() {
   const [condition, setCondition] = useState<Condition>("moderate");
   
     
-  constt { low, high } = useMemo(() => estimate(area || 0, condition), [area, condition]);
-  return (
+  const { low, high } = useMemo(
+  () => estimate(area || 0, condition),
+  [area, condition]
+);
+
+return (
   <>
-   <> 
-
-     <main>
+    <main>
+      {/* ... */}
+    </main>
+    <QuoteModal open={open} onClose={() => setOpen(false)} />
+  </>
+);
        
-
       
   {/* Hero */}
         <section className="container py-12">
