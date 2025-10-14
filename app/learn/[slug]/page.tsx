@@ -33,18 +33,18 @@ export default function PostPage({ params }: { params: { slug: string } }){
         <div className="mt-6 not-prose">
           <p className="subtle mb-3">Quick comparison: Vuba vs. typical alternatives</p>
           <ul className="space-y-4">
-            <li className="rounded border border-gray-200 p-4">
+            <li className="rounded border border-gray-200 p-4 transition hover:shadow-sm hover:border-gray-300">
               <div className="font-medium mb-2">🌤️ UV stability</div>
               <div className="grid gap-3 md:grid-cols-2">
-                <div className="flex items-start gap-2">
-                  <span className="text-green-600 leading-6">✔</span>
+                <div className="flex items-start gap-2 rounded-md bg-green-50 p-2 md:p-3 transition-colors hover:bg-green-100">
+                  <span className="text-green-600 leading-6" aria-hidden="true">✔</span>
                   <div>
                     <span className="inline-flex items-center rounded-full bg-green-100 text-green-700 px-2 py-0.5 text-[11px] font-medium">Vuba</span>
                     <p className="text-sm text-gray-800 mt-1">Aliphatic, UV‑stable resins designed for outdoor use</p>
                   </div>
                 </div>
-                <div className="flex items-start gap-2">
-                  <span className="text-gray-400 leading-6">—</span>
+                <div className="flex items-start gap-2 rounded-md bg-gray-50 p-2 md:p-3 transition-colors hover:bg-gray-100">
+                  <span className="text-red-500 leading-6" aria-hidden="true">✖</span>
                   <div>
                     <span className="inline-flex items-center rounded-full bg-gray-100 text-gray-700 px-2 py-0.5 text-[11px] font-medium">Typical alternatives</span>
                     <p className="text-sm text-gray-700 mt-1">Often aromatic resins that can amber/yellow</p>
@@ -52,18 +52,18 @@ export default function PostPage({ params }: { params: { slug: string } }){
                 </div>
               </div>
             </li>
-            <li className="rounded border border-gray-200 p-4">
+            <li className="rounded border border-gray-200 p-4 transition hover:shadow-sm hover:border-gray-300">
               <div className="font-medium mb-2">💧 Porosity & drainage</div>
               <div className="grid gap-3 md:grid-cols-2">
-                <div className="flex items-start gap-2">
-                  <span className="text-green-600 leading-6">✔</span>
+                <div className="flex items-start gap-2 rounded-md bg-green-50 p-2 md:p-3 transition-colors hover:bg-green-100">
+                  <span className="text-green-600 leading-6" aria-hidden="true">✔</span>
                   <div>
                     <span className="inline-flex items-center rounded-full bg-green-100 text-green-700 px-2 py-0.5 text-[11px] font-medium">Vuba</span>
                     <p className="text-sm text-gray-800 mt-1">Permeable resin‑bound system to reduce puddling</p>
                   </div>
                 </div>
-                <div className="flex items-start gap-2">
-                  <span className="text-gray-400 leading-6">—</span>
+                <div className="flex items-start gap-2 rounded-md bg-gray-50 p-2 md:p-3 transition-colors hover:bg-gray-100">
+                  <span className="text-red-500 leading-6" aria-hidden="true">✖</span>
                   <div>
                     <span className="inline-flex items-center rounded-full bg-gray-100 text-gray-700 px-2 py-0.5 text-[11px] font-medium">Typical alternatives</span>
                     <p className="text-sm text-gray-700 mt-1">Frequently non‑porous, higher puddling and runoff</p>
@@ -71,18 +71,18 @@ export default function PostPage({ params }: { params: { slug: string } }){
                 </div>
               </div>
             </li>
-            <li className="rounded border border-gray-200 p-4">
+            <li className="rounded border border-gray-200 p-4 transition hover:shadow-sm hover:border-gray-300">
               <div className="font-medium mb-2">🪨 Aggregates</div>
               <div className="grid gap-3 md:grid-cols-2">
-                <div className="flex items-start gap-2">
-                  <span className="text-green-600 leading-6">✔</span>
+                <div className="flex items-start gap-2 rounded-md bg-green-50 p-2 md:p-3 transition-colors hover:bg-green-100">
+                  <span className="text-green-600 leading-6" aria-hidden="true">✔</span>
                   <div>
                     <span className="inline-flex items-center rounded-full bg-green-100 text-green-700 px-2 py-0.5 text-[11px] font-medium">Vuba</span>
                     <p className="text-sm text-gray-800 mt-1">Pre‑tested, graded blends matched to resin</p>
                   </div>
                 </div>
-                <div className="flex items-start gap-2">
-                  <span className="text-gray-400 leading-6">—</span>
+                <div className="flex items-start gap-2 rounded-md bg-gray-50 p-2 md:p-3 transition-colors hover:bg-gray-100">
+                  <span className="text-red-500 leading-6" aria-hidden="true">✖</span>
                   <div>
                     <span className="inline-flex items-center rounded-full bg-gray-100 text-gray-700 px-2 py-0.5 text-[11px] font-medium">Typical alternatives</span>
                     <p className="text-sm text-gray-700 mt-1">Mixed sources; size/consistency can vary</p>
@@ -90,18 +90,18 @@ export default function PostPage({ params }: { params: { slug: string } }){
                 </div>
               </div>
             </li>
-            <li className="rounded border border-gray-200 p-4">
+            <li className="rounded border border-gray-200 p-4 transition hover:shadow-sm hover:border-gray-300">
               <div className="font-medium mb-2">📐 Install specification</div>
               <div className="grid gap-3 md:grid-cols-2">
-                <div className="flex items-start gap-2">
-                  <span className="text-green-600 leading-6">✔</span>
+                <div className="flex items-start gap-2 rounded-md bg-green-50 p-2 md:p-3 transition-colors hover:bg-green-100">
+                  <span className="text-green-600 leading-6" aria-hidden="true">✔</span>
                   <div>
                     <span className="inline-flex items-center rounded-full bg-green-100 text-green-700 px-2 py-0.5 text-[11px] font-medium">Vuba</span>
                     <p className="text-sm text-gray-800 mt-1">Clear spec and trained installer network</p>
                   </div>
                 </div>
-                <div className="flex items-start gap-2">
-                  <span className="text-gray-400 leading-6">—</span>
+                <div className="flex items-start gap-2 rounded-md bg-gray-50 p-2 md:p-3 transition-colors hover:bg-gray-100">
+                  <span className="text-red-500 leading-6" aria-hidden="true">✖</span>
                   <div>
                     <span className="inline-flex items-center rounded-full bg-gray-100 text-gray-700 px-2 py-0.5 text-[11px] font-medium">Typical alternatives</span>
                     <p className="text-sm text-gray-700 mt-1">Specs vary by installer; less standardization</p>
@@ -109,18 +109,18 @@ export default function PostPage({ params }: { params: { slug: string } }){
                 </div>
               </div>
             </li>
-            <li className="rounded border border-gray-200 p-4">
+            <li className="rounded border border-gray-200 p-4 transition hover:shadow-sm hover:border-gray-300">
               <div className="font-medium mb-2">🧰 Technical support</div>
               <div className="grid gap-3 md:grid-cols-2">
-                <div className="flex items-start gap-2">
-                  <span className="text-green-600 leading-6">✔</span>
+                <div className="flex items-start gap-2 rounded-md bg-green-50 p-2 md:p-3 transition-colors hover:bg-green-100">
+                  <span className="text-green-600 leading-6" aria-hidden="true">✔</span>
                   <div>
                     <span className="inline-flex items-center rounded-full bg-green-100 text-green-700 px-2 py-0.5 text-[11px] font-medium">Vuba</span>
                     <p className="text-sm text-gray-800 mt-1">Dedicated support before, during, and after install</p>
                   </div>
                 </div>
-                <div className="flex items-start gap-2">
-                  <span className="text-gray-400 leading-6">—</span>
+                <div className="flex items-start gap-2 rounded-md bg-gray-50 p-2 md:p-3 transition-colors hover:bg-gray-100">
+                  <span className="text-red-500 leading-6" aria-hidden="true">✖</span>
                   <div>
                     <span className="inline-flex items-center rounded-full bg-gray-100 text-gray-700 px-2 py-0.5 text-[11px] font-medium">Typical alternatives</span>
                     <p className="text-sm text-gray-700 mt-1">Limited or ad‑hoc support</p>
@@ -128,18 +128,18 @@ export default function PostPage({ params }: { params: { slug: string } }){
                 </div>
               </div>
             </li>
-            <li className="rounded border border-gray-200 p-4">
+            <li className="rounded border border-gray-200 p-4 transition hover:shadow-sm hover:border-gray-300">
               <div className="font-medium mb-2">🛡️ Warranty</div>
               <div className="grid gap-3 md:grid-cols-2">
-                <div className="flex items-start gap-2">
-                  <span className="text-green-600 leading-6">✔</span>
+                <div className="flex items-start gap-2 rounded-md bg-green-50 p-2 md:p-3 transition-colors hover:bg-green-100">
+                  <span className="text-green-600 leading-6" aria-hidden="true">✔</span>
                   <div>
                     <span className="inline-flex items-center rounded-full bg-green-100 text-green-700 px-2 py-0.5 text-[11px] font-medium">Vuba</span>
                     <p className="text-sm text-gray-800 mt-1">Documented system warranty options</p>
                   </div>
                 </div>
-                <div className="flex items-start gap-2">
-                  <span className="text-gray-400 leading-6">—</span>
+                <div className="flex items-start gap-2 rounded-md bg-gray-50 p-2 md:p-3 transition-colors hover:bg-gray-100">
+                  <span className="text-red-500 leading-6" aria-hidden="true">✖</span>
                   <div>
                     <span className="inline-flex items-center rounded-full bg-gray-100 text-gray-700 px-2 py-0.5 text-[11px] font-medium">Typical alternatives</span>
                     <p className="text-sm text-gray-700 mt-1">Varies widely by product and installer</p>
