@@ -101,7 +101,7 @@ export default function QuoteModal({
                       }`}
                     />
                   ))
-                ))}
+                }
 
                 {step === 1 && (
                   <div className="space-y-3">
