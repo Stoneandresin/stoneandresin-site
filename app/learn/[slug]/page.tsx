@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation"
+import RevealOnScroll from "@/components/RevealOnScroll"
 
 const content: Record<string,{title:string, body:string}> = {
   "resin-vs-epoxy": {
@@ -30,124 +31,133 @@ export default function PostPage({ params }: { params: { slug: string } }){
       <h1 className="section-title">{post.title}</h1>
       <p className="text-gray-800 mt-4">{post.body}</p>
       {params.slug === 'vuba-vs-competitors' && (
-        <div className="mt-6 not-prose">
-          <p className="subtle mb-3">Quick comparison: Vuba vs. typical alternatives</p>
+        <div className="mt-8 not-prose relative">
+          <div aria-hidden className="pointer-events-none absolute inset-x-0 -top-4 h-20 rounded-2xl bg-gradient-to-r from-green-50 via-transparent to-gray-50"></div>
+          <div className="mb-4 flex items-center justify-between relative">
+            <h2 className="text-lg md:text-xl font-semibold tracking-tight bg-gradient-to-r from-green-700 to-gray-700 bg-clip-text text-transparent">Vuba vs. Alternatives</h2>
+            <div className="hidden md:flex items-center gap-3 text-xs sticky top-20">
+              <span className="inline-flex items-center gap-1"><span className="inline-block h-2 w-2 rounded-full bg-green-500"></span> Vuba</span>
+              <span className="inline-flex items-center gap-1"><span className="inline-block h-2 w-2 rounded-full bg-gray-400"></span> Alternatives</span>
+            </div>
+          </div>
           <ul className="space-y-4">
-            <li className="rounded border border-gray-200 p-4 transition hover:shadow-sm hover:border-gray-300">
+            <li className="rounded border border-gray-200 p-4 transition hover:shadow-sm hover:border-gray-300 hover:ring-1 hover:ring-green-100">
               <div className="font-medium mb-2">🌤️ UV stability</div>
               <div className="grid gap-3 md:grid-cols-2">
-                <div className="flex items-start gap-2 rounded-md bg-green-50 p-2 md:p-3 transition-colors hover:bg-green-100">
-                  <span className="text-green-600 leading-6" aria-hidden="true">✔</span>
+                <RevealOnScroll className="flex items-start gap-2 rounded-md bg-green-50 p-2 md:p-3 transition-colors hover:bg-green-100 border border-transparent md:border-r-0 md:rounded-r-none" delayMs={60}>
+                  <span className="text-green-600 leading-6" aria-hidden="true">✔</span><span className="sr-only">Vuba advantage</span>
                   <div>
-                    <span className="inline-flex items-center rounded-full bg-green-100 text-green-700 px-2 py-0.5 text-[11px] font-medium">Vuba</span>
+                    <span className="inline-flex items-center gap-1 rounded-full bg-green-100 text-green-700 px-2 py-0.5 text-[11px] font-medium"><span aria-hidden>✓</span> Vuba</span>
                     <p className="text-sm text-gray-800 mt-1">Aliphatic, UV‑stable resins designed for outdoor use</p>
                   </div>
-                </div>
-                <div className="flex items-start gap-2 rounded-md bg-gray-50 p-2 md:p-3 transition-colors hover:bg-gray-100">
-                  <span className="text-red-500 leading-6" aria-hidden="true">✖</span>
+                </RevealOnScroll>
+                <RevealOnScroll className="flex items-start gap-2 rounded-md bg-gray-50 p-2 md:p-3 transition-colors hover:bg-gray-100 md:border-l md:border-dashed md:border-gray-200 md:rounded-l-none" delayMs={140}>
+                  <span className="text-red-500 leading-6" aria-hidden="true">✖</span><span className="sr-only">Alternative drawback</span>
                   <div>
-                    <span className="inline-flex items-center rounded-full bg-gray-100 text-gray-700 px-2 py-0.5 text-[11px] font-medium">Typical alternatives</span>
+                    <span className="inline-flex items-center gap-1 rounded-full bg-gray-100 text-gray-700 px-2 py-0.5 text-[11px] font-medium"><span aria-hidden>✖</span> Typical alternatives</span>
                     <p className="text-sm text-gray-700 mt-1">Often aromatic resins that can amber/yellow</p>
                   </div>
-                </div>
+                </RevealOnScroll>
               </div>
             </li>
-            <li className="rounded border border-gray-200 p-4 transition hover:shadow-sm hover:border-gray-300">
+            <li className="rounded border border-gray-200 p-4 transition hover:shadow-sm hover:border-gray-300 hover:ring-1 hover:ring-green-100">
               <div className="font-medium mb-2">💧 Porosity & drainage</div>
               <div className="grid gap-3 md:grid-cols-2">
-                <div className="flex items-start gap-2 rounded-md bg-green-50 p-2 md:p-3 transition-colors hover:bg-green-100">
-                  <span className="text-green-600 leading-6" aria-hidden="true">✔</span>
+                <RevealOnScroll className="flex items-start gap-2 rounded-md bg-green-50 p-2 md:p-3 transition-colors hover:bg-green-100 border border-transparent md:border-r-0 md:rounded-r-none" delayMs={60}>
+                  <span className="text-green-600 leading-6" aria-hidden="true">✔</span><span className="sr-only">Vuba advantage</span>
                   <div>
-                    <span className="inline-flex items-center rounded-full bg-green-100 text-green-700 px-2 py-0.5 text-[11px] font-medium">Vuba</span>
+                    <span className="inline-flex items-center gap-1 rounded-full bg-green-100 text-green-700 px-2 py-0.5 text-[11px] font-medium"><span aria-hidden>✓</span> Vuba</span>
                     <p className="text-sm text-gray-800 mt-1">Permeable resin‑bound system to reduce puddling</p>
                   </div>
-                </div>
-                <div className="flex items-start gap-2 rounded-md bg-gray-50 p-2 md:p-3 transition-colors hover:bg-gray-100">
-                  <span className="text-red-500 leading-6" aria-hidden="true">✖</span>
+                </RevealOnScroll>
+                <RevealOnScroll className="flex items-start gap-2 rounded-md bg-gray-50 p-2 md:p-3 transition-colors hover:bg-gray-100 md:border-l md:border-dashed md:border-gray-200 md:rounded-l-none" delayMs={140}>
+                  <span className="text-red-500 leading-6" aria-hidden="true">✖</span><span className="sr-only">Alternative drawback</span>
                   <div>
-                    <span className="inline-flex items-center rounded-full bg-gray-100 text-gray-700 px-2 py-0.5 text-[11px] font-medium">Typical alternatives</span>
+                    <span className="inline-flex items-center gap-1 rounded-full bg-gray-100 text-gray-700 px-2 py-0.5 text-[11px] font-medium"><span aria-hidden>✖</span> Typical alternatives</span>
                     <p className="text-sm text-gray-700 mt-1">Frequently non‑porous, higher puddling and runoff</p>
                   </div>
-                </div>
+                </RevealOnScroll>
               </div>
             </li>
-            <li className="rounded border border-gray-200 p-4 transition hover:shadow-sm hover:border-gray-300">
+            <li className="rounded border border-gray-200 p-4 transition hover:shadow-sm hover:border-gray-300 hover:ring-1 hover:ring-green-100">
               <div className="font-medium mb-2">🪨 Aggregates</div>
               <div className="grid gap-3 md:grid-cols-2">
-                <div className="flex items-start gap-2 rounded-md bg-green-50 p-2 md:p-3 transition-colors hover:bg-green-100">
-                  <span className="text-green-600 leading-6" aria-hidden="true">✔</span>
+                <RevealOnScroll className="flex items-start gap-2 rounded-md bg-green-50 p-2 md:p-3 transition-colors hover:bg-green-100 border border-transparent md:border-r-0 md:rounded-r-none" delayMs={60}>
+                  <span className="text-green-600 leading-6" aria-hidden="true">✔</span><span className="sr-only">Vuba advantage</span>
                   <div>
-                    <span className="inline-flex items-center rounded-full bg-green-100 text-green-700 px-2 py-0.5 text-[11px] font-medium">Vuba</span>
+                    <span className="inline-flex items-center gap-1 rounded-full bg-green-100 text-green-700 px-2 py-0.5 text-[11px] font-medium"><span aria-hidden>✓</span> Vuba</span>
                     <p className="text-sm text-gray-800 mt-1">Pre‑tested, graded blends matched to resin</p>
                   </div>
-                </div>
-                <div className="flex items-start gap-2 rounded-md bg-gray-50 p-2 md:p-3 transition-colors hover:bg-gray-100">
-                  <span className="text-red-500 leading-6" aria-hidden="true">✖</span>
+                </RevealOnScroll>
+                <RevealOnScroll className="flex items-start gap-2 rounded-md bg-gray-50 p-2 md:p-3 transition-colors hover:bg-gray-100 md:border-l md:border-dashed md:border-gray-200 md:rounded-l-none" delayMs={140}>
+                  <span className="text-red-500 leading-6" aria-hidden="true">✖</span><span className="sr-only">Alternative drawback</span>
                   <div>
-                    <span className="inline-flex items-center rounded-full bg-gray-100 text-gray-700 px-2 py-0.5 text-[11px] font-medium">Typical alternatives</span>
+                    <span className="inline-flex items-center gap-1 rounded-full bg-gray-100 text-gray-700 px-2 py-0.5 text-[11px] font-medium"><span aria-hidden>✖</span> Typical alternatives</span>
                     <p className="text-sm text-gray-700 mt-1">Mixed sources; size/consistency can vary</p>
                   </div>
-                </div>
+                </RevealOnScroll>
               </div>
             </li>
-            <li className="rounded border border-gray-200 p-4 transition hover:shadow-sm hover:border-gray-300">
+            <li className="rounded border border-gray-200 p-4 transition hover:shadow-sm hover:border-gray-300 hover:ring-1 hover:ring-green-100">
               <div className="font-medium mb-2">📐 Install specification</div>
               <div className="grid gap-3 md:grid-cols-2">
-                <div className="flex items-start gap-2 rounded-md bg-green-50 p-2 md:p-3 transition-colors hover:bg-green-100">
-                  <span className="text-green-600 leading-6" aria-hidden="true">✔</span>
+                <RevealOnScroll className="flex items-start gap-2 rounded-md bg-green-50 p-2 md:p-3 transition-colors hover:bg-green-100 border border-transparent md:border-r-0 md:rounded-r-none" delayMs={60}>
+                  <span className="text-green-600 leading-6" aria-hidden="true">✔</span><span className="sr-only">Vuba advantage</span>
                   <div>
-                    <span className="inline-flex items-center rounded-full bg-green-100 text-green-700 px-2 py-0.5 text-[11px] font-medium">Vuba</span>
+                    <span className="inline-flex items-center gap-1 rounded-full bg-green-100 text-green-700 px-2 py-0.5 text-[11px] font-medium"><span aria-hidden>✓</span> Vuba</span>
                     <p className="text-sm text-gray-800 mt-1">Clear spec and trained installer network</p>
                   </div>
-                </div>
-                <div className="flex items-start gap-2 rounded-md bg-gray-50 p-2 md:p-3 transition-colors hover:bg-gray-100">
-                  <span className="text-red-500 leading-6" aria-hidden="true">✖</span>
+                </RevealOnScroll>
+                <RevealOnScroll className="flex items-start gap-2 rounded-md bg-gray-50 p-2 md:p-3 transition-colors hover:bg-gray-100 md:border-l md:border-dashed md:border-gray-200 md:rounded-l-none" delayMs={140}>
+                  <span className="text-red-500 leading-6" aria-hidden="true">✖</span><span className="sr-only">Alternative drawback</span>
                   <div>
-                    <span className="inline-flex items-center rounded-full bg-gray-100 text-gray-700 px-2 py-0.5 text-[11px] font-medium">Typical alternatives</span>
+                    <span className="inline-flex items-center gap-1 rounded-full bg-gray-100 text-gray-700 px-2 py-0.5 text-[11px] font-medium"><span aria-hidden>✖</span> Typical alternatives</span>
                     <p className="text-sm text-gray-700 mt-1">Specs vary by installer; less standardization</p>
                   </div>
-                </div>
+                </RevealOnScroll>
               </div>
             </li>
-            <li className="rounded border border-gray-200 p-4 transition hover:shadow-sm hover:border-gray-300">
+            <li className="rounded border border-gray-200 p-4 transition hover:shadow-sm hover:border-gray-300 hover:ring-1 hover:ring-green-100">
               <div className="font-medium mb-2">🧰 Technical support</div>
               <div className="grid gap-3 md:grid-cols-2">
-                <div className="flex items-start gap-2 rounded-md bg-green-50 p-2 md:p-3 transition-colors hover:bg-green-100">
-                  <span className="text-green-600 leading-6" aria-hidden="true">✔</span>
+                <RevealOnScroll className="flex items-start gap-2 rounded-md bg-green-50 p-2 md:p-3 transition-colors hover:bg-green-100 border border-transparent md:border-r-0 md:rounded-r-none" delayMs={60}>
+                  <span className="text-green-600 leading-6" aria-hidden="true">✔</span><span className="sr-only">Vuba advantage</span>
                   <div>
-                    <span className="inline-flex items-center rounded-full bg-green-100 text-green-700 px-2 py-0.5 text-[11px] font-medium">Vuba</span>
+                    <span className="inline-flex items-center gap-1 rounded-full bg-green-100 text-green-700 px-2 py-0.5 text-[11px] font-medium"><span aria-hidden>✓</span> Vuba</span>
                     <p className="text-sm text-gray-800 mt-1">Dedicated support before, during, and after install</p>
                   </div>
-                </div>
-                <div className="flex items-start gap-2 rounded-md bg-gray-50 p-2 md:p-3 transition-colors hover:bg-gray-100">
-                  <span className="text-red-500 leading-6" aria-hidden="true">✖</span>
+                </RevealOnScroll>
+                <RevealOnScroll className="flex items-start gap-2 rounded-md bg-gray-50 p-2 md:p-3 transition-colors hover:bg-gray-100 md:border-l md:border-dashed md:border-gray-200 md:rounded-l-none" delayMs={140}>
+                  <span className="text-red-500 leading-6" aria-hidden="true">✖</span><span className="sr-only">Alternative drawback</span>
                   <div>
-                    <span className="inline-flex items-center rounded-full bg-gray-100 text-gray-700 px-2 py-0.5 text-[11px] font-medium">Typical alternatives</span>
+                    <span className="inline-flex items-center gap-1 rounded-full bg-gray-100 text-gray-700 px-2 py-0.5 text-[11px] font-medium"><span aria-hidden>✖</span> Typical alternatives</span>
                     <p className="text-sm text-gray-700 mt-1">Limited or ad‑hoc support</p>
                   </div>
-                </div>
+                </RevealOnScroll>
               </div>
             </li>
-            <li className="rounded border border-gray-200 p-4 transition hover:shadow-sm hover:border-gray-300">
+            <li className="rounded border border-gray-200 p-4 transition hover:shadow-sm hover:border-gray-300 hover:ring-1 hover:ring-green-100">
               <div className="font-medium mb-2">🛡️ Warranty</div>
               <div className="grid gap-3 md:grid-cols-2">
-                <div className="flex items-start gap-2 rounded-md bg-green-50 p-2 md:p-3 transition-colors hover:bg-green-100">
-                  <span className="text-green-600 leading-6" aria-hidden="true">✔</span>
+                <RevealOnScroll className="flex items-start gap-2 rounded-md bg-green-50 p-2 md:p-3 transition-colors hover:bg-green-100 border border-transparent md:border-r-0 md:rounded-r-none" delayMs={60}>
+                  <span className="text-green-600 leading-6" aria-hidden="true">✔</span><span className="sr-only">Vuba advantage</span>
                   <div>
-                    <span className="inline-flex items-center rounded-full bg-green-100 text-green-700 px-2 py-0.5 text-[11px] font-medium">Vuba</span>
+                    <span className="inline-flex items-center gap-1 rounded-full bg-green-100 text-green-700 px-2 py-0.5 text-[11px] font-medium"><span aria-hidden>✓</span> Vuba</span>
                     <p className="text-sm text-gray-800 mt-1">Documented system warranty options</p>
                   </div>
-                </div>
-                <div className="flex items-start gap-2 rounded-md bg-gray-50 p-2 md:p-3 transition-colors hover:bg-gray-100">
-                  <span className="text-red-500 leading-6" aria-hidden="true">✖</span>
+                </RevealOnScroll>
+                <RevealOnScroll className="flex items-start gap-2 rounded-md bg-gray-50 p-2 md:p-3 transition-colors hover:bg-gray-100 md:border-l md:border-dashed md:border-gray-200 md:rounded-l-none" delayMs={140}>
+                  <span className="text-red-500 leading-6" aria-hidden="true">✖</span><span className="sr-only">Alternative drawback</span>
                   <div>
-                    <span className="inline-flex items-center rounded-full bg-gray-100 text-gray-700 px-2 py-0.5 text-[11px] font-medium">Typical alternatives</span>
+                    <span className="inline-flex items-center gap-1 rounded-full bg-gray-100 text-gray-700 px-2 py-0.5 text-[11px] font-medium"><span aria-hidden>✖</span> Typical alternatives</span>
                     <p className="text-sm text-gray-700 mt-1">Varies widely by product and installer</p>
                   </div>
-                </div>
+                </RevealOnScroll>
               </div>
             </li>
           </ul>
+          <div className="mt-3 md:hidden text-xs text-gray-600">Legend: <span className="inline-flex items-center gap-1"><span className="h-1.5 w-1.5 rounded-full bg-green-500 inline-block"></span> Vuba</span> · <span className="inline-flex items-center gap-1"><span className="h-1.5 w-1.5 rounded-full bg-gray-400 inline-block"></span> Alternatives</span></div>
+          <div className="mt-4 h-1 w-full bg-gradient-to-r from-green-200 via-gray-100 to-gray-200 rounded"></div>
         </div>
       )}
       {params.slug === 'vuba-vs-competitors' && (

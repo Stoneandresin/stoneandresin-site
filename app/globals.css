@@ -33,3 +33,7 @@ a[href="/projects"] {
    Control overflow at the component level (e.g., ColorsSlider) instead. */
 /* Avoid globally hiding horizontal overflow to prevent clipping of fixed/off-canvas widgets.
    Control overflow at the component level (e.g., ColorsSlider) instead. */
+
+/* Reveal on scroll animation */
+.reveal { opacity: 0; transform: translateY(8px); transition: opacity .5s ease, transform .5s ease; }
+.reveal.is-inview { opacity: 1; transform: translateY(0); }
