@@ -25,9 +25,7 @@ body { @apply bg-white text-gray-900; }
 .input { @apply w-full rounded-xl border border-gray-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-emerald-500; }
 .label { @apply text-sm font-medium text-gray-700; }
 
-a[href="/projects"] {
-  display: none !important;
-}
+/* Projects link removed in Navbar and /projects redirects to /gallery */
 
 /* Avoid globally hiding horizontal overflow to prevent clipping of fixed/off-canvas widgets.
    Control overflow at the component level (e.g., ColorsSlider) instead. */
