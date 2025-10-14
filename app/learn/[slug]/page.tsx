@@ -26,8 +26,13 @@ export default function PostPage({ params }: { params: { slug: string } }){
   if (!post) return notFound()
   return (
     <section className="container py-14 prose max-w-3xl">
+      <p className="mb-4"><a href="/learn" className="text-sm underline">← Back to Learn</a></p>
       <h1 className="section-title">{post.title}</h1>
       <p className="text-gray-800 mt-4">{post.body}</p>
+      <div className="not-prose mt-8 flex gap-3">
+        <a href="/contact" className="btn">Request a Site Visit</a>
+        <a href="/pricing" className="btn-outline">See Pricing</a>
+      </div>
     </section>
   )
 }
