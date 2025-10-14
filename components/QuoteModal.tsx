@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react';
+import { useState, type FormEvent } from 'react';
 
 type Step = 1 | 2 | 3 | 4 | 5;
 
@@ -52,7 +52,7 @@ export default function QuoteModal({
     setStep((s) => (s > 1 ? (s - 1) as Step : s));
   }
 
-  async function submit(e: React.FormEvent) {
+  async function submit(e: FormEvent) {
     e.preventDefault();
     setBusy(true);
     try {
@@ -69,7 +69,7 @@ export default function QuoteModal({
   if (!open) return null;
 
   return (
-    <div aria-modal className="fixed inset-0 z-[100]">
+    <div aria-modal="true" className="fixed inset-0 z-[100]">
       <div
         className="absolute inset-0 bg-black/40"
         onClick={closeModal}
@@ -93,15 +93,15 @@ export default function QuoteModal({
               <div className="p-4">
                 {/* progress dots */}
                 <div className="flex gap-2 mb-4">
-                  {[1,2,3,4,5].map((n) => (
+                  {[1, 2, 3, 4, 5].map((n) => (
                     <span
                       key={n}
                       className={`h-2 w-2 rounded-full ${
                         n <= step ? 'bg-emerald-600' : 'bg-gray-300'
                       }`}
                     />
-                  ))
-                }
+                  ))}
+                </div>
 
                 {step === 1 && (
                   <div className="space-y-3">
@@ -110,7 +110,7 @@ export default function QuoteModal({
                       What are you resurfacing?
                     </div>
                     <div className="grid grid-cols-2 gap-3">
-                      {['driveway','patio','pool deck','walkway'].map((t) => (
+                      {['driveway', 'patio', 'pool deck', 'walkway'].map((t) => (
                         <button
                           type="button"
                           key={t}
@@ -146,7 +146,7 @@ export default function QuoteModal({
                       <select
                         className="input"
                         value={condition}
-                        onChange={(e) => setCondition(e.target.value as any)}
+                        onChange={(e) => setCondition(e.target.value as 'new' | 'cracked' | 'heavy')}
                       >
                         <option value="new">New / sound slab</option>
                         <option value="cracked">Cracked / moderate repair</option>
