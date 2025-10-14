@@ -70,10 +70,7 @@ export default function QuoteModal({
 
   return (
     <div aria-modal="true" className="fixed inset-0 z-[100]">
-      <div
-        className="absolute inset-0 bg-black/40"
-        onClick={closeModal}
-      />
+      <div className="absolute inset-0 bg-black/40" onClick={closeModal} />
       <div className="absolute inset-0 grid place-items-center p-4">
         <form onSubmit={submit} className="w-full max-w-2xl rounded-xl bg-white shadow-xl">
           <div className="flex items-center justify-between border-b p-4">
@@ -106,9 +103,7 @@ export default function QuoteModal({
                 {step === 1 && (
                   <div className="space-y-3">
                     <div className="text-sm uppercase subtle">Step 1 of 5</div>
-                    <div className="text-lg font-semibold">
-                      What are you resurfacing?
-                    </div>
+                    <div className="text-lg font-semibold">What are you resurfacing?</div>
                     <div className="grid grid-cols-2 gap-3">
                       {['driveway', 'patio', 'pool deck', 'walkway'].map((t) => (
                         <button
@@ -136,9 +131,7 @@ export default function QuoteModal({
                         type="number"
                         min={0}
                         value={sqft}
-                        onChange={(e) =>
-                          setSqft(e.target.value === '' ? '' : Number(e.target.value))
-                        }
+                        onChange={(e) => setSqft(e.target.value === '' ? '' : Number(e.target.value))}
                       />
                     </label>
                     <label className="grid gap-2">
@@ -184,14 +177,10 @@ export default function QuoteModal({
                       type="file"
                       multiple
                       accept="image/*"
-                      onChange={(e) =>
-                        setPhotos(Array.from(e.target.files || []))
-                      }
+                      onChange={(e) => setPhotos(Array.from(e.target.files || []))}
                     />
                     {photos.length > 0 && (
-                      <div className="text-xs subtle">
-                        {photos.length} photo(s) added
-                      </div>
+                      <div className="text-xs subtle">{photos.length} photo(s) added</div>
                     )}
                   </div>
                 )}
@@ -202,19 +191,11 @@ export default function QuoteModal({
                     <div className="grid md:grid-cols-2 gap-3">
                       <label className="grid gap-1">
                         <span className="font-medium">Full name</span>
-                        <input
-                          className="input"
-                          value={name}
-                          onChange={(e) => setName(e.target.value)}
-                        />
+                        <input className="input" value={name} onChange={(e) => setName(e.target.value)} />
                       </label>
                       <label className="grid gap-1">
                         <span className="font-medium">Phone</span>
-                        <input
-                          className="input"
-                          value={phone}
-                          onChange={(e) => setPhone(e.target.value)}
-                        />
+                        <input className="input" value={phone} onChange={(e) => setPhone(e.target.value)} />
                       </label>
                       <label className="grid gap-1">
                         <span className="font-medium">Email</span>
@@ -227,11 +208,7 @@ export default function QuoteModal({
                       </label>
                       <label className="grid gap-1">
                         <span className="font-medium">ZIP</span>
-                        <input
-                          className="input"
-                          value={zip}
-                          onChange={(e) => setZip(e.target.value)}
-                        />
+                        <input className="input" value={zip} onChange={(e) => setZip(e.target.value)} />
                       </label>
                     </div>
                   </div>
@@ -239,9 +216,7 @@ export default function QuoteModal({
               </div>
 
               <div className="flex items-center justify-between border-t p-4">
-                <div className="text-xs subtle">
-                  We never share your info. Licensed & insured.
-                </div>
+                <div className="text-xs subtle">We never share your info. Licensed & insured.</div>
                 <div className="flex gap-2">
                   {step > 1 && (
                     <button type="button" onClick={prev} className="btn-outline">
@@ -264,9 +239,7 @@ export default function QuoteModal({
           ) : (
             <div className="p-10 text-center space-y-2">
               <div className="text-2xl font-extrabold">Thanks!</div>
-              <div className="subtle">
-                We’ll text or email to confirm your on-site measure.
-              </div>
+              <div className="subtle">We’ll text or email to confirm your on-site measure.</div>
               <button type="button" onClick={closeModal} className="btn mt-4">
                 Close
               </button>
