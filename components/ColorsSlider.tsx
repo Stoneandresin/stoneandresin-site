@@ -1,19 +1,17 @@
-"use client";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+"use client"
 
-import Image from 'next/image';
-import useEmblaCarousel from 'embla-carousel-react';
-import Autoplay from 'embla-carousel-autoplay';
-import { useCallback, useEffect, useState, type TouchEvent } from 'react';
-import { vubaColors } from './colors';
+import Image from 'next/image'
+import useEmblaCarousel from 'embla-carousel-react'
+import Autoplay from 'embla-carousel-autoplay'
+import { useCallback, useEffect, useState, type TouchEvent } from 'react'
+import { vubaColors } from './colors'
 
 function slugify(name: string) {
   return name
     .toLowerCase()
     .replace(/&/g, 'and')
     .replace(/[^a-z0-9]+/g, '-')
-    .replace(/(^-|-$)/g, '');
+    .replace(/(^-|-$)/g, '')
 }
 
 export default function ColorsSlider({ showHeading = true, className = '' }: { showHeading?: boolean; className?: string }) {
