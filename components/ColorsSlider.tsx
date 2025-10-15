@@ -15,7 +15,7 @@ function slugify(name: string) {
     .replace(/(^-|-$)/g, '');
 }
 
-export default function ColorsSlider({ showHeading = true, className = "" }: { showHeading?: boolean; className?: string }) {
+export default function ColorsSlider({ showHeading = true, className = '' }: { showHeading?: boolean; className?: string }) {
   const settings = {
     dots: true,
     arrows: true,
@@ -32,54 +32,66 @@ export default function ColorsSlider({ showHeading = true, className = "" }: { s
     ],
   };
 
-  const Wrapper: any = showHeading ? 'section' : 'div';
-  return (
-    <Wrapper aria-labelledby={showHeading ? 'colors-heading' : undefined} className={[showHeading ? 'py-8' : '', 'relative z-0', className].join(' ').trim()}>
+  const Wrapper: any = showHeading ? 'section' : 'div'
+
+  const content = (
+    <>
       {showHeading && (
-        <h2 id="colors-heading" className="text-3xl font-bold mb-6">
-          View Our Color Blends
-        </h2>
+        <h2 id="colors-heading" className="text-3xl font-bold mb-6 accent-text">View Our Color Blends</h2>
       )}
-      {/* prevent scaled tiles from clipping and prevent unwanted page scroll while swiping */}
-      <div
-        className="[&_.slick-list]:overflow-hidden overflow-x-clip [&_.slick-track]:flex [&_.slick-track]:items-stretch [&_.slick-slide]:h-auto [&_.slick-slide>div]:h-full"
-        style={{ touchAction: "pan-y" }}
-        onTouchMove={(e: TouchEvent) => e.stopPropagation()}
-      >
-        <Slider {...settings}>
+
+      <div className="embla" style={{ touchAction: 'pan-y' }} onTouchMove={(e: TouchEvent) => e.stopPropagation()}>
+        <div className="embla__container flex gap-4">
           {vubaColors.map((c) => {
-            const file = `/colors/vuba/${slugify(c.name)}.jpg`;
-            const src: string = (c as any).image || file;
+            const file = `/colors/vuba/${slugify(c.name)}.jpg`
+            const src: string = (c as any).image || file
             return (
-              <div key={c.name} className="px-3 h-full">
-                <a
-                  href={c.href}
-                  target="_blank"
-                  rel="noopener noreferrer nofollow"
-                  className="group block rounded-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
-                  aria-label={`Open ${c.name} on Vuba in a new tab`}
-                >
-                  <div className="rounded-xl border border-gray-200 bg-white shadow-sm overflow-hidden transition-transform duration-200 group-hover:scale-[1.05] group-hover:shadow-md h-full flex flex-col">
-                    <Image
-                      src={src}
-                      alt={`Resin-bound color: ${c.name}`}
-                      width={480}
-                      height={320}
-                      className="w-full h-48 object-cover"
-                    />
+              <div key={c.name} className="embla__slide basis-[75%] sm:basis-[45%] md:basis-[32%] lg:basis-[24%] shrink-0">
+                <a href={c.href} target="_blank" rel="noopener noreferrer nofollow" className="group block rounded-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400">
+                  <article className="rounded-xl border border-slate-800 bg-slate-900 overflow-hidden transition-transform duration-200 group-hover:scale-[1.03] group-hover:shadow-md h-full flex flex-col">
+                    <div className="relative w-full aspect-[16/10]">
+                      <Image src={src} alt={`Resin-bound color: ${c.name}`} fill sizes="(max-width: 640px) 75vw, (max-width: 1024px) 45vw, (max-width: 1280px) 32vw, 24vw" className="object-cover" />
+                    </div>
                     <div className="p-3 text-center font-medium mt-auto">{c.name}</div>
-                  </div>
+                  </article>
                 </a>
               </div>
-            );
+            )
           })}
-        </Slider>
+        </div>
       </div>
+
+      <div className="mt-4 flex items-center justify-between">
+        <div className="flex items-center gap-2">
+          <button type="button" disabled={!canPrev} className="btn-ghost h-9 px-3 disabled:opacity-40" aria-label="Previous">‹</button>
+          <button type="button" disabled={!canNext} className="btn-ghost h-9 px-3 disabled:opacity-40" aria-label="Next">›</button>
+        </div>
+        <div className="flex items-center gap-1">
+          {scrollSnaps.map((_, i) => (
+            <button key={i} type="button" aria-label={`Go to slide ${i + 1}`} onClick={() => emblaApi?.scrollTo(i)} className={['h-2.5 w-2.5 rounded-full transition', selectedIndex === i ? 'bg-cyan-400' : 'bg-slate-600 hover:bg-slate-500'].join(' ')} />
+          ))}
+        </div>
+      </div>
+
       {showHeading && (
-        <p className="mt-3 text-xs text-gray-500">
-          You'll be taken to Vuba Stone for each blend. Images used with installer permission.
+        <p className="mt-3 text-xs copy-muted">
+          You’ll be taken to Vuba Stone for each blend. Images used with installer permission.
         </p>
       )}
+    </>
+  )
+
+  return (
+    <Wrapper aria-labelledby={showHeading ? 'colors-heading' : undefined} className={['py-12', 'relative z-0', className].join(' ').trim()}>
+      {showHeading ? (
+        <div className="container mx-auto px-4">
+          <div className="surface-1 rounded-2xl p-6 md:p-8">
+            {content}
+          </div>
+        </div>
+      ) : (
+        content
+      )}
     </Wrapper>
-  );
+  )
 }

@@ -1,5 +1,6 @@
 "use client";
 
+import Hero from "@/components/Hero";
 import ColorsSlider from "@/components/ColorsSlider";
 import Image from "next/image";
 import Estimator from "@/components/Estimator";
@@ -7,6 +8,8 @@ import Estimator from "@/components/Estimator";
 export default function Home() {
   return (
     <>
+      <Hero />
+
       <main>
         {/* Hero */}
         <section className="container py-12">
@@ -32,6 +35,37 @@ export default function Home() {
           </p>
         </section>
 
+        {/* Why resin-bound section */}
+        <section className="py-12">
+          <div className="container mx-auto px-4">
+            <div className="surface-1 rounded-2xl p-6 md:p-8">
+              <h2 className="text-2xl md:text-3xl font-extrabold accent-text">
+                Why resin‑bound?
+              </h2>
+              <div className="grid-clean md:grid-cols-3 mt-6">
+                <div className="rounded-xl border border-slate-800 bg-slate-900 p-5">
+                  <h3 className="font-semibold">Permeable by design</h3>
+                  <p className="mt-2 text-sm copy-muted">
+                    Reduce puddling and runoff with a porous surface.
+                  </p>
+                </div>
+                <div className="rounded-xl border border-slate-800 bg-slate-900 p-5">
+                  <h3 className="font-semibold">UV‑stable and durable</h3>
+                  <p className="mt-2 text-sm copy-muted">
+                    Color‑stable resins and aggregates built to last.
+                  </p>
+                </div>
+                <div className="rounded-xl border border-slate-800 bg-slate-900 p-5">
+                  <h3 className="font-semibold">Low maintenance</h3>
+                  <p className="mt-2 text-sm copy-muted">
+                    Easy to clean and keep looking great season after season.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Estimator */}
         <section className="container py-12">
           <Estimator />
@@ -45,6 +79,28 @@ export default function Home() {
               className="rounded-md shadow"
             />
           </section>
+        </section>
+
+        {/* Call to action section */}
+        <section className="py-12">
+          <div className="container mx-auto px-4">
+            <div className="rounded-2xl p-8 md:p-10 bg-gradient-to-r from-slate-800 to-slate-900 border border-slate-800">
+              <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+                <div>
+                  <h2 className="text-2xl md:text-3xl font-extrabold">
+                    Ready for a surface that stands out?
+                  </h2>
+                  <p className="mt-1 copy-muted">
+                    Get an instant range now. We’ll confirm your final price on
+                    site.
+                  </p>
+                </div>
+                <a href="/pricing" className="btn-accent">
+                  Get Instant Estimate
+                </a>
+              </div>
+            </div>
+          </div>
         </section>
       </main>
     </>

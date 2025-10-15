@@ -53,8 +53,8 @@ export default function RootLayout({
     "logo": "/favicon.ico"
   };
   return (
-    <html lang="en">
-      <body className="page-bg text-slate-900 antialiased">
+    <html lang="en" className="dark">
+      <body className="page-dark text-slate-200 antialiased">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }}
