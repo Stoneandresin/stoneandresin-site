@@ -1,20 +1,25 @@
 'use client';
+
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
 
-async function getHero() {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/admin/settings`, {
-    next: { revalidate: 30 }, // cache 30s
-  });
-  if (!res.ok) return null;
-  const data = await res.json();
-  return data.hero as string | undefined;
-}
+type Settings = Record<string, any> | null;
 
-export default async function Hero() {
-  const heroId = await getHero();
-  if (!heroId) {
-    return <div className="h-96 bg-gray-200 flex items-center justify-center">No hero set</div>;
-  }
+export default function Hero() {
+  const [settings, setSettings] = useState<Settings>(null);
+
+  useEffect(() => {
+    let mounted = true;
+    // Client-side fetch so it doesn’t run at build time
+    fetch('/api/admin/settings')
+      .then((r) => (r.ok ? r.json() : null))
+      .then((data) => mounted && setSettings(data))
+      .catch(() => {});
+    return () => {
+      mounted = false;
+    };
+  }, []);
+
   return (
     <section className="py-12">
       <div className="container mx-auto px-4 grid md:grid-cols-2 gap-8 items-center">
@@ -22,13 +27,17 @@ export default async function Hero() {
           <h1 className="text-4xl md:text-5xl font-extrabold">
             Surfaces that make your home look modern
           </h1>
-          <p className="mt-4 copy-muted max-w-xl">
+          <p className="mt-4 text-slate-400 max-w-xl">
             Resin‑bound driveways, patios, and pool decks—durable, permeable, and low maintenance.
           </p>
           <div className="mt-6 flex gap-3">
             <a href="/pricing" className="btn-accent">Get Instant Estimate</a>
             <a href="/learn" className="btn-ghost">How it works</a>
           </div>
+          {/* Example of using settings safely */}
+          {settings?.badge && (
+            <p className="mt-4 text-xs text-slate-500">Certified: {settings.badge}</p>
+          )}
         </div>
 
         <div className="relative">
