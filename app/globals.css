@@ -37,23 +37,29 @@ body { @apply bg-white text-gray-900; }
 .reveal.is-inview { opacity: 1; transform: translateY(0); }
 
 @layer components {
-  /* Dark page and surfaces (muted) */
+  /* Dark page and surfaces (muted) - kept for backwards compatibility */
   .page-dark { @apply bg-slate-950; }
   .surface-0 { @apply bg-slate-950; }                    /* page */
-  .surface-1 { @apply bg-slate-900 border border-slate-800; } /* section cards */
-  .surface-2 { @apply bg-slate-900/60 border border-slate-800/60; } /* glassy */
+
+  /* Light surfaces */
+  .surface-1 { @apply bg-white border border-slate-200; } /* section cards */
+  .surface-2 { @apply bg-white/70 border border-slate-200/70; } /* glassy */
 
   /* Type + grids */
-  .copy-muted { @apply text-slate-400; }
-  .copy { @apply text-slate-200; }
+  .copy-muted { @apply text-slate-600; }
+  .copy { @apply text-slate-900; }
   .grid-clean { @apply grid gap-6 md:gap-8; }
 
   /* Accent (sparingly for actions/data points) */
   .accent-text { @apply bg-gradient-to-r from-cyan-400 to-sky-500 bg-clip-text text-transparent; }
   .btn-accent { @apply inline-flex items-center justify-center rounded-md px-5 py-2.5 font-semibold text-slate-900 bg-gradient-to-r from-cyan-400 to-sky-500 hover:from-cyan-300 hover:to-sky-400 shadow-lg shadow-cyan-500/20; }
-  .btn-ghost { @apply inline-flex items-center justify-center rounded-md px-5 py-2.5 font-semibold text-slate-200 hover:bg-slate-800/60; }
+  .btn-ghost { @apply inline-flex items-center justify-center rounded-md px-5 py-2.5 font-semibold text-slate-700 hover:bg-slate-100; }
 
-  /* Dark navbar */
+  /* Light navbar */
+  .nav-light { @apply bg-white/80 backdrop-blur border-b border-slate-200 text-slate-900; }
+  .link { @apply text-slate-700 hover:text-slate-900; }
+
+  /* Dark navbar - kept for backwards compatibility */
   .nav-dark { @apply bg-slate-950/80 backdrop-blur border-b border-slate-800 text-slate-100; }
   .link-invert { @apply text-slate-200 hover:text-white; }
 }

@@ -68,7 +68,7 @@ export default function ColorsSlider({ showHeading = true, className = '' }: { s
                   rel="noopener noreferrer nofollow"
                   className="group block rounded-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400"
                 >
-                  <article className="rounded-xl border border-slate-800 bg-slate-900 overflow-hidden transition-transform duration-200 group-hover:scale-[1.03] group-hover:shadow-md h-full flex flex-col">
+                  <article className="rounded-xl border border-slate-200 bg-white overflow-hidden transition-transform duration-200 group-hover:scale-[1.03] group-hover:shadow-md h-full flex flex-col">
                     <div className="relative w-full aspect-[16/10]">
                       <Image
                         src={src}
@@ -78,7 +78,7 @@ export default function ColorsSlider({ showHeading = true, className = '' }: { s
                         className="object-cover"
                       />
                     </div>
-                    <div className="p-3 text-center font-medium mt-auto">{c.name}</div>
+                    <div className="p-3 text-center font-medium mt-auto text-slate-900">{c.name}</div>
                   </article>
                 </a>
               </div>
@@ -99,7 +99,7 @@ export default function ColorsSlider({ showHeading = true, className = '' }: { s
               type="button"
               aria-label={`Go to slide ${i + 1}`}
               onClick={() => emblaApi?.scrollTo(i)}
-              className={['h-2.5 w-2.5 rounded-full transition', selectedIndex === i ? 'bg-cyan-400' : 'bg-slate-600 hover:bg-slate-500'].join(' ')}
+              className={['h-2.5 w-2.5 rounded-full transition', selectedIndex === i ? 'bg-cyan-400' : 'bg-slate-300 hover:bg-slate-400'].join(' ')}
             />
           ))}
         </div>

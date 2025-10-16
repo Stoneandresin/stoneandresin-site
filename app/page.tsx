@@ -44,20 +44,20 @@ export default function Home() {
                 Why resin‑bound?
               </h2>
               <div className="grid-clean md:grid-cols-3 mt-6">
-                <div className="rounded-xl border border-slate-800 bg-slate-900 p-5">
-                  <h3 className="font-semibold">Permeable by design</h3>
+                <div className="rounded-xl border border-slate-200 bg-slate-50 p-5">
+                  <h3 className="font-semibold text-slate-900">Permeable by design</h3>
                   <p className="mt-2 text-sm copy-muted">
                     Reduce puddling and runoff with a porous surface.
                   </p>
                 </div>
-                <div className="rounded-xl border border-slate-800 bg-slate-900 p-5">
-                  <h3 className="font-semibold">UV‑stable and durable</h3>
+                <div className="rounded-xl border border-slate-200 bg-slate-50 p-5">
+                  <h3 className="font-semibold text-slate-900">UV‑stable and durable</h3>
                   <p className="mt-2 text-sm copy-muted">
                     Color‑stable resins and aggregates built to last.
                   </p>
                 </div>
-                <div className="rounded-xl border border-slate-800 bg-slate-900 p-5">
-                  <h3 className="font-semibold">Low maintenance</h3>
+                <div className="rounded-xl border border-slate-200 bg-slate-50 p-5">
+                  <h3 className="font-semibold text-slate-900">Low maintenance</h3>
                   <p className="mt-2 text-sm copy-muted">
                     Easy to clean and keep looking great season after season.
                   </p>
@@ -85,10 +85,10 @@ export default function Home() {
         {/* Call to action section */}
         <section className="py-12">
           <div className="container mx-auto px-4">
-            <div className="rounded-2xl p-8 md:p-10 bg-gradient-to-r from-slate-800 to-slate-900 border border-slate-800">
+            <div className="rounded-2xl p-8 md:p-10 bg-gradient-to-r from-slate-50 to-slate-100 border border-slate-200">
               <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
                 <div>
-                  <h2 className="text-2xl md:text-3xl font-extrabold">
+                  <h2 className="text-2xl md:text-3xl font-extrabold text-slate-900">
                     Ready for a surface that stands out?
                   </h2>
                   <p className="mt-1 copy-muted">
