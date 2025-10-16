@@ -9,7 +9,7 @@ export default function Navbar() {
       <div className="container mx-auto px-4 flex items-center justify-between py-3">
         <Link href="/" className="flex items-center gap-2 font-extrabold text-lg link">
           <span className="inline-block h-6 w-6 rounded-full bg-gradient-to-tr from-slate-300 to-slate-100" />
-          Stone<span className="text-slate-400">&</span>Resin
+          Stone<span className="text-slate-500">&</span>Resin
         </Link>
 
         <div className="hidden md:flex items-center gap-6">
