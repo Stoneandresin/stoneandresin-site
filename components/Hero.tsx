@@ -24,10 +24,10 @@ export default function Hero() {
     <section className="py-12">
       <div className="container mx-auto px-4 grid md:grid-cols-2 gap-8 items-center">
         <div>
-          <h1 className="text-4xl md:text-5xl font-extrabold">
+          <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900">
             Surfaces that make your home look modern
           </h1>
-          <p className="mt-4 text-slate-400 max-w-xl">
+          <p className="mt-4 text-slate-600 max-w-xl">
             Resin‑bound driveways, patios, and pool decks—durable, permeable, and low maintenance.
           </p>
           <div className="mt-6 flex gap-3">
