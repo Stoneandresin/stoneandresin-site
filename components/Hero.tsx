@@ -10,7 +10,6 @@ export default function Hero() {
 
   useEffect(() => {
     let mounted = true;
-    // Client-side fetch so it doesn’t run at build time
     fetch('/api/admin/settings')
       .then((r) => (r.ok ? r.json() : null))
       .then((data) => mounted && setSettings(data))
@@ -21,27 +20,47 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="py-12">
-      <div className="container mx-auto px-4 grid md:grid-cols-2 gap-8 items-center">
+    <section className="py-14 md:py-16">
+      <div className="container mx-auto px-4 grid md:grid-cols-2 gap-10 items-center">
         <div>
-          <h1 className="text-4xl md:text-5xl font-extrabold">
-            Surfaces that make your home look modern
+          {/* Eyebrow */}
+          <div className="inline-flex items-center gap-2 rounded-full px-3 py-1 text-sm bg-white/5 border border-white/10">
+            <span className="h-1.5 w-1.5 rounded-full bg-cyan-400" />
+            New for 2025 • Permeable, UV‑stable, anti‑slip
+          </div>
+
+          <h1 className="mt-4 text-4xl md:text-5xl font-extrabold leading-tight">
+            Resin‑bound surfaces that
+            <span className="block accent-text">elevate your curb appeal</span>
           </h1>
-          <p className="mt-4 text-slate-400 max-w-xl">
-            Resin‑bound driveways, patios, and pool decks—durable, permeable, and low maintenance.
+
+          <p className="mt-4 copy-muted max-w-xl">
+            Modern driveways, patios, and pool decks—durable, permeable, and low maintenance. Installed by certified pros.
           </p>
-          <div className="mt-6 flex gap-3">
+
+          <div className="mt-6 flex flex-wrap gap-3">
             <a href="/pricing" className="btn-accent">Get Instant Estimate</a>
             <a href="/learn" className="btn-ghost">How it works</a>
           </div>
-          {/* Example of using settings safely */}
-          {settings?.badge && (
-            <p className="mt-4 text-xs text-slate-500">Certified: {settings.badge}</p>
-          )}
+
+          <div className="mt-6 flex flex-wrap items-center gap-4 text-sm copy-muted">
+            <span className="inline-flex items-center gap-1">
+              <span aria-hidden>★</span> 4.9 on Google
+            </span>
+            <span className="h-4 w-px bg-slate-700/60" />
+            <span>10‑year warranty</span>
+            {settings?.badge && (
+              <>
+                <span className="h-4 w-px bg-slate-700/60" />
+                <span>Certified: {settings.badge}</span>
+              </>
+            )}
+          </div>
         </div>
 
         <div className="relative">
-          <div className="surface-2 rounded-2xl p-2">
+          <div className="relative rounded-2xl border border-white/10 bg-white/5 p-2 overflow-hidden">
+            <div className="absolute -inset-12 -z-10 bg-gradient-to-tr from-cyan-500/15 via-sky-400/10 to-transparent blur-2xl" />
             <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl">
               <Image
                 src="/hero/sample-surface.jpg"
@@ -53,7 +72,6 @@ export default function Hero() {
               />
             </div>
           </div>
-          <div className="pointer-events-none absolute -z-10 -inset-6 rounded-[2rem] bg-gradient-to-tr from-cyan-500/10 via-sky-400/10 to-transparent blur-2xl" />
         </div>
       </div>
     </section>
