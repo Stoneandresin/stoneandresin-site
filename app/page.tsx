@@ -1,10 +1,11 @@
-"use client";
+// Remove "use client"
 export const dynamic = 'force-dynamic';
 
 import Hero from "@/components/Hero";
 import ColorsSlider from "@/components/ColorsSlider";
 import Image from "next/image";
 import Estimator from "@/components/Estimator";
+import { vubaBlends } from "@/lib/vuba-blends";
 
 export default function Home() {
   return (
@@ -27,13 +28,7 @@ export default function Home() {
         {/* Vuba blends carousel — right under hero */}
         <section className="container py-12">
           <h2 className="text-2xl font-bold mb-4">Choose Your Vuba Blend</h2>
-          <ColorsSlider showHeading={false} className="py-0" />
-          <p className="mt-4 text-sm text-gray-600">
-            See a blend you love?{" "}
-            <a href="/contact" className="underline">
-              Request a sample &amp; site visit →
-            </a>
-          </p>
+          <ColorsSlider colors={vubaBlends} showHeading={false} className="py-0" />
         </section>
 
         {/* Why resin-bound section */}
@@ -92,8 +87,7 @@ export default function Home() {
                     Ready for a surface that stands out?
                   </h2>
                   <p className="mt-1 copy-muted">
-                    Get an instant range now. We’ll confirm your final price on
-                    site.
+                    Get an instant range now. We’ll confirm your final price on site.
                   </p>
                 </div>
                 <a href="/pricing" className="btn-accent">
