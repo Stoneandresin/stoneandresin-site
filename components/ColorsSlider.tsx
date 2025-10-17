@@ -143,23 +143,3 @@ export default function ColorsSlider({
     </section>
   )
 }
-
-import ColorsSlider from '@/components/ColorsSlider'
-// Import your real blends data (adjust path/name if different)
-import { vubaBlends } from '@/lib/vuba-blends' 
-
-export default async function Page() {
-  return (
-    <>
-      {/* ...existing code... */}
-      <section className="container py-12">
-        <div className="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 md:p-8">
-          {/* Ensure we pass the data so the component doesn't use its fallback */}
-          <ColorsSlider colors={vubaBlends} showHeading className="py-0" />
-        </div>
-      </section>
-      {/* Remove any duplicate “See a blend you love?” text below if present, since the component renders it */}
-      {/* ...existing code... */}
-    </>
-  )
-}
