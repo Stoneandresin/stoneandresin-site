@@ -2,59 +2,25 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --brand: #0a5c5a;
-  --brand-dark: #064543;
-}
-
-html { scroll-behavior: smooth; }
-body { @apply bg-white text-gray-900; }
-
-.btn {
-  @apply inline-flex items-center gap-2 rounded-2xl px-5 py-3 font-semibold transition;
-  background: var(--brand);
-  color: white;
-}
-.btn:hover { background: var(--brand-dark); }
-.btn-outline {
-  @apply inline-flex items-center gap-2 rounded-2xl px-5 py-3 font-semibold border border-gray-300 text-gray-900;
-}
-.section-title { @apply text-3xl md:text-4xl font-bold tracking-tight; }
-.subtle { @apply text-gray-600; }
-.card { @apply rounded-2xl shadow-sm border border-gray-100 bg-white; }
-.input { @apply w-full rounded-xl border border-gray-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-emerald-500; }
-.label { @apply text-sm font-medium text-gray-700; }
-
-/* Projects link removed in Navbar and /projects redirects to /gallery */
-
-/* Avoid globally hiding horizontal overflow to prevent clipping of fixed/off-canvas widgets.
-   Control overflow at the component level (e.g., ColorsSlider) instead. */
-/* Avoid globally hiding horizontal overflow to prevent clipping of fixed/off-canvas widgets.
-   Control overflow at the component level (e.g., ColorsSlider) instead. */
-
-/* Reveal on scroll animation */
-.reveal { opacity: 0; transform: translateY(8px); transition: opacity .5s ease, transform .5s ease; }
-.reveal.is-inview { opacity: 1; transform: translateY(0); }
-
+/* Light theme utilities */
 @layer components {
   .page-bg { @apply bg-slate-50; }
-
-  /* Light surfaces */
   .surface-1 { @apply bg-white border border-slate-200 shadow-sm; }
   .surface-2 { @apply bg-white/70 border border-slate-200/60; }
 
-  /* Copy */
   .copy { @apply text-slate-800; }
   .copy-muted { @apply text-slate-600; }
 
-  /* Navbar (light) */
   .nav-light { @apply bg-white/90 backdrop-blur border-b border-slate-200 text-slate-900; }
   .link { @apply text-slate-700 hover:text-slate-900; }
 
-  /* Buttons */
   .btn { @apply inline-flex items-center justify-center rounded-md px-5 py-2.5 font-semibold text-white bg-indigo-600 hover:bg-indigo-700 shadow-sm; }
   .btn-ghost { @apply inline-flex items-center justify-center rounded-md px-5 py-2.5 font-semibold text-slate-700 hover:bg-slate-100; }
   .accent-text { @apply bg-gradient-to-r from-indigo-700 via-blue-600 to-sky-500 bg-clip-text text-transparent; }
+
+  /* Embla helpers */
+  .embla { overflow: hidden; }
+  .embla__container { will-change: transform; }
 }
 
 /* filepath: /Users/aaronspaulding/Downloads/stoneandresin-site-main/components/Hero.tsx */
