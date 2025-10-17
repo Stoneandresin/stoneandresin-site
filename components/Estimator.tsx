@@ -98,11 +98,11 @@ export default function Estimator() {
   return (
     <form onSubmit={submitLead} className="space-y-4" aria-label="Instant price estimator and quote form">
       <h2 className="text-2xl font-bold">Instant Price Estimator</h2>
-      <p className="subtle text-sm">Premium UV-stable resin—get a ballpark now, then book a precise on-site quote.</p>
+      <p className="text-base text-gray-700">Premium, UV‑stable resin. Get a quick estimate now, then book a precise on‑site quote.</p>
 
       <div className="grid grid-cols-2 gap-4">
         <div>
-          <label className="label" htmlFor="sqftInput">Area (sq ft)</label>
+          <label className="label" htmlFor="sqftInput">Project area (sq ft)</label>
           <input
             className="input"
             type="number"
@@ -122,7 +122,7 @@ export default function Estimator() {
               setSqft(Number.isFinite(n) ? n : 0)
             }}
           />
-          <p id="sqftHelp" className="text-xs subtle mt-1">Measure length × width of each area and add them up. Adjust the sqft to update your estimate.</p>
+          <p id="sqftHelp" className="text-sm text-gray-700 mt-1">Measure L × W for each space, add them up, and enter the total square feet.</p>
         </div>
 
         <div>
@@ -138,7 +138,7 @@ export default function Estimator() {
             <option value="cracked">Cracked / moderate repair</option>
             <option value="heavy_repair">Heavily damaged / buildup</option>
           </select>
-          <p id="conditionHelp" className="text-xs subtle mt-1">Not sure? Choose “Cracked / moderate repair” — we’ll confirm during your site visit.</p>
+          <p id="conditionHelp" className="text-sm text-gray-700 mt-1">Not sure? Pick "Cracked / moderate repair." We'll confirm on‑site.</p>
         </div>
 
         {/* Estimate card (always visible) */}
@@ -147,7 +147,7 @@ export default function Estimator() {
           <div className="text-2xl font-extrabold mt-1">
             {money(low)} – {money(high)}
           </div>
-          <p className="text-xs subtle mt-1">
+          <p className="text-sm text-gray-700 mt-1">
             Range includes Premium UV resin & install. Final price depends on site conditions and exact scope.
             Not a formal quote.
           </p>
