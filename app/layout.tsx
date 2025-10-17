@@ -53,7 +53,7 @@ export default function RootLayout({
     "logo": "/favicon.ico"
   };
   return (
-    <html lang="en">
+    <html lang="en" className="light-ui">
       <body className="page-bg text-slate-900 antialiased">
         <script
           type="application/ld+json"

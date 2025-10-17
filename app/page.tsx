@@ -1,11 +1,10 @@
-// Remove "use client"
+"use client";
 export const dynamic = 'force-dynamic';
 
 import Hero from "@/components/Hero";
 import ColorsSlider from "@/components/ColorsSlider";
 import Image from "next/image";
 import Estimator from "@/components/Estimator";
-import { vubaBlends } from "@/lib/vuba-blends";
 
 export default function Home() {
   return (
@@ -28,30 +27,36 @@ export default function Home() {
         {/* Vuba blends carousel — right under hero */}
         <section className="container py-12">
           <h2 className="text-2xl font-bold mb-4">Choose Your Vuba Blend</h2>
-          <ColorsSlider colors={vubaBlends} showHeading={false} className="py-0" />
+          <ColorsSlider showHeading={false} className="py-0" />
+          <p className="mt-4 text-sm text-gray-600">
+            See a blend you love?{" "}
+            <a href="/contact" className="underline">
+              Request a sample &amp; site visit →
+            </a>
+          </p>
         </section>
 
         {/* Why resin-bound section */}
         <section className="py-12">
           <div className="container mx-auto px-4">
-            <div className="surface-1 rounded-2xl p-6 md:p-8">
+            <div className="surface-light rounded-2xl p-6 md:p-8">
               <h2 className="text-2xl md:text-3xl font-extrabold accent-text">
                 Why resin‑bound?
               </h2>
               <div className="grid-clean md:grid-cols-3 mt-6">
-                <div className="rounded-xl border border-slate-800 bg-slate-900 p-5">
+                <div className="card p-5">
                   <h3 className="font-semibold">Permeable by design</h3>
                   <p className="mt-2 text-sm copy-muted">
                     Reduce puddling and runoff with a porous surface.
                   </p>
                 </div>
-                <div className="rounded-xl border border-slate-800 bg-slate-900 p-5">
+                <div className="card p-5">
                   <h3 className="font-semibold">UV‑stable and durable</h3>
                   <p className="mt-2 text-sm copy-muted">
                     Color‑stable resins and aggregates built to last.
                   </p>
                 </div>
-                <div className="rounded-xl border border-slate-800 bg-slate-900 p-5">
+                <div className="card p-5">
                   <h3 className="font-semibold">Low maintenance</h3>
                   <p className="mt-2 text-sm copy-muted">
                     Easy to clean and keep looking great season after season.
@@ -64,7 +69,9 @@ export default function Home() {
 
         {/* Estimator */}
         <section className="container py-12">
-          <Estimator />
+          <div className="surface-light rounded-2xl p-6 md:p-8">
+            <Estimator />
+          </div>
 
           <section className="mt-8 flex justify-center">
             <Image
@@ -80,14 +87,15 @@ export default function Home() {
         {/* Call to action section */}
         <section className="py-12">
           <div className="container mx-auto px-4">
-            <div className="rounded-2xl p-8 md:p-10 bg-gradient-to-r from-slate-800 to-slate-900 border border-slate-800">
+            <div className="surface-light rounded-2xl p-8 md:p-10">
               <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
                 <div>
                   <h2 className="text-2xl md:text-3xl font-extrabold">
                     Ready for a surface that stands out?
                   </h2>
                   <p className="mt-1 copy-muted">
-                    Get an instant range now. We’ll confirm your final price on site.
+                    Get an instant range now. We’ll confirm your final price on
+                    site.
                   </p>
                 </div>
                 <a href="/pricing" className="btn-accent">
