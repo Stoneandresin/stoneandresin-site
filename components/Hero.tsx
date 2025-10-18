@@ -72,8 +72,8 @@ export default function Hero() {
             <div className="absolute -inset-12 -z-10 bg-gradient-to-tr from-cyan-500/15 via-sky-400/10 to-transparent blur-2xl" />
             <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl">
               <Image
-                src="/gallery/driveway-cincy-after-2.jpg"
-                alt="Resin‑bound driveway finished at garage"
+                src="/img/hero.jpg"
+                alt="Resin‑bound driveway, Cincinnati"
                 fill
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, 50vw"
