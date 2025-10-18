@@ -34,6 +34,15 @@ export default function Hero() {
             <span className="block accent-text">elevate your curb appeal</span>
           </h1>
 
+          {/* Vuba micro-badge */}
+          <span
+            className="mt-2 inline-flex items-center gap-2 rounded-full border border-cyan-200/60 bg-cyan-50 px-3 py-1 text-xs font-semibold text-cyan-900 dark:border-slate-700/60 dark:bg-slate-800/60 dark:text-slate-200"
+            aria-label="Vuba‑trained installer: live, hands‑on training"
+          >
+            <span className="h-1.5 w-1.5 rounded-full bg-cyan-500" aria-hidden />
+            Vuba‑trained installer · live, hands‑on system training
+          </span>
+
           <p className="mt-4 copy-muted max-w-xl">
             Modern driveways, patios, and pool decks—durable, permeable, and low maintenance. Installed by certified pros.
           </p>
