@@ -107,17 +107,17 @@ export default function Home() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
               <article className="card overflow-hidden">
                 <CompareFigure
-                  before="/gallery/patio-loveland-before.jpg"
-                  after="/gallery/patio-loveland-after.jpg"
-                  altBefore="Before: worn patio in Loveland"
-                  altAfter="After: resin‑bound patio with clean edges"
+                  before="/gallery/driveway-cincy-before.jpg"
+                  after="/gallery/driveway-cincy-after.jpg"
+                  altBefore="Before: driveway prepped with reinforcement grid"
+                  altAfter="After: resin‑bound driveway with clean crisp edge"
                 />
                 <div className="p-4 grid gap-2">
-                  <h3 className="font-semibold">Patio refresh</h3>
+                  <h3 className="font-semibold">Driveway resurfacing</h3>
                   <div className="flex flex-wrap gap-2 text-xs text-slate-600">
-                    <span className="px-2 py-1 rounded-full bg-slate-100 border border-slate-200">Loveland, OH</span>
-                    <span className="px-2 py-1 rounded-full bg-slate-100 border border-slate-200">420 sq ft</span>
-                    <span className="px-2 py-1 rounded-full bg-slate-100 border border-slate-200">Blend: Dorset Cove</span>
+                    <span className="px-2 py-1 rounded-full bg-slate-100 border border-slate-200">Cincinnati, OH</span>
+                    <span className="px-2 py-1 rounded-full bg-slate-100 border border-slate-200">Approx. 600 sq ft</span>
+                    <span className="px-2 py-1 rounded-full bg-slate-100 border border-slate-200">Blend: Grey mix</span>
                   </div>
                   <a href="/contact" className="btn-accent w-full justify-center">Book On‑Site Quote</a>
                 </div>
@@ -125,14 +125,27 @@ export default function Home() {
 
               <article className="card overflow-hidden">
                 <div className="relative w-full aspect-[16/10]">
-                  <Image src="/gallery/walkway-anderson.jpg" alt="Resin‑bound walkway with crisp border" fill className="object-cover" />
+                  <Image src="/gallery/driveway-cincy-after-2.jpg" alt="Resin‑bound driveway—finished surface at garage" fill className="object-cover" />
                 </div>
                 <div className="p-4 grid gap-2">
-                  <h3 className="font-semibold">Walkway upgrade</h3>
+                  <h3 className="font-semibold">Finished surface (garage)</h3>
                   <div className="flex flex-wrap gap-2 text-xs text-slate-600">
-                    <span className="px-2 py-1 rounded-full bg-slate-100 border border-slate-200">Anderson Township, OH</span>
-                    <span className="px-2 py-1 rounded-full bg-slate-100 border border-slate-200">180 sq ft</span>
-                    <span className="px-2 py-1 rounded-full bg-slate-100 border border-slate-200">Blend: Arctic Pearl</span>
+                    <span className="px-2 py-1 rounded-full bg-slate-100 border border-slate-200">Cincinnati, OH</span>
+                    <span className="px-2 py-1 rounded-full bg-slate-100 border border-slate-200">Resin‑bound driveway</span>
+                  </div>
+                  <a href="/contact" className="btn-accent w-full justify-center">Book On‑Site Quote</a>
+                </div>
+              </article>
+
+              <article className="card overflow-hidden">
+                <div className="relative w-full aspect-[16/10]">
+                  <Image src="/gallery/driveway-cincy-detail.jpg" alt="Resin‑bound surface detail—aggregate texture" fill className="object-cover" />
+                </div>
+                <div className="p-4 grid gap-2">
+                  <h3 className="font-semibold">Surface detail</h3>
+                  <div className="flex flex-wrap gap-2 text-xs text-slate-600">
+                    <span className="px-2 py-1 rounded-full bg-slate-100 border border-slate-200">Texture close‑up</span>
+                    <span className="px-2 py-1 rounded-full bg-slate-100 border border-slate-200">Permeable, UV‑stable</span>
                   </div>
                   <a href="/contact" className="btn-accent w-full justify-center">Book On‑Site Quote</a>
                 </div>
@@ -168,8 +181,7 @@ export default function Home() {
                     Ready for a surface that stands out?
                   </h2>
                   <p className="mt-1 copy-muted">
-                    Get an instant range now. We’ll confirm your final price on
-                    site.
+                    Get an instant range now. We’ll confirm your final price on site.
                   </p>
                 </div>
                 <a href="/pricing" className="btn-accent">
