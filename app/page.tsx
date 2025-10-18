@@ -108,9 +108,9 @@ export default function Home() {
               <article className="card overflow-hidden">
                 <CompareFigure
                   before="/gallery/driveway-cincy-before.jpg"
-                  after="/gallery/driveway-cincy-after.jpg"
+                  after="/gallery/driveway-cincy-after-2.jpg"
                   altBefore="Before: driveway prepped with reinforcement grid"
-                  altAfter="After: resin‑bound driveway with clean crisp edge"
+                  altAfter="After: resin‑bound driveway—finished surface at garage"
                 />
                 <div className="p-4 grid gap-2">
                   <h3 className="font-semibold">Driveway resurfacing</h3>
@@ -125,10 +125,10 @@ export default function Home() {
 
               <article className="card overflow-hidden">
                 <div className="relative w-full aspect-[16/10]">
-                  <Image src="/gallery/driveway-cincy-after-2.jpg" alt="Resin‑bound driveway—finished surface at garage" fill className="object-cover" />
+                  <Image src="/gallery/driveway-cincy-after.jpg" alt="Resin‑bound driveway with clean edge and tape-off" fill className="object-cover" />
                 </div>
                 <div className="p-4 grid gap-2">
-                  <h3 className="font-semibold">Finished surface (garage)</h3>
+                  <h3 className="font-semibold">Finished edge (tape‑off)</h3>
                   <div className="flex flex-wrap gap-2 text-xs text-slate-600">
                     <span className="px-2 py-1 rounded-full bg-slate-100 border border-slate-200">Cincinnati, OH</span>
                     <span className="px-2 py-1 rounded-full bg-slate-100 border border-slate-200">Resin‑bound driveway</span>
