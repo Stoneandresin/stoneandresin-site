@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
+import { track } from '@vercel/analytics';
 
 type Settings = Record<string, any> | null;
 
@@ -48,7 +49,13 @@ export default function Hero() {
           </p>
 
           <div className="mt-6 flex flex-wrap gap-3">
-            <a href="/pricing" className="btn-accent">Get Instant Estimate</a>
+            <a
+              href="/pricing"
+              className="btn-accent"
+              onClick={() => track('cta_click', { location: 'hero', label: 'Get Instant Estimate' })}
+            >
+              Get Instant Estimate
+            </a>
             <a href="/learn" className="btn-ghost">How it works</a>
           </div>
 
