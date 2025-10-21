@@ -4,6 +4,7 @@ import "./globals.css";
 import Script from "next/script";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { Analytics } from "@vercel/analytics/react";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.stoneandresin.com"),
@@ -72,6 +73,7 @@ export default function RootLayout({
         <Navbar />
         {children}
         <Footer />
+        <Analytics />
         {/* Mobile sticky bar */}
         <nav id="sr-mobilebar" className="sr-mbar" role="region" aria-label="Quick actions: Estimate or Call">
           <style>{`
