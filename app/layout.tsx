@@ -54,6 +54,16 @@ export default function RootLayout({
   };
   return (
     <html lang="en" className="light-ui">
+      <head>
+        <link
+          rel="preload"
+          as="image"
+          href="/img/hero.webp"
+          imagesrcset="/img/hero.webp 640w, /img/hero.webp 960w, /img/hero.webp 1280w, /img/hero.webp 1600w"
+          imagesizes="(max-width: 768px) 100vw, 50vw"
+          type="image/webp"
+        />
+      </head>
       <body className="page-bg text-slate-900 antialiased">
         <script
           type="application/ld+json"
