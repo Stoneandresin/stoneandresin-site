@@ -155,7 +155,7 @@ export default function Home() {
         </section>
 
         {/* Estimator */}
-        <section className="container py-12">
+        <section id="estimate" className="container py-12 scroll-mt-24">
           <div className="surface-light rounded-2xl p-6 md:p-8">
             <Estimator />
           </div>

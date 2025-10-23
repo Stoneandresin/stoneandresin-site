@@ -90,7 +90,8 @@ export default function RootLayout({
           `}</style>
           <div className="wrap">
             <div className="row">
-              <a href="#estimate" className="btn-estimate" data-analytics="cta" data-action="estimate_click" aria-label="Jump to instant estimate">⚡ Estimate</a>
+-              <a href="#estimate" className="btn-estimate" data-analytics="cta" data-action="estimate_click" aria-label="Jump to instant estimate">⚡ Estimate</a>
++              <a href="/#estimate" className="btn-estimate" data-analytics="cta" data-action="estimate_click" aria-label="Jump to instant estimate">⚡ Estimate</a>
               <a href="tel:+15137878798" className="btn-call" data-analytics="cta" data-action="call_click" aria-label="Tap to call Stone & Resin">📞 Call</a>
             </div>
           </div>
