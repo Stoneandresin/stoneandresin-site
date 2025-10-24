@@ -184,7 +184,7 @@ export default function Home() {
                     Get an instant range now. We’ll confirm your final price on site.
                   </p>
                 </div>
-                <a href="/pricing" className="btn-accent">
+                <a href="/pricing" className="btn-accent" data-sticky-suppress="estimate">
                   Get Instant Estimate
                 </a>
               </div>
