@@ -52,6 +52,7 @@ export default function Hero() {
             <a
               href="/pricing"
               className="btn-accent"
+              data-sticky-suppress="estimate"
               onClick={() => track('cta_click', { location: 'hero', label: 'Get Instant Estimate' })}
             >
               Get Instant Estimate
