@@ -40,6 +40,12 @@ export default function AdminIndex() {
           <p className="text-sm text-gray-600 mb-2">Drag-drop paired images for the gallery.</p>
           <Link className="underline" href="/admin/uploads">Open /admin/uploads</Link>
         </li>
+
+        <li className="rounded-lg border p-4">
+          <h2 className="font-medium mb-1">Site Photos</h2>
+          <p className="text-sm text-gray-600 mb-2">Pick HERO and homepage card images.</p>
+          <a className="underline" href="/admin/site-photos">Open /admin/site-photos</a>
+        </li>
       </ul>
     </main>
   );
