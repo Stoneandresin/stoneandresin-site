@@ -50,7 +50,7 @@ export default function Hero() {
 
           <div className="mt-6 flex flex-wrap gap-3">
             <a
-              href="/pricing"
+              href="/#estimate"
               className="btn-accent"
               data-sticky-suppress="estimate"
               onClick={() => track('cta_click', { location: 'hero', label: 'Get Instant Estimate' })}
