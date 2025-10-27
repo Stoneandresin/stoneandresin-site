@@ -17,7 +17,7 @@ export default function Navbar() {
           <Link href="/pricing" className="link-invert">Pricing</Link>
           <Link href="/learn" className="link-invert">Learn</Link>
           <Link href="/about" className="link-invert">About</Link>
-          <Link href="/contact" className="btn-accent" aria-label="Get an instant estimate">Get Instant Estimate</Link>
+          <Link href="/#estimate" className="btn-accent" aria-label="Get an instant estimate">Get Instant Estimate</Link>
         </div>
 
         <button aria-label="Toggle menu" className="md:hidden btn-ghost" onClick={() => setOpen(o => !o)}>
@@ -32,7 +32,7 @@ export default function Navbar() {
             <Link href="/pricing" className="link-invert" onClick={() => setOpen(false)}>Pricing</Link>
             <Link href="/learn" className="link-invert" onClick={() => setOpen(false)}>Learn</Link>
             <Link href="/about" className="link-invert" onClick={() => setOpen(false)}>About</Link>
-            <Link href="/contact" className="btn-accent" onClick={() => setOpen(false)}>Get Instant Estimate</Link>
+            <Link href="/#estimate" className="btn-accent" onClick={() => setOpen(false)}>Get Instant Estimate</Link>
           </div>
         </div>
       )}
