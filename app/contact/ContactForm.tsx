@@ -1,5 +1,5 @@
 "use client"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 export default function ContactForm() {
   const [name, setName] = useState("")
@@ -7,6 +7,17 @@ export default function ContactForm() {
   const [phone, setPhone] = useState("")
   const [message, setMessage] = useState("")
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle")
+
+  useEffect(() => {
+    // Pre-fill message subject from URL params
+    if (typeof window !== 'undefined') {
+      const params = new URLSearchParams(window.location.search)
+      const subject = params.get('subject')
+      if (subject) {
+        setMessage(`Subject: ${decodeURIComponent(subject)}\n\n`)
+      }
+    }
+  }, [])
 
   async function submit(e: React.FormEvent) {
     e.preventDefault()
@@ -45,9 +56,9 @@ export default function ContactForm() {
         <textarea className="input min-h-28" value={message} onChange={e=>setMessage(e.target.value)} />
       </div>
       <button type="submit" className="btn" disabled={status==="sending"}>
-        {status==="sending" ? "Sending..." : "Book My On-Site Quote"}
+        {status==="sending" ? "Sending..." : "Book my on‑site quote"}
       </button>
-      {status==="sent" && <p className="text-emerald-700 text-sm">Thanks! We’ll be in touch shortly.</p>}
+      {status==="sent" && <p className="text-emerald-700 text-sm">Thanks! We'll be in touch shortly.</p>}
       {status==="error" && <p className="text-red-600 text-sm">There was a problem submitting. Please call 513-787-8798.</p>}
     </form>
   )
