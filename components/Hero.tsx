@@ -53,9 +53,9 @@ export default function Hero() {
               href="/pricing"
               className="btn-accent"
               data-sticky-suppress="estimate"
-              onClick={() => track('cta_click', { location: 'hero', label: 'Get Instant Estimate' })}
+              onClick={() => track('cta_click', { location: 'hero', label: 'Get instant estimate' })}
             >
-              Get Instant Estimate
+              Get instant estimate
             </a>
             <a href="/learn" className="btn-ghost">How it works</a>
           </div>
