@@ -5,6 +5,18 @@ import { useMemo, useState, useEffect, type ChangeEvent, type FormEvent } from '
 type Condition = 'new_slab' | 'cracked' | 'heavy_repair'
 type SurfaceType = 'driveway' | 'patio' | 'pool_deck'
 
+const SURFACE_TYPE_LABELS: Record<SurfaceType, string> = {
+  driveway: 'driveway',
+  patio: 'patio',
+  pool_deck: 'pool deck'
+}
+
+const CONDITION_LABELS: Record<Condition, string> = {
+  new_slab: 'new / sound slab',
+  cracked: 'cracked',
+  heavy_repair: 'heavy repair'
+}
+
 const PRICING = {
   // Base range per sq ft
   base: { low: 12, high: 20 }, // $/sf base range
@@ -281,12 +293,12 @@ export default function Estimator() {
               <span>Base ({money(priceBreakdown.basePerSqft.low)}–{money(priceBreakdown.basePerSqft.high)}/sq ft)</span>
             </div>
             <div className="flex justify-between">
-              <span>+ Surface type ({surfaceType.replace('_', ' ')})</span>
-              <span>{priceBreakdown.surfMult === 1 ? '—' : `${((priceBreakdown.surfMult - 1) * 100).toFixed(0)}%`}</span>
+              <span>+ Surface type ({SURFACE_TYPE_LABELS[surfaceType]})</span>
+              <span>{priceBreakdown.surfMult === 1 ? '—' : `${priceBreakdown.surfMult < 1 ? '' : '+'}${((priceBreakdown.surfMult - 1) * 100).toFixed(0)}%`}</span>
             </div>
             <div className="flex justify-between">
-              <span>+ Condition ({condition.replace('_', ' ')})</span>
-              <span>{priceBreakdown.condMult === 1 ? '—' : `${((priceBreakdown.condMult - 1) * 100).toFixed(0)}%`}</span>
+              <span>+ Condition ({CONDITION_LABELS[condition]})</span>
+              <span>{priceBreakdown.condMult === 1 ? '—' : `+${((priceBreakdown.condMult - 1) * 100).toFixed(0)}%`}</span>
             </div>
           </div>
           <p className="text-xs subtle mt-2 pt-2 border-t border-slate-200">
