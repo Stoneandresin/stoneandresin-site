@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useCallback } from "react";
 import { usePathname } from "next/navigation";
 import Script from "next/script";
 
@@ -29,10 +29,11 @@ export default function TidioChat({ userName, userEmail }: TidioChatProps) {
   }
 
   // Poll for tidioChatApi availability and identify visitor
-  const identifyVisitor = () => {
+  const identifyVisitor = useCallback(() => {
     if (!userName && !userEmail) return;
 
     let attempts = 0;
+    let timeoutId: NodeJS.Timeout | null = null;
     const maxAttempts = 20; // Poll for up to 2 seconds
     const interval = 100; // Check every 100ms
 
@@ -49,12 +50,19 @@ export default function TidioChat({ userName, userEmail }: TidioChatProps) {
           // Silently fail - Tidio API may not be ready yet
         }
       } else if (attempts < maxAttempts) {
-        setTimeout(pollForApi, interval);
+        timeoutId = setTimeout(pollForApi, interval);
       }
     };
 
     pollForApi();
-  };
+
+    // Cleanup function to clear timeout if component unmounts
+    return () => {
+      if (timeoutId) {
+        clearTimeout(timeoutId);
+      }
+    };
+  }, [userName, userEmail]);
 
   const tidioSrc = `https://code.tidio.co/${tidioKey}.js`;
 
