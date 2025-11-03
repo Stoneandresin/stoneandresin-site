@@ -4,6 +4,7 @@ import "./globals.css";
 import Script from "next/script";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import TidioChat from "@/components/TidioChat";
 import { Analytics } from "@vercel/analytics/react";
 
 export const metadata: Metadata = {
@@ -74,6 +75,7 @@ export default function RootLayout({
         {children}
         <Footer />
         <Analytics />
+        <TidioChat />
         {/* Mobile sticky bar */}
         <nav id="sr-mobilebar" className="sr-mbar" role="region" aria-label="Quick actions: Estimate or Call">
           <style>{`
