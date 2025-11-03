@@ -41,14 +41,16 @@ export default function TidioChat() {
       src={`https://code.tidio.co/${tidioKey}.js`}
       strategy="lazyOnload"
       onLoad={() => {
-        // Initialize visibility on load
-        if (shouldHide && window.tidioChatApi) {
-          try {
-            window.tidioChatApi.hide();
-          } catch (error) {
-            console.error("Tidio API error:", error);
+        // Wait a brief moment for Tidio API to initialize
+        setTimeout(() => {
+          if (shouldHide && window.tidioChatApi) {
+            try {
+              window.tidioChatApi.hide();
+            } catch (error) {
+              console.error("Tidio API error:", error);
+            }
           }
-        }
+        }, 100);
       }}
     />
   );
