@@ -75,7 +75,7 @@ export default function RootLayout({
         {children}
         <Footer />
         <Analytics />
-        <TidioChat />
+        <TidioChat userName="Aaron Spaulding" userEmail="aaron@stoneandresin.com" />
         {/* Mobile sticky bar */}
         <nav id="sr-mobilebar" className="sr-mbar" role="region" aria-label="Quick actions: Estimate or Call">
           <style>{`
