@@ -33,7 +33,6 @@ export default function TidioChat({ userName, userEmail }: TidioChatProps) {
     if (!userName && !userEmail) return;
 
     let attempts = 0;
-    let timeoutId: NodeJS.Timeout | null = null;
     const maxAttempts = 20; // Poll for up to 2 seconds
     const interval = 100; // Check every 100ms
 
@@ -50,18 +49,11 @@ export default function TidioChat({ userName, userEmail }: TidioChatProps) {
           // Silently fail - Tidio API may not be ready yet
         }
       } else if (attempts < maxAttempts) {
-        timeoutId = setTimeout(pollForApi, interval);
+        setTimeout(pollForApi, interval);
       }
     };
 
     pollForApi();
-
-    // Cleanup function to clear timeout if component unmounts
-    return () => {
-      if (timeoutId) {
-        clearTimeout(timeoutId);
-      }
-    };
   }, [userName, userEmail]);
 
   const tidioSrc = `https://code.tidio.co/${tidioKey}.js`;
