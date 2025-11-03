@@ -10,6 +10,26 @@ const nextConfig = {
       { protocol: 'https', hostname: 'vuba-stone.com', pathname: '/**' },
       { protocol: 'https', hostname: 'res.cloudinary.com', pathname: '/**' }
     ]
+  },
+  async headers() {
+    return [
+      {
+        source: '/:path*',
+        headers: [
+          {
+            key: 'Content-Security-Policy',
+            value: [
+              "default-src 'self'",
+              "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://code.tidio.co https://*.tidio.co",
+              "frame-src 'self' https://*.tidio.co",
+              "connect-src 'self' https://*.tidio.co wss://*.tidio.co",
+              "img-src 'self' data: https: https://*.tidio.co",
+              "style-src 'self' 'unsafe-inline' https://*.tidio.co",
+            ].join('; ')
+          }
+        ]
+      }
+    ];
   }
 };
 
