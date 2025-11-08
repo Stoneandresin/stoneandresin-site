@@ -23,10 +23,11 @@ export default function Footer() {
         <div>
           <div className="font-semibold mb-3">Services</div>
           <ul className="space-y-2 subtle">
-            <li>Driveways</li>
-            <li>Patios & Walkways</li>
-            <li>Pool Decks</li>
-            <li>Commercial</li>
+            <li><Link href="/#services" className="hover:underline">Resin Driveways</Link></li>
+            <li><Link href="/#services" className="hover:underline">Patios & Walkways</Link></li>
+            <li><Link href="/#services" className="hover:underline">Pool Decks</Link></li>
+            <li><Link href="/#services" className="hover:underline">Kitchen Remodels</Link></li>
+            <li><Link href="/#services" className="hover:underline">Bathroom Remodels</Link></li>
           </ul>
         </div>
         <div>

@@ -133,6 +133,63 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Services expansion */}
+        <section id="services" className="py-12 bg-slate-50 border-y border-slate-200/70">
+          <div className="container mx-auto px-4">
+            <p className="text-sm font-semibold uppercase tracking-wide text-cyan-700">Full-service improvements</p>
+            <h2 className="mt-2 text-3xl font-bold text-slate-900 md:text-4xl">
+              Resin surfaces outside, kitchen &amp; bath remodels inside
+            </h2>
+            <p className="mt-3 text-sm text-slate-600 md:text-base max-w-3xl">
+              Keep the curb appeal you hired us for and bring that same craftsmanship indoors. We now take on full interior
+              remodels—planning, trades coordination, and punch-list perfection included.
+            </p>
+
+            <div className="mt-8 grid gap-6 md:grid-cols-3">
+              <article className="card h-full p-6">
+                <h3 className="text-lg font-semibold">Resin-bound exteriors</h3>
+                <p className="mt-2 text-sm copy-muted">
+                  Driveways, walkways, patios, and pool decks with premium Vuba blends and professional site prep.
+                </p>
+                <ul className="mt-4 space-y-2 text-sm text-slate-600">
+                  <li>• Moisture-managed base work</li>
+                  <li>• Seamless tie-ins to garages &amp; drains</li>
+                  <li>• Decorative borders and lighting sleeves</li>
+                </ul>
+              </article>
+
+              <article className="card h-full p-6">
+                <h3 className="text-lg font-semibold">Kitchen remodels</h3>
+                <p className="mt-2 text-sm copy-muted">
+                  Gut renovations or targeted updates that modernize your most-used room without disrupting daily life.
+                </p>
+                <ul className="mt-4 space-y-2 text-sm text-slate-600">
+                  <li>• Layout changes and structural updates</li>
+                  <li>• Custom cabinetry, countertops, and tile</li>
+                  <li>• Appliance, plumbing, and lighting upgrades</li>
+                </ul>
+              </article>
+
+              <article className="card h-full p-6">
+                <h3 className="text-lg font-semibold">Bathroom remodels</h3>
+                <p className="mt-2 text-sm copy-muted">
+                  Spa-worthy bathrooms with waterproofing, luxury finishes, and accessibility options tailored to your family.
+                </p>
+                <ul className="mt-4 space-y-2 text-sm text-slate-600">
+                  <li>• Walk-in showers, freestanding tubs, and tile</li>
+                  <li>• Heated floors and ventilation improvements</li>
+                  <li>• Fixture, vanity, and storage design</li>
+                </ul>
+              </article>
+            </div>
+
+            <div className="mt-8 flex flex-wrap gap-3">
+              <a href="/contact" className="btn-accent">Book a remodeling consult</a>
+              <a href="/projects" className="btn-ghost">Browse project photos</a>
+            </div>
+          </div>
+        </section>
+
         {/* Recent Projects */}
         <section className="py-12">
           <div className="container mx-auto px-4">
