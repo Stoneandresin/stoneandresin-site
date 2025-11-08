@@ -9,7 +9,7 @@ export default function Page() {
       <p className="text-gray-600">
         Pick a time that works. We'll confirm by SMS.
       </p>
-      <CalendlyWidget url="https://calendly.com/aaron-stoneandresin/stoneandresin-estimate" />
+      <CalendlyWidget url="https://calendly.com/aaron-stoneandresin/new-meeting" />
     </main>
   );
 }

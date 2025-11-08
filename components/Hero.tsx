@@ -57,6 +57,13 @@ export default function Hero() {
             >
               Get instant estimate
             </a>
+            <a
+              href="/schedule?utm_source=site&utm_medium=cta&utm_campaign=book"
+              className="btn-ghost"
+              onClick={() => track('cta_click', { location: 'hero', label: 'Book consultation' })}
+            >
+              Book a consultation
+            </a>
             <a href="/learn" className="btn-ghost">How it works</a>
           </div>
 
