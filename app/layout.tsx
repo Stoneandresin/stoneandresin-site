@@ -14,12 +14,12 @@ export const metadata: Metadata = {
     template: "%s | Stone & Resin",
   },
   description:
-    "Premium resin-bound driveways, patios, walkways, and pool decks. Permeable, UV-stable, low maintenance. Serving Amelia & Cincinnati, Ohio.",
+    "Premium resin-bound driveways, patios, walkways, and pool decks plus full kitchen and bathroom remodels. Permeable, UV-stable, low maintenance craftsmanship. Serving Amelia & Cincinnati, Ohio.",
   openGraph: {
     type: "website",
     url: "https://www.stoneandresin.com",
     title: "Stone & Resin | Resin-Bound Surfaces in Ohio",
-    description: "Permeable, UV-stable surfaces that stay beautiful longer.",
+    description: "Permeable, UV-stable surfaces and full-service kitchen & bath remodels across Greater Cincinnati.",
     images: ["/placeholder.jpg"],
   },
   alternates: {
@@ -47,6 +47,11 @@ export default function RootLayout({
       "addressCountry": "US"
     },
     "areaServed": ["Amelia OH", "Cincinnati OH"],
+    "serviceType": [
+      "Resin-bound driveways, patios, and pool decks",
+      "Kitchen remodeling",
+      "Bathroom remodeling"
+    ],
     "sameAs": [
       "https://www.bbb.org/us/oh/amelia/profile/construction-services/spaulding-quality-renovations-0292-90050955",
       "https://www.facebook.com/",
