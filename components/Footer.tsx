@@ -33,6 +33,7 @@ export default function Footer() {
           <div className="font-semibold mb-3">Get Started</div>
           <ul className="space-y-2 subtle">
             <li><Link href="/pricing" className="hover:underline">Pricing</Link></li>
+            <li><Link href="/schedule?utm_source=site&utm_medium=cta&utm_campaign=book" className="hover:underline">Book a consultation</Link></li>
             <li><Link href="/contact" className="hover:underline">Contact</Link></li>
             <li><Link href="/privacy" className="hover:underline">Privacy</Link></li>
           </ul>

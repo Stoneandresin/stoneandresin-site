@@ -199,11 +199,16 @@ export default function Estimator() {
           <div className="text-4xl mb-4">✅</div>
           <h3 className="text-2xl font-bold mb-2">Thanks! We'll text you shortly.</h3>
           <p className="text-slate-600 mb-6">
-            Want to see color options while you wait?
+            Want to lock in a time now?
           </p>
-          <a href="/colors" className="btn-accent">
-            View color blends
-          </a>
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
+            <a href="/schedule?utm_source=site&utm_medium=cta&utm_campaign=book" className="btn-accent">
+              Book a consultation
+            </a>
+            <a href="/colors" className="btn-ghost">
+              View color blends
+            </a>
+          </div>
         </div>
       </div>
     )
