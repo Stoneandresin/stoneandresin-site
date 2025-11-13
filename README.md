@@ -31,6 +31,8 @@ _Note:_ You can use `npm` or `yarn` if you prefer.
 	```
 - On GitHub, ensure both workflows succeed (check the **Actions** tab) before merging a branch.
 
+See `docs/MISSION_CONTROL.md` for a concise checklist and one-command local verification (`npm run ci:verify`).
+
 ## Configure Lead Forwarding
 Create `.env.local` in the project root:
 ```
