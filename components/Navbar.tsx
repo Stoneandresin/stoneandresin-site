@@ -1,9 +1,36 @@
 'use client'
 import Link from 'next/link'
-import { useState } from 'react'
+import { useCallback, useState } from 'react'
+import { usePathname, useRouter } from 'next/navigation'
+import type { MouseEvent } from 'react'
 
 export default function Navbar() {
   const [open, setOpen] = useState(false)
+  const router = useRouter()
+  const pathname = usePathname()
+
+  const handleEstimateClick = useCallback((event: MouseEvent<HTMLAnchorElement>) => {
+    if (event.metaKey || event.altKey || event.ctrlKey || event.shiftKey || event.button !== 0) {
+      return
+    }
+    event.preventDefault()
+
+    const onHome = pathname === '/' || pathname === ''
+
+    if (onHome) {
+      const target = document.getElementById('estimate')
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      } else {
+        window.location.hash = 'estimate'
+      }
+    } else {
+      router.push('/#estimate')
+    }
+
+    setOpen(false)
+  }, [pathname, router])
+
   return (
     <nav className="sticky top-0 z-50 nav-dark">
       <div className="container mx-auto px-4 flex items-center justify-between py-3">
@@ -17,7 +44,14 @@ export default function Navbar() {
           <Link href="/pricing" className="link-invert">Pricing</Link>
           <Link href="/learn" className="link-invert">Learn</Link>
           <Link href="/about" className="link-invert">About</Link>
-          <Link href="/contact" className="btn-accent" aria-label="Get an instant estimate">Get Instant Estimate</Link>
+          <a
+            href="/#estimate"
+            className="btn-accent"
+            aria-label="Jump to instant estimator on the homepage"
+            onClick={handleEstimateClick}
+          >
+            Get Instant Estimate
+          </a>
         </div>
 
         <button aria-label="Toggle menu" className="md:hidden btn-ghost" onClick={() => setOpen(o => !o)}>
@@ -32,7 +66,13 @@ export default function Navbar() {
             <Link href="/pricing" className="link-invert" onClick={() => setOpen(false)}>Pricing</Link>
             <Link href="/learn" className="link-invert" onClick={() => setOpen(false)}>Learn</Link>
             <Link href="/about" className="link-invert" onClick={() => setOpen(false)}>About</Link>
-            <Link href="/contact" className="btn-accent" onClick={() => setOpen(false)}>Get Instant Estimate</Link>
+            <a
+              href="/#estimate"
+              className="btn-accent"
+              onClick={handleEstimateClick}
+            >
+              Get Instant Estimate
+            </a>
           </div>
         </div>
       )}

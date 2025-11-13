@@ -39,6 +39,21 @@ export default function Estimator() {
   const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle')
   const [errorMsg, setErrorMsg] = useState<string | null>(null)
 
+  // Progress calculation
+  const progress = useMemo(() => {
+    let completed = 0
+    let total = 6 // Total steps: sqft, condition, name, email, phone, zip
+    
+    if (sqft > 0) completed++
+    if (condition) completed++
+    if (name.trim()) completed++
+    if (email.trim()) completed++
+    if (phone.trim()) completed++
+    if (zip.trim()) completed++
+    
+    return Math.round((completed / total) * 100)
+  }, [sqft, condition, name, email, phone, zip])
+
   // --- live pricing calc (Premium-only; no finish selector) ---
   const { low, high } = useMemo(() => {
     const sqftClean = clampSqft(sqft)
@@ -64,6 +79,28 @@ export default function Estimator() {
       alert('Please complete name, email, phone, and ZIP so we can confirm your quote.')
       return
     }
+    
+    // Track conversion attempt
+    if (typeof window !== 'undefined') {
+      const w = window as any
+      if (w.gtag) {
+        w.gtag('event', 'quote_request_started', {
+          event_category: 'Lead Generation',
+          event_label: 'estimator_form',
+          value: Math.round((low + high) / 2),
+          currency: 'USD'
+        })
+      }
+      if (w.va?.track) {
+        w.va.track('quote_request_started', { 
+          location: 'estimator',
+          sqft: clampSqft(sqft),
+          condition,
+          estimated_value: Math.round((low + high) / 2)
+        })
+      }
+    }
+    
     setErrorMsg(null)
     setStatus('sending')
     try {
@@ -86,6 +123,38 @@ export default function Estimator() {
         const msg = data?.error ? String(data.error) : `Request failed (${res.status})`
         throw new Error(msg)
       }
+      
+      // Track successful conversion
+      if (typeof window !== 'undefined') {
+        const w = window as any
+        if (w.gtag) {
+          w.gtag('event', 'quote_request_completed', {
+            event_category: 'Lead Generation',
+            event_label: 'estimator_form_success',
+            value: Math.round((low + high) / 2),
+            currency: 'USD'
+          })
+          // Track as conversion
+          const conversionSendTo = process.env.NEXT_PUBLIC_GADS_SEND_TO
+          if (conversionSendTo) {
+            w.gtag('event', 'conversion', {
+              send_to: conversionSendTo,
+              value: Math.round((low + high) / 2),
+              currency: 'USD'
+            })
+          }
+        }
+        if (w.va?.track) {
+          w.va.track('quote_request_completed', { 
+            location: 'estimator',
+            sqft: clampSqft(sqft),
+            condition,
+            estimated_value: Math.round((low + high) / 2),
+            lead_id: data?.id || 'unknown'
+          })
+        }
+      }
+      
       setStatus('sent')
     } catch (err: unknown) {
       console.error(err)
@@ -97,7 +166,19 @@ export default function Estimator() {
 
   return (
     <form onSubmit={submitLead} className="space-y-4" aria-label="Instant price estimator and quote form">
-      <h2 className="text-2xl font-bold">Instant Price Estimator</h2>
+      <div className="flex items-center justify-between">
+        <h2 className="text-2xl font-bold">Instant Price Estimator</h2>
+        <div className="flex items-center gap-2 text-sm">
+          <span className="text-slate-600">Progress:</span>
+          <div className="w-16 h-2 bg-slate-200 rounded-full overflow-hidden">
+            <div 
+              className="h-full bg-gradient-to-r from-cyan-500 to-blue-500 transition-all duration-300 rounded-full"
+              style={{ width: `${progress}%` }}
+            />
+          </div>
+          <span className="font-medium text-slate-700">{progress}%</span>
+        </div>
+      </div>
       <p className="subtle text-sm">Premium UV-stable resin—get a ballpark now, then book a precise on-site quote.</p>
 
       <div className="grid grid-cols-2 gap-4">

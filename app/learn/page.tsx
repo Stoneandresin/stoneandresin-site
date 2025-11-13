@@ -10,21 +10,21 @@ export default function LearnPage(){
     { slug: "vuba-vs-competitors", title: "Vuba vs. Competitors: Why We Choose Vuba", summary: "UV stability, tested aggregates, and spec‑driven installs." }
   ]
   return (
-    <main>
-      
-      <section className="container py-14">
-        <h1 className="section-title mb-6">Guides & resources</h1>
-        <div className="grid md:grid-cols-3 gap-6">
-          {posts.map(p=>(
-            <article key={p.slug} className="card p-6">
-              <h2 className="font-bold">{p.title}</h2>
-              <p className="subtle mt-2">{p.summary}</p>
-              <Link href={`/learn/${p.slug}`} className="btn-outline mt-4 inline-block">Read</Link>
-            </article>
-          ))}
+    <main className="bg-slate-950 text-white">
+      <section className="py-16">
+        <div className="container px-4">
+          <h1 className="text-3xl md:text-4xl font-extrabold text-cyan-400 mb-8">Guides &amp; resources</h1>
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {posts.map(p => (
+              <article key={p.slug} className="rounded-2xl bg-slate-900 border border-slate-800 p-6 shadow-lg shadow-cyan-900/20 transition-transform duration-300 hover:-translate-y-1 hover:shadow-cyan-500/20">
+                <h2 className="text-lg font-semibold text-white">{p.title}</h2>
+                <p className="mt-2 text-sm text-slate-300">{p.summary}</p>
+                <Link href={`/learn/${p.slug}`} className="btn-accent mt-6 inline-flex items-center justify-center">Read</Link>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
-      
     </main>
   )
 }

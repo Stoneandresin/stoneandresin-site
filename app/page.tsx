@@ -66,34 +66,34 @@ export default function Home() {
         {/* Why resin-bound section */}
         <section className="py-12">
           <div className="container mx-auto px-4">
-            <div className="surface-light rounded-2xl p-6 md:p-8">
-              <h2 className="text-2xl md:text-3xl font-extrabold accent-text">
+            <div className="bg-slate-900 text-white rounded-2xl p-6 md:p-8">
+              <h2 className="text-2xl md:text-3xl font-extrabold text-cyan-400">
                 Why resin‑bound?
               </h2>
-              <p className="mt-3 text-sm text-slate-600">
+              <p className="mt-3 text-sm text-slate-300">
                 We’re trained on the Vuba resin‑bound system through their live, hands‑on course. We follow proven methods for mixing, moisture control, edging, drainage, and curing—so your driveway or patio looks right and lasts.
               </p>
               <div className="grid-clean md:grid-cols-3 mt-6">
-                <div className="card p-5">
-                  <h3 className="font-semibold">Permeable by design</h3>
-                  <p className="mt-2 text-sm copy-muted">
+                <div className="bg-slate-800 rounded-lg p-5">
+                  <h3 className="font-semibold text-white">Permeable by design</h3>
+                  <p className="mt-2 text-sm text-slate-400">
                     Reduce puddling and runoff with a porous surface.
                   </p>
                 </div>
-                <div className="card p-5">
-                  <h3 className="font-semibold">UV‑stable and durable</h3>
-                  <p className="mt-2 text-sm copy-muted">
+                <div className="bg-slate-800 rounded-lg p-5">
+                  <h3 className="font-semibold text-white">UV‑stable and durable</h3>
+                  <p className="mt-2 text-sm text-slate-400">
                     Color‑stable resins and aggregates built to last.
                   </p>
                 </div>
-                <div className="card p-5">
-                  <h3 className="font-semibold">Low maintenance</h3>
-                  <p className="mt-2 text-sm copy-muted">
+                <div className="bg-slate-800 rounded-lg p-5">
+                  <h3 className="font-semibold text-white">Low maintenance</h3>
+                  <p className="mt-2 text-sm text-slate-400">
                     Easy to clean and keep looking great season after season.
                   </p>
                 </div>
               </div>
-              <p className="mt-4 text-xs text-slate-500">
+              <p className="mt-4 text-xs text-slate-400">
                 Manufacturer warranty is system‑dependent. Vuba’s U.S. homeowner page references a 5‑year manufacturer warranty, upgraded to 10 years when installed over VubaMac. Ask us which applies to your project.
               </p>
             </div>
@@ -184,7 +184,7 @@ export default function Home() {
                     Get an instant range now. We’ll confirm your final price on site.
                   </p>
                 </div>
-                <a href="/pricing" className="btn-accent" data-sticky-suppress="estimate">
+                <a href="#estimate" className="btn-accent" data-sticky-suppress="estimate">
                   Get Instant Estimate
                 </a>
               </div>
