@@ -53,3 +53,46 @@ A single place to run, verify, and ship changes with Agent HQ.
 - Spot-check estimator and lead flow end-to-end.
 
 See also: `AGENTS.md` for agent-specific rules and project context.
+
+## VS Code CLI & Extensions (Tip)
+To use CLI checks and ensure GitHub/Copilot features work smoothly:
+
+1) Install the `code` command (Stable) or `code-insiders` (Insiders)
+
+- VS Code → Cmd+Shift+P → "Shell Command: Install 'code' command in PATH" → Enter
+- Restart your terminal.
+
+2) Verify the CLI
+
+```bash
+# Stable
+code --version
+
+# Insiders
+code-insiders --version
+```
+
+3) Check GitHub/Copilot extensions
+
+```bash
+# List installed GitHub-related extensions
+code --list-extensions --show-versions | grep -i github || true
+
+# Install any missing ones (Stable)
+code --install-extension GitHub.vscode-authentication
+code --install-extension GitHub.vscode-pull-request-github
+code --install-extension GitHub.copilot
+code --install-extension GitHub.copilot-chat
+
+# Insiders variant (if you use Insiders)
+code-insiders --install-extension GitHub.vscode-authentication
+code-insiders --install-extension GitHub.vscode-pull-request-github
+code-insiders --install-extension GitHub.copilot
+code-insiders --install-extension GitHub.copilot-chat
+```
+
+4) Prefer Copilot Chat Pre-Release (optional, recommended)
+
+- Extensions view → search "GitHub Copilot Chat" → gear → "Switch to Pre-Release Version". Works best on VS Code Insiders.
+
+Note: The workspace includes `.vscode/extensions.json` with recommendations. VS Code will prompt to install them when you open this folder.
