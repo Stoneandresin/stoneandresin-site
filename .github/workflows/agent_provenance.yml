@@ -1,0 +1,33 @@
+name: Agent Provenance Gate
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+
+jobs:
+  check-agent-pr:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+
+      - name: Validate PR metadata for Agent HQ
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const pr = context.payload.pull_request;
+            const title = (pr.title || '').toLowerCase();
+            const sensitiveKeywords = ['lead', 'webhook', 'estimator'];
+
+            for (const word of sensitiveKeywords) {
+              if (title.includes(word)) {
+                core.warning(`PR title references a sensitive area: ${word}. Ensure human review before merging.`);
+              }
+            }
+
+            const body = (pr.body || '').toLowerCase();
+            if (!body.includes('npm run lint') || !body.includes('npm run build')) {
+              core.warning('PR description does not confirm `npm run lint` and `npm run build` were executed.');
+            }
+
+            core.info(`Agent HQ provenance check complete for PR #${pr.number} by ${pr.user.login}.`);

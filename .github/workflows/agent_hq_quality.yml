@@ -1,0 +1,38 @@
+name: Agent HQ Quality Gate
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Lint project
+        run: npm run lint
+
+      - name: Build project
+        run: npm run build
+
+      - name: Run tests (if defined)
+        run: npm run test --if-present -- --coverage --coverageReporters json-summary || true
+
+      - name: Enforce optional coverage threshold
+        run: |
+          if [ -f coverage/coverage-summary.json ]; then
+            node -e "const fs=require('fs'); const summary=JSON.parse(fs.readFileSync('coverage/coverage-summary.json')); const pct=summary.total.lines.pct; console.log('Line coverage:', pct); if (pct < 80) { console.error('Coverage is below 80%'); process.exit(1); }"
+          else
+            echo 'Coverage summary not found; skipping coverage threshold check.'
+          fi

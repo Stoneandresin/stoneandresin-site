@@ -17,6 +17,20 @@ pnpm dev  # http://localhost:3000
 ```
 _Note:_ You can use `npm` or `yarn` if you prefer.
 
+## Agent HQ Automation
+- Contributor instructions for GitHub Agent HQ live in `AGENTS.md`. Agents (and humans) should read it before opening a PR.
+- Always run `npm run lint` and `npm run build` locally, then mention both in the PR description.
+- Two GitHub Actions workflows enforce the Agent HQ policy:
+	- `Agent HQ Quality Gate` installs dependencies, runs lint/build, and enforces coverage if a report is present.
+	- `Agent Provenance Gate` checks PR metadata and warns when sensitive areas (lead webhook, estimator) are touched.
+- To verify locally, run:
+	```bash
+	npm install
+	npm run lint
+	npm run build
+	```
+- On GitHub, ensure both workflows succeed (check the **Actions** tab) before merging a branch.
+
 ## Configure Lead Forwarding
 Create `.env.local` in the project root:
 ```
