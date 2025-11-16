@@ -5,7 +5,7 @@ import { Analytics } from "@vercel/analytics/react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import TidioChat from "@/components/TidioChat";
-import { Analytics } from "@vercel/analytics/react";
+import Script from "next/script";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.stoneandresin.com"),
