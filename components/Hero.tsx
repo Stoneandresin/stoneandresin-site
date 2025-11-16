@@ -1,13 +1,16 @@
 'use client';
 
+import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { track } from '@vercel/analytics';
+import type { MouseEvent } from 'react';
 
 type Settings = Record<string, any> | null;
 
 export default function Hero() {
   const [settings, setSettings] = useState<Settings>(null);
+  const [scrollY, setScrollY] = useState(0);
 
   useEffect(() => {
     let mounted = true;
@@ -18,6 +21,15 @@ export default function Hero() {
     return () => {
       mounted = false;
     };
+  }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
@@ -50,14 +62,20 @@ export default function Hero() {
 
           <div className="mt-6 flex flex-wrap gap-3">
             <a
-              href="/pricing"
+              href="#estimate"
               className="btn-accent"
               data-sticky-suppress="estimate"
               onClick={() => track('cta_click', { location: 'hero', label: 'Get instant estimate' })}
             >
               Get instant estimate
             </a>
-            <a href="/learn" className="btn-ghost">How it works</a>
+            <a
+              href="/learn"
+              className="inline-flex items-center justify-center rounded-full px-5 py-2.5 font-semibold !bg-black !text-white !border !border-black shadow-lg shadow-black/40 hover:!bg-neutral-900 transition"
+              data-style="how-it-works-black"
+            >
+              How it works
+            </a>
           </div>
 
           <div className="mt-6 flex flex-wrap items-center gap-4 text-sm copy-muted">
@@ -75,9 +93,20 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className="relative">
+        <div 
+          className="relative"
+          style={{
+            transform: `translateY(${scrollY * 0.15}px)`,
+            transition: 'transform 0.1s ease-out'
+          }}
+        >
           <div className="relative rounded-2xl border border-white/10 bg-white/5 p-2 overflow-hidden">
-            <div className="absolute -inset-12 -z-10 bg-gradient-to-tr from-cyan-500/15 via-sky-400/10 to-transparent blur-2xl" />
+            <div 
+              className="absolute -inset-12 -z-10 bg-gradient-to-tr from-cyan-500/15 via-sky-400/10 to-transparent blur-2xl"
+              style={{
+                transform: `translateY(${scrollY * -0.1}px) scale(${1 + scrollY * 0.0005})`,
+              }}
+            />
             <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl">
               <Image
                 src="/img/hero.webp"
@@ -86,6 +115,10 @@ export default function Hero() {
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, 50vw"
                 priority
+                style={{
+                  transform: `scale(${1 + scrollY * 0.0003})`,
+                  transition: 'transform 0.1s ease-out'
+                }}
               />
             </div>
           </div>

@@ -1,0 +1,5 @@
+{
+  "github.copilot.chat.agent.enabled": true,
+  "github.copilot.chat.planMode.enabled": true,
+  "github.copilot.chat.experimentalFeatures": true
+}

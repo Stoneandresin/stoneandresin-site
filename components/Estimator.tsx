@@ -183,6 +183,38 @@ export default function Estimator() {
         const msg = data?.error ? String(data.error) : `Request failed (${res.status})`
         throw new Error(msg)
       }
+      
+      // Track successful conversion
+      if (typeof window !== 'undefined') {
+        const w = window as any
+        if (w.gtag) {
+          w.gtag('event', 'quote_request_completed', {
+            event_category: 'Lead Generation',
+            event_label: 'estimator_form_success',
+            value: Math.round((low + high) / 2),
+            currency: 'USD'
+          })
+          // Track as conversion
+          const conversionSendTo = process.env.NEXT_PUBLIC_GADS_SEND_TO
+          if (conversionSendTo) {
+            w.gtag('event', 'conversion', {
+              send_to: conversionSendTo,
+              value: Math.round((low + high) / 2),
+              currency: 'USD'
+            })
+          }
+        }
+        if (w.va?.track) {
+          w.va.track('quote_request_completed', { 
+            location: 'estimator',
+            sqft: clampSqft(sqft),
+            condition,
+            estimated_value: Math.round((low + high) / 2),
+            lead_id: data?.id || 'unknown'
+          })
+        }
+      }
+      
       setStatus('sent')
     } catch (err: unknown) {
       console.error(err)

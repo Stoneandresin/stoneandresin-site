@@ -1,7 +1,7 @@
 // app/layout.tsx
 import type { Metadata } from "next";
 import "./globals.css";
-import Script from "next/script";
+import { Analytics } from "@vercel/analytics/react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import TidioChat from "@/components/TidioChat";
@@ -71,6 +71,13 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }}
         />
+        {process.env.NEXT_PUBLIC_TIDIO_KEY && (
+          <Script
+            id="tidio-chat"
+            src={`https://code.tidio.co/${process.env.NEXT_PUBLIC_TIDIO_KEY}.js`}
+            strategy="afterInteractive"
+          />
+        )}
         <Navbar />
         {children}
         <Footer />

@@ -1,0 +1,15 @@
+name: Agent Provenance Gate
+on:
+  pull_request:
+jobs:
+  provenance:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@v7
+        with:
+          script: |
+            const pr = context.payload.pull_request || {};
+            const body = (pr.body || "").toLowerCase();
+            if (!body.includes('npm test') || !body.includes('coverage')) {
+              core.warning('PR body should mention tests and coverage (solo reminder).');
+            }
