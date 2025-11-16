@@ -42,10 +42,43 @@ export default function Home() {
         {/* Hero */}
         <section className="container py-12">
           <div className="max-w-3xl">
+            <p className="text-sm font-semibold text-slate-600 mb-2">Transparent pricing</p>
             <h1 className="text-4xl font-extrabold tracking-tight">
-              Resin-Bound Surfaces, Installed Right.
+              Instant pricing for resin‑bound surfaces
             </h1>
-            <p className="mt-3 text-gray-600">
+            
+            {/* Trust row */}
+            <div className="mt-4 flex flex-wrap items-center gap-3 text-sm text-slate-600">
+              <span className="inline-flex items-center gap-1.5">
+                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clipRule="evenodd" />
+                </svg>
+                Vuba Certified
+              </span>
+              <span className="text-slate-300">•</span>
+              <span className="inline-flex items-center gap-1.5">
+                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clipRule="evenodd" />
+                </svg>
+                BBB Accredited
+              </span>
+              <span className="text-slate-300">•</span>
+              <span className="inline-flex items-center gap-1.5">
+                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clipRule="evenodd" />
+                </svg>
+                Fully insured
+              </span>
+              <span className="text-slate-300">•</span>
+              <span className="inline-flex items-center gap-1.5">
+                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clipRule="evenodd" />
+                </svg>
+                2‑year workmanship warranty
+              </span>
+            </div>
+
+            <p className="mt-4 text-gray-600">
               Premium, permeable Vuba stone systems for driveways, patios, walkways, and pool decks across Greater Cincinnati.
             </p>
           </div>
@@ -53,7 +86,7 @@ export default function Home() {
 
         {/* Vuba blends carousel — right under hero */}
         <section className="container py-12">
-          <h2 className="text-2xl font-bold mb-4">Choose Your Vuba Blend</h2>
+          <h2 className="text-2xl font-bold mb-4">Choose your Vuba blend</h2>
           <ColorsSlider showHeading={false} className="py-0" />
           <p className="mt-4 text-sm text-gray-600">
             See a blend you love?{" "}
@@ -70,8 +103,8 @@ export default function Home() {
               <h2 className="text-2xl md:text-3xl font-extrabold text-cyan-400">
                 Why resin‑bound?
               </h2>
-              <p className="mt-3 text-sm text-slate-300">
-                We’re trained on the Vuba resin‑bound system through their live, hands‑on course. We follow proven methods for mixing, moisture control, edging, drainage, and curing—so your driveway or patio looks right and lasts.
+              <p className="mt-3 text-sm text-slate-600">
+                We're trained on the Vuba resin‑bound system through their live, hands‑on course. We follow proven methods for mixing, moisture control, edging, drainage, and curing—so your driveway or patio looks right and lasts.
               </p>
               <div className="grid-clean md:grid-cols-3 mt-6">
                 <div className="bg-slate-800 rounded-lg p-5">
@@ -93,8 +126,8 @@ export default function Home() {
                   </p>
                 </div>
               </div>
-              <p className="mt-4 text-xs text-slate-400">
-                Manufacturer warranty is system‑dependent. Vuba’s U.S. homeowner page references a 5‑year manufacturer warranty, upgraded to 10 years when installed over VubaMac. Ask us which applies to your project.
+              <p className="mt-4 text-xs text-slate-500">
+                Manufacturer warranty is system‑dependent. Vuba's U.S. homeowner page references a 5‑year manufacturer warranty, upgraded to 10 years when installed over VubaMac. Ask us which applies to your project.
               </p>
             </div>
           </div>
@@ -103,7 +136,7 @@ export default function Home() {
         {/* Recent Projects */}
         <section className="py-12">
           <div className="container mx-auto px-4">
-            <h2 className="text-2xl font-bold mb-4">Recent Projects</h2>
+            <h2 className="text-2xl font-bold mb-4">Recent projects</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
               <article className="card overflow-hidden">
                 <CompareFigure
@@ -119,13 +152,13 @@ export default function Home() {
                     <span className="px-2 py-1 rounded-full bg-slate-100 border border-slate-200">Approx. 600 sq ft</span>
                     <span className="px-2 py-1 rounded-full bg-slate-100 border border-slate-200">Blend: Grey mix</span>
                   </div>
-                  <a href="/contact" className="btn-accent w-full justify-center">Book On‑Site Quote</a>
+                  <a href="/contact" className="btn-accent w-full justify-center">Book on‑site quote</a>
                 </div>
               </article>
 
               <article className="card overflow-hidden">
                 <div className="relative w-full aspect-[16/10]">
-                  <Image src="/gallery/driveway-cincy-after.jpg" alt="Resin‑bound driveway with clean edge and tape-off" fill className="object-cover" />
+                  <Image src="/gallery/driveway-cincy-after.jpg" alt="Resin‑bound driveway with clean edge and tape‑off" fill className="object-cover" />
                 </div>
                 <div className="p-4 grid gap-2">
                   <h3 className="font-semibold">Finished edge (tape‑off)</h3>
@@ -133,7 +166,7 @@ export default function Home() {
                     <span className="px-2 py-1 rounded-full bg-slate-100 border border-slate-200">Cincinnati, OH</span>
                     <span className="px-2 py-1 rounded-full bg-slate-100 border border-slate-200">Resin‑bound driveway</span>
                   </div>
-                  <a href="/contact" className="btn-accent w-full justify-center">Book On‑Site Quote</a>
+                  <a href="/contact" className="btn-accent w-full justify-center">Book on‑site quote</a>
                 </div>
               </article>
 
@@ -147,7 +180,7 @@ export default function Home() {
                     <span className="px-2 py-1 rounded-full bg-slate-100 border border-slate-200">Texture close‑up</span>
                     <span className="px-2 py-1 rounded-full bg-slate-100 border border-slate-200">Permeable, UV‑stable</span>
                   </div>
-                  <a href="/contact" className="btn-accent w-full justify-center">Book On‑Site Quote</a>
+                  <a href="/contact" className="btn-accent w-full justify-center">Book on‑site quote</a>
                 </div>
               </article>
             </div>
@@ -181,11 +214,11 @@ export default function Home() {
                     Ready for a surface that stands out?
                   </h2>
                   <p className="mt-1 copy-muted">
-                    Get an instant range now. We’ll confirm your final price on site.
+                    Get an instant range now. We'll confirm your final price on‑site.
                   </p>
                 </div>
-                <a href="#estimate" className="btn-accent" data-sticky-suppress="estimate">
-                  Get Instant Estimate
+                <a href="/pricing" className="btn-accent" data-sticky-suppress="estimate">
+                  Get instant estimate
                 </a>
               </div>
             </div>

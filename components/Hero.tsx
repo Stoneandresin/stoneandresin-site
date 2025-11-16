@@ -65,12 +65,9 @@ export default function Hero() {
               href="#estimate"
               className="btn-accent"
               data-sticky-suppress="estimate"
-              onClick={(event: MouseEvent<HTMLAnchorElement>) => {
-                track('cta_click', { location: 'hero', label: 'Get Instant Estimate' });
-                // Let the browser handle the anchor navigation naturally
-              }}
+              onClick={() => track('cta_click', { location: 'hero', label: 'Get instant estimate' })}
             >
-              Get Instant Estimate
+              Get instant estimate
             </a>
             <a
               href="/learn"
