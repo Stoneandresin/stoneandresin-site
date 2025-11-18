@@ -40,7 +40,7 @@ export default function Navbar() {
         </Link>
 
         <div className="hidden md:flex items-center gap-6">
-          <Link href="/#surfaces" className="link-invert">Surfaces</Link>
+          <Link href="/#services" className="link-invert">Services</Link>
           <Link href="/pricing" className="link-invert">Pricing</Link>
           <Link href="/learn" className="link-invert">Learn</Link>
           <Link href="/about" className="link-invert">About</Link>
@@ -62,7 +62,7 @@ export default function Navbar() {
       {open && (
         <div className="md:hidden border-t border-slate-800 bg-slate-950">
           <div className="container mx-auto px-4 py-3 flex flex-col gap-3">
-            <Link href="/#surfaces" className="link-invert" onClick={() => setOpen(false)}>Surfaces</Link>
+            <Link href="/#services" className="link-invert" onClick={() => setOpen(false)}>Services</Link>
             <Link href="/pricing" className="link-invert" onClick={() => setOpen(false)}>Pricing</Link>
             <Link href="/learn" className="link-invert" onClick={() => setOpen(false)}>Learn</Link>
             <Link href="/about" className="link-invert" onClick={() => setOpen(false)}>About</Link>

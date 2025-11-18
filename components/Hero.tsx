@@ -59,6 +59,10 @@ export default function Hero() {
           <p className="mt-4 copy-muted max-w-xl">
             Modern driveways, patios, and pool decks—durable, permeable, and low maintenance. Installed by certified pros.
           </p>
+          <p className="mt-3 text-sm text-slate-300 md:text-base">
+            Inside the home, we handle full kitchen and bathroom remodels—from layout planning and cabinetry to tile, lighting,
+            and fixture upgrades.
+          </p>
 
           <div className="mt-6 flex flex-wrap gap-3">
             <a
