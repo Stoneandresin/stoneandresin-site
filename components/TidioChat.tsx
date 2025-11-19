@@ -8,9 +8,8 @@ export default function TidioChat() {
   const pathname = usePathname();
   const tidioKey = process.env.NEXT_PUBLIC_TIDIO_KEY;
 
-  // Only load Tidio in production and when the key is available
-  const shouldLoad =
-    process.env.NODE_ENV === "production" && tidioKey && tidioKey.trim() !== "";
+  // Load Tidio when the key is available (both dev and production)
+  const shouldLoad = tidioKey && tidioKey.trim() !== "";
 
   // Hide chat on admin routes
   const shouldHide = pathname?.startsWith("/admin");
@@ -37,21 +36,40 @@ export default function TidioChat() {
   }
 
   return (
-    <Script
-      src={`https://code.tidio.co/${tidioKey}.js`}
-      strategy="lazyOnload"
-      onLoad={() => {
-        // Wait a brief moment for Tidio API to initialize
-        setTimeout(() => {
-          if (shouldHide && window.tidioChatApi) {
-            try {
-              window.tidioChatApi.hide();
-            } catch (error) {
-              console.error("Tidio API error:", error);
-            }
+    <>
+      <style>{`
+        /* Ensure Tidio chat is visible on mobile and above mobile sticky bar */
+        #tidio-chat-iframe,
+        #tidio-chat,
+        [id^="tidio-chat"] {
+          z-index: 9999 !important;
+        }
+        
+        /* Adjust Tidio position to account for mobile sticky bar */
+        @media (max-width: 767px) {
+          #tidio-chat-iframe,
+          #tidio-chat,
+          [id^="tidio-chat"] {
+            bottom: 70px !important;
           }
-        }, 100);
-      }}
-    />
+        }
+      `}</style>
+      <Script
+        src={`https://code.tidio.co/${tidioKey}.js`}
+        strategy="lazyOnload"
+        onLoad={() => {
+          // Wait a brief moment for Tidio API to initialize
+          setTimeout(() => {
+            if (shouldHide && window.tidioChatApi) {
+              try {
+                window.tidioChatApi.hide();
+              } catch (error) {
+                console.error("Tidio API error:", error);
+              }
+            }
+          }, 100);
+        }}
+      />
+    </>
   );
 }
