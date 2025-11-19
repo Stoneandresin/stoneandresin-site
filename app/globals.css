@@ -7,8 +7,17 @@
   --brand-dark: #064543;
 }
 
-html { scroll-behavior: smooth; }
-body { @apply bg-white text-gray-900; }
+html { 
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  width: 100%;
+}
+body { 
+  @apply bg-white text-gray-900;
+  overflow-x: hidden;
+  width: 100%;
+  position: relative;
+}
 
 .btn {
   @apply inline-flex items-center gap-2 rounded-2xl px-5 py-3 font-semibold transition;
