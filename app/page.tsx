@@ -91,7 +91,7 @@ export default function Home() {
           <p className="mt-4 text-sm text-gray-600">
             See a blend you love?{" "}
             <a href="/contact" className="underline">
-              Request a sample &amp; site visit →
+              Schedule a free site visit →
             </a>
           </p>
         </section>
@@ -204,6 +204,119 @@ export default function Home() {
           </section>
         </section>
 
+        {/* Testimonials Section */}
+        <section className="py-12 bg-gradient-to-b from-slate-50 to-white">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-10">
+              <h2 className="text-3xl font-extrabold text-slate-900 mb-3">What Cincinnati Homeowners Say</h2>
+              <p className="text-slate-600">Real experiences from your neighbors in Cincinnati and Amelia</p>
+            </div>
+            <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+              <div className="bg-white rounded-xl shadow-lg p-6 border-t-4 border-cyan-500">
+                <div className="flex items-center gap-2 mb-4">
+                  <span className="text-yellow-400 text-xl">★★★★★</span>
+                </div>
+                <p className="text-slate-700 italic mb-4">
+                  "We love how it looks and the drainage is perfect. No more puddles by the garage door!"
+                </p>
+                <p className="font-semibold text-slate-900">Cincinnati Homeowner</p>
+                <p className="text-sm text-slate-500">Driveway Resurfacing</p>
+              </div>
+              <div className="bg-white rounded-xl shadow-lg p-6 border-t-4 border-green-500">
+                <div className="flex items-center gap-2 mb-4">
+                  <span className="text-yellow-400 text-xl">★★★★★</span>
+                </div>
+                <p className="text-slate-700 italic mb-4">
+                  "The pool deck stays so much cooler than our old concrete. Kids can walk on it barefoot even in summer!"
+                </p>
+                <p className="font-semibold text-slate-900">Amelia Homeowner</p>
+                <p className="text-sm text-slate-500">Pool Deck Installation</p>
+              </div>
+              <div className="bg-white rounded-xl shadow-lg p-6 border-t-4 border-blue-500">
+                <div className="flex items-center gap-2 mb-4">
+                  <span className="text-yellow-400 text-xl">★★★★★</span>
+                </div>
+                <p className="text-slate-700 italic mb-4">
+                  "Professional installation, beautiful finish. Worth every penny for the low maintenance alone."
+                </p>
+                <p className="font-semibold text-slate-900">Cincinnati Homeowner</p>
+                <p className="text-sm text-slate-500">Patio & Walkway</p>
+              </div>
+            </div>
+            
+            {/* Trust Stats */}
+            <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+              <div className="text-center">
+                <div className="text-4xl font-extrabold text-cyan-600 mb-1">50+</div>
+                <div className="text-sm text-slate-600">Projects Completed</div>
+              </div>
+              <div className="text-center">
+                <div className="text-4xl font-extrabold text-cyan-600 mb-1">100%</div>
+                <div className="text-sm text-slate-600">Customer Satisfaction</div>
+              </div>
+              <div className="text-center">
+                <div className="text-4xl font-extrabold text-cyan-600 mb-1">15-25+</div>
+                <div className="text-sm text-slate-600">Years Lifespan</div>
+              </div>
+              <div className="text-center">
+                <div className="text-4xl font-extrabold text-cyan-600 mb-1">2-3</div>
+                <div className="text-sm text-slate-600">Day Install Time</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Financing & Warranty Section */}
+        <section className="py-12">
+          <div className="container mx-auto px-4">
+            <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+              <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl p-6 border border-green-200">
+                <h3 className="text-xl font-bold text-slate-900 mb-3">💳 Flexible Financing Available</h3>
+                <p className="text-slate-700 mb-4">
+                  Make your project affordable with flexible payment options. Get the surface you want now, pay over time.
+                </p>
+                <a href="/contact" className="text-green-700 font-semibold underline">Ask about financing →</a>
+              </div>
+              <div className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl p-6 border border-blue-200">
+                <h3 className="text-xl font-bold text-slate-900 mb-3">🛡️ Warranty Protection</h3>
+                <p className="text-slate-700 mb-4">
+                  <strong>2-year workmanship warranty</strong> on all installations. Vuba manufacturer warranty: 5-10 years depending on system.
+                </p>
+                <a href="/faq" className="text-blue-700 font-semibold underline">Learn more about warranties →</a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Spring Special / Urgency Section */}
+        <section className="py-12 bg-gradient-to-r from-orange-50 to-amber-50">
+          <div className="container mx-auto px-4">
+            <div className="max-w-3xl mx-auto text-center">
+              <div className="inline-block bg-orange-500 text-white px-4 py-1 rounded-full text-sm font-semibold mb-4">
+                🌸 Spring Installation Season
+              </div>
+              <h2 className="text-3xl font-extrabold text-slate-900 mb-4">
+                Book Your Spring Installation Now
+              </h2>
+              <p className="text-lg text-slate-700 mb-6">
+                April-June is our busiest season. Current lead time: <strong>3-5 weeks</strong>. 
+                Schedule your free site visit today to secure your spot for spring installation.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="/contact" className="btn-accent inline-flex items-center justify-center">
+                  Schedule Free Site Visit
+                </a>
+                <a href="tel:+15137878798" className="btn-outline inline-flex items-center justify-center">
+                  📞 Call (513) 787-8798
+                </a>
+              </div>
+              <p className="mt-4 text-sm text-slate-600">
+                <strong>Limited availability.</strong> We maintain quality by limiting concurrent projects.
+              </p>
+            </div>
+          </div>
+        </section>
+
         {/* Call to action section */}
         <section className="py-12">
           <div className="container mx-auto px-4">
@@ -211,15 +324,33 @@ export default function Home() {
               <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
                 <div>
                   <h2 className="text-2xl md:text-3xl font-extrabold">
-                    Ready for a surface that stands out?
+                    Ready for a Surface That Lasts 15-25+ Years?
                   </h2>
                   <p className="mt-1 copy-muted">
-                    Get an instant range now. We'll confirm your final price on‑site.
+                    Get your free instant estimate now. We'll confirm final pricing during your free on-site visit.
                   </p>
+                  <div className="mt-3 flex flex-wrap gap-3 text-sm text-slate-600">
+                    <span className="inline-flex items-center gap-1">
+                      ✓ No email required
+                    </span>
+                    <span>•</span>
+                    <span className="inline-flex items-center gap-1">
+                      ✓ Takes under 2 minutes
+                    </span>
+                    <span>•</span>
+                    <span className="inline-flex items-center gap-1">
+                      ✓ See instant price ranges
+                    </span>
+                  </div>
                 </div>
-                <a href="/pricing" className="btn-accent" data-sticky-suppress="estimate">
-                  Get instant estimate
-                </a>
+                <div className="flex flex-col gap-3">
+                  <a href="/pricing" className="btn-accent whitespace-nowrap" data-sticky-suppress="estimate">
+                    Get Free Estimate
+                  </a>
+                  <a href="tel:+15137878798" className="btn-outline whitespace-nowrap text-center">
+                    📞 Call Now
+                  </a>
+                </div>
               </div>
             </div>
           </div>
