@@ -234,11 +234,37 @@ export function generateStaticParams(){ return Object.keys(content).map(slug=>({
 export default function PostPage({ params }: { params: { slug: string } }){
   const post = content[params.slug]
   if (!post) return notFound()
+  
+  // Simple function to render content with basic markdown-like formatting
+  const renderContent = (text: string) => {
+    const lines = text.split('\n')
+    return lines.map((line, i) => {
+      // Handle bold headers (lines starting with **)
+      if (line.trim().startsWith('**') && line.trim().endsWith('**')) {
+        const headerText = line.trim().slice(2, -2)
+        return <h2 key={i} className="font-bold text-xl mt-6 mb-3">{headerText}</h2>
+      }
+      // Handle italic headers (lines starting with single *)
+      if (line.trim().startsWith('*') && !line.trim().startsWith('**')) {
+        const headerText = line.trim().slice(1)
+        return <h3 key={i} className="font-semibold text-lg mt-4 mb-2">{headerText}</h3>
+      }
+      // Regular paragraph
+      if (line.trim()) {
+        return <p key={i} className="mb-3">{line}</p>
+      }
+      // Empty line (spacing)
+      return <div key={i} className="h-2"></div>
+    })
+  }
+  
   return (
     <section className="container py-14 prose prose-lg max-w-4xl">
       <p className="mb-4"><a href="/learn" className="text-sm underline">← Back to Learn</a></p>
       <h1 className="section-title">{post.title}</h1>
-      <div className="text-gray-800 mt-6 whitespace-pre-line">{post.body}</div>
+      <div className="text-gray-800 mt-6">
+        {renderContent(post.body)}
+      </div>
       {params.slug === 'vuba-vs-competitors' && (
         <div className="mt-8 not-prose relative">
           <div aria-hidden className="pointer-events-none absolute inset-x-0 -top-4 h-20 rounded-2xl bg-gradient-to-r from-green-50 via-transparent to-gray-50"></div>

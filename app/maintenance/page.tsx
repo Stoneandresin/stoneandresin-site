@@ -38,7 +38,7 @@ export default function MaintenanceGuidePage(){
               <div>
                 <h3 className="font-semibold text-slate-700 mb-2">❌ Avoid:</h3>
                 <ul className="text-sm text-slate-600 space-y-1">
-                  <li>• High-pressure washers (&gt;2000 PSI)</li>
+                  <li>• High-pressure washers {`(>2000 PSI)`}</li>
                   <li>• Metal shovels or sharp tools</li>
                   <li>• Harsh acidic cleaners</li>
                   <li>• Sealants (blocks drainage)</li>
@@ -215,8 +215,8 @@ export default function MaintenanceGuidePage(){
               <Link href="/contact" className="bg-white text-cyan-600 px-6 py-3 rounded-lg font-semibold hover:bg-slate-100 transition">
                 Contact Us
               </Link>
-              <Link href="/learn/maintenance" className="bg-slate-800 text-white px-6 py-3 rounded-lg font-semibold hover:bg-slate-700 transition">
-                Read Full Article
+              <Link href="/pricing" className="bg-slate-800 text-white px-6 py-3 rounded-lg font-semibold hover:bg-slate-700 transition">
+                Get Instant Estimate
               </Link>
             </div>
           </div>
