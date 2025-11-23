@@ -5,6 +5,7 @@ import Hero from "@/components/Hero";
 import ColorsSlider from "@/components/ColorsSlider";
 import Image from "next/image";
 import Estimator from "@/components/Estimator";
+import { BeforeAfterGallery } from "@/components/BeforeAfterGallery";
 import { useState } from "react";
 
 function CompareFigure({ before, after, altBefore, altAfter }: { before: string; after: string; altBefore: string; altAfter: string }) {
@@ -186,6 +187,8 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        <BeforeAfterGallery />
 
         {/* Estimator */}
         <section id="estimate" className="container py-12 scroll-mt-24">

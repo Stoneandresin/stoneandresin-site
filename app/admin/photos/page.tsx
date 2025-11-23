@@ -8,10 +8,11 @@ import {
   type CloudinaryUploadWidgetInfo,
   type CloudinaryUploadWidgetResults,
 } from 'next-cloudinary';
+import AdminGate from '@/components/AdminGate';
 
 type Item = { id: string; url: string };
 
-export default function AdminPhotosPage() {
+function PhotosContent() {
   const cloudName = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME;
   const unsignedPreset = process.env.NEXT_PUBLIC_CLOUDINARY_UNSIGNED_PRESET;
 
@@ -82,5 +83,13 @@ export default function AdminPhotosPage() {
         )}
       </section>
     </main>
+  );
+}
+
+export default function AdminPhotosPage() {
+  return (
+    <AdminGate title="Admin · Photos">
+      <PhotosContent />
+    </AdminGate>
   );
 }
