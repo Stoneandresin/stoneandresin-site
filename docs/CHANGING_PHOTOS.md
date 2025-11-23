@@ -12,9 +12,8 @@ All front page photos are configured in one centralized file:
 
 ### 1. Hero Image (Top of Page)
 - **Current Path**: `/public/img/hero.webp`
-- **Fallback**: `/public/img/hero.jpg`
 - **Recommended Size**: 1600×1000px (16:10 aspect ratio)
-- **Format**: WebP (with JPG fallback)
+- **Format**: WebP (with JPG fallback for older browsers via Next.js Image optimization)
 
 To change:
 1. Replace the image file at `/public/img/hero.webp`
@@ -23,7 +22,6 @@ To change:
    export const heroImage = {
      src: "/img/your-new-hero.webp",
      alt: "Description of your image",
-     fallback: "/img/your-new-hero.jpg",
    };
    ```
 

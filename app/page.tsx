@@ -141,14 +141,14 @@ export default function Home() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
               {recentProjects.map((project) => (
                 <article key={project.id} className="card overflow-hidden">
-                  {project.type === "before-after" && project.beforeImage && project.afterImage ? (
+                  {project.type === "before-after" ? (
                     <CompareFigure
                       before={project.beforeImage.src}
                       after={project.afterImage.src}
                       altBefore={project.beforeImage.alt}
                       altAfter={project.afterImage.alt}
                     />
-                  ) : project.image ? (
+                  ) : (
                     <div className="relative w-full aspect-[16/10]">
                       <Image 
                         src={project.image.src} 
@@ -157,7 +157,7 @@ export default function Home() {
                         className="object-cover" 
                       />
                     </div>
-                  ) : null}
+                  )}
                   <div className="p-4 grid gap-2">
                     <h3 className="font-semibold">{project.title}</h3>
                     <div className="flex flex-wrap gap-2 text-xs text-slate-600">

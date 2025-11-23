@@ -6,10 +6,39 @@
 export const heroImage = {
   src: "/img/hero.webp",
   alt: "Resin‑bound entrance with contrasting border and stone pillars",
-  fallback: "/img/hero.jpg",
 };
 
-export const recentProjects = [
+export type ProjectType = 'before-after' | 'single';
+
+type BaseProject = {
+  id: string;
+  title: string;
+  tags: string[];
+};
+
+type BeforeAfterProject = BaseProject & {
+  type: 'before-after';
+  beforeImage: {
+    src: string;
+    alt: string;
+  };
+  afterImage: {
+    src: string;
+    alt: string;
+  };
+};
+
+type SingleImageProject = BaseProject & {
+  type: 'single';
+  image: {
+    src: string;
+    alt: string;
+  };
+};
+
+export type Project = BeforeAfterProject | SingleImageProject;
+
+export const recentProjects: Project[] = [
   {
     id: "driveway-resurfacing",
     title: "Driveway resurfacing",
