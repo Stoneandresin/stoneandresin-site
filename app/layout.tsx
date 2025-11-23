@@ -1,11 +1,16 @@
 // app/layout.tsx
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import TidioChat from "@/components/TidioChat";
-import { Analytics } from "@vercel/analytics/react";
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.stoneandresin.com"),
@@ -71,13 +76,6 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }}
         />
-        {process.env.NEXT_PUBLIC_TIDIO_KEY && (
-          <Script
-            id="tidio-chat"
-            src={`https://code.tidio.co/${process.env.NEXT_PUBLIC_TIDIO_KEY}.js`}
-            strategy="afterInteractive"
-          />
-        )}
         <Navbar />
         {children}
         <Footer />
