@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function Portfolio(){
   const projects = [
     { title: "Amelia driveway", img: "/placeholder.jpg" },
@@ -11,7 +13,14 @@ export default function Portfolio(){
         <div className="grid md:grid-cols-3 gap-6">
           {projects.map((p, i)=>(
             <figure key={i} className="card overflow-hidden">
-              <img src={p.img} alt={p.title} className="w-full h-48 object-cover" />
+              <Image
+                src={p.img}
+                alt={p.title}
+                width={600}
+                height={400}
+                className="w-full h-48 object-cover"
+                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              />
               <figcaption className="p-4">{p.title}</figcaption>
             </figure>
           ))}
