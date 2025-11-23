@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { track } from '@vercel/analytics';
 import type { MouseEvent } from 'react';
+import { heroImage } from '@/lib/frontPageContent';
 
 type Settings = Record<string, any> | null;
 
@@ -109,8 +110,8 @@ export default function Hero() {
             />
             <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl">
               <Image
-                src="/img/hero.webp"
-                alt="Resin‑bound entrance with contrasting border and stone pillars"
+                src={heroImage.src}
+                alt={heroImage.alt}
                 fill
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, 50vw"
