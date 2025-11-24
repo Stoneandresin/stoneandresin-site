@@ -1,5 +1,6 @@
 // app/gallery/page.tsx
 import { BeforeAfter } from "@/components/BeforeAfter";
+import Testimonials from "@/components/Testimonials";
 
 export const metadata = {
   title: "Project Gallery | Resin-Bound Installations",
@@ -62,6 +63,19 @@ export default async function Page() {
           </div>
         ))}
       </div>
+      
+      <Testimonials />
+      
+      <section className="mt-12 text-center">
+        <h2 className="text-2xl font-bold mb-4">Ready to transform your space?</h2>
+        <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
+          Get your instant estimate or book a free on-site consultation to discuss your project.
+        </p>
+        <div className="flex flex-wrap gap-4 justify-center">
+          <a href="/pricing" className="btn-accent">Get Instant Estimate</a>
+          <a href="/contact" className="btn">Request Site Visit</a>
+        </div>
+      </section>
     </main>
   );
 }

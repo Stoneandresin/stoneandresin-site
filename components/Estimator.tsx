@@ -344,8 +344,9 @@ export default function Estimator() {
 
         {/* Contact Fields */}
         <div>
-          <label className="label">Full name</label>
+          <label className="label" htmlFor="name-input">Full name</label>
           <input 
+            id="name-input"
             className={`input ${errors.name ? 'border-red-500' : ''}`}
             value={name} 
             onChange={(e: ChangeEvent<HTMLInputElement>) => {
@@ -368,8 +369,9 @@ export default function Estimator() {
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
-            <label className="label">Email</label>
+            <label className="label" htmlFor="email-input">Email</label>
             <input 
+              id="email-input"
               className={`input ${errors.email ? 'border-red-500' : ''}`}
               type="email" 
               value={email} 
@@ -391,8 +393,9 @@ export default function Estimator() {
             )}
           </div>
           <div>
-            <label className="label">Phone</label>
+            <label className="label" htmlFor="phone-input">Phone</label>
             <input 
+              id="phone-input"
               className={`input ${errors.phone ? 'border-red-500' : ''}`}
               type="tel" 
               value={phone} 
@@ -416,8 +419,9 @@ export default function Estimator() {
         </div>
 
         <div>
-          <label className="label">ZIP code</label>
+          <label className="label" htmlFor="zip-input">ZIP code</label>
           <input 
+            id="zip-input"
             className={`input ${errors.zip ? 'border-red-500' : ''}`}
             inputMode="numeric" 
             pattern="[0-9]*" 
