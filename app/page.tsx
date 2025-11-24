@@ -95,7 +95,7 @@ export default function Home() {
                 See a blend you love?
               </p>
               <a href="/contact" className="btn-accent inline-flex items-center gap-2">
-                <span>Request Sample &amp; Site Visit</span>
+                <span>Request Sample & Site Visit</span>
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>

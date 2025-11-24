@@ -16,15 +16,17 @@ export default function RevealOnScroll({ children, className = "", delayMs = 0 }
     const node = ref.current
     if (!node) return
 
+    let timeoutId: NodeJS.Timeout | undefined
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             if (delayMs > 0) {
-              const timeout = setTimeout(() => setVisible(true), delayMs)
-              return () => clearTimeout(timeout)
+              timeoutId = setTimeout(() => setVisible(true), delayMs)
+            } else {
+              setVisible(true)
             }
-            setVisible(true)
           }
         })
       },
@@ -32,7 +34,10 @@ export default function RevealOnScroll({ children, className = "", delayMs = 0 }
     )
 
     observer.observe(node)
-    return () => observer.disconnect()
+    return () => {
+      observer.disconnect()
+      if (timeoutId) clearTimeout(timeoutId)
+    }
   }, [delayMs])
 
   return (
