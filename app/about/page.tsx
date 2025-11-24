@@ -31,6 +31,33 @@ export default function AboutPage(){
         </div>
       </section>
       
+      <section className="container py-12">
+        <div className="surface-light rounded-2xl p-8 md:p-10 max-w-4xl mx-auto">
+          <div className="text-center mb-8">
+            <h2 className="text-2xl md:text-3xl font-extrabold mb-3">
+              Ready to start your project?
+            </h2>
+            <p className="text-slate-600">
+              Get an instant estimate or schedule your free on-site consultation
+            </p>
+          </div>
+          <div className="flex flex-wrap gap-4 justify-center">
+            <a href="/pricing" className="btn-accent inline-flex items-center gap-2">
+              Get Free Quote
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </a>
+            <a href="/contact" className="btn inline-flex items-center">
+              Request Site Visit
+            </a>
+            <a href="/gallery" className="btn-outline inline-flex items-center">
+              View Projects
+            </a>
+          </div>
+        </div>
+      </section>
+      
     </main>
   )
 }
