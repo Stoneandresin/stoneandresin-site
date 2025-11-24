@@ -38,7 +38,7 @@ export default function ResourceDownload({ resourceTitle, pdfUrl, slug }: Resour
         }),
       })
 
-      const data: any = await res.json().catch(() => ({}))
+      const data = await res.json().catch(() => ({ ok: false, error: 'Invalid response' }))
       if (!res.ok || data?.ok === false) {
         const msg = data?.error ? String(data.error) : `Request failed (${res.status})`
         throw new Error(msg)
@@ -46,26 +46,18 @@ export default function ResourceDownload({ resourceTitle, pdfUrl, slug }: Resour
       
       // Track conversion
       if (typeof window !== 'undefined') {
-        const w = window as any
-        if (w.gtag) {
-          w.gtag('event', 'resource_download', {
+        if (typeof (window as any).gtag === 'function') {
+          (window as any).gtag('event', 'resource_download', {
             event_category: 'Lead Generation',
             event_label: slug,
           })
         }
-        if (w.va?.track) {
-          w.va.track('resource_download', { resource: slug })
+        if (typeof (window as any).va?.track === 'function') {
+          (window as any).va.track('resource_download', { resource: slug })
         }
       }
       
       setStatus('sent')
-      
-      // Trigger download after a brief delay
-      setTimeout(() => {
-        // For now, since we don't have actual PDFs, we'll show a message
-        // In production, this would trigger the actual PDF download
-        // window.open(pdfUrl, '_blank')
-      }, 500)
     } catch (err: unknown) {
       console.error(err)
       const msg = err instanceof Error ? err.message : 'Unknown error'
