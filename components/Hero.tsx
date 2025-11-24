@@ -71,8 +71,8 @@ export default function Hero() {
             </a>
             <a
               href="/learn"
-              className="inline-flex items-center justify-center rounded-full px-5 py-2.5 font-semibold !bg-black !text-white !border !border-black shadow-lg shadow-black/40 hover:!bg-neutral-900 transition"
-              data-style="how-it-works-black"
+              className="btn-outline"
+              data-style="how-it-works-outline"
             >
               How it works
             </a>
