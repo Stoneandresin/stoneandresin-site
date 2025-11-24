@@ -1,6 +1,23 @@
 // app/gallery/page.tsx
 import { BeforeAfter } from "@/components/BeforeAfter";
 
+export const metadata = {
+  title: "Project Gallery | Resin-Bound Installations",
+  description: "Browse our resin-bound driveway, patio, and pool deck installations in Cincinnati and Amelia, OH. Before & after photos of Vuba system installs with UV-stable finishes.",
+  openGraph: {
+    title: "Resin-Bound Project Gallery | Stone & Resin",
+    description: "See real before & after photos of our resin-bound installations across Greater Cincinnati. UV-stable, permeable surfaces that last.",
+    type: "website",
+    images: ["/gallery/driveway-cincy-after.jpg"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Project Gallery | Stone & Resin",
+    description: "Browse before & after photos of resin-bound installations in Cincinnati, OH.",
+    images: ["/gallery/driveway-cincy-after.jpg"],
+  }
+};
+
 type Pair = {
   jobId: string;
   before: string[];

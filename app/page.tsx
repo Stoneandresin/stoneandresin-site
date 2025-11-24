@@ -139,12 +139,20 @@ export default function Home() {
             <h2 className="text-2xl font-bold mb-4">Recent projects</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
               <article className="card overflow-hidden">
-                <CompareFigure
-                  before="/gallery/driveway-cincy-before.jpg"
-                  after="/gallery/driveway-cincy-after-2.jpg"
-                  altBefore="Before: driveway prepped with reinforcement grid"
-                  altAfter="After: resin‑bound driveway—finished surface at garage"
-                />
+                <div className="relative">
+                  <CompareFigure
+                    before="/gallery/driveway-cincy-before.jpg"
+                    after="/gallery/driveway-cincy-after-2.jpg"
+                    altBefore="Before: driveway prepped with reinforcement grid"
+                    altAfter="After: resin‑bound driveway—finished surface at garage"
+                  />
+                  <span className="absolute top-3 left-3 z-10 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-green-600 text-white text-xs font-semibold shadow-lg">
+                    <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clipRule="evenodd" />
+                    </svg>
+                    Our Install
+                  </span>
+                </div>
                 <div className="p-4 grid gap-2">
                   <h3 className="font-semibold">Driveway resurfacing</h3>
                   <div className="flex flex-wrap gap-2 text-xs text-slate-600">
@@ -159,6 +167,12 @@ export default function Home() {
               <article className="card overflow-hidden">
                 <div className="relative w-full aspect-[16/10]">
                   <Image src="/gallery/driveway-cincy-after.jpg" alt="Resin‑bound driveway with clean edge and tape‑off" fill className="object-cover" />
+                  <span className="absolute top-3 left-3 z-10 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-green-600 text-white text-xs font-semibold shadow-lg">
+                    <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clipRule="evenodd" />
+                    </svg>
+                    Our Install
+                  </span>
                 </div>
                 <div className="p-4 grid gap-2">
                   <h3 className="font-semibold">Finished edge (tape‑off)</h3>
@@ -173,6 +187,12 @@ export default function Home() {
               <article className="card overflow-hidden">
                 <div className="relative w-full aspect-[16/10]">
                   <Image src="/gallery/driveway-cincy-detail.jpg" alt="Resin‑bound surface detail—aggregate texture" fill className="object-cover" />
+                  <span className="absolute top-3 left-3 z-10 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-green-600 text-white text-xs font-semibold shadow-lg">
+                    <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clipRule="evenodd" />
+                    </svg>
+                    Our Install
+                  </span>
                 </div>
                 <div className="p-4 grid gap-2">
                   <h3 className="font-semibold">Surface detail</h3>
