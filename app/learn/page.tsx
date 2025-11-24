@@ -4,9 +4,9 @@ export const metadata = { title: "Learn" }
 
 export default function LearnPage(){
   const posts = [
-    { slug: "resin-vs-epoxy", title: "Resin‑Bound vs. Epoxy‑Pebble: What Ohio Homeowners Should Know", summary: "Permeability, UV stability, and where each system fits." },
-    { slug: "permeable-driveways-ohio", title: "Permeable Driveways & Ohio Drainage Basics", summary: "Why permeability matters and how it helps with runoff." },
-    { slug: "maintenance", title: "Maintenance: Keeping Your Surface Looking New", summary: "Simple cleaning tips and seasonal checks." },
+    { slug: "resin-vs-epoxy", title: "Resin‑Bound vs. Epoxy‑Pebble: What Ohio Homeowners Should Know", summary: "Comprehensive comparison of resin-bound and epoxy-pebble systems. Learn about permeability, UV stability, freeze-thaw performance, and which option works best in Ohio's climate." },
+    { slug: "permeable-driveways-ohio", title: "Permeable Driveways & Ohio Drainage Requirements", summary: "Complete guide to permeable driveways in Ohio. Understand local drainage regulations, stormwater management requirements, and how resin-bound surfaces help with runoff and flooding." },
+    { slug: "maintenance", title: "Resin-Bound Surface Maintenance: Keep Your Driveway Looking New", summary: "Detailed maintenance guide for all four seasons. Learn routine cleaning, stain removal, power-washing tips, and how to maintain permeability for 20+ years." },
     { slug: "vuba-vs-competitors", title: "Vuba vs. Competitors: Why We Choose Vuba", summary: "UV stability, tested aggregates, and spec‑driven installs." }
   ]
   return (
