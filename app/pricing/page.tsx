@@ -1,4 +1,5 @@
 import Estimator from "@/components/Estimator";
+import FAQ from "@/components/FAQ";
 
 export const metadata = {
   title: "Pricing & Instant Estimate",
@@ -48,6 +49,8 @@ export default function PricingPage(){
           </div>
         </div>
       </section>
+      
+      <FAQ />
       
     </main>
   )

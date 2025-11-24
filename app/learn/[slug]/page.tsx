@@ -447,7 +447,126 @@ Have questions about maintaining your resin-bound surface? Contact us—we're al
   "vuba-vs-competitors": {
     title: "Vuba vs. Competitors: Why We Choose Vuba Resin-Bound Systems",
     metaDescription: "Why Stone & Resin exclusively uses Vuba resin-bound systems. Compare UV stability, tested aggregates, install specs, and technical support.",
-    body: `Vuba's UV‑stable resins, tested aggregates, and clear install specs deliver consistent results. Their systems are engineered for outdoor performance and backed by strong technical support—one reason we prefer Vuba for driveways, patios, and pool decks.`
+    body: `
+## Why System Selection Matters
+
+When we decided to specialize in resin-bound surfacing for Ohio homeowners, we evaluated multiple manufacturers and systems. After extensive research, hands-on training, and consultation with experienced installers, we chose to exclusively install Vuba resin-bound systems. This wasn't a random choice—it was based on specific, measurable advantages that directly benefit our clients in the Cincinnati and Amelia area.
+
+## What We Looked For in a Resin-Bound System
+
+Before committing to any manufacturer, we established criteria that mattered for long-term success in Ohio's challenging climate:
+
+### Performance Requirements
+- **UV stability**: Resins must maintain clarity and not yellow or amber in outdoor conditions
+- **Permeability**: Systems must provide genuine stormwater drainage, not just surface porosity
+- **Cold weather performance**: Must handle Ohio's freeze-thaw cycles without degradation
+- **Aggregate quality**: Stones must be properly graded, color-stable, and sourced consistently
+
+### Installation & Support
+- **Clear specifications**: Detailed mixing ratios, application techniques, and curing requirements
+- **Training availability**: Hands-on instruction, not just product sheets
+- **Technical support**: Access to experienced staff when site-specific questions arise
+- **Material consistency**: Batch-to-batch reliability in both resin and aggregates
+
+### Business Factors
+- **Warranty backing**: Manufacturer stands behind their products
+- **Supply reliability**: Materials available when we need them
+- **Reputation**: Proven track record with other professional installers
+
+## How Vuba Stands Out
+
+### UV Stability: The Critical Difference
+
+Many resin-bound systems use aromatic resins because they're less expensive. The problem? Aromatic resins yellow and amber when exposed to UV light—sometimes within 1-2 years of installation. You'll see this frequently with lower-cost systems: what starts as a beautiful, clear finish gradually turns an ugly yellow-brown.
+
+**Vuba's advantage**: Aliphatic polyurethane resins specifically engineered for outdoor use. These resins maintain clarity for years, even under direct Ohio sun. While we're not as sunny as Arizona, UV degradation still matters. We've seen competitors' installations that looked great at completion but appeared dingy and yellowed within 18 months. That doesn't happen with Vuba's UV-stable chemistry.
+
+### Aggregate Quality and Consistency
+
+Some manufacturers leave aggregate sourcing to the installer, providing only broad guidelines. This creates problems:
+- Inconsistent color batch to batch
+- Variations in stone size and grading
+- Compatibility issues between resin and aggregates
+- Quality control challenges
+
+**Vuba's advantage**: Pre-tested, graded blends specifically matched to their resin system. When we order Cotswold Gold or Brittany Bronze, we know exactly what we're getting. The aggregates are graded for optimal packing, which affects both strength and appearance. Vuba tests their stone blends for color fastness and compatibility with their resins—work we'd have to do ourselves with other systems.
+
+### Porosity and Drainage Performance
+
+"Permeable" is a marketing term that gets thrown around loosely. Some systems are technically porous but don't drain well in real-world conditions. Others clog quickly due to poor pore structure.
+
+**Vuba's advantage**: Engineered porosity that balances drainage with surface strength. Their resin-to-aggregate ratios are designed to create interconnected voids that drain effectively while maintaining structural integrity. We've installed Vuba surfaces that continue draining well years after installation, even in high-traffic driveways. The system works as designed, not just in the first few months but for decades.
+
+### Installation Specifications and Training
+
+Here's where Vuba really differentiates itself. Many manufacturers provide basic product data sheets and leave the rest to installer experience. Vuba takes a different approach:
+
+**Comprehensive training**: Live, hands-on courses that cover:
+- Proper mixing techniques and ratios
+- Moisture control and weather considerations
+- Edging and detail work
+- Troubleshooting common issues
+- Base preparation requirements
+
+**Clear specifications**: Detailed technical documentation covering:
+- Substrate requirements and preparation
+- Application thickness and techniques
+- Curing times under different conditions
+- When to use specific product variations (VubaFlex, VubaMac, etc.)
+
+**Ongoing support**: When we encounter unusual site conditions or have questions, Vuba's technical team provides real answers from experienced installers, not just script readers.
+
+### System Versatility
+
+Vuba offers a family of products designed for different applications:
+- **Vuba Standard**: The core resin-bound system for most applications
+- **VubaFlex**: Flexible system for surfaces with movement potential
+- **VubaMac**: Macadam-bound system for specific applications
+- **Specialty resins**: Products for unique situations
+
+This means we can match the right system to your project rather than forcing a one-size-fits-all approach.
+
+## What About Other Manufacturers?
+
+We're not claiming other resin-bound systems don't work. Some manufacturers produce quality products. However, they typically fall short in one or more areas that matter to us and our clients:
+
+### Common Competitor Issues
+- **Aromatic resins**: Lower cost but yellowing is inevitable
+- **Inconsistent aggregates**: Color and quality vary by batch or source
+- **Limited support**: Basic technical info but not comprehensive training
+- **Vague specifications**: Broad guidelines that leave too much to interpretation
+- **DIY-focused**: Products marketed for homeowner installation, not professional standards
+
+## The Bottom Line for Ohio Homeowners
+
+When you hire us to install a resin-bound driveway, patio, or pool deck, you're getting:
+1. **UV-stable materials** that won't yellow or degrade in Ohio's sun
+2. **Proven drainage performance** that handles our heavy rainfall and freeze-thaw cycles
+3. **Consistent quality** from a manufacturer with rigorous product standards
+4. **Professional installation** by installers trained on the specific system
+5. **Long-term reliability** backed by both manufacturer and installer warranties
+
+The difference between a mediocre resin-bound surface and an excellent one often comes down to the system and materials used. We chose Vuba because they give us—and you—the best chance for a surface that performs beautifully for 20+ years.
+
+## Making the Right Choice
+
+If you're comparing quotes from different installers, ask these questions:
+- What resin system do you use? (Brand name, not just "resin-bound")
+- Are the resins aliphatic or aromatic? (UV stability depends on this)
+- Where do you source your aggregates?
+- What training have you completed on the system?
+- Can you show me installs from 3-5 years ago? (Recent is easy; aged installs reveal quality)
+
+A lower-cost installation using inferior materials or inconsistent aggregates will cost more in the long run through premature yellowing, drainage failure, or surface degradation.
+
+## Our Commitment
+
+We stand behind Vuba systems because we've done the homework. We've attended their training, studied their specifications, consulted with long-time installers, and examined aged installations. The results speak for themselves: durable, beautiful, functional surfaces that stay that way.
+
+When you choose Stone & Resin, you're getting more than just installation labor—you're getting our commitment to using proven, professional-grade materials designed specifically for outdoor performance in climates like Ohio's.
+
+Ready to discuss your project? We'll help you choose the right Vuba system and aggregate blend for your specific needs, site conditions, and aesthetic preferences.
+    `
   }
 }
 

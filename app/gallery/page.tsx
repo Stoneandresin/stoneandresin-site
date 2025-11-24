@@ -1,5 +1,23 @@
 // app/gallery/page.tsx
 import { BeforeAfter } from "@/components/BeforeAfter";
+import Testimonials from "@/components/Testimonials";
+
+export const metadata = {
+  title: "Project Gallery | Resin-Bound Installations",
+  description: "Browse our resin-bound driveway, patio, and pool deck installations in Cincinnati and Amelia, OH. Before & after photos of Vuba system installs with UV-stable finishes.",
+  openGraph: {
+    title: "Resin-Bound Project Gallery | Stone & Resin",
+    description: "See real before & after photos of our resin-bound installations across Greater Cincinnati. UV-stable, permeable surfaces that last.",
+    type: "website",
+    images: ["/gallery/driveway-cincy-after.jpg"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Project Gallery | Stone & Resin",
+    description: "Browse before & after photos of resin-bound installations in Cincinnati, OH.",
+    images: ["/gallery/driveway-cincy-after.jpg"],
+  }
+};
 
 type Pair = {
   jobId: string;
@@ -45,6 +63,19 @@ export default async function Page() {
           </div>
         ))}
       </div>
+      
+      <Testimonials />
+      
+      <section className="mt-12 text-center">
+        <h2 className="text-2xl font-bold mb-4">Ready to transform your space?</h2>
+        <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
+          Get your instant estimate or book a free on-site consultation to discuss your project.
+        </p>
+        <div className="flex flex-wrap gap-4 justify-center">
+          <a href="/pricing" className="btn-accent">Get Instant Estimate</a>
+          <a href="/contact" className="btn">Request Site Visit</a>
+        </div>
+      </section>
     </main>
   );
 }
