@@ -11,19 +11,18 @@ type RevealOnScrollProps = {
 export default function RevealOnScroll({ children, className = "", delayMs = 0 }: RevealOnScrollProps) {
   const ref = useRef<HTMLDivElement | null>(null)
   const [visible, setVisible] = useState(false)
+  const timeoutRef = useRef<NodeJS.Timeout>()
 
   useEffect(() => {
     const node = ref.current
     if (!node) return
-
-    let timeoutId: NodeJS.Timeout | undefined
 
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             if (delayMs > 0) {
-              timeoutId = setTimeout(() => setVisible(true), delayMs)
+              timeoutRef.current = setTimeout(() => setVisible(true), delayMs)
             } else {
               setVisible(true)
             }
@@ -36,7 +35,7 @@ export default function RevealOnScroll({ children, className = "", delayMs = 0 }
     observer.observe(node)
     return () => {
       observer.disconnect()
-      if (timeoutId) clearTimeout(timeoutId)
+      if (timeoutRef.current) clearTimeout(timeoutRef.current)
     }
   }, [delayMs])
 
@@ -45,7 +44,7 @@ export default function RevealOnScroll({ children, className = "", delayMs = 0 }
       ref={ref}
       className={[
         // Stronger, but still smooth
-        "transform-gpu transition-all duration-900 ease-out will-change-transform",
+        "transform-gpu transition-[opacity,transform] duration-900 ease-out will-change-transform",
         visible
           ? "opacity-100 scale-100 translate-y-0"
           : "opacity-0 scale-[0.94] translate-y-4",
