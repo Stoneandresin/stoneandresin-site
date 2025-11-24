@@ -2,6 +2,7 @@
 export const dynamic = 'force-dynamic';
 
 import Hero from "@/components/Hero";
+import RevealOnScroll from "@/components/RevealOnScroll";
 import ColorsSlider from "@/components/ColorsSlider";
 import Image from "next/image";
 import Estimator from "@/components/Estimator";
@@ -85,23 +86,25 @@ export default function Home() {
         </section>
 
         {/* Vuba blends carousel — right under hero */}
-        <section className="container py-12">
-          <h2 className="text-2xl font-bold mb-4">Choose your Vuba blend</h2>
-          <ColorsSlider showHeading={false} className="py-0" />
-          <div className="mt-6 flex flex-wrap gap-4 items-center">
-            <p className="text-sm text-gray-600">
-              See a blend you love?
-            </p>
-            <a href="/contact" className="btn-accent inline-flex items-center gap-2">
-              <span>Request Sample & Site Visit</span>
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
-            </a>
-            <a href="/colors" className="btn-outline inline-flex items-center">
-              View All Colors
-            </a>
-          </div>
+        <section className="container py-12 relative overflow-hidden">
+          <RevealOnScroll className="origin-top">
+            <h2 className="text-2xl font-bold mb-4">Choose your Vuba blend</h2>
+            <ColorsSlider showHeading={false} className="py-0" />
+            <div className="mt-6 flex flex-wrap gap-4 items-center">
+              <p className="text-sm text-gray-600">
+                See a blend you love?
+              </p>
+              <a href="/contact" className="btn-accent inline-flex items-center gap-2">
+                <span>Request Sample &amp; Site Visit</span>
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </a>
+              <a href="/colors" className="btn-outline inline-flex items-center">
+                View All Colors
+              </a>
+            </div>
+          </RevealOnScroll>
         </section>
 
         {/* Why resin-bound section */}

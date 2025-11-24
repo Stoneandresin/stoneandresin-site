@@ -1,50 +1,55 @@
-'use client'
+"use client"
 
-import React, { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState, type ReactNode } from "react"
 
 type RevealOnScrollProps = {
-  children: React.ReactNode
+  children: ReactNode
   className?: string
-  threshold?: number
-  once?: boolean
   delayMs?: number
 }
 
-export default function RevealOnScroll({
-  children,
-  className = '',
-  threshold = 0.15,
-  once = true,
-  delayMs = 0,
-}: RevealOnScrollProps) {
+export default function RevealOnScroll({ children, className = "", delayMs = 0 }: RevealOnScrollProps) {
   const ref = useRef<HTMLDivElement | null>(null)
+  const [visible, setVisible] = useState(false)
 
   useEffect(() => {
-    const el = ref.current
-    if (!el || typeof IntersectionObserver === 'undefined') return
+    const node = ref.current
+    if (!node) return
+
     const observer = new IntersectionObserver(
-      entries => {
-        entries.forEach(entry => {
+      (entries) => {
+        entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            el.classList.add('is-inview')
-            if (once) observer.unobserve(entry.target)
-          } else if (!once) {
-            el.classList.remove('is-inview')
+            if (delayMs > 0) {
+              const timeout = setTimeout(() => setVisible(true), delayMs)
+              return () => clearTimeout(timeout)
+            }
+            setVisible(true)
           }
         })
       },
-      { threshold }
+      { threshold: 0.15 }
     )
-    observer.observe(el)
+
+    observer.observe(node)
     return () => observer.disconnect()
-  }, [threshold, once])
+  }, [delayMs])
 
   return (
     <div
       ref={ref}
-      className={`reveal ${className}`}
-      style={{ transitionDelay: delayMs ? `${delayMs}ms` : undefined }}
+      className={[
+        // Stronger, but still smooth
+        "transform-gpu transition-all duration-900 ease-out will-change-transform",
+        visible
+          ? "opacity-100 scale-100 translate-y-0"
+          : "opacity-0 scale-[0.94] translate-y-4",
+        className,
+      ]
+        .filter(Boolean)
+        .join(" ")}
     >
       {children}
     </div>
-  )}
+  )
+}
