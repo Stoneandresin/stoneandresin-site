@@ -1,6 +1,7 @@
 // components/BeforeAfter.tsx
 "use client";
 import { useRef, useState } from "react";
+import Image from "next/image";
 
 export function BeforeAfter({
   beforeSrc,
@@ -33,19 +34,23 @@ export function BeforeAfter({
       onMouseMove={(e) => setFromEvent(e.clientX)}
       onTouchMove={(e) => setFromEvent(e.touches[0].clientX)}
     >
-      <img
+      <Image
         src={afterSrc}
         alt={alt || "after"}
-        className="absolute inset-0 h-full w-full object-cover"
+        fill
+        className="object-cover"
+        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
       />
       <div
         className="absolute inset-0 overflow-hidden"
         style={{ width: `${pos}%` }}
       >
-        <img
+        <Image
           src={beforeSrc}
           alt={alt || "before"}
-          className="h-full w-full object-cover"
+          fill
+          className="object-cover"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
       </div>
       <div
