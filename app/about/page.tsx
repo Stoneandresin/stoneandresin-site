@@ -1,4 +1,18 @@
-export const metadata = { title: "About" }
+export const metadata = { 
+  title: "About Stone & Resin",
+  description: "Family-run resin-bound surface contractor in Amelia, OH. Vuba certified installer serving Greater Cincinnati with permeable, UV-stable driveways, patios, and pool decks.",
+  openGraph: {
+    title: "About Stone & Resin | Local Ohio Resin-Bound Contractor",
+    description: "Amelia-based, family-run contractor specializing in Vuba resin-bound systems. Serving Cincinnati with craftsmanship and accountability.",
+    type: "website",
+    images: ["/placeholder.jpg"],
+  },
+  twitter: {
+    card: "summary",
+    title: "About Stone & Resin",
+    description: "Ohio's trusted Vuba resin-bound installer serving Greater Cincinnati.",
+  }
+}
 
 export default function AboutPage(){
   return (

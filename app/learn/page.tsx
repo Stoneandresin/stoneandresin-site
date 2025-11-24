@@ -1,6 +1,20 @@
 import Link from "next/link"
 
-export const metadata = { title: "Learn" }
+export const metadata = { 
+  title: "Learn About Resin-Bound Surfaces",
+  description: "Expert guides on resin-bound driveways for Ohio homeowners. Learn about permeability, drainage regulations, maintenance, and UV-stable systems from Vuba certified installers.",
+  openGraph: {
+    title: "Resin-Bound Surface Guides | Stone & Resin",
+    description: "Comprehensive guides on resin-bound vs epoxy, Ohio drainage requirements, maintenance tips, and more.",
+    type: "website",
+    images: ["/placeholder.jpg"],
+  },
+  twitter: {
+    card: "summary",
+    title: "Resin-Bound Guides | Stone & Resin",
+    description: "Expert advice for Ohio homeowners considering resin-bound surfaces.",
+  }
+}
 
 export default function LearnPage(){
   const posts = [
