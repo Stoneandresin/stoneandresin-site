@@ -7,6 +7,7 @@ import ColorsSlider from "@/components/ColorsSlider";
 import Image from "next/image";
 import Estimator from "@/components/Estimator";
 import { useState } from "react";
+import { recentProjects, certificateImage } from "@/lib/frontPageContent";
 
 function CompareFigure({ before, after, altBefore, altAfter }: { before: string; after: string; altBefore: string; altAfter: string }) {
   const [pos, setPos] = useState(50);
@@ -155,6 +156,40 @@ export default function Home() {
           <div className="container mx-auto px-4">
             <h2 className="text-2xl font-bold mb-4">Recent projects</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+copilot/update-front-page-photos
+              {recentProjects.map((project) => (
+                <article key={project.id} className="card overflow-hidden">
+                  {project.type === "before-after" ? (
+                    <CompareFigure
+                      before={project.beforeImage.src}
+                      after={project.afterImage.src}
+                      altBefore={project.beforeImage.alt}
+                      altAfter={project.afterImage.alt}
+                    />
+                  ) : (
+                    <div className="relative w-full aspect-[16/10]">
+                      <Image 
+                        src={project.image.src} 
+                        alt={project.image.alt} 
+                        fill 
+                        className="object-cover" 
+                      />
+                    </div>
+                  )}
+                  <div className="p-4 grid gap-2">
+                    <h3 className="font-semibold">{project.title}</h3>
+                    <div className="flex flex-wrap gap-2 text-xs text-slate-600">
+                      {project.tags.map((tag, idx) => (
+                        <span key={idx} className="px-2 py-1 rounded-full bg-slate-100 border border-slate-200">
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                    <a href="/contact" className="btn-accent w-full justify-center">Book on‑site quote</a>
+                  </div>
+                </article>
+              ))}
+
               <article className="card overflow-hidden">
                 <div className="relative">
                   <CompareFigure
@@ -220,6 +255,7 @@ export default function Home() {
                   <a href="/contact" className="btn-accent w-full justify-center">Book on‑site quote</a>
                 </div>
               </article>
+ main
             </div>
           </div>
         </section>
@@ -278,10 +314,10 @@ export default function Home() {
 
           <section className="mt-8 flex justify-center">
             <Image
-              src="/AAC1A118-5584-4B37-9504-1F0C01C4B1D1.jpg"
-              alt="Vuba Stone Certified Installer badge"
-              width={300}
-              height={450}
+              src={certificateImage.src}
+              alt={certificateImage.alt}
+              width={certificateImage.width}
+              height={certificateImage.height}
               className="rounded-md shadow"
             />
           </section>
