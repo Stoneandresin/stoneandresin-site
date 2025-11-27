@@ -173,47 +173,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Recent Projects */}
-        <section className="py-20 bg-white">
-          <div className="container mx-auto px-4">
-            <h2 className="text-3xl md:text-4xl font-serif text-slate-900 mb-12 text-center">Recent Transformations</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              <article className="group cursor-pointer">
-                <CompareFigure
-                  before="/gallery/driveway-cincy-before.jpg"
-                  after="/gallery/driveway-cincy-after-2.jpg"
-                  altBefore="Before: driveway prepped with reinforcement grid"
-                  altAfter="After: resin‑bound driveway—finished surface at garage"
-                />
-                <div className="mt-4">
-                  <h3 className="text-xl font-medium text-slate-900 group-hover:text-cyan-600 transition-colors">Driveway Resurfacing</h3>
-                  <p className="text-sm text-slate-500 mt-1">Cincinnati, OH • Grey Mix</p>
-                </div>
-              </article>
-
-              <article className="group cursor-pointer">
-                <div className="relative w-full aspect-[16/10] rounded-xl overflow-hidden">
-                  <Image src="/gallery/driveway-cincy-after.jpg" alt="Resin‑bound driveway with clean edge and tape‑off" fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
-                </div>
-                <div className="mt-4">
-                  <h3 className="text-xl font-medium text-slate-900 group-hover:text-cyan-600 transition-colors">Precision Edging</h3>
-                  <p className="text-sm text-slate-500 mt-1">Cincinnati, OH • Detail Work</p>
-                </div>
-              </article>
-
-              <article className="group cursor-pointer">
-                <div className="relative w-full aspect-[16/10] rounded-xl overflow-hidden">
-                  <Image src="/gallery/driveway-cincy-detail.jpg" alt="Resin‑bound surface detail—aggregate texture" fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
-                </div>
-                <div className="mt-4">
-                  <h3 className="text-xl font-medium text-slate-900 group-hover:text-cyan-600 transition-colors">Surface Texture</h3>
-                  <p className="text-sm text-slate-500 mt-1">Macro View • Permeable System</p>
-                </div>
-              </article>
-            </div>
-          </div>
-        </section>
-
         {/* Estimator Section */}
         <section id="estimate" className="py-20 bg-slate-900 scroll-mt-24">
           <div className="container mx-auto px-4">
@@ -261,6 +220,47 @@ export default function Home() {
               <div>
                 <Estimator />
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Recent Projects */}
+        <section className="py-20 bg-white">
+          <div className="container mx-auto px-4">
+            <h2 className="text-3xl md:text-4xl font-serif text-slate-900 mb-12 text-center">Recent Transformations</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              <article className="group cursor-pointer">
+                <CompareFigure
+                  before="/gallery/driveway-cincy-before.jpg"
+                  after="/gallery/driveway-cincy-after-2.jpg"
+                  altBefore="Before: driveway prepped with reinforcement grid"
+                  altAfter="After: resin‑bound driveway—finished surface at garage"
+                />
+                <div className="mt-4">
+                  <h3 className="text-xl font-medium text-slate-900 group-hover:text-cyan-600 transition-colors">Driveway Resurfacing</h3>
+                  <p className="text-sm text-slate-500 mt-1">Cincinnati, OH • Grey Mix</p>
+                </div>
+              </article>
+
+              <article className="group cursor-pointer">
+                <div className="relative w-full aspect-[16/10] rounded-xl overflow-hidden">
+                  <Image src="/gallery/driveway-cincy-after.jpg" alt="Resin‑bound driveway with clean edge and tape‑off" fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
+                </div>
+                <div className="mt-4">
+                  <h3 className="text-xl font-medium text-slate-900 group-hover:text-cyan-600 transition-colors">Precision Edging</h3>
+                  <p className="text-sm text-slate-500 mt-1">Cincinnati, OH • Detail Work</p>
+                </div>
+              </article>
+
+              <article className="group cursor-pointer">
+                <div className="relative w-full aspect-[16/10] rounded-xl overflow-hidden">
+                  <Image src="/gallery/driveway-cincy-detail.jpg" alt="Resin‑bound surface detail—aggregate texture" fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
+                </div>
+                <div className="mt-4">
+                  <h3 className="text-xl font-medium text-slate-900 group-hover:text-cyan-600 transition-colors">Surface Texture</h3>
+                  <p className="text-sm text-slate-500 mt-1">Macro View • Permeable System</p>
+                </div>
+              </article>
             </div>
           </div>
         </section>
