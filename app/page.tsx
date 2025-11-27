@@ -6,33 +6,7 @@ import ColorsSlider from "@/components/ColorsSlider";
 import Image from "next/image";
 import Estimator from "@/components/Estimator";
 import RevealOnScroll from "@/components/RevealOnScroll";
-import { useState } from "react";
-
-function CompareFigure({ before, after, altBefore, altAfter }: { before: string; after: string; altBefore: string; altAfter: string }) {
-  const [pos, setPos] = useState(50);
-  return (
-    <figure className="relative border border-slate-200 rounded-xl overflow-hidden">
-      <div className="relative w-full aspect-[16/10]" style={{ ['--pos' as any]: `${pos}%` }}>
-        <Image src={before} alt={altBefore} fill className="object-cover" />
-        <Image src={after} alt={altAfter} fill className="object-cover" style={{ clipPath: `polygon(0 0, ${pos}% 0, ${pos}% 100%, 0 100%)` }} />
-        <span className="absolute top-2 left-2 z-10 text-xs font-semibold px-2 py-1 rounded-full bg-white/80 border border-slate-200">Before</span>
-        <span className="absolute top-2 right-2 z-10 text-xs font-semibold px-2 py-1 rounded-full bg-white/80 border border-slate-200">After</span>
-        <input
-          type="range"
-          min={0}
-          max={100}
-          value={pos}
-          aria-label="Slide to compare before and after"
-          onChange={(e) => setPos(parseInt(e.target.value, 10))}
-          className="absolute inset-0 z-20 w-full h-full opacity-0 cursor-ew-resize"
-        />
-        <div className="absolute top-1/2 left-[var(--pos)] -translate-x-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full bg-white border border-slate-300 text-slate-800 flex items-center justify-center text-sm font-bold select-none pointer-events-none">
-          ↔
-        </div>
-      </div>
-    </figure>
-  );
-}
+import RecentProjects from "@/components/RecentProjects";
 
 export default function Home() {
   return (
@@ -171,51 +145,7 @@ export default function Home() {
 
 
         {/* Recent Projects */}
-        <section className="py-20 bg-white">
-          <div className="container mx-auto px-4">
-            <h2 className="text-3xl md:text-4xl font-serif text-slate-900 mb-12 text-center">Recent Transformations</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              <RevealOnScroll className="reveal-slide-up">
-                <article className="group cursor-pointer">
-                  <CompareFigure
-                    before="/gallery/driveway-cincy-before.jpg"
-                    after="/gallery/driveway-cincy-after-2.jpg"
-                    altBefore="Before: driveway prepped with reinforcement grid"
-                    altAfter="After: resin‑bound driveway—finished surface at garage"
-                  />
-                  <div className="mt-4">
-                    <h3 className="text-xl font-medium text-slate-900 group-hover:text-cyan-600 transition-colors">Driveway Resurfacing</h3>
-                    <p className="text-sm text-slate-500 mt-1">Cincinnati, OH • Grey Mix</p>
-                  </div>
-                </article>
-              </RevealOnScroll>
-
-              <RevealOnScroll className="reveal-slide-up" delayMs={100}>
-                <article className="group cursor-pointer">
-                  <div className="relative w-full aspect-[16/10] rounded-xl overflow-hidden">
-                    <Image src="/gallery/driveway-cincy-after.jpg" alt="Resin‑bound driveway with clean edge and tape‑off" fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
-                  </div>
-                  <div className="mt-4">
-                    <h3 className="text-xl font-medium text-slate-900 group-hover:text-cyan-600 transition-colors">Precision Edging</h3>
-                    <p className="text-sm text-slate-500 mt-1">Cincinnati, OH • Detail Work</p>
-                  </div>
-                </article>
-              </RevealOnScroll>
-
-              <RevealOnScroll className="reveal-slide-up" delayMs={200}>
-                <article className="group cursor-pointer">
-                  <div className="relative w-full aspect-[16/10] rounded-xl overflow-hidden">
-                    <Image src="/gallery/driveway-cincy-detail.jpg" alt="Resin‑bound surface detail—aggregate texture" fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
-                  </div>
-                  <div className="mt-4">
-                    <h3 className="text-xl font-medium text-slate-900 group-hover:text-cyan-600 transition-colors">Surface Texture</h3>
-                    <p className="text-sm text-slate-500 mt-1">Macro View • Permeable System</p>
-                  </div>
-                </article>
-              </RevealOnScroll>
-            </div>
-          </div>
-        </section>
+        <RecentProjects />
       </main>
     </>
   );
