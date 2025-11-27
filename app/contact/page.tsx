@@ -4,8 +4,19 @@ import ContactForm from "./ContactForm";
 
 // Metadata for the contact page.
 export const metadata = {
-  title: "Contact",
-  description: "Book your on-site quote or ask a question.",
+  title: "Contact Stone & Resin",
+  description: "Book your free on-site quote for resin-bound surfaces in Cincinnati & Amelia, OH. Call 513-787-8798 or request a callback. Fast response guaranteed.",
+  openGraph: {
+    title: "Contact Stone & Resin | Free On-Site Quotes",
+    description: "Book your free site visit for resin-bound driveways, patios, or pool decks. Serving Greater Cincinnati.",
+    type: "website",
+    images: ["/placeholder.jpg"],
+  },
+  twitter: {
+    card: "summary",
+    title: "Contact Stone & Resin",
+    description: "Call 513-787-8798 or request your free on-site quote today.",
+  }
 };
 
 export default function ContactPage() {

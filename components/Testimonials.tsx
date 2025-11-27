@@ -1,8 +1,11 @@
 export default function Testimonials(){
   const items = [
     { name: "M. M., Amelia", text: "Our driveway drains perfectly after storms—and it looks amazing.", rating: 5 },
-{ name: "K. R., Cincinnati", text: "Color hasn't faded through summer sun. Crew was professional.", rating: 5 },
-    { name: "R. D., Anderson", text: "Fast install, zero puddles, and easy cleanup. Worth it.", rating: 5 }
+    { name: "K. R., Cincinnati", text: "Color hasn't faded through summer sun. Crew was professional.", rating: 5 },
+    { name: "R. D., Anderson", text: "Fast install, zero puddles, and easy cleanup. Worth it.", rating: 5 },
+    { name: "J. S., Batavia", text: "We had standing water for years. This resin-bound surface solved it completely. No more ice patches in winter either.", rating: 5 },
+    { name: "L. H., West Chester", text: "The crew explained everything, finished on schedule, and left our property clean. The driveway looks better than we imagined.", rating: 5 },
+    { name: "T. M., Mason", text: "Three years later and it still looks brand new. Best home improvement we've done.", rating: 5 }
   ]
   return (
     <section className="container py-14">

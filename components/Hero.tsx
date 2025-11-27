@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { track } from '@vercel/analytics';
 import type { MouseEvent } from 'react';
+import { heroImage } from '@/lib/frontPageContent';
 
 type Settings = Record<string, any> | null;
 
@@ -70,12 +71,66 @@ export default function Hero() {
               Get an Instant Estimate
             </a>
             <a
+setup/agent-hq-scaffold
               href="/colors"
               className="bg-white/20 hover:bg-white/30 backdrop-blur-md text-white border border-white/40 px-8 py-4 rounded-md font-medium text-lg transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+
+              href="/learn"
+              className="btn-outline"
+              data-style="how-it-works-outline"
+ main
             >
               See color options
             </a>
           </div>
+setup/agent-hq-scaffold
+
+
+          <div className="mt-6 flex flex-wrap items-center gap-4 text-sm copy-muted">
+            <span className="inline-flex items-center gap-1">
+              <span aria-hidden>★</span> 4.9 on Google
+            </span>
+            <span className="h-4 w-px bg-slate-700/60" />
+            <span>10‑year warranty</span>
+            {settings?.badge && (
+              <>
+                <span className="h-4 w-px bg-slate-700/60" />
+                <span>Certified: {settings.badge}</span>
+              </>
+            )}
+          </div>
+        </div>
+
+        <div 
+          className="relative"
+          style={{
+            transform: `translateY(${scrollY * 0.15}px)`,
+            transition: 'transform 0.1s ease-out'
+          }}
+        >
+          <div className="relative rounded-2xl border border-white/10 bg-white/5 p-2 overflow-hidden">
+            <div 
+              className="absolute -inset-12 -z-10 bg-gradient-to-tr from-cyan-500/15 via-sky-400/10 to-transparent blur-2xl"
+              style={{
+                transform: `translateY(${scrollY * -0.1}px) scale(${1 + scrollY * 0.0005})`,
+              }}
+            />
+            <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl">
+              <Image
+                src={heroImage.src}
+                alt={heroImage.alt}
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
+                priority
+                style={{
+                  transform: `scale(${1 + scrollY * 0.0003})`,
+                  transition: 'transform 0.1s ease-out'
+                }}
+              />
+            </div>
+          </div>
+ main
         </div>
       </div>
     </section>

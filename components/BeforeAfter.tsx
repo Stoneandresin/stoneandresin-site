@@ -36,16 +36,24 @@ export function BeforeAfter({
     >
       <Image
         src={afterSrc}
+ setup/agent-hq-scaffold
         alt={alt ? `${alt} after` : "after"}
         fill
         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 75vw, 50vw"
         className="object-cover"
         priority={false}
+
+        alt={alt || "after"}
+        fill
+        className="object-cover"
+        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+ main
       />
       <div
         className="absolute inset-0 overflow-hidden"
         style={{ width: `${pos}%` }}
       >
+ setup/agent-hq-scaffold
         <div className="relative h-full w-full">
           <Image
             src={beforeSrc}
@@ -56,6 +64,15 @@ export function BeforeAfter({
             priority={false}
           />
         </div>
+
+        <Image
+          src={beforeSrc}
+          alt={alt || "before"}
+          fill
+          className="object-cover"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+        />
+ main
       </div>
       <div
         className="pointer-events-none absolute inset-y-0"
