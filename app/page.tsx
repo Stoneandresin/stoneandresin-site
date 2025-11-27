@@ -138,7 +138,9 @@ export default function Home() {
                     </div>
                     <div className="px-2">
                       <div className="mb-4 flex justify-center text-cyan-400">
-                        <span className="text-xl font-bold">$93<br/>$53</span>
+                        <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                        </svg>
                       </div>
                       <h3 className="text-lg font-medium mb-2">High-End Look</h3>
                       <p className="text-xs text-slate-400 leading-relaxed">
