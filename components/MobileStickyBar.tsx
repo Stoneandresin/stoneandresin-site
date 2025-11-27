@@ -133,7 +133,7 @@ export default function MobileStickyBar() {
     <nav
       ref={barRef}
       id="sr-mobilebar"
-      className="fixed bottom-0 left-0 right-0 z-50 bg-slate-950/90 backdrop-blur border-t border-slate-800 md:hidden"
+      className="fixed bottom-0 left-0 right-0 z-50 bg-white/90 backdrop-blur border-t border-slate-200 md:hidden shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)]"
       role="region"
       aria-label="Quick actions: Estimate or Call"
       style={{ display: visible ? undefined : 'none' }}
@@ -158,11 +158,11 @@ export default function MobileStickyBar() {
           animation-play-state: paused;
         }
       `}</style>
-      <div className="max-w-[1100px] mx-auto px-3 py-2 pb-[calc(8px+env(safe-area-inset-bottom,0px))]">
-        <div className="grid grid-cols-2 gap-3 items-stretch">
+      <div className="max-w-[1100px] mx-auto px-4 py-3 pb-[calc(12px+env(safe-area-inset-bottom,0px))]">
+        <div className="grid grid-cols-2 gap-4 items-stretch">
           <a
             href="/#estimate"
-            className="inline-flex items-center justify-center gap-2 h-11 font-extrabold no-underline rounded-full border border-cyan-400/20 bg-cyan-500 text-slate-950 hover:bg-cyan-400 transition-colors"
+            className="inline-flex items-center justify-center gap-2 h-12 font-bold no-underline rounded-xl bg-slate-900 text-white hover:bg-slate-800 transition-colors shadow-lg shadow-slate-900/20"
             data-analytics="cta"
             data-action="estimate_click"
             aria-label="Jump to instant estimate"
@@ -175,7 +175,7 @@ export default function MobileStickyBar() {
           </a>
           <a
             href="tel:+15137878798"
-            className="btn-call inline-flex items-center justify-center gap-2 h-11 font-extrabold no-underline rounded-full border border-slate-700 bg-slate-900 text-slate-100 hover:bg-slate-800 transition-colors"
+            className="btn-call inline-flex items-center justify-center gap-2 h-12 font-bold no-underline rounded-xl border border-slate-200 bg-white text-slate-900 hover:bg-slate-50 transition-colors"
             data-analytics="cta"
             data-action="call_click"
             aria-label="Tap to call Stone & Resin"
@@ -190,8 +190,8 @@ export default function MobileStickyBar() {
               style={{
                 position: 'absolute',
                 inset: '-2px',
-                borderRadius: '999px',
-                border: '2px solid rgba(6, 182, 212, 0.6)',
+                borderRadius: '14px',
+                border: '2px solid rgba(15, 23, 42, 0.1)',
                 animation: 'ping-call 2s cubic-bezier(0, 0, 0.2, 1) infinite',
                 pointerEvents: 'none'
               }}
