@@ -92,8 +92,7 @@ export default async function Page() {
                   />
                 </div>
                 <figcaption className="border-t border-slate-100 p-3 text-sm text-slate-600">
-                  <div className="font-medium text-slate-800">{photo.label}</div>
-                  <div className="text-xs uppercase tracking-wide text-slate-400">
+                  <div className="text-xs uppercase tracking-wide text-slate-500 font-bold">
                     {photo.category}
                   </div>
                 </figcaption>
