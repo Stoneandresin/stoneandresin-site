@@ -80,6 +80,28 @@ export default function Home() {
           </div>
         </section>
 
+
+
+        {/* Color Collection */}
+        <section className="py-20 bg-slate-50">
+          <div className="container mx-auto px-4">
+            <div className="text-center max-w-3xl mx-auto mb-12">
+              <h2 className="text-3xl md:text-4xl font-serif text-slate-900 mb-4">
+                Explore Our Collection
+              </h2>
+              <p className="text-slate-600">
+                From natural golden tones to modern greys, find the perfect match for your home's architecture.
+              </p>
+            </div>
+            <ColorsSlider showHeading={false} className="py-0" />
+            <div className="text-center mt-8">
+              <a href="/colors" className="inline-block border-b-2 border-slate-900 text-slate-900 font-medium hover:text-slate-700 hover:border-slate-700 transition-colors">
+                View all 24 blends →
+              </a>
+            </div>
+          </div>
+        </section>
+
         {/* Why resin-bound & Pricing Split Section */}
         <section className="py-20 bg-white">
           <div className="container mx-auto px-4">
@@ -149,26 +171,6 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Color Collection */}
-        <section className="py-20 bg-slate-50">
-          <div className="container mx-auto px-4">
-            <div className="text-center max-w-3xl mx-auto mb-12">
-              <h2 className="text-3xl md:text-4xl font-serif text-slate-900 mb-4">
-                Explore Our Collection
-              </h2>
-              <p className="text-slate-600">
-                From natural golden tones to modern greys, find the perfect match for your home's architecture.
-              </p>
-            </div>
-            <ColorsSlider showHeading={false} className="py-0" />
-            <div className="text-center mt-8">
-              <a href="/colors" className="inline-block border-b-2 border-slate-900 text-slate-900 font-medium hover:text-slate-700 hover:border-slate-700 transition-colors">
-                View all 24 blends →
-              </a>
             </div>
           </div>
         </section>
