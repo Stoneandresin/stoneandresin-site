@@ -215,10 +215,7 @@ export default function Estimator() {
 
   if (status === 'sent') {
     return (
-      <div className="bg-white rounded-xl shadow-2xl overflow-hidden max-w-md mx-auto">
-        <div className="bg-slate-900 p-6 text-center">
-          <h2 className="text-2xl font-serif text-white">Request Received</h2>
-        </div>
+      <div className="bg-white rounded-xl shadow-xl overflow-hidden max-w-md mx-auto border border-slate-100">
         <div className="p-8 text-center">
           <div className="text-4xl mb-4">✅</div>
           <h3 className="text-xl font-bold mb-2 text-slate-900">Thanks! We'll be in touch shortly.</h3>
@@ -234,10 +231,10 @@ export default function Estimator() {
   }
 
   return (
-    <div className="bg-white rounded-xl shadow-2xl overflow-hidden max-w-md mx-auto border border-slate-200">
-      <div className="bg-slate-900 p-6 text-center">
-        <h2 className="text-2xl font-serif text-white">Instant Price Estimator</h2>
-        <p className="text-slate-400 text-sm mt-1">Get a ballpark price in seconds</p>
+    <div className="bg-white rounded-xl shadow-xl overflow-hidden max-w-md mx-auto border border-slate-100">
+      <div className="p-6 pb-0">
+        <h2 className="text-3xl font-serif text-slate-900 mb-2">Instant Price Estimator</h2>
+        <p className="text-slate-500 text-sm">Get a ballpark price in seconds</p>
       </div>
 
       <form onSubmit={submitLead} className="p-6 space-y-6">

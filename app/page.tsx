@@ -102,7 +102,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Why resin-bound & Pricing Split Section */}
+        {/* Why resin-bound & Estimator Split Section */}
         <section className="py-20 bg-white">
           <div className="container mx-auto px-4">
             <div className="grid lg:grid-cols-2 gap-16 items-start">
@@ -122,7 +122,7 @@ export default function Home() {
                       </div>
                       <h3 className="text-lg font-medium mb-2">Crack-Resistant</h3>
                       <p className="text-xs text-slate-400 leading-relaxed">
-                        Resin flexes with the ground, unlike rigid concrete which cracks.
+                        Resin flexes with the ground, unlike rigid concrete, which cracks.
                       </p>
                     </div>
                     <div className="px-2">
@@ -142,89 +142,22 @@ export default function Home() {
                       </div>
                       <h3 className="text-lg font-medium mb-2">High-End Look</h3>
                       <p className="text-xs text-slate-400 leading-relaxed">
-                        Natural stone blends and a smooth seamless finish give your home "custom build" curb appeal.
+                        Natural stone blends and a smooth, seamless finish give your home "custom-built" curb appeal.
                       </p>
                     </div>
                   </div>
                 </div>
               </div>
 
-              {/* Right Column: Pricing */}
-              <div>
-                <h2 className="text-4xl md:text-5xl font-serif text-slate-900 mb-8 leading-tight">
-                  Straightforward, <br /> Square-Foot Pricing
-                </h2>
-                <p className="text-slate-600 mb-10 text-lg leading-relaxed">
-                  Most resin-bound projects land between $12-$17 per square foot depending on base prep, edges, and blend.
-                </p>
-                
-                <div className="bg-white border border-slate-100 shadow-xl rounded-xl p-8">
-                  <div className="grid grid-cols-2 gap-8 text-center divide-x divide-slate-100">
-                    <div>
-                      <h3 className="text-xl font-medium text-slate-900 mb-2">Typical <br/> Driveway</h3>
-                      <p className="text-2xl font-serif text-slate-900">$9,000 - 16,000</p>
-                    </div>
-                    <div>
-                      <h3 className="text-xl font-medium text-slate-900 mb-2">Patio <br/> & Walks</h3>
-                      <p className="text-2xl font-serif text-slate-900">$4,000 - 9,000</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Estimator Section */}
-        <section id="estimate" className="py-20 bg-slate-900 scroll-mt-24">
-          <div className="container mx-auto px-4">
-            <div className="grid lg:grid-cols-2 gap-16 items-center">
-              <div className="text-white">
-                <h2 className="text-4xl md:text-5xl font-serif mb-6 leading-tight">
-                  Ready to Transform <br/> Your Driveway?
-                </h2>
-                <p className="text-slate-400 text-lg mb-8 leading-relaxed">
-                  Get an instant ballpark estimate for your project. No waiting for a salesperson. 
-                  If the price looks right, we'll come out for a precise site measurement.
-                </p>
-                
-                <div className="flex items-center gap-4 mb-8">
-                  <div className="w-16 h-16 relative rounded-full overflow-hidden border-2 border-slate-700">
-                     <Image
-                      src="/AAC1A118-5584-4B37-9504-1F0C01C4B1D1.jpg"
-                      alt="Vuba Stone Certified Installer badge"
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                  <div>
-                    <p className="font-bold text-white">Vuba Certified Installer</p>
-                    <p className="text-sm text-slate-400">Trained in the UK system</p>
-                  </div>
-                </div>
-
-                <ul className="space-y-4 text-slate-300">
-                  <li className="flex items-center gap-3">
-                    <svg className="w-5 h-5 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
-                    No obligation quote
-                  </li>
-                  <li className="flex items-center gap-3">
-                    <svg className="w-5 h-5 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
-                    10-year warranty available
-                  </li>
-                  <li className="flex items-center gap-3">
-                    <svg className="w-5 h-5 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
-                    Installations across Greater Cincinnati
-                  </li>
-                </ul>
-              </div>
-
+              {/* Right Column: Estimator */}
               <div>
                 <Estimator />
               </div>
             </div>
           </div>
         </section>
+
+
 
         {/* Recent Projects */}
         <section className="py-20 bg-white">
