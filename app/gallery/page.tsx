@@ -1,7 +1,6 @@
 // app/gallery/page.tsx
 import Image from "next/image";
 import { BeforeAfter } from "@/components/BeforeAfter";
- setup/agent-hq-scaffold
 import { loadLocalGallery } from "@/lib/local-gallery";
 
 import Testimonials from "@/components/Testimonials";
@@ -22,7 +21,6 @@ export const metadata = {
     images: ["/gallery/driveway-cincy-after.jpg"],
   }
 };
- main
 
 type Pair = {
   jobId: string;
@@ -92,19 +90,17 @@ export default async function Page() {
                   />
                 </div>
                 <figcaption className="border-t border-slate-100 p-3 text-sm text-slate-600">
-                  <div className="text-xs uppercase tracking-wide text-slate-500 font-bold">
-                    {photo.category}
-                  </div>
+                  {/^(patio|driveway|steps)$/i.test(photo.category) && (
+                    <div className="text-xs uppercase tracking-wide text-slate-500 font-bold">
+                      {photo.category}
+                    </div>
+                  )}
                 </figcaption>
               </figure>
             ))}
           </div>
- setup/agent-hq-scaffold
         </section>
       )}
-
-        ))}
-      </div>
       
       <Testimonials />
       
@@ -118,7 +114,6 @@ export default async function Page() {
           <a href="/contact" className="btn">Request Site Visit</a>
         </div>
       </section>
- main
     </main>
   );
 }
