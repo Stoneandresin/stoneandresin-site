@@ -64,37 +64,22 @@ export default function Hero() {
 
           <div className="flex flex-wrap gap-4">
             <a
-              href="#estimate"
-              className="bg-slate-900 hover:bg-slate-800 text-white px-8 py-4 rounded-md font-medium text-lg transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
-              onClick={() => track('cta_click', { location: 'hero', label: 'Get instant estimate' })}
-            >
-              Get an Instant Estimate
-            </a>
-            <a
-setup/agent-hq-scaffold
               href="/colors"
               className="bg-white/20 hover:bg-white/30 backdrop-blur-md text-white border border-white/40 px-8 py-4 rounded-md font-medium text-lg transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
-
-              href="/learn"
-              className="btn-outline"
-              data-style="how-it-works-outline"
- main
             >
               See color options
             </a>
           </div>
-setup/agent-hq-scaffold
 
-
-          <div className="mt-6 flex flex-wrap items-center gap-4 text-sm copy-muted">
+          <div className="mt-6 flex flex-wrap items-center gap-4 text-sm text-white/80">
             <span className="inline-flex items-center gap-1">
               <span aria-hidden>★</span> 4.9 on Google
             </span>
-            <span className="h-4 w-px bg-slate-700/60" />
+            <span className="h-4 w-px bg-white/20" />
             <span>10‑year warranty</span>
             {settings?.badge && (
               <>
-                <span className="h-4 w-px bg-slate-700/60" />
+                <span className="h-4 w-px bg-white/20" />
                 <span>Certified: {settings.badge}</span>
               </>
             )}
@@ -102,7 +87,7 @@ setup/agent-hq-scaffold
         </div>
 
         <div 
-          className="relative"
+          className="relative mt-12 md:mt-0 hidden md:block"
           style={{
             transform: `translateY(${scrollY * 0.15}px)`,
             transition: 'transform 0.1s ease-out'
@@ -130,7 +115,6 @@ setup/agent-hq-scaffold
               />
             </div>
           </div>
- main
         </div>
       </div>
     </section>
