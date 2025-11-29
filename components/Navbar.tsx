@@ -39,19 +39,30 @@ export default function Navbar() {
           Stone<span className="text-slate-400">&</span>Resin
         </Link>
 
-        <div className="hidden md:flex items-center gap-6">
+        <div className="hidden md:flex items-center gap-4">
           <Link href="/#surfaces" className="link-invert">Surfaces</Link>
           <Link href="/pricing" className="link-invert">Pricing</Link>
           <Link href="/learn" className="link-invert">Learn</Link>
+ copilot/fix-git-submodule-fetch
+          <Link href="/faq" className="link-invert">FAQ</Link>
+
           <Link href="/resources" className="link-invert">Resources</Link>
+ main
           <Link href="/about" className="link-invert">About</Link>
+          <a 
+            href="tel:+15137878798" 
+            className="flex items-center gap-1 link-invert font-semibold"
+            aria-label="Call Stone & Resin at 513-787-8798"
+          >
+            📞 (513) 787-8798
+          </a>
           <a
             href="/#estimate"
             className="btn-accent"
             aria-label="Jump to instant estimator on the homepage"
             onClick={handleEstimateClick}
           >
-            Get Instant Estimate
+            Get Free Estimate
           </a>
         </div>
 
@@ -66,14 +77,25 @@ export default function Navbar() {
             <Link href="/#surfaces" className="link-invert" onClick={() => setOpen(false)}>Surfaces</Link>
             <Link href="/pricing" className="link-invert" onClick={() => setOpen(false)}>Pricing</Link>
             <Link href="/learn" className="link-invert" onClick={() => setOpen(false)}>Learn</Link>
+ copilot/fix-git-submodule-fetch
+            <Link href="/faq" className="link-invert" onClick={() => setOpen(false)}>FAQ</Link>
+
             <Link href="/resources" className="link-invert" onClick={() => setOpen(false)}>Resources</Link>
+ main
             <Link href="/about" className="link-invert" onClick={() => setOpen(false)}>About</Link>
+            <a 
+              href="tel:+15137878798" 
+              className="btn-outline text-center"
+              aria-label="Call Stone & Resin"
+            >
+              📞 Call (513) 787-8798
+            </a>
             <a
               href="/#estimate"
               className="btn-accent"
               onClick={handleEstimateClick}
             >
-              Get Instant Estimate
+              Get Free Estimate
             </a>
           </div>
         </div>

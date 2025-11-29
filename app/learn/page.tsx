@@ -18,10 +18,17 @@ export const metadata = {
 
 export default function LearnPage(){
   const posts = [
+ copilot/fix-git-submodule-fetch
+    { slug: "resin-vs-epoxy", title: "Resin‑Bound vs. Epoxy‑Pebble: What Ohio Homeowners Should Know", summary: "Compare resin-bound and epoxy-pebble systems. Learn about permeability, UV stability, durability, and which works best for Ohio driveways." },
+    { slug: "permeable-driveways-ohio", title: "Permeable Driveways & Ohio Drainage: What You Need to Know", summary: "Understand Ohio drainage requirements, site preparation, and how permeable surfaces handle our wet springs and freeze-thaw cycles." },
+    { slug: "maintenance", title: "Maintaining Your Resin-Bound Surface: Keep It Looking New", summary: "Complete maintenance guide with seasonal cleaning schedules, stain removal techniques, and tips to extend your surface life 15-25+ years." },
+    { slug: "vuba-vs-competitors", title: "Vuba vs. Competitors: Why We Choose Vuba", summary: "Detailed comparison of UV stability, aggregates, installation specs, technical support, and warranty coverage." }
+
     { slug: "resin-vs-epoxy", title: "Resin‑Bound vs. Epoxy‑Pebble: What Ohio Homeowners Should Know", summary: "Comprehensive comparison of resin-bound and epoxy-pebble systems. Learn about permeability, UV stability, freeze-thaw performance, and which option works best in Ohio's climate." },
     { slug: "permeable-driveways-ohio", title: "Permeable Driveways & Ohio Drainage Requirements", summary: "Complete guide to permeable driveways in Ohio. Understand local drainage regulations, stormwater management requirements, and how resin-bound surfaces help with runoff and flooding." },
     { slug: "maintenance", title: "Resin-Bound Surface Maintenance: Keep Your Driveway Looking New", summary: "Detailed maintenance guide for all four seasons. Learn routine cleaning, stain removal, power-washing tips, and how to maintain permeability for 20+ years." },
     { slug: "vuba-vs-competitors", title: "Vuba vs. Competitors: Why We Choose Vuba", summary: "UV stability, tested aggregates, and spec‑driven installs." }
+ main
   ]
   return (
     <main className="bg-slate-950 text-white">

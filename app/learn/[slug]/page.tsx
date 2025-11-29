@@ -4,6 +4,230 @@ import RevealOnScroll from "@/components/RevealOnScroll"
 const content: Record<string,{title:string, body:string, metaDescription?: string}> = {
   "resin-vs-epoxy": {
     title: "Resin‑Bound vs. Epoxy‑Pebble: What Ohio Homeowners Should Know",
+copilot/fix-git-submodule-fetch
+    body: `When choosing a decorative stone surface for your driveway or patio, you'll likely encounter two main options: resin-bound and epoxy-pebble systems. Understanding the key differences can help you make the right choice for your Ohio property.
+
+**What is Resin-Bound?**
+
+Resin-bound surfaces mix UV-stable polyurethane resin with natural aggregates, creating a smooth, porous surface. The stones are fully coated in resin before application, resulting in a permeable finish that allows water to drain through.
+
+**What is Epoxy-Pebble?**
+
+Epoxy-pebble (also called resin-bonded) applies a layer of epoxy to a surface, then broadcasts decorative pebbles on top. The stones are bonded to the surface rather than encapsulated in resin.
+
+**Key Differences for Ohio Homeowners:**
+
+*Permeability & Drainage*
+Resin-bound systems are naturally porous, reducing puddles and runoff—critical for Ohio's wet springs and heavy rainstorms. Epoxy-pebble is typically non-porous, leading to standing water and potential drainage issues.
+
+*UV Stability*
+Resin-bound uses aliphatic resins that resist yellowing and maintain color in direct sunlight. Epoxy-pebble often uses aromatic resins that can amber or discolor over time, especially during hot Ohio summers.
+
+*Durability*
+Resin-bound creates a monolithic surface where stones are locked in place. Epoxy-pebble can experience loose stones over time, particularly in high-traffic areas or under freeze-thaw cycles common in Ohio.
+
+*Maintenance*
+Resin-bound surfaces are easier to clean—debris can be swept or power-washed without dislodging stones. Epoxy-pebble requires gentler cleaning to avoid removing bonded pebbles.
+
+**Which is Right for You?**
+
+For driveways, patios, walkways, and pool decks in Ohio, resin-bound systems typically offer better long-term performance. The permeability helps with stormwater management, UV stability keeps colors true, and the durable finish withstands our climate's freeze-thaw cycles.
+
+Epoxy-pebble may be suitable for vertical surfaces, decorative accents, or covered areas where drainage and UV exposure aren't concerns.`
+  },
+  "permeable-driveways-ohio": {
+    title: "Permeable Driveways & Ohio Drainage: What You Need to Know",
+    body: `Ohio's wet springs, summer thunderstorms, and winter freeze-thaw cycles make proper drainage essential for any driveway or patio. Permeable surfaces offer a practical solution that benefits both your property and local water management.
+
+**Why Permeability Matters in Ohio**
+
+Traditional concrete and asphalt driveways create impermeable surfaces that force water to run off into storm drains, yards, or streets. This can lead to:
+- Standing water and puddles after rain
+- Ice formation in winter
+- Erosion around your driveway edges
+- Overwhelmed storm sewers during heavy rain
+- Potential flooding issues in low-lying areas
+
+**How Permeable Surfaces Work**
+
+Permeable resin-bound driveways allow water to drain directly through the surface into the sub-base below. When properly installed over a porous sub-base, these systems can drain up to 600 liters per square meter per minute—more than enough to handle Ohio's heaviest downpours.
+
+**Ohio Drainage Requirements**
+
+Many Ohio municipalities are implementing stormwater management ordinances that encourage or require permeable surfaces for new construction and major renovations. Check with your local building department about:
+- Impervious surface limits for your property
+- Stormwater management credits or incentives
+- Required drainage plans for new driveways
+- Local soil conditions and water table depth
+
+**Site Preparation is Critical**
+
+For permeable driveways to function properly in Ohio's climate:
+
+*Soil Assessment*
+Test soil drainage capacity. Clay-heavy Ohio soils may need underdrains or modified sub-base design.
+
+*Sub-Base Design*
+Typically requires 4-8 inches of clean, open-graded stone that allows water passage while providing structural support.
+
+*Edge Restraints*
+Proper edging prevents sub-base migration and maintains drainage capacity over time.
+
+*Grade & Slope*
+Minimum 1-2% slope ensures surface water moves toward drainage points while sub-surface water percolates downward.
+
+**Maintenance for Drainage Performance**
+
+Keep your permeable surface draining properly:
+- Remove leaves and debris regularly (especially in fall)
+- Power-wash annually to clear any clogged pores
+- Avoid sealants that could block permeability
+- Address any settling or low spots promptly
+
+**Benefits Beyond Drainage**
+
+Permeable driveways offer additional advantages:
+- Reduced ice formation (water drains rather than pooling)
+- Less water pooling means longer surface life
+- Environmental benefits (natural groundwater recharge)
+- Potential for lower stormwater fees in some municipalities
+
+**Is Your Property Suitable?**
+
+Permeable resin-bound systems work well for most Ohio residential properties, but consult with an experienced installer about:
+- High water table areas (may need modified drainage)
+- Very steep slopes (may need additional engineering)
+- Areas with heavy clay soils (may need underdrains)
+- Locations near wells or septic systems (code requirements vary)`
+  },
+  "maintenance": {
+    title: "Maintaining Your Resin-Bound Surface: Keep It Looking New",
+    body: `A properly installed resin-bound surface requires minimal maintenance, but following these guidelines will keep your driveway, patio, or walkway looking pristine for years.
+
+**Regular Maintenance (Weekly/Monthly)**
+
+*Remove Debris*
+Sweep or blow off leaves, dirt, and organic matter regularly. Accumulated debris can stain the surface and clog pores, reducing drainage capacity.
+
+*Rinse as Needed*
+Use a garden hose to rinse away dust, pollen, and light dirt. This is especially important during spring pollen season and after leaf fall in autumn.
+
+*Spot Clean Spills*
+Address spills promptly:
+- Oil/grease: Blot (don't wipe), then use a pH-neutral cleaner
+- Food/beverages: Rinse with water immediately
+- Pet waste: Remove solid material, rinse thoroughly
+
+**Seasonal Deep Cleaning**
+
+*Spring (April-May)*
+- Power-wash the entire surface (1500-2000 PSI maximum)
+- Use a wide fan tip, keep 12-18 inches from surface
+- Remove winter salt residue and winter debris
+- Check for any areas needing repair
+
+*Summer (July-August)*
+- Light pressure wash to remove accumulated dust
+- Inspect for any weed growth at edges (rare but possible)
+- Check that drainage remains effective during heavy rains
+
+*Fall (October-November)*
+- Remove leaves promptly—wet leaves can stain
+- Pre-winter cleaning to prevent organic buildup
+- Clear any clogged areas before winter
+
+*Winter (As Needed)*
+- Use plastic shovel for snow removal (avoid metal edges)
+- Apply ice melt sparingly—calcium chloride is safer than rock salt
+- Avoid excessive salt that can leave white residue
+
+**Stain Removal**
+
+For stubborn stains, use these approaches:
+
+*Oil & Grease Stains*
+1. Apply absorbent material (cat litter, sawdust) immediately
+2. Let sit for several hours to absorb oil
+3. Sweep away absorbent material
+4. Use pH-neutral degreaser or dish soap solution
+5. Scrub gently with soft brush
+6. Rinse thoroughly with water
+
+*Rust Stains*
+1. Use a rust remover safe for stone surfaces
+2. Follow product instructions carefully
+3. Test in inconspicuous area first
+4. Rinse thoroughly after treatment
+
+*Organic Stains (Leaves, Berries)*
+1. Remove source material immediately
+2. Pressure wash affected area
+3. For set stains, use mild bleach solution (1:10 bleach:water)
+4. Let sit for 10-15 minutes
+5. Scrub gently and rinse thoroughly
+
+*Tire Marks*
+1. Most fade naturally with weathering
+2. For persistent marks, use gentle degreaser
+3. Pressure wash with warm water if available
+
+**What to Avoid**
+
+*Never Use:*
+- High-pressure washers over 2000 PSI (can damage surface)
+- Metal shovels or sharp tools
+- Harsh acidic cleaners (can damage resin)
+- Sealants or coatings (blocks permeability)
+- Wire brushes or abrasive pads
+
+*Avoid:*
+- Parking in the exact same spots daily (can cause wear patterns)
+- Dragging heavy items across the surface
+- Using de-icing products with harsh chemicals
+- Allowing gasoline or solvents to sit on surface
+
+**Weed Prevention**
+
+While rare, weeds can occasionally appear at surface edges:
+- Pull by hand when small
+- Use targeted weed killer at edges only (avoid surface)
+- Ensure proper edge restraints are maintained
+- Address any sub-base exposure promptly
+
+**Annual Professional Inspection**
+
+Consider having your installer inspect the surface annually to:
+- Check for proper drainage function
+- Identify any areas needing repair
+- Assess overall condition
+- Provide specific care recommendations
+
+**Extending Surface Life**
+
+These practices maximize your investment:
+- Address small issues promptly before they grow
+- Maintain proper drainage to prevent water damage
+- Keep surface clean to prevent organic growth
+- Avoid heavy vehicle impacts when possible
+- Ensure proper edge support remains intact
+
+**When to Call for Repairs**
+
+Contact your installer if you notice:
+- Areas where stones are loosening or coming free
+- Significant cracks or damage
+- Persistent drainage problems
+- Large or spreading stains that won't clean
+- Settling or uneven areas
+
+**Expected Longevity**
+
+With proper maintenance, a quality resin-bound surface should maintain its appearance and function for 15-25+ years. The key is consistent, gentle care rather than aggressive or infrequent cleaning.`
+  },
+  "vuba-vs-competitors": {
+    title: "Vuba vs. Competitors: Why We Choose Vuba",
+    body: `Vuba's UV‑stable resins, tested aggregates, and clear install specs deliver consistent results. Their systems are engineered for outdoor performance and backed by strong technical support—one reason we prefer Vuba for driveways, patios, and pool decks.`
+=======
     metaDescription: "Comparing resin-bound and epoxy-pebble surfaces for Ohio driveways. Learn about permeability, UV stability, and which system performs best in Ohio's climate.",
     body: `
 ## Understanding the Difference
@@ -567,6 +791,7 @@ When you choose Stone & Resin, you're getting more than just installation labor�
 
 Ready to discuss your project? We'll help you choose the right Vuba system and aggregate blend for your specific needs, site conditions, and aesthetic preferences.
     `
+ main
   }
 }
 
@@ -585,6 +810,29 @@ export default function PostPage({ params }: { params: { slug: string } }){
   const post = content[params.slug]
   if (!post) return notFound()
   
+ copilot/fix-git-submodule-fetch
+  // Simple function to render content with basic markdown-like formatting
+  const renderContent = (text: string) => {
+    const lines = text.split('\n')
+    return lines.map((line, i) => {
+      // Handle bold headers (lines starting with **)
+      if (line.trim().startsWith('**') && line.trim().endsWith('**')) {
+        const headerText = line.trim().slice(2, -2)
+        return <h2 key={i} className="font-bold text-xl mt-6 mb-3">{headerText}</h2>
+      }
+      // Handle italic headers (lines starting with single *)
+      if (line.trim().startsWith('*') && !line.trim().startsWith('**')) {
+        const headerText = line.trim().slice(1)
+        return <h3 key={i} className="font-semibold text-lg mt-4 mb-2">{headerText}</h3>
+      }
+      // Regular paragraph
+      if (line.trim()) {
+        return <p key={i} className="mb-3">{line}</p>
+      }
+      // Empty line (spacing)
+      return <div key={i} className="h-2"></div>
+    })
+
   // Split body by lines and render as markdown-style
   const renderBody = () => {
     const lines = post.body.trim().split('\n')
@@ -689,14 +937,21 @@ export default function PostPage({ params }: { params: { slug: string } }){
     }
     
     return elements
+ main
   }
   
   return (
-    <section className="container py-14 prose max-w-3xl">
+    <section className="container py-14 prose prose-lg max-w-4xl">
       <p className="mb-4"><a href="/learn" className="text-sm underline">← Back to Learn</a></p>
+ copilot/fix-git-submodule-fetch
+      <h1 className="section-title">{post.title}</h1>
+      <div className="text-gray-800 mt-6">
+        {renderContent(post.body)}
+
       <h1 className="section-title text-3xl md:text-4xl font-extrabold mb-6">{post.title}</h1>
       <div className="text-gray-800 mt-4">
         {renderBody()}
+ main
       </div>
       {params.slug === 'vuba-vs-competitors' && (
         <div className="mt-8 not-prose relative">
