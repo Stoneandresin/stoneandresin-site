@@ -290,15 +290,6 @@ export default function Estimator() {
         </div>
 
         {/* Contact Fields */}
-setup/agent-hq-scaffold
-        <div className="space-y-3">
-          <input
-            type="text"
-            placeholder="Full Name"
-            className={`w-full px-4 py-3 rounded border ${errors.name ? 'border-red-500' : 'border-slate-200'} focus:outline-none focus:border-slate-900`}
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-
         <div>
           <label className="label" htmlFor="name-input">Full name</label>
           <input 
@@ -311,22 +302,9 @@ setup/agent-hq-scaffold
                 setErrors(prev => ({ ...prev, name: '' }))
               }
             }}
- main
             onBlur={(e) => handleFieldBlur('name', e.target.value)}
             required
           />
-setup/agent-hq-scaffold
-          {errors.name && <p className="text-xs text-red-600">{errors.name}</p>}
-
-          <input
-            type="email"
-            placeholder="Email Address"
-            className={`w-full px-4 py-3 rounded border ${errors.email ? 'border-red-500' : 'border-slate-200'} focus:outline-none focus:border-slate-900`}
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            onBlur={(e) => handleFieldBlur('email', e.target.value)}
-            required
-
           {errors.name && (
             <p id="name-error" className="text-xs text-red-600 mt-1" role="alert">
               {errors.name}
@@ -403,36 +381,12 @@ setup/agent-hq-scaffold
             required 
             aria-invalid={!!errors.zip}
             aria-describedby={errors.zip ? 'zip-error' : undefined}
- main
           />
-          {errors.email && <p className="text-xs text-red-600">{errors.email}</p>}
-
-          <div className="grid grid-cols-2 gap-3">
-            <div>
-              <input
-                type="tel"
-                placeholder="Phone"
-                className={`w-full px-4 py-3 rounded border ${errors.phone ? 'border-red-500' : 'border-slate-200'} focus:outline-none focus:border-slate-900`}
-                value={phone}
-                onChange={(e) => setPhone(e.target.value)}
-                onBlur={(e) => handleFieldBlur('phone', e.target.value)}
-                required
-              />
-              {errors.phone && <p className="text-xs text-red-600">{errors.phone}</p>}
-            </div>
-            <div>
-              <input
-                type="text"
-                placeholder="Zip Code"
-                className={`w-full px-4 py-3 rounded border ${errors.zip ? 'border-red-500' : 'border-slate-200'} focus:outline-none focus:border-slate-900`}
-                value={zip}
-                onChange={(e) => setZip(e.target.value)}
-                onBlur={(e) => handleFieldBlur('zip', e.target.value)}
-                required
-              />
-              {errors.zip && <p className="text-xs text-red-600">{errors.zip}</p>}
-            </div>
-          </div>
+          {errors.zip && (
+            <p id="zip-error" className="text-xs text-red-600 mt-1" role="alert">
+              {errors.zip}
+            </p>
+          )}
         </div>
 
         <button

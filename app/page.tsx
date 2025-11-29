@@ -6,39 +6,8 @@ import RevealOnScroll from "@/components/RevealOnScroll";
 import ColorsSlider from "@/components/ColorsSlider";
 import Image from "next/image";
 import Estimator from "@/components/Estimator";
- setup/agent-hq-scaffold
-import RevealOnScroll from "@/components/RevealOnScroll";
 import RecentProjects from "@/components/RecentProjects";
-
-import { useState } from "react";
-import { recentProjects, certificateImage } from "@/lib/frontPageContent";
-
-function CompareFigure({ before, after, altBefore, altAfter }: { before: string; after: string; altBefore: string; altAfter: string }) {
-  const [pos, setPos] = useState(50);
-  return (
-    <figure className="relative border border-slate-200 rounded-xl overflow-hidden">
-      <div className="relative w-full aspect-[16/10]" style={{ ['--pos' as any]: `${pos}%` }}>
-        <Image src={before} alt={altBefore} fill className="object-cover" />
-        <Image src={after} alt={altAfter} fill className="object-cover" style={{ clipPath: `polygon(0 0, ${pos}% 0, ${pos}% 100%, 0 100%)` }} />
-        <span className="absolute top-2 left-2 z-10 text-xs font-semibold px-2 py-1 rounded-full bg-white/80 border border-slate-200">Before</span>
-        <span className="absolute top-2 right-2 z-10 text-xs font-semibold px-2 py-1 rounded-full bg-white/80 border border-slate-200">After</span>
-        <input
-          type="range"
-          min={0}
-          max={100}
-          value={pos}
-          aria-label="Slide to compare before and after"
-          onChange={(e) => setPos(parseInt(e.target.value, 10))}
-          className="absolute inset-0 z-20 w-full h-full opacity-0 cursor-ew-resize"
-        />
-        <div className="absolute top-1/2 left-[var(--pos)] -translate-x-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full bg-white border border-slate-300 text-slate-800 flex items-center justify-center text-sm font-bold select-none pointer-events-none">
-          ↔
-        </div>
-      </div>
-    </figure>
-  );
-}
- main
+import { certificateImage } from "@/lib/frontPageContent";
 
 export default function Home() {
   return (
@@ -46,7 +15,6 @@ export default function Home() {
       <Hero />
 
       <main>
- setup/agent-hq-scaffold
         {/* Trust Signals Bar */}
         <section className="bg-white py-10 border-b border-slate-100">
           <div className="container mx-auto px-4">
@@ -59,192 +27,6 @@ export default function Home() {
                     </svg>
                   </div>
                   <span className="font-medium text-sm md:text-base leading-tight">Fully Licensed <br /> & Insured</span>
-
-        {/* Hero */}
-        <section className="container py-12">
-          <div className="max-w-3xl">
-            <p className="text-sm font-semibold text-slate-600 mb-2">Transparent pricing</p>
-            <h1 className="text-4xl font-extrabold tracking-tight">
-              Instant pricing for resin‑bound surfaces
-            </h1>
-            
-            {/* Trust row */}
-            <div className="mt-4 flex flex-wrap items-center gap-3 text-sm text-slate-600">
-              <span className="inline-flex items-center gap-1.5">
-                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clipRule="evenodd" />
-                </svg>
-                Vuba Certified
-              </span>
-              <span className="text-slate-300">•</span>
-              <span className="inline-flex items-center gap-1.5">
-                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clipRule="evenodd" />
-                </svg>
-                BBB Accredited
-              </span>
-              <span className="text-slate-300">•</span>
-              <span className="inline-flex items-center gap-1.5">
-                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clipRule="evenodd" />
-                </svg>
-                Fully insured
-              </span>
-              <span className="text-slate-300">•</span>
-              <span className="inline-flex items-center gap-1.5">
-                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clipRule="evenodd" />
-                </svg>
-                2‑year workmanship warranty
-              </span>
-            </div>
-
-            <p className="mt-4 text-gray-600">
-              Premium, permeable Vuba stone systems for driveways, patios, walkways, and pool decks across Greater Cincinnati.
-            </p>
-          </div>
-        </section>
-
-        {/* Vuba blends carousel — right under hero */}
-        <section className="container py-12 relative overflow-hidden">
-          <RevealOnScroll className="origin-top">
-            <h2 className="text-2xl font-bold mb-4">Choose your Vuba blend</h2>
-            <ColorsSlider showHeading={false} className="py-0" />
-            <div className="mt-6 flex flex-wrap gap-4 items-center">
-              <p className="text-sm text-gray-600">
-                See a blend you love?
-              </p>
-              <a href="/contact" className="btn-accent inline-flex items-center gap-2">
-                <span>Request Sample & Site Visit</span>
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
-              </a>
-              <a href="/colors" className="btn-outline inline-flex items-center">
-                View All Colors
-              </a>
-            </div>
-          </RevealOnScroll>
-        </section>
-
-        {/* Why resin-bound section */}
-        <section className="py-12">
-          <div className="container mx-auto px-4">
-            <div
-              className="rounded-3xl px-6 py-8 md:px-10 md:py-10"
-              style={{ backgroundColor: "var(--brand-blue-dark)" }}
-            >
-              <h2 className="text-2xl md:text-3xl font-extrabold text-white">
-                Why resin‑bound?
-              </h2>
-              <p className="mt-3 text-sm md:text-base text-slate-100/80 max-w-2xl">
-                We're trained on the Vuba resin‑bound system through their live, hands‑on course. We follow proven
-                methods for mixing, moisture control, edging, drainage, and curing—so your driveway or patio looks
-                right and lasts.
-              </p>
-              <div className="grid-clean md:grid-cols-3 mt-6 gap-4">
-                <div className="rounded-2xl bg-slate-900/60 p-5">
-                  <h3 className="font-semibold text-white">Permeable by design</h3>
-                  <p className="mt-2 text-sm text-slate-200/80">
-                    Reduce puddling and runoff with a porous surface.
-                  </p>
-                </div>
-                <div className="rounded-2xl bg-slate-900/60 p-5">
-                  <h3 className="font-semibold text-white">UV‑stable and durable</h3>
-                  <p className="mt-2 text-sm text-slate-200/80">
-                    Color‑stable resins and aggregates built to last.
-                  </p>
-                </div>
-                <div className="rounded-2xl bg-slate-900/60 p-5">
-                  <h3 className="font-semibold text-white">Low maintenance</h3>
-                  <p className="mt-2 text-sm text-slate-200/80">
-                    Easy to clean and keep looking great season after season.
-                  </p>
-                </div>
-              </div>
-              <p className="mt-4 text-[11px] text-slate-400">
-                Manufacturer warranty is system‑dependent. Vuba's U.S. homeowner page references a 5‑year manufacturer
-                warranty, upgraded to 10 years when installed over VubaMac. Ask us which applies to your project.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* Recent Projects */}
-        <section className="py-12">
-          <div className="container mx-auto px-4">
-            <h2 className="text-2xl font-bold mb-4">Recent projects</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-copilot/update-front-page-photos
-              {recentProjects.map((project) => (
-                <article key={project.id} className="card overflow-hidden">
-                  {project.type === "before-after" ? (
-                    <CompareFigure
-                      before={project.beforeImage.src}
-                      after={project.afterImage.src}
-                      altBefore={project.beforeImage.alt}
-                      altAfter={project.afterImage.alt}
-                    />
-                  ) : (
-                    <div className="relative w-full aspect-[16/10]">
-                      <Image 
-                        src={project.image.src} 
-                        alt={project.image.alt} 
-                        fill 
-                        className="object-cover" 
-                      />
-                    </div>
-                  )}
-                  <div className="p-4 grid gap-2">
-                    <h3 className="font-semibold">{project.title}</h3>
-                    <div className="flex flex-wrap gap-2 text-xs text-slate-600">
-                      {project.tags.map((tag, idx) => (
-                        <span key={idx} className="px-2 py-1 rounded-full bg-slate-100 border border-slate-200">
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                    <a href="/contact" className="btn-accent w-full justify-center">Book on‑site quote</a>
-                  </div>
-                </article>
-              ))}
-
-              <article className="card overflow-hidden">
-                <div className="relative">
-                  <CompareFigure
-                    before="/gallery/driveway-cincy-before.jpg"
-                    after="/gallery/driveway-cincy-after-2.jpg"
-                    altBefore="Before: driveway prepped with reinforcement grid"
-                    altAfter="After: resin‑bound driveway—finished surface at garage"
-                  />
-                  <span className="absolute top-3 left-3 z-10 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-green-600 text-white text-xs font-semibold shadow-lg">
-                    <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clipRule="evenodd" />
-                    </svg>
-                    Our Install
-                  </span>
-                </div>
-                <div className="p-4 grid gap-2">
-                  <h3 className="font-semibold">Driveway resurfacing</h3>
-                  <div className="flex flex-wrap gap-2 text-xs text-slate-600">
-                    <span className="px-2 py-1 rounded-full bg-slate-100 border border-slate-200">Cincinnati, OH</span>
-                    <span className="px-2 py-1 rounded-full bg-slate-100 border border-slate-200">Approx. 600 sq ft</span>
-                    <span className="px-2 py-1 rounded-full bg-slate-100 border border-slate-200">Blend: Grey mix</span>
-                  </div>
-                  <a href="/contact" className="btn-accent w-full justify-center">Book on‑site quote</a>
-                </div>
-              </article>
-
-              <article className="card overflow-hidden">
-                <div className="relative w-full aspect-[16/10]">
-                  <Image src="/gallery/driveway-cincy-after.jpg" alt="Resin‑bound driveway with clean edge and tape‑off" fill className="object-cover" />
-                  <span className="absolute top-3 left-3 z-10 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-green-600 text-white text-xs font-semibold shadow-lg">
-                    <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clipRule="evenodd" />
-                    </svg>
-                    Our Install
-                  </span>
- main
                 </div>
                 <div className="flex items-center gap-3">
                   <div className="p-2 rounded-full border-2 border-slate-900">
@@ -254,7 +36,6 @@ copilot/update-front-page-photos
                   </div>
                   <span className="font-medium text-sm md:text-base leading-tight">10 Year Workmanship <br /> Warranty</span>
                 </div>
-setup/agent-hq-scaffold
                 <div className="flex items-center gap-3">
                   <div className="p-2 rounded-full border-2 border-slate-900">
                     <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
@@ -262,19 +43,6 @@ setup/agent-hq-scaffold
                     </svg>
                   </div>
                   <span className="font-medium text-sm md:text-base leading-tight">Certified Resin- <br /> Bound Training</span>
-
-              </article>
-
-              <article className="card overflow-hidden">
-                <div className="relative w-full aspect-[16/10]">
-                  <Image src="/gallery/driveway-cincy-detail.jpg" alt="Resin‑bound surface detail—aggregate texture" fill className="object-cover" />
-                  <span className="absolute top-3 left-3 z-10 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-green-600 text-white text-xs font-semibold shadow-lg">
-                    <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clipRule="evenodd" />
-                    </svg>
-                    Our Install
-                  </span>
- main
                 </div>
                 <div className="flex items-center gap-3">
                   <div className="p-2 rounded-full border-2 border-slate-900">
@@ -285,13 +53,8 @@ setup/agent-hq-scaffold
                   </div>
                   <span className="font-medium text-sm md:text-base leading-tight">Local <br /> Small Business</span>
                 </div>
- setup/agent-hq-scaffold
               </div>
             </RevealOnScroll>
-
-              </article>
- main
-            </div>
           </div>
         </section>
 
@@ -338,15 +101,11 @@ setup/agent-hq-scaffold
                 </a>
               </article>
             </div>
- main
           </div>
         </section>
 
-
- setup/agent-hq-scaffold
-
         {/* Color Collection */}
-        <section className="py-20 bg-slate-50">
+        <section className="py-20 bg-white">
           <div className="container mx-auto px-4">
             <RevealOnScroll className="reveal-fade">
               <div className="text-center max-w-3xl mx-auto mb-12">
@@ -375,7 +134,6 @@ setup/agent-hq-scaffold
               className="rounded-md shadow"
             />
           </section>
-  main
         </section>
 
         {/* Why resin-bound & Estimator Split Section */}

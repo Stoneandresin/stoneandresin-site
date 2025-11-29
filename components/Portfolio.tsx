@@ -1,8 +1,4 @@
-setup/agent-hq-scaffold
 import Image from "next/image";
-
-import Image from 'next/image';
- main
 
 export default function Portfolio(){
   const projects = [
@@ -17,20 +13,15 @@ export default function Portfolio(){
         <div className="grid md:grid-cols-3 gap-6">
           {projects.map((p, i)=>(
             <figure key={i} className="card overflow-hidden">
-setup/agent-hq-scaffold
-              <Image
-                src={p.img}
-                alt={p.title}
-                width={600}
-                height={400}
-                className="w-full h-48 object-cover"
-                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-              />
-
               <div className="relative w-full h-48">
-                <Image src={p.img} alt={p.title} fill className="object-cover" sizes="(max-width: 768px) 100vw, 33vw" />
+                <Image 
+                  src={p.img} 
+                  alt={p.title} 
+                  fill 
+                  className="object-cover" 
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw" 
+                />
               </div>
-main
               <figcaption className="p-4">{p.title}</figcaption>
             </figure>
           ))}

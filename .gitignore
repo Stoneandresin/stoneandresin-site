@@ -3,10 +3,7 @@ node_modules
 .vercel
 .env*.local
 dist/
-<<<<<<< Updated upstream
 *.tsbuildinfo
-=======
->>>>>>> Stashed changes
 
 # macOS artifacts
 .DS_Store

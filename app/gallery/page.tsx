@@ -1,9 +1,7 @@
 // app/gallery/page.tsx
 import Image from "next/image";
 import { BeforeAfter } from "@/components/BeforeAfter";
- setup/agent-hq-scaffold
 import { loadLocalGallery } from "@/lib/local-gallery";
-
 import Testimonials from "@/components/Testimonials";
 
 export const metadata = {
@@ -22,7 +20,6 @@ export const metadata = {
     images: ["/gallery/driveway-cincy-after.jpg"],
   }
 };
- main
 
 type Pair = {
   jobId: string;
@@ -73,38 +70,38 @@ export default async function Page() {
         </div>
       ) : (
         <section className="space-y-6">
-          <div className="rounded-xl border border-slate-200 bg-slate-50 p-4 text-sm text-slate-600">
-            Cloudinary credentials aren&apos;t configured yet, so we&apos;re showing the
-            on-device gallery instead. Add <code>CLOUDINARY_*</code> env vars to
-            enable live before/after pairs.
-          </div>
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-            {localPhotos.map((photo) => (
-              <figure key={photo.src} className="card overflow-hidden">
-                <div className="relative h-60 w-full">
-                  <Image
-                    src={photo.src}
-                    alt={photo.label}
-                    loading="lazy"
-                    fill
-                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    className="object-cover"
-                  />
-                </div>
-                <figcaption className="border-t border-slate-100 p-3 text-sm text-slate-600">
-                  <div className="text-xs uppercase tracking-wide text-slate-500 font-bold">
-                    {photo.category}
+            {localPhotos.map((photo) => {
+              const categoryLower = photo.category.toLowerCase();
+              const shouldShowLabel = ['patio', 'driveway', 'steps'].includes(categoryLower);
+              // Only show the filename (label) in alt text if it's one of the allowed categories
+              const altText = shouldShowLabel ? photo.label : photo.category;
+              
+              return (
+                <figure key={photo.src} className="card overflow-hidden">
+                  <div className="relative h-60 w-full">
+                    <Image
+                      src={photo.src}
+                      alt={altText}
+                      loading="lazy"
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      className="object-cover"
+                    />
                   </div>
-                </figcaption>
-              </figure>
-            ))}
+                  {shouldShowLabel && (
+                    <figcaption className="border-t border-slate-100 p-3 text-sm text-slate-600">
+                      <div className="text-xs uppercase tracking-wide text-slate-500 font-bold">
+                        {photo.category}
+                      </div>
+                    </figcaption>
+                  )}
+                </figure>
+              );
+            })}
           </div>
- setup/agent-hq-scaffold
         </section>
       )}
-
-        ))}
-      </div>
       
       <Testimonials />
       
@@ -118,7 +115,6 @@ export default async function Page() {
           <a href="/contact" className="btn">Request Site Visit</a>
         </div>
       </section>
- main
     </main>
   );
 }
