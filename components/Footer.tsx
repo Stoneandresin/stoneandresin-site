@@ -53,7 +53,7 @@ export default function Footer() {
             alt="BBB Accredited Business"
             width={180}
             height={63}
-            style={{ display: 'block' }}
+            className="block"
           />
         </a>
       </div>
