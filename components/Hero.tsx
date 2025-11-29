@@ -71,20 +71,12 @@ export default function Hero() {
               Get an Instant Estimate
             </a>
             <a
-setup/agent-hq-scaffold
               href="/colors"
               className="bg-white/20 hover:bg-white/30 backdrop-blur-md text-white border border-white/40 px-8 py-4 rounded-md font-medium text-lg transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
-
-              href="/learn"
-              className="btn-outline"
-              data-style="how-it-works-outline"
- main
             >
               See color options
             </a>
           </div>
-setup/agent-hq-scaffold
-
 
           <div className="mt-6 flex flex-wrap items-center gap-4 text-sm copy-muted">
             <span className="inline-flex items-center gap-1">
@@ -130,7 +122,6 @@ setup/agent-hq-scaffold
               />
             </div>
           </div>
- main
         </div>
       </div>
     </section>
