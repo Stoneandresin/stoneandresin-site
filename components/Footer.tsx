@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Footer() {
   return (
@@ -47,12 +48,12 @@ export default function Footer() {
           rel="nofollow noopener"
           aria-label="BBB Accredited Business"
         >
-          <img
+          <Image
             src="https://m.bbb.org/terminuscontent/dist/img/business-profile/accreditation/AB-seal-horz.svg?tx=f_svg,w_175"
             alt="BBB Accredited Business"
             width={180}
             height={63}
-            style={{ display: 'block' }}
+            className="block"
           />
         </a>
       </div>

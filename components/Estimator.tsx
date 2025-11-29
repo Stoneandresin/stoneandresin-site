@@ -3,29 +3,18 @@
 import { useMemo, useState, useEffect, type ChangeEvent, type FormEvent } from 'react'
 
 type Condition = 'new_slab' | 'cracked' | 'heavy_repair'
-type SurfaceType = 'driveway' | 'patio' | 'pool_deck'
-
-const SURFACE_TYPE_LABELS: Record<SurfaceType, string> = {
-  driveway: 'driveway',
-  patio: 'patio',
-  pool_deck: 'pool deck'
-}
-
-const CONDITION_LABELS: Record<Condition, string> = {
-  new_slab: 'new / sound slab',
-  cracked: 'cracked',
-  heavy_repair: 'heavy repair'
-}
+type SurfaceType = 'driveway' | 'patio' | 'pool_deck' | 'walkway'
 
 const PRICING = {
   // Base range per sq ft
-  base: { low: 12, high: 20 }, // $/sf base range
+  base: { low: 12, high: 17 }, // $/sf base range
   
   // Surface type adjustments
   surfaceType: {
     driveway: 1.0,
-    patio: 0.95,
+    patio: 1.0,
     pool_deck: 1.1,
+    walkway: 1.15,
   } as Record<SurfaceType, number>,
 
   // Site condition multipliers (prep effort)
@@ -50,7 +39,7 @@ function money(n: number) {
 }
 
 export default function Estimator() {
-  const [sqft, setSqft] = useState<number>(0)
+  const [sqft, setSqft] = useState<number>(400)
   const [surfaceType, setSurfaceType] = useState<SurfaceType>('driveway')
   const [condition, setCondition] = useState<Condition>('cracked')
   const [name, setName] = useState('')
@@ -226,15 +215,15 @@ export default function Estimator() {
 
   if (status === 'sent') {
     return (
-      <div className="space-y-4" role="status" aria-live="polite">
-        <div className="text-center py-8">
+      <div className="bg-white rounded-xl shadow-xl overflow-hidden max-w-md mx-auto border border-slate-100">
+        <div className="p-8 text-center">
           <div className="text-4xl mb-4">✅</div>
-          <h3 className="text-2xl font-bold mb-2">Thanks! We'll text you shortly.</h3>
+          <h3 className="text-xl font-bold mb-2 text-slate-900">Thanks! We'll be in touch shortly.</h3>
           <p className="text-slate-600 mb-6">
-            Want to see color options while you wait?
+            While you wait, check out our color options.
           </p>
-          <a href="/colors" className="btn-accent">
-            View color blends
+          <a href="/colors" className="inline-block bg-slate-900 text-white px-6 py-3 rounded font-medium hover:bg-slate-800 transition-colors">
+            View Color Blends
           </a>
         </div>
       </div>
@@ -242,110 +231,78 @@ export default function Estimator() {
   }
 
   return (
-    <form onSubmit={submitLead} className="space-y-4" aria-label="Instant price estimator and quote form">
-      <h2 className="text-2xl font-bold">Instant price estimator</h2>
-      <p className="subtle text-sm">Premium UV‑stable resin—get a ballpark now, then book a precise on‑site quote.</p>
+    <div className="bg-white rounded-xl shadow-xl overflow-hidden max-w-md mx-auto border border-slate-100">
+      <div className="p-6 pb-0">
+        <h2 className="text-3xl font-serif text-slate-900 mb-2">Instant Price Estimator</h2>
+        <p className="text-slate-500 text-sm">Get a ballpark price in seconds</p>
+      </div>
 
-      <div className="grid grid-cols-1 gap-4">
-        {/* Surface Type */}
+      <form onSubmit={submitLead} className="p-6 space-y-6">
+        {/* Project Type */}
         <div>
-          <label className="label" htmlFor="surfaceTypeSelect">Surface type</label>
-          <select
-            className="input"
-            value={surfaceType}
-            id="surfaceTypeSelect"
-            onChange={(e: ChangeEvent<HTMLSelectElement>) => setSurfaceType(e.target.value as SurfaceType)}
-          >
-            <option value="driveway">Driveway</option>
-            <option value="patio">Patio</option>
-            <option value="pool_deck">Pool deck</option>
-          </select>
+          <label className="block text-sm font-medium text-slate-700 mb-2">Project Type</label>
+          <div className="grid grid-cols-2 gap-2">
+            {(['driveway', 'patio', 'pool_deck', 'walkway'] as SurfaceType[]).map((type) => (
+              <button
+                key={type}
+                type="button"
+                onClick={() => setSurfaceType(type)}
+                className={`px-3 py-2 text-sm rounded border transition-colors ${
+                  surfaceType === type
+                    ? 'bg-slate-900 text-white border-slate-900'
+                    : 'bg-white text-slate-600 border-slate-200 hover:border-slate-400'
+                }`}
+              >
+                {type.replace('_', ' ').replace(/\b\w/g, l => l.toUpperCase())}
+              </button>
+            ))}
+          </div>
         </div>
 
-        {/* Area with Slider */}
+        {/* Approximate Size */}
         <div>
-          <label className="label" htmlFor="sqftInput">Area (sq ft)</label>
-          <input
-            className="input"
-            type="number"
-            min={0}
-            step={10}
-            id="sqftInput"
-            placeholder="e.g., 400"
-            aria-describedby="sqftHelp"
-            value={sqft === 0 ? '' : sqft}
-            onChange={(e: ChangeEvent<HTMLInputElement>) => {
-              const raw = e.target.value
-              if (raw === '') {
-                setSqft(0)
-                return
-              }
-              const n = Number(raw)
-              setSqft(Number.isFinite(n) ? n : 0)
-            }}
-          />
+          <div className="flex justify-between items-center mb-2">
+            <label className="block text-sm font-medium text-slate-700">Approximate Size</label>
+            <span className="text-sm font-bold text-slate-900">{sqft} sq ft</span>
+          </div>
           <input
             type="range"
-            min={0}
+            min={100}
             max={2000}
             step={50}
             value={sqft}
-            onChange={(e: ChangeEvent<HTMLInputElement>) => setSqft(Number(e.target.value))}
-            className="w-full mt-2"
-            aria-label="Adjust square footage with slider"
+            onChange={(e) => setSqft(Number(e.target.value))}
+            className="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-slate-900"
           />
-          <p id="sqftHelp" className="text-xs subtle mt-1">Measure length × width of each area and add them up.</p>
+          <div className="flex justify-between text-xs text-slate-400 mt-1">
+            <span>Small (100)</span>
+            <span>Large (2000+)</span>
+          </div>
         </div>
 
-        {/* Surface Condition */}
-        <div>
-          <label className="label" htmlFor="conditionSelect">Surface condition</label>
-          <select
-            className="input"
-            value={condition}
-            id="conditionSelect"
-            aria-describedby="conditionHelp"
-            onChange={(e: ChangeEvent<HTMLSelectElement>) => setCondition(e.target.value as Condition)}
-          >
-            <option value="new_slab">New / sound slab</option>
-            <option value="cracked">Cracked / moderate repair</option>
-            <option value="heavy_repair">Heavily damaged / buildup</option>
-          </select>
-          <p id="conditionHelp" className="text-xs subtle mt-1">Not sure? Choose "Cracked / moderate repair" — we'll confirm during your site visit.</p>
-        </div>
-
-        {/* Estimate card with breakdown */}
-        <div className="card p-4" role="region" aria-live="polite">
-          <div className="text-sm uppercase tracking-wide subtle">Estimated range</div>
-          <div className="text-2xl font-extrabold mt-1">
-            {money(low)} – {money(high)}
-          </div>
-          <div className="text-xs subtle mt-2 space-y-1">
-            <div className="flex justify-between">
-              <span>Base ({money(priceBreakdown.basePerSqft.low)}–{money(priceBreakdown.basePerSqft.high)}/sq ft)</span>
-            </div>
-            <div className="flex justify-between">
-              <span>+ Surface type ({SURFACE_TYPE_LABELS[surfaceType]})</span>
-              <span>{priceBreakdown.surfMult === 1 ? '—' : `${priceBreakdown.surfMult < 1 ? '' : '+'}${((priceBreakdown.surfMult - 1) * 100).toFixed(0)}%`}</span>
-            </div>
-            <div className="flex justify-between">
-              <span>+ Condition ({CONDITION_LABELS[condition]})</span>
-              <span>{priceBreakdown.condMult === 1 ? '—' : `+${((priceBreakdown.condMult - 1) * 100).toFixed(0)}%`}</span>
-            </div>
-          </div>
-          <p className="text-xs subtle mt-2 pt-2 border-t border-slate-200">
-            Typical jobs range $12–$20/sq ft depending on prep and base condition.
+        {/* Estimated Price Display */}
+        <div className="bg-slate-50 rounded-lg p-4 text-center border border-slate-100">
+          <p className="text-sm text-slate-500 uppercase tracking-wide mb-1">Estimated Price</p>
+          <p className="text-3xl font-serif font-bold text-slate-900">
+            {money(low)} - {money(high)}
           </p>
-          <p className="text-xs subtle mt-1">
-            Range includes Premium UV resin & install. Final price depends on site conditions and exact scope.
-            Not a formal quote.
-          </p>
+          <p className="text-xs text-slate-400 mt-1">Includes materials & installation</p>
         </div>
 
         {/* Contact Fields */}
+setup/agent-hq-scaffold
+        <div className="space-y-3">
+          <input
+            type="text"
+            placeholder="Full Name"
+            className={`w-full px-4 py-3 rounded border ${errors.name ? 'border-red-500' : 'border-slate-200'} focus:outline-none focus:border-slate-900`}
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+
         <div>
-          <label className="label">Full name</label>
+          <label className="label" htmlFor="name-input">Full name</label>
           <input 
+            id="name-input"
             className={`input ${errors.name ? 'border-red-500' : ''}`}
             value={name} 
             onChange={(e: ChangeEvent<HTMLInputElement>) => {
@@ -354,11 +311,22 @@ export default function Estimator() {
                 setErrors(prev => ({ ...prev, name: '' }))
               }
             }}
+ main
             onBlur={(e) => handleFieldBlur('name', e.target.value)}
-            required 
-            aria-invalid={!!errors.name}
-            aria-describedby={errors.name ? 'name-error' : undefined}
+            required
           />
+setup/agent-hq-scaffold
+          {errors.name && <p className="text-xs text-red-600">{errors.name}</p>}
+
+          <input
+            type="email"
+            placeholder="Email Address"
+            className={`w-full px-4 py-3 rounded border ${errors.email ? 'border-red-500' : 'border-slate-200'} focus:outline-none focus:border-slate-900`}
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            onBlur={(e) => handleFieldBlur('email', e.target.value)}
+            required
+
           {errors.name && (
             <p id="name-error" className="text-xs text-red-600 mt-1" role="alert">
               {errors.name}
@@ -368,8 +336,9 @@ export default function Estimator() {
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
-            <label className="label">Email</label>
+            <label className="label" htmlFor="email-input">Email</label>
             <input 
+              id="email-input"
               className={`input ${errors.email ? 'border-red-500' : ''}`}
               type="email" 
               value={email} 
@@ -391,8 +360,9 @@ export default function Estimator() {
             )}
           </div>
           <div>
-            <label className="label">Phone</label>
+            <label className="label" htmlFor="phone-input">Phone</label>
             <input 
+              id="phone-input"
               className={`input ${errors.phone ? 'border-red-500' : ''}`}
               type="tel" 
               value={phone} 
@@ -416,8 +386,9 @@ export default function Estimator() {
         </div>
 
         <div>
-          <label className="label">ZIP code</label>
+          <label className="label" htmlFor="zip-input">ZIP code</label>
           <input 
+            id="zip-input"
             className={`input ${errors.zip ? 'border-red-500' : ''}`}
             inputMode="numeric" 
             pattern="[0-9]*" 
@@ -432,29 +403,56 @@ export default function Estimator() {
             required 
             aria-invalid={!!errors.zip}
             aria-describedby={errors.zip ? 'zip-error' : undefined}
+ main
           />
-          {errors.zip && (
-            <p id="zip-error" className="text-xs text-red-600 mt-1" role="alert">
-              {errors.zip}
-            </p>
-          )}
-        </div>
-      </div>
+          {errors.email && <p className="text-xs text-red-600">{errors.email}</p>}
 
-      <div className="flex flex-col sm:flex-row gap-3">
-        <button type="submit" className="btn w-full sm:flex-1" disabled={status === 'sending'}>
-          {status === 'sending' ? 'Sending...' : 'Book my on‑site quote'}
+          <div className="grid grid-cols-2 gap-3">
+            <div>
+              <input
+                type="tel"
+                placeholder="Phone"
+                className={`w-full px-4 py-3 rounded border ${errors.phone ? 'border-red-500' : 'border-slate-200'} focus:outline-none focus:border-slate-900`}
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+                onBlur={(e) => handleFieldBlur('phone', e.target.value)}
+                required
+              />
+              {errors.phone && <p className="text-xs text-red-600">{errors.phone}</p>}
+            </div>
+            <div>
+              <input
+                type="text"
+                placeholder="Zip Code"
+                className={`w-full px-4 py-3 rounded border ${errors.zip ? 'border-red-500' : 'border-slate-200'} focus:outline-none focus:border-slate-900`}
+                value={zip}
+                onChange={(e) => setZip(e.target.value)}
+                onBlur={(e) => handleFieldBlur('zip', e.target.value)}
+                required
+              />
+              {errors.zip && <p className="text-xs text-red-600">{errors.zip}</p>}
+            </div>
+          </div>
+        </div>
+
+        <button
+          type="submit"
+          disabled={status === 'sending'}
+          className="w-full bg-slate-900 text-white font-bold py-4 rounded hover:bg-slate-800 transition-colors disabled:opacity-50"
+        >
+          {status === 'sending' ? 'Calculating...' : 'Get Official Quote'}
         </button>
-        <a href="/contact" className="btn-accent w-full sm:flex-1 justify-center text-center">
-          Request callback
-        </a>
-      </div>
-      
-      {status === 'error' && (
-        <p className="text-red-600 text-sm" role="alert" aria-live="assertive">
-          There was a problem submitting ({errorMsg || 'unknown'}). Please call 513-787-8798.
+
+        <p className="text-xs text-center text-slate-400">
+          No spam. We only use this info to send your estimate.
         </p>
-      )}
-    </form>
+
+        {status === 'error' && (
+          <p className="text-red-600 text-sm text-center">
+            Error: {errorMsg || 'Please try again.'}
+          </p>
+        )}
+      </form>
+    </div>
   )
 }

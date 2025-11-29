@@ -37,8 +37,20 @@ See `docs/MISSION_CONTROL.md` for a concise checklist and one-command local veri
 Create `.env.local` in the project root:
 ```
 LEAD_WEBHOOK_URL=https://your-webhook-or-zapier-endpoint.example.com
+NEXT_PUBLIC_ADMIN_PASSWORD_HASH=your-sha256-hash
 ```
-If left unset, leads are accepted but only logged server‑side.
+If left unset, leads are accepted but only logged server‑side. The `NEXT_PUBLIC_ADMIN_PASSWORD_HASH`
+value controls the admin dashboard gate (photos/uploads/pages under `/admin`).
+
+To create the hash, run:
+
+```bash
+node -e "const crypto=require('crypto');console.log(crypto.createHash('sha256').update(process.argv[1]).digest('hex'))" "your-strong-password"
+```
+
+Add the resulting hash (not the raw password) to `.env.local` and to your Vercel Project → Settings →
+Environment Variables. The password is only checked in the browser and stored in sessionStorage for the
+current tab.
 
 > If you want SMS alerts via Twilio, set `LEAD_WEBHOOK_URL` to your existing Render/Twilio webhook endpoint (POST JSON).
 

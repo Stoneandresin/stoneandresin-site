@@ -43,7 +43,11 @@ export default function Navbar() {
           <Link href="/#surfaces" className="link-invert">Surfaces</Link>
           <Link href="/pricing" className="link-invert">Pricing</Link>
           <Link href="/learn" className="link-invert">Learn</Link>
+ copilot/fix-git-submodule-fetch
           <Link href="/faq" className="link-invert">FAQ</Link>
+
+          <Link href="/resources" className="link-invert">Resources</Link>
+ main
           <Link href="/about" className="link-invert">About</Link>
           <a 
             href="tel:+15137878798" 
@@ -73,7 +77,11 @@ export default function Navbar() {
             <Link href="/#surfaces" className="link-invert" onClick={() => setOpen(false)}>Surfaces</Link>
             <Link href="/pricing" className="link-invert" onClick={() => setOpen(false)}>Pricing</Link>
             <Link href="/learn" className="link-invert" onClick={() => setOpen(false)}>Learn</Link>
+ copilot/fix-git-submodule-fetch
             <Link href="/faq" className="link-invert" onClick={() => setOpen(false)}>FAQ</Link>
+
+            <Link href="/resources" className="link-invert" onClick={() => setOpen(false)}>Resources</Link>
+ main
             <Link href="/about" className="link-invert" onClick={() => setOpen(false)}>About</Link>
             <a 
               href="tel:+15137878798" 

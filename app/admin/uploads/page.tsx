@@ -1,8 +1,9 @@
 // app/admin/uploads/page.tsx
 'use client';
 export const dynamic = 'force-dynamic';
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useCallback } from "react";
 import DropzoneUpload from "@/components/DropzoneUpload";
+import AdminGate from "@/components/AdminGate";
 
 declare global {
   interface Window {
@@ -17,7 +18,7 @@ type UploadItem = {
   err?: string;
 };
 
-export default function Uploads() {
+function UploadsContent() {
   const cloudName = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME;
   const unsignedPreset = process.env.NEXT_PUBLIC_CLOUDINARY_UNSIGNED_PRESET;
 
@@ -33,8 +34,6 @@ export default function Uploads() {
     );
   }
 
-  const [ok, setOk] = useState(false);
-
   // Load Cloudinary widget script (keeps your existing button working)
   useEffect(() => {
     const s = document.createElement("script");
@@ -44,14 +43,6 @@ export default function Uploads() {
     return () => {
       document.body.removeChild(s);
     };
-  }, []);
-
-  // Simple gate via ?key=
-  useEffect(() => {
-    const urlKey = new URLSearchParams(window.location.search).get("key");
-    const storedKey = sessionStorage.getItem("ADMIN_KEY");
-    if (urlKey) sessionStorage.setItem("ADMIN_KEY", urlKey);
-    setOk(Boolean(urlKey || storedKey));
   }, []);
 
   // Helper: upload a single file using unsigned upload
@@ -105,17 +96,6 @@ export default function Uploads() {
     widget.open();
   }, [cloudName, unsignedPreset]);
 
-  if (!ok) {
-    return (
-      <main className="mx-auto max-w-md p-6">
-        <h1 className="text-2xl font-semibold mb-2">Restricted</h1>
-        <p className="text-gray-600">
-          Append <code>?key=YOUR_ADMIN_KEY</code> to the URL.
-        </p>
-      </main>
-    );
-  }
-
   return (
     <main className="mx-auto max-w-4xl p-6 space-y-6">
       <h1 className="text-2xl font-semibold">Upload Before/After Photos</h1>
@@ -139,5 +119,13 @@ export default function Uploads() {
         </button>
       </div>
     </main>
+  );
+}
+
+export default function Uploads() {
+  return (
+    <AdminGate title="Admin · Uploads">
+      <UploadsContent />
+    </AdminGate>
   );
 }

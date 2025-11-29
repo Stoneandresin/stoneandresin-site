@@ -5,8 +5,24 @@ import Link from "next/link";
 
 // Metadata for the contact page.
 export const metadata = {
+ copilot/fix-git-submodule-fetch
   title: "Schedule Free Site Visit | Stone & Resin",
   description: "Schedule your free on-site estimate. Multiple contact options: call, text, email, or fill out our quick form.",
+
+  title: "Contact Stone & Resin",
+  description: "Book your free on-site quote for resin-bound surfaces in Cincinnati & Amelia, OH. Call 513-787-8798 or request a callback. Fast response guaranteed.",
+  openGraph: {
+    title: "Contact Stone & Resin | Free On-Site Quotes",
+    description: "Book your free site visit for resin-bound driveways, patios, or pool decks. Serving Greater Cincinnati.",
+    type: "website",
+    images: ["/placeholder.jpg"],
+  },
+  twitter: {
+    card: "summary",
+    title: "Contact Stone & Resin",
+    description: "Call 513-787-8798 or request your free on-site quote today.",
+  }
+ main
 };
 
 export default function ContactPage() {

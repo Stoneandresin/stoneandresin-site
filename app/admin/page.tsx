@@ -1,29 +1,9 @@
+
 'use client';
-import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import AdminGate from '@/components/AdminGate';
 
-export default function AdminIndex() {
-  const [ok, setOk] = useState(false);
-
-  useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    const urlKey = params.get('key');
-    const stored = sessionStorage.getItem('ADMIN_KEY');
-    if (urlKey) sessionStorage.setItem('ADMIN_KEY', urlKey);
-    setOk(Boolean(urlKey || stored));
-  }, []);
-
-  if (!ok) {
-    return (
-      <main className="mx-auto max-w-md p-6">
-        <h1 className="text-2xl font-semibold mb-2">Restricted</h1>
-        <p className="text-gray-600">
-          Append <code>?key=YOUR_ADMIN_KEY</code> to the URL.
-        </p>
-      </main>
-    );
-  }
-
+function AdminContent() {
   return (
     <main className="mx-auto max-w-3xl p-6 space-y-6">
       <h1 className="text-2xl font-semibold">Admin</h1>
@@ -42,5 +22,13 @@ export default function AdminIndex() {
         </li>
       </ul>
     </main>
+  );
+}
+
+export default function AdminIndex() {
+  return (
+    <AdminGate title="Admin">
+      <AdminContent />
+    </AdminGate>
   );
 }
