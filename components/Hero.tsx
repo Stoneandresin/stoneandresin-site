@@ -44,7 +44,7 @@ export default function Hero() {
             </a>
             <Link
               href="/colors"
-              className="bg-white/20 hover:bg-white/30 backdrop-blur-md text-white border border-white/40 px-8 py-4 rounded-md font-medium text-lg transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+              className="bg-transparent hover:bg-white/10 text-white border border-white/30 px-8 py-4 rounded-md font-medium text-lg transition-all backdrop-blur-sm"
             >
               See color options
             </Link>
