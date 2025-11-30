@@ -64,6 +64,13 @@ export default function Hero() {
 
           <div className="flex flex-wrap gap-4">
             <a
+              href="#estimate"
+              className="bg-slate-900 hover:bg-slate-800 text-white px-8 py-4 rounded-md font-medium text-lg transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+              onClick={() => track('cta_click', { location: 'hero', label: 'Get instant estimate' })}
+            >
+              Get an Instant Estimate
+            </a>
+            <a
               href="/colors"
               className="bg-white/20 hover:bg-white/30 backdrop-blur-md text-white border border-white/40 px-8 py-4 rounded-md font-medium text-lg transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
             >
