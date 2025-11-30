@@ -43,7 +43,6 @@ export default function Navbar() {
           <Link href="/#surfaces" className="link-invert">Surfaces</Link>
           <Link href="/pricing" className="link-invert">Pricing</Link>
           <Link href="/learn" className="link-invert">Learn</Link>
-          <Link href="/resources" className="link-invert">Resources</Link>
           <Link href="/about" className="link-invert">About</Link>
           <a
             href="/#estimate"
@@ -66,7 +65,6 @@ export default function Navbar() {
             <Link href="/#surfaces" className="link-invert" onClick={() => setOpen(false)}>Surfaces</Link>
             <Link href="/pricing" className="link-invert" onClick={() => setOpen(false)}>Pricing</Link>
             <Link href="/learn" className="link-invert" onClick={() => setOpen(false)}>Learn</Link>
-            <Link href="/resources" className="link-invert" onClick={() => setOpen(false)}>Resources</Link>
             <Link href="/about" className="link-invert" onClick={() => setOpen(false)}>About</Link>
             <a
               href="/#estimate"
