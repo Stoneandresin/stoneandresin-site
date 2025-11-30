@@ -50,7 +50,7 @@ export default function Hero() {
         <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-white to-transparent" />
       </div>
 
-      <div className="container mx-auto px-4 relative z-10 pt-20">
+      <div className="container mx-auto px-4 relative z-10 pt-20 grid md:grid-cols-2 gap-12 items-center">
         <div className="max-w-4xl">
           <h1 className="text-5xl md:text-7xl font-serif font-medium text-white leading-[1.1] mb-6 drop-shadow-sm">
             Resin-Bound Driveways <br />
