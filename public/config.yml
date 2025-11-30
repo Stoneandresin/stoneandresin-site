@@ -5,16 +5,7 @@ backend:
 site_url: https://stoneandresin.com
 logo_url: /favicon.ico
 
-media_library:
-  name: cloudinary
-  config:
-    cloud_name: ${ddpjhsiyu}
-    api_key: ${158876361571836}    # Optional folder inside Cloudinary:
-    default_transformations:
-      - - fetch_format: auto
-          quality: auto
-
-media_folder: "static/uploads"         # fallback if Cloudinary is offline
+media_folder: "static/uploads"
 public_folder: "/uploads"
 
 collections:

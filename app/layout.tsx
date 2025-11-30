@@ -1,12 +1,20 @@
 // app/layout.tsx
 import type { Metadata } from "next";
-import Script from "next/script";
+import dynamic from "next/dynamic";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/react";
-import MobileStickyBar from "@/components/MobileStickyBar";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import TidioChat from "@/components/TidioChat";
+
+const MobileStickyBar = dynamic(() => import("@/components/MobileStickyBar"), {
+  ssr: false,
+  loading: () => null,
+});
+
+const TidioChat = dynamic(() => import("@/components/TidioChat"), {
+  ssr: false,
+  loading: () => null,
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.stoneandresin.com"),

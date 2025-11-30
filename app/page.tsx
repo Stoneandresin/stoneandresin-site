@@ -1,13 +1,25 @@
-"use client";
-export const dynamic = 'force-dynamic';
+export const dynamic = "force-dynamic";
 
+import NextDynamic from "next/dynamic";
+import Image from "next/image";
 import Hero from "@/components/Hero";
 import RevealOnScroll from "@/components/RevealOnScroll";
-import ColorsSlider from "@/components/ColorsSlider";
-import Image from "next/image";
-import Estimator from "@/components/Estimator";
-import RecentProjects from "@/components/RecentProjects";
 import { certificateImage } from "@/lib/frontPageContent";
+
+const ColorsSlider = NextDynamic(() => import("@/components/ColorsSlider"), {
+  ssr: false,
+  loading: () => <ColorsSliderFallback />,
+});
+
+const Estimator = NextDynamic(() => import("@/components/Estimator"), {
+  ssr: false,
+  loading: () => <EstimatorFallback />,
+});
+
+const RecentProjects = NextDynamic(() => import("@/components/RecentProjects"), {
+  ssr: false,
+  loading: () => <RecentProjectsFallback />,
+});
 
 export default function Home() {
   return (
@@ -203,5 +215,62 @@ export default function Home() {
         <RecentProjects />
       </main>
     </>
+  );
+}
+
+function EstimatorFallback() {
+  return (
+    <div className="bg-white rounded-xl shadow-xl overflow-hidden max-w-md mx-auto border border-slate-100 animate-pulse">
+      <div className="p-6 space-y-4">
+        <div className="h-6 bg-slate-100 rounded w-1/2" />
+        <div className="h-4 bg-slate-100 rounded w-3/4" />
+        <div className="h-32 bg-slate-100 rounded" />
+        <div className="h-10 bg-slate-100 rounded" />
+        <div className="h-10 bg-slate-100 rounded" />
+        <div className="h-10 bg-slate-100 rounded" />
+      </div>
+    </div>
+  );
+}
+
+function ColorsSliderFallback() {
+  return (
+    <div className="py-12">
+      <div className="container mx-auto px-4">
+        <div className="surface-1 rounded-2xl p-6 md:p-8">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+            {Array.from({ length: 8 }).map((_, idx) => (
+              <div
+                key={`color-fallback-${idx}`}
+                className="aspect-[4/3] rounded-xl bg-gradient-to-br from-slate-100 to-slate-200"
+              />
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function RecentProjectsFallback() {
+  return (
+    <section className="py-24 bg-white">
+      <div className="container mx-auto px-4">
+        <div className="text-center max-w-3xl mx-auto mb-12 space-y-4">
+          <div className="h-10 bg-slate-100 rounded mx-auto w-2/3" />
+          <div className="h-4 bg-slate-100 rounded mx-auto w-1/2" />
+        </div>
+        <div className="grid md:grid-cols-2 gap-8">
+          {Array.from({ length: 2 }).map((_, idx) => (
+            <div key={`recent-fallback-${idx}`} className="space-y-4">
+              <div className="aspect-video bg-slate-100 rounded-xl" />
+              <div className="h-6 bg-slate-100 rounded w-2/3" />
+              <div className="h-4 bg-slate-100 rounded w-full" />
+              <div className="h-4 bg-slate-100 rounded w-5/6" />
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 }
