@@ -2,6 +2,7 @@
 import Image from "next/image";
 import { BeforeAfter } from "@/components/BeforeAfter";
 import { loadLocalGallery } from "@/lib/local-gallery";
+import { defaultBeforeAfterPairs } from "@/data/before-after-pairs";
 import Testimonials from "@/components/Testimonials";
 
 export const metadata = {
@@ -21,31 +22,10 @@ export const metadata = {
   }
 };
 
-type Pair = {
-  jobId: string;
-  before: string[];
-  after: string[];
-};
-
-async function fetchPairs(): Promise<Pair[]> {
-  try {
-    const res = await fetch(
-      `${process.env.NEXT_PUBLIC_BASE_URL ?? ""}/api/reindex`,
-      { cache: "no-store" }
-    );
-    if (!res.ok) {
-      return [];
-    }
-    const data = await res.json();
-    return (data.pairs as Pair[]) || [];
-  } catch {
-    return [];
-  }
-}
-
 export default async function Page() {
-  const [pairs, localPhotos] = await Promise.all([fetchPairs(), loadLocalGallery()]);
-  const hasPairs = pairs.length > 0;
+  const localPhotos = await loadLocalGallery();
+  const pairs = defaultBeforeAfterPairs;
+
   return (
     <main className="mx-auto max-w-6xl p-6">
       <h1 className="text-3xl font-semibold mb-2">Before &amp; After</h1>
@@ -53,55 +33,59 @@ export default async function Page() {
         Recent installs using premium UV-resistant binders.
       </p>
 
-      {hasPairs ? (
-        <div className="grid gap-6 md:grid-cols-2">
-          {pairs.map((p) => (
-            <div key={p.jobId} className="space-y-2">
-              <BeforeAfter
-                beforeSrc={p.before[0]}
-                afterSrc={p.after[0]}
-                alt={p.jobId}
-              />
-              <div className="text-sm text-gray-700">
-                {p.jobId.replace(/-/g, " ").toUpperCase()}
+      <div className="grid gap-6 md:grid-cols-2 mb-12">
+        {pairs.map((p) => (
+          <div key={p.id} className="space-y-2">
+            <BeforeAfter
+              beforeSrc={p.before}
+              afterSrc={p.after}
+              alt={p.label}
+            />
+            <div className="flex justify-between items-baseline">
+              <div className="text-sm font-medium text-gray-900">
+                {p.label}
+              </div>
+              <div className="text-xs text-gray-500">
+                {p.location}
               </div>
             </div>
-          ))}
-        </div>
-      ) : (
-        <section className="space-y-6">
-          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-            {localPhotos.map((photo) => {
-              const categoryLower = photo.category.toLowerCase();
-              const shouldShowLabel = ['patio', 'driveway', 'steps'].includes(categoryLower);
-              // Only show the filename (label) in alt text if it's one of the allowed categories
-              const altText = shouldShowLabel ? photo.label : photo.category;
-              
-              return (
-                <figure key={photo.src} className="card overflow-hidden">
-                  <div className="relative h-60 w-full">
-                    <Image
-                      src={photo.src}
-                      alt={altText}
-                      loading="lazy"
-                      fill
-                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                      className="object-cover"
-                    />
-                  </div>
-                  {shouldShowLabel && (
-                    <figcaption className="border-t border-slate-100 p-3 text-sm text-slate-600">
-                      <div className="text-xs uppercase tracking-wide text-slate-500 font-bold">
-                        {photo.category}
-                      </div>
-                    </figcaption>
-                  )}
-                </figure>
-              );
-            })}
           </div>
-        </section>
-      )}
+        ))}
+      </div>
+
+      <section className="space-y-6">
+        <h2 className="text-2xl font-semibold mb-4">Project Gallery</h2>
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          {localPhotos.map((photo) => {
+            const categoryLower = photo.category.toLowerCase();
+            const shouldShowLabel = ['patio', 'driveway', 'steps'].includes(categoryLower);
+            // Only show the filename (label) in alt text if it's one of the allowed categories
+            const altText = shouldShowLabel ? photo.label : photo.category;
+            
+            return (
+              <figure key={photo.src} className="card overflow-hidden">
+                <div className="relative h-60 w-full">
+                  <Image
+                    src={photo.src}
+                    alt={altText}
+                    loading="lazy"
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    className="object-cover"
+                  />
+                </div>
+                {shouldShowLabel && (
+                  <figcaption className="border-t border-slate-100 p-3 text-sm text-slate-600">
+                    <div className="text-xs uppercase tracking-wide text-slate-500 font-bold">
+                      {photo.category}
+                    </div>
+                  </figcaption>
+                )}
+              </figure>
+            );
+          })}
+        </div>
+      </section>
       
       <Testimonials />
       
