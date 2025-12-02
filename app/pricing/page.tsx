@@ -1,20 +1,7 @@
 import Estimator from "@/components/Estimator";
-import FAQ from "@/components/FAQ";
 
 export const metadata = {
-  title: "Pricing & Instant Estimate",
-  description: "Get instant pricing for resin-bound driveways, patios, and pool decks in Ohio. Transparent $12-$20/sq ft pricing with free on-site quotes. Vuba certified installer serving Cincinnati & Amelia.",
-  openGraph: {
-    title: "Resin-Bound Surface Pricing | Stone & Resin",
-    description: "Instant online estimates for permeable resin-bound surfaces. Transparent pricing and free on-site quotes in Greater Cincinnati.",
-    type: "website",
-    images: ["/placeholder.jpg"],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Instant Resin-Bound Pricing | Stone & Resin",
-    description: "Get your instant estimate now. $12-$20/sq ft installed in Ohio.",
-  }
+  title: "Pricing"
 }
 
 export default function PricingPage(){
@@ -49,8 +36,6 @@ export default function PricingPage(){
           </div>
         </div>
       </section>
-      
-      <FAQ />
       
     </main>
   )

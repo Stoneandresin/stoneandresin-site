@@ -2,12 +2,11 @@
 export const dynamic = 'force-dynamic';
 
 import Hero from "@/components/Hero";
-import RevealOnScroll from "@/components/RevealOnScroll";
 import ColorsSlider from "@/components/ColorsSlider";
 import Image from "next/image";
 import Estimator from "@/components/Estimator";
+import RevealOnScroll from "@/components/RevealOnScroll";
 import RecentProjects from "@/components/RecentProjects";
-import { certificateImage } from "@/lib/frontPageContent";
 
 export default function Home() {
   return (
@@ -58,54 +57,10 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Resources & Learning section */}
-        <section className="py-12 bg-slate-50">
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto text-center mb-8">
-              <h2 className="text-2xl md:text-3xl font-extrabold mb-3">
-                Learn about resin‑bound surfaces
-              </h2>
-              <p className="text-slate-600">
-                Expert guides, maintenance tips, and free resources for Ohio homeowners
-              </p>
-            </div>
-            <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-              <article className="card p-6 hover:shadow-lg transition-shadow">
-                <div className="text-3xl mb-3">📚</div>
-                <h3 className="font-semibold mb-2">Expert Guides</h3>
-                <p className="text-sm text-slate-600 mb-4">
-                  Detailed articles on resin vs. epoxy, drainage requirements, and maintenance
-                </p>
-                <a href="/learn" className="btn-accent inline-flex items-center justify-center w-full">
-                  Browse Guides
-                </a>
-              </article>
-              <article className="card p-6 hover:shadow-lg transition-shadow">
-                <div className="text-3xl mb-3">📋</div>
-                <h3 className="font-semibold mb-2">Free Downloads</h3>
-                <p className="text-sm text-slate-600 mb-4">
-                  Maintenance checklists and preparation guides for your project
-                </p>
-                <a href="/resources" className="btn-accent inline-flex items-center justify-center w-full">
-                  Get Resources
-                </a>
-              </article>
-              <article className="card p-6 hover:shadow-lg transition-shadow">
-                <div className="text-3xl mb-3">🎨</div>
-                <h3 className="font-semibold mb-2">Color Options</h3>
-                <p className="text-sm text-slate-600 mb-4">
-                  Explore Vuba aggregate blends and request physical samples
-                </p>
-                <a href="/colors" className="btn-accent inline-flex items-center justify-center w-full">
-                  See Sample Blends
-                </a>
-              </article>
-            </div>
-          </div>
-        </section>
+
 
         {/* Color Collection */}
-        <section className="py-20 bg-white">
+        <section className="py-20 bg-slate-50">
           <div className="container mx-auto px-4">
             <RevealOnScroll className="reveal-fade">
               <div className="text-center max-w-3xl mx-auto mb-12">
@@ -124,16 +79,6 @@ export default function Home() {
               </div>
             </RevealOnScroll>
           </div>
-
-          <section className="mt-8 flex justify-center">
-            <Image
-              src={certificateImage.src}
-              alt={certificateImage.alt}
-              width={certificateImage.width}
-              height={certificateImage.height}
-              className="rounded-md shadow"
-            />
-          </section>
         </section>
 
         {/* Why resin-bound & Estimator Split Section */}
