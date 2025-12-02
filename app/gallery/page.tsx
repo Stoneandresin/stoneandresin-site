@@ -4,6 +4,9 @@ import { BeforeAfter } from "@/components/BeforeAfter";
 import { loadLocalGallery } from "@/lib/local-gallery";
 import Testimonials from "@/components/Testimonials";
 
+export const revalidate = 0;
+export const dynamic = "force-dynamic";
+
 export const metadata = {
   title: "Project Gallery | Resin-Bound Installations",
   description: "Browse our resin-bound driveway, patio, and pool deck installations in Cincinnati and Amelia, OH. Before & after photos of Vuba system installs with UV-stable finishes.",
