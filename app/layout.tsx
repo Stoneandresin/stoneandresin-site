@@ -1,8 +1,8 @@
 // app/layout.tsx
 import type { Metadata } from "next";
-import Script from "next/script";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/react";
+import Script from "next/script";
 import MobileStickyBar from "@/components/MobileStickyBar";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -47,74 +47,14 @@ export default function RootLayout({
       "postalCode": "45102",
       "addressCountry": "US"
     },
-    "areaServed": [
-      {
-        "@type": "City",
-        "name": "Amelia",
-        "containedInPlace": {
-          "@type": "State",
-          "name": "Ohio"
-        }
-      },
-      {
-        "@type": "City",
-        "name": "Cincinnati",
-        "containedInPlace": {
-          "@type": "State",
-          "name": "Ohio"
-        }
-      }
-    ],
+    "areaServed": ["Amelia OH", "Cincinnati OH"],
     "sameAs": [
       "https://www.bbb.org/us/oh/amelia/profile/construction-services/spaulding-quality-renovations-0292-90050955",
       "https://www.facebook.com/",
       "https://www.instagram.com/"
     ],
-    "logo": "/favicon.ico",
-    "priceRange": "$12-$20 per square foot",
-    "description": "Professional resin-bound surface installation for driveways, patios, walkways, and pool decks. Vuba certified installer serving Greater Cincinnati and Amelia, Ohio."
+    "logo": "/favicon.ico"
   };
-  
-  const serviceJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "serviceType": "Resin-Bound Surface Installation",
-    "provider": {
-      "@type": "HomeAndConstructionBusiness",
-      "name": "Stone & Resin",
-      "telephone": "+1-513-787-8798",
-      "url": "https://www.stoneandresin.com"
-    },
-    "areaServed": [
-      {
-        "@type": "City",
-        "name": "Amelia",
-        "containedInPlace": {
-          "@type": "State",
-          "name": "Ohio"
-        }
-      },
-      {
-        "@type": "City",
-        "name": "Cincinnati",
-        "containedInPlace": {
-          "@type": "State",
-          "name": "Ohio"
-        }
-      }
-    ],
-    "description": "Professional installation of Vuba resin-bound surfaces including driveways, patios, walkways, and pool decks. UV-stable, permeable systems designed for Ohio's climate.",
-    "offers": {
-      "@type": "Offer",
-      "priceSpecification": {
-        "@type": "UnitPriceSpecification",
-        "price": "12-20",
-        "priceCurrency": "USD",
-        "unitText": "per square foot"
-      }
-    }
-  };
-  
   return (
     <html lang="en" className="light-ui">
       <head>
@@ -132,10 +72,13 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }}
         />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
-        />
+        {process.env.NEXT_PUBLIC_TIDIO_KEY && (
+          <Script
+            id="tidio-chat"
+            src={`https://code.tidio.co/${process.env.NEXT_PUBLIC_TIDIO_KEY}.js`}
+            strategy="afterInteractive"
+          />
+        )}
         <Navbar />
         {children}
         <Footer />
