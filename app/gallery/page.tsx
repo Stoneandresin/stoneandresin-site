@@ -28,6 +28,13 @@ type Pair = {
 };
 
 async function fetchPairs(): Promise<Pair[]> {
+  const hasCloudinaryEnv =
+    process.env.CLOUDINARY_CLOUD_NAME &&
+    (process.env.CLOUDINARY_API_KEY || process.env.NEXT_PUBLIC_CLOUDINARY_API_KEY) &&
+    process.env.CLOUDINARY_API_SECRET;
+
+  if (!hasCloudinaryEnv) return [];
+
   try {
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_BASE_URL ?? ""}/api/reindex`,
@@ -46,37 +53,45 @@ async function fetchPairs(): Promise<Pair[]> {
 export default async function Page() {
   const [pairs, localPhotos] = await Promise.all([fetchPairs(), loadLocalGallery()]);
   const hasPairs = pairs.length > 0;
-  return (
-    <main className="mx-auto max-w-6xl p-6">
-      <h1 className="text-3xl font-semibold mb-2">Before &amp; After</h1>
-      <p className="text-gray-600 mb-6">
-        Recent installs using premium UV-resistant binders.
-      </p>
 
-      {hasPairs ? (
-        <div className="grid gap-6 md:grid-cols-2">
-          {pairs.map((p) => (
-            <div key={p.jobId} className="space-y-2">
-              <BeforeAfter
-                beforeSrc={p.before[0]}
-                afterSrc={p.after[0]}
-                alt={p.jobId}
-              />
-              <div className="text-sm text-gray-700">
-                {p.jobId.replace(/-/g, " ").toUpperCase()}
+  return (
+    <main className="mx-auto max-w-6xl p-6 space-y-10">
+      <header>
+        <h1 className="text-3xl font-semibold mb-2">Before &amp; After</h1>
+        <p className="text-gray-600">
+          Recent installs using premium UV-resistant binders.
+        </p>
+      </header>
+
+      {hasPairs && (
+        <section className="space-y-4">
+          <h2 className="text-xl font-semibold text-slate-900">Latest uploads</h2>
+          <div className="grid gap-6 md:grid-cols-2">
+            {pairs.map((p) => (
+              <div key={p.jobId} className="space-y-2">
+                <BeforeAfter
+                  beforeSrc={p.before[0]}
+                  afterSrc={p.after[0]}
+                  alt={p.jobId}
+                />
+                <div className="text-sm text-gray-700">
+                  {p.jobId.replace(/-/g, " ").toUpperCase()}
+                </div>
               </div>
-            </div>
-          ))}
-        </div>
-      ) : (
-        <section className="space-y-6">
+            ))}
+          </div>
+        </section>
+      )}
+
+      {localPhotos.length > 0 && (
+        <section className="space-y-4">
+          <h2 className="text-xl font-semibold text-slate-900">Gallery highlights</h2>
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
             {localPhotos.map((photo) => {
               const categoryLower = photo.category.toLowerCase();
-              const shouldShowLabel = ['patio', 'driveway', 'steps'].includes(categoryLower);
-              // Only show the filename (label) in alt text if it's one of the allowed categories
+              const shouldShowLabel = ["patio", "driveway", "steps"].includes(categoryLower);
               const altText = shouldShowLabel ? photo.label : photo.category;
-              
+
               return (
                 <figure key={photo.src} className="card overflow-hidden">
                   <div className="relative h-60 w-full">
@@ -102,9 +117,9 @@ export default async function Page() {
           </div>
         </section>
       )}
-      
+
       <Testimonials />
-      
+
       <section className="mt-12 text-center">
         <h2 className="text-2xl font-bold mb-4">Ready to transform your space?</h2>
         <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
