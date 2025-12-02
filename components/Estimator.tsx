@@ -290,103 +290,55 @@ export default function Estimator() {
         </div>
 
         {/* Contact Fields */}
-        <div>
-          <label className="label" htmlFor="name-input">Full name</label>
-          <input 
-            id="name-input"
-            className={`input ${errors.name ? 'border-red-500' : ''}`}
-            value={name} 
-            onChange={(e: ChangeEvent<HTMLInputElement>) => {
-              setName(e.target.value)
-              if (errors.name) {
-                setErrors(prev => ({ ...prev, name: '' }))
-              }
-            }}
+        <div className="space-y-3">
+          <input
+            type="text"
+            placeholder="Full Name"
+            className={`w-full px-4 py-3 rounded border ${errors.name ? 'border-red-500' : 'border-slate-200'} focus:outline-none focus:border-slate-900`}
+            value={name}
+            onChange={(e) => setName(e.target.value)}
             onBlur={(e) => handleFieldBlur('name', e.target.value)}
             required
           />
-          {errors.name && (
-            <p id="name-error" className="text-xs text-red-600 mt-1" role="alert">
-              {errors.name}
-            </p>
-          )}
-        </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div>
-            <label className="label" htmlFor="email-input">Email</label>
-            <input 
-              id="email-input"
-              className={`input ${errors.email ? 'border-red-500' : ''}`}
-              type="email" 
-              value={email} 
-              onChange={(e: ChangeEvent<HTMLInputElement>) => {
-                setEmail(e.target.value)
-                if (errors.email) {
-                  setErrors(prev => ({ ...prev, email: '' }))
-                }
-              }}
-              onBlur={(e) => handleFieldBlur('email', e.target.value)}
-              required 
-              aria-invalid={!!errors.email}
-              aria-describedby={errors.email ? 'email-error' : undefined}
-            />
-            {errors.email && (
-              <p id="email-error" className="text-xs text-red-600 mt-1" role="alert">
-                {errors.email}
-              </p>
-            )}
-          </div>
-          <div>
-            <label className="label" htmlFor="phone-input">Phone</label>
-            <input 
-              id="phone-input"
-              className={`input ${errors.phone ? 'border-red-500' : ''}`}
-              type="tel" 
-              value={phone} 
-              onChange={(e: ChangeEvent<HTMLInputElement>) => {
-                setPhone(e.target.value)
-                if (errors.phone) {
-                  setErrors(prev => ({ ...prev, phone: '' }))
-                }
-              }}
-              onBlur={(e) => handleFieldBlur('phone', e.target.value)}
-              required 
-              aria-invalid={!!errors.phone}
-              aria-describedby={errors.phone ? 'phone-error' : undefined}
-            />
-            {errors.phone && (
-              <p id="phone-error" className="text-xs text-red-600 mt-1" role="alert">
-                {errors.phone}
-              </p>
-            )}
-          </div>
-        </div>
+          {errors.name && <p className="text-xs text-red-600">{errors.name}</p>}
 
-        <div>
-          <label className="label" htmlFor="zip-input">ZIP code</label>
-          <input 
-            id="zip-input"
-            className={`input ${errors.zip ? 'border-red-500' : ''}`}
-            inputMode="numeric" 
-            pattern="[0-9]*" 
-            value={zip} 
-            onChange={(e: ChangeEvent<HTMLInputElement>) => {
-              setZip(e.target.value)
-              if (errors.zip) {
-                setErrors(prev => ({ ...prev, zip: '' }))
-              }
-            }}
-            onBlur={(e) => handleFieldBlur('zip', e.target.value)}
-            required 
-            aria-invalid={!!errors.zip}
-            aria-describedby={errors.zip ? 'zip-error' : undefined}
+          <input
+            type="email"
+            placeholder="Email Address"
+            className={`w-full px-4 py-3 rounded border ${errors.email ? 'border-red-500' : 'border-slate-200'} focus:outline-none focus:border-slate-900`}
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            onBlur={(e) => handleFieldBlur('email', e.target.value)}
+            required
           />
-          {errors.zip && (
-            <p id="zip-error" className="text-xs text-red-600 mt-1" role="alert">
-              {errors.zip}
-            </p>
-          )}
+          {errors.email && <p className="text-xs text-red-600">{errors.email}</p>}
+
+          <div className="grid grid-cols-2 gap-3">
+            <div>
+              <input
+                type="tel"
+                placeholder="Phone"
+                className={`w-full px-4 py-3 rounded border ${errors.phone ? 'border-red-500' : 'border-slate-200'} focus:outline-none focus:border-slate-900`}
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+                onBlur={(e) => handleFieldBlur('phone', e.target.value)}
+                required
+              />
+              {errors.phone && <p className="text-xs text-red-600">{errors.phone}</p>}
+            </div>
+            <div>
+              <input
+                type="text"
+                placeholder="Zip Code"
+                className={`w-full px-4 py-3 rounded border ${errors.zip ? 'border-red-500' : 'border-slate-200'} focus:outline-none focus:border-slate-900`}
+                value={zip}
+                onChange={(e) => setZip(e.target.value)}
+                onBlur={(e) => handleFieldBlur('zip', e.target.value)}
+                required
+              />
+              {errors.zip && <p className="text-xs text-red-600">{errors.zip}</p>}
+            </div>
+          </div>
         </div>
 
         <button
