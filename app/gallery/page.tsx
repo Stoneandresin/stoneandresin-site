@@ -53,6 +53,7 @@ async function fetchPairs(): Promise<Pair[]> {
 export default async function Page() {
   const [pairs, localPhotos] = await Promise.all([fetchPairs(), loadLocalGallery()]);
   const hasPairs = pairs.length > 0;
+  const showOfflineNotice = !hasPairs;
 
   return (
     <main className="mx-auto max-w-6xl p-6 space-y-10">
@@ -85,11 +86,18 @@ export default async function Page() {
 
       {localPhotos.length > 0 && (
         <section className="space-y-4">
-          <h2 className="text-xl font-semibold text-slate-900">Gallery highlights</h2>
+          <div className="flex items-start justify-between gap-4">
+            <h2 className="text-xl font-semibold text-slate-900">Gallery highlights</h2>
+            {showOfflineNotice && (
+              <p className="text-sm text-amber-800 bg-amber-50 border border-amber-200 rounded-md px-3 py-2">
+                Live uploads are offline; showing saved highlights instead.
+              </p>
+            )}
+          </div>
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
             {localPhotos.map((photo) => {
               const categoryLower = photo.category.toLowerCase();
-              const shouldShowLabel = ["patio", "driveway", "steps"].includes(categoryLower);
+              const shouldShowLabel = ["patio", "driveway", "steps", "pool deck"].includes(categoryLower);
               const altText = shouldShowLabel ? photo.label : photo.category;
 
               return (
