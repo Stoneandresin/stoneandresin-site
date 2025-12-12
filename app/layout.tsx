@@ -1,4 +1,3 @@
-// app/layout.tsx
 import type { Metadata } from "next";
 import Script from "next/script";
 import "./globals.css";
@@ -16,15 +15,34 @@ export const metadata: Metadata = {
   },
   description:
     "Premium resin-bound driveways, patios, walkways, and pool decks. Permeable, UV-stable, low maintenance. Serving Amelia & Cincinnati, Ohio.",
+  keywords: [
+    "resin bound driveway",
+    "resin bound patio",
+    "resin bound pool deck",
+    "permeable driveway",
+    "Cincinnati OH",
+    "Amelia OH",
+    "Vuba certified installer",
+  ],
   openGraph: {
     type: "website",
     url: "https://www.stoneandresin.com",
     title: "Stone & Resin | Resin-Bound Surfaces in Ohio",
     description: "Permeable, UV-stable surfaces that stay beautiful longer.",
-    images: ["/placeholder.jpg"],
+    images: ["/img/hero.jpg"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Stone & Resin | Resin-Bound Surfaces in Ohio",
+    description:
+      "Premium resin-bound driveways, patios, walkways, and pool decks. Serving Amelia & Cincinnati, Ohio.",
+    images: ["/img/hero.jpg"],
   },
   alternates: {
-    canonical: "https://www.stoneandresin.com",
+    canonical: "https://www.stoneandresin.com/",
+  },
+  icons: {
+    icon: "/favicon.ico",
   },
 };
 
@@ -38,6 +56,7 @@ export default function RootLayout({
     "@type": "HomeAndConstructionBusiness",
     "name": "Stone & Resin",
     "url": "https://www.stoneandresin.com",
+    "image": "https://www.stoneandresin.com/img/hero.jpg",
     "telephone": "+1-513-787-8798",
     "address": {
       "@type": "PostalAddress",
@@ -66,11 +85,9 @@ export default function RootLayout({
       }
     ],
     "sameAs": [
-      "https://www.bbb.org/us/oh/amelia/profile/construction-services/spaulding-quality-renovations-0292-90050955",
-      "https://www.facebook.com/",
-      "https://www.instagram.com/"
+      "https://www.bbb.org/us/oh/amelia/profile/construction-services/spaulding-quality-renovations-0292-90050955"
     ],
-    "logo": "/favicon.ico",
+    "logo": "https://www.stoneandresin.com/favicon.ico",
     "priceRange": "$12-$20 per square foot",
     "description": "Professional resin-bound surface installation for driveways, patios, walkways, and pool decks. Vuba certified installer serving Greater Cincinnati and Amelia, Ohio."
   };
@@ -128,12 +145,16 @@ export default function RootLayout({
         />
       </head>
       <body className="page-bg text-slate-900 antialiased">
-        <script
+        <Script
+          id="org-jsonld"
           type="application/ld+json"
+          strategy="beforeInteractive"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }}
         />
-        <script
+        <Script
+          id="service-jsonld"
           type="application/ld+json"
+          strategy="beforeInteractive"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
         />
         <Navbar />

@@ -7,12 +7,13 @@ export const metadata = {
     title: "Resin-Bound Surface Guides | Stone & Resin",
     description: "Comprehensive guides on resin-bound vs epoxy, Ohio drainage requirements, maintenance tips, and more.",
     type: "website",
-    images: ["/placeholder.jpg"],
+    images: ["/img/hero.jpg"],
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title: "Resin-Bound Guides | Stone & Resin",
     description: "Expert advice for Ohio homeowners considering resin-bound surfaces.",
+    images: ["/img/hero.jpg"],
   }
 }
 

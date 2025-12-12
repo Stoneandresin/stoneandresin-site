@@ -1,6 +1,3 @@
-"use client";
-export const dynamic = 'force-dynamic';
-
 import Hero from "@/components/Hero";
 import RevealOnScroll from "@/components/RevealOnScroll";
 import ColorsSlider from "@/components/ColorsSlider";

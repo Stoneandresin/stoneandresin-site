@@ -9,6 +9,8 @@ export default function Navbar() {
   const router = useRouter()
   const pathname = usePathname()
 
+  const menuId = 'site-nav-menu'
+
   const handleEstimateClick = useCallback((event: MouseEvent<HTMLAnchorElement>) => {
     if (event.metaKey || event.altKey || event.ctrlKey || event.shiftKey || event.button !== 0) {
       return
@@ -55,13 +57,20 @@ export default function Navbar() {
           </a>
         </div>
 
-        <button aria-label="Toggle menu" className="md:hidden btn-ghost" onClick={() => setOpen(o => !o)}>
+        <button
+          type="button"
+          aria-label="Toggle menu"
+          aria-expanded={open}
+          aria-controls={menuId}
+          className="md:hidden btn-ghost"
+          onClick={() => setOpen(o => !o)}
+        >
           Menu
         </button>
       </div>
 
       {open && (
-        <div className="md:hidden border-t border-slate-800 bg-slate-950">
+        <div id={menuId} className="md:hidden border-t border-slate-800 bg-slate-950">
           <div className="container mx-auto px-4 py-3 flex flex-col gap-3">
             <Link href="/#surfaces" className="link-invert" onClick={() => setOpen(false)}>Surfaces</Link>
             <Link href="/pricing" className="link-invert" onClick={() => setOpen(false)}>Pricing</Link>
