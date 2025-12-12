@@ -10,12 +10,13 @@ export const metadata = {
     title: "Contact Stone & Resin | Free On-Site Quotes",
     description: "Book your free site visit for resin-bound driveways, patios, or pool decks. Serving Greater Cincinnati.",
     type: "website",
-    images: ["/placeholder.jpg"],
+    images: ["/img/hero.jpg"],
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title: "Contact Stone & Resin",
     description: "Call 513-787-8798 or request your free on-site quote today.",
+    images: ["/img/hero.jpg"],
   }
 };
 

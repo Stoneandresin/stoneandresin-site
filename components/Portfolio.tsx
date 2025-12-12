@@ -2,9 +2,9 @@ import Image from "next/image";
 
 export default function Portfolio(){
   const projects = [
-    { title: "Amelia driveway", img: "/placeholder.jpg" },
-    { title: "Cincinnati pool deck", img: "/placeholder.jpg" },
-    { title: "Patio & walkway", img: "/placeholder.jpg" }
+    { title: "Amelia driveway", img: "/gallery/driveway-cincy-after-2.jpg" },
+    { title: "Cincinnati pool deck", img: "/gallery/Before + After/Waterfront after.JPG" },
+    { title: "Patio & walkway", img: "/gallery/Before + After/Hussein After 1.jpg" }
   ]
   return (
     <section id="surfaces" className="bg-gray-50 border-y border-gray-100">

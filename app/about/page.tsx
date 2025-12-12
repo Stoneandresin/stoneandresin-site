@@ -5,12 +5,13 @@ export const metadata = {
     title: "About Stone & Resin | Local Ohio Resin-Bound Contractor",
     description: "Amelia-based, family-run contractor specializing in Vuba resin-bound systems. Serving Cincinnati with craftsmanship and accountability.",
     type: "website",
-    images: ["/placeholder.jpg"],
+    images: ["/img/hero.jpg"],
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title: "About Stone & Resin",
     description: "Ohio's trusted Vuba resin-bound installer serving Greater Cincinnati.",
+    images: ["/img/hero.jpg"],
   }
 }
 
