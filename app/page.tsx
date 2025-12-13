@@ -5,32 +5,8 @@ import Image from "next/image";
 import Estimator from "@/components/Estimator";
 import RecentProjects from "@/components/RecentProjects";
 import { certificateImage } from "@/lib/frontPageContent";
-import { useEffect } from "react";
 
 export default function Home() {
-  useEffect(() => {
-    // #region agent log
-    fetch('http://127.0.0.1:7242/ingest/80153019-f1dd-4d4e-ae1a-373c293ba650', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        sessionId: 'debug-session',
-        runId: 'pre-fix',
-        hypothesisId: 'B',
-        location: 'app/page.tsx:home-mount',
-        message: 'Home page render with trust bar section',
-        data: {
-          trustSectionLocation: 'separate-section',
-          env: process.env.NODE_ENV,
-          host: typeof window !== 'undefined' ? window.location.host : 'server',
-          path: typeof window !== 'undefined' ? window.location.pathname : 'server'
-        },
-        timestamp: Date.now()
-      })
-    }).catch(() => {});
-    // #endregion
-  }, []);
-
   return (
     <>
       <Hero />

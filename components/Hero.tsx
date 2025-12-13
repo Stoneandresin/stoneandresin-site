@@ -2,33 +2,9 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { useEffect } from 'react';
 import { track } from '@vercel/analytics';
 
 export default function Hero() {
-  useEffect(() => {
-    // #region agent log
-    fetch('http://127.0.0.1:7242/ingest/80153019-f1dd-4d4e-ae1a-373c293ba650', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        sessionId: 'debug-session',
-        runId: 'pre-fix',
-        hypothesisId: 'A',
-        location: 'components/Hero.tsx:hero-mount',
-        message: 'Hero variant render',
-        data: {
-          variant: 'separate-trust-section',
-          ctaSecondaryStyle: 'grey-gradient',
-          host: typeof window !== 'undefined' ? window.location.host : 'server',
-          path: typeof window !== 'undefined' ? window.location.pathname : 'server'
-        },
-        timestamp: Date.now()
-      })
-    }).catch(() => {});
-    // #endregion
-  }, []);
-
   return (
     <section className="relative min-h-[90vh] flex flex-col justify-center">
       {/* Background Image */}
