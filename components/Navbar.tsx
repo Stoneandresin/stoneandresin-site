@@ -9,6 +9,8 @@ export default function Navbar() {
   const router = useRouter()
   const pathname = usePathname()
 
+  const menuId = 'site-nav-menu'
+
   const handleEstimateClick = useCallback((event: MouseEvent<HTMLAnchorElement>) => {
     if (event.metaKey || event.altKey || event.ctrlKey || event.shiftKey || event.button !== 0) {
       return
@@ -55,7 +57,14 @@ export default function Navbar() {
           </a>
         </div>
 
-        <button aria-label="Toggle menu" className="md:hidden text-white" onClick={() => setOpen(o => !o)}>
+        <button
+          type="button"
+          aria-label="Toggle menu"
+          aria-expanded={open}
+          aria-controls={menuId}
+          className="md:hidden text-white"
+          onClick={() => setOpen(o => !o)}
+        >
           <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
           </svg>
@@ -63,7 +72,7 @@ export default function Navbar() {
       </div>
 
       {open && (
-        <div className="md:hidden absolute top-full left-0 right-0 bg-slate-900 border-t border-slate-800 shadow-xl">
+        <div id={menuId} className="md:hidden absolute top-full left-0 right-0 bg-slate-900 border-t border-slate-800 shadow-xl">
           <div className="container mx-auto px-4 py-4 flex flex-col gap-4">
             <Link href="/#surfaces" className="text-white/80 hover:text-white" onClick={() => setOpen(false)}>Surfaces</Link>
             <Link href="/pricing" className="text-white/80 hover:text-white" onClick={() => setOpen(false)}>Pricing</Link>

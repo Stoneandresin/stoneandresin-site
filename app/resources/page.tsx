@@ -7,12 +7,13 @@ export const metadata = {
     title: "Free Resin-Bound Resources | Stone & Resin",
     description: "Download maintenance checklists, preparation guides, and expert care tips for your resin-bound surfaces.",
     type: "website",
-    images: ["/placeholder.jpg"],
+    images: ["/img/hero.jpg"],
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title: "Free Resin-Bound Resources",
     description: "Expert guides and checklists for resin-bound surface owners.",
+    images: ["/img/hero.jpg"],
   }
 }
 

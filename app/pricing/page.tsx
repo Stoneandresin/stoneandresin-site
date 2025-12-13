@@ -8,12 +8,13 @@ export const metadata = {
     title: "Resin-Bound Surface Pricing | Stone & Resin",
     description: "Instant online estimates for permeable resin-bound surfaces. Transparent pricing and free on-site quotes in Greater Cincinnati.",
     type: "website",
-    images: ["/placeholder.jpg"],
+    images: ["/img/hero.jpg"],
   },
   twitter: {
     card: "summary_large_image",
     title: "Instant Resin-Bound Pricing | Stone & Resin",
     description: "Get your instant estimate now. $12-$20/sq ft installed in Ohio.",
+    images: ["/img/hero.jpg"],
   }
 }
 
