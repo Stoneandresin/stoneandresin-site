@@ -23,6 +23,7 @@ export const metadata = {
 };
 
 export default async function Page() {
+  // Use local gallery images - no Cloudinary dependency
   const localPhotos = await loadLocalGallery();
   const pairs = defaultBeforeAfterPairs;
 
