@@ -280,6 +280,31 @@ export default function Estimator() {
           </div>
         </div>
 
+        {/* Surface Condition */}
+        <div>
+          <label className="block text-sm font-medium text-slate-700 mb-2">Current Surface Condition</label>
+          <div className="grid grid-cols-3 gap-2">
+            {([
+              { value: 'new_slab', label: 'New Slab' },
+              { value: 'cracked', label: 'Cracked' },
+              { value: 'heavy_repair', label: 'Heavy Repair' }
+            ] as const).map(({ value, label }) => (
+              <button
+                key={value}
+                type="button"
+                onClick={() => setCondition(value)}
+                className={`px-3 py-2 text-sm rounded border transition-colors ${
+                  condition === value
+                    ? 'bg-slate-900 text-white border-slate-900'
+                    : 'bg-white text-slate-600 border-slate-200 hover:border-slate-400'
+                }`}
+              >
+                {label}
+              </button>
+            ))}
+          </div>
+        </div>
+
         {/* Estimated Price Display */}
         <div className="bg-slate-50 rounded-lg p-4 text-center border border-slate-100">
           <p className="text-sm text-slate-500 uppercase tracking-wide mb-1">Estimated Price</p>
