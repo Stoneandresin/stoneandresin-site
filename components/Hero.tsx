@@ -24,19 +24,19 @@ export default function Hero() {
 
       <div className="container mx-auto px-4 relative z-10 pt-20 pb-32">
         <div className="max-w-4xl">
-          <h1 className="text-5xl md:text-7xl font-serif font-medium text-white leading-[1.1] mb-4 drop-shadow-lg">
+          <h1 className="text-5xl md:text-7xl font-serif font-medium text-white leading-[1.1] mb-4">
             STONE & RESIN
           </h1>
           
-          <p className="text-2xl md:text-3xl text-white font-medium mb-4 drop-shadow-md">
+          <p className="text-2xl md:text-3xl text-white font-medium mb-4">
             Permeable Resin-Bound Driveways & Patios
           </p>
           
-          <p className="text-xl md:text-2xl text-white/90 mb-6 max-w-2xl leading-relaxed font-light drop-shadow-md">
+          <p className="text-xl md:text-2xl text-white/90 mb-6 max-w-2xl leading-relaxed font-light">
             Upgrade worn concrete or asphalt with a seamless stone surface that drains water, resists cracking, and looks high-end for decades.
           </p>
 
-          <ul className="text-lg md:text-xl text-white/95 mb-10 space-y-2 max-w-2xl drop-shadow-md">
+          <ul className="text-lg md:text-xl text-white/95 mb-10 space-y-2 max-w-2xl">
             <li className="flex items-center gap-2">
               <span className="text-white">✔</span>
               <span>Fully permeable</span>

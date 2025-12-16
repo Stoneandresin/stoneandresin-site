@@ -2,7 +2,15 @@
 const nextConfig = {
   // Ensure both `/about` and `/about/` work.
   trailingSlash: true,
-  experimental: { typedRoutes: true },
+  experimental: { 
+    typedRoutes: true,
+    // Exclude public directory from serverless function bundles to reduce function size
+    outputFileTracingExcludes: {
+      '*': [
+        './public/**/*',
+      ],
+    },
+  },
   reactStrictMode: true,
   images: {
     remotePatterns: [
