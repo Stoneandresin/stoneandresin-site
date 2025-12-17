@@ -183,11 +183,9 @@ export default function Home() {
               </RevealOnScroll>
 
               {/* Right Column: Estimator */}
-              <RevealOnScroll className="reveal-slide-right" delayMs={200}>
-                <div>
-                  <Estimator />
-                </div>
-              </RevealOnScroll>
+              <div>
+                <Estimator />
+              </div>
             </div>
           </div>
         </section>
