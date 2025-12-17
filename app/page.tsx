@@ -136,51 +136,49 @@ export default function Home() {
           <div className="container mx-auto px-4">
             <div className="grid lg:grid-cols-2 gap-16 items-start">
               {/* Left Column: Why Resin-Bound */}
-              <RevealOnScroll className="reveal-slide-left">
-                <div>
-                  <h2 className="text-4xl md:text-5xl font-serif text-slate-900 mb-8 leading-tight">
-                    Why Resin-Bound <br /> Beats Concrete
-                  </h2>
-                  
-                  <div className="bg-slate-900 text-white rounded-xl p-8 shadow-2xl">
-                    <div className="grid grid-cols-3 gap-4 text-center divide-x divide-slate-700">
-                      <div className="px-2">
-                        <div className="mb-4 flex justify-center text-cyan-400">
-                          <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                          </svg>
-                        </div>
-                        <h3 className="text-lg font-medium mb-2">Crack-Resistant</h3>
-                        <p className="text-xs text-slate-400 leading-relaxed">
-                          Resin flexes with the ground, unlike rigid concrete, which cracks.
-                        </p>
+              <div>
+                <h2 className="text-4xl md:text-5xl font-serif text-slate-900 mb-8 leading-tight">
+                  Why Resin-Bound <br /> Beats Concrete
+                </h2>
+                
+                <div className="bg-slate-900 text-white rounded-xl p-8 shadow-2xl">
+                  <div className="grid grid-cols-3 gap-4 text-center divide-x divide-slate-700">
+                    <div className="px-2">
+                      <div className="mb-4 flex justify-center text-cyan-400">
+                        <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                        </svg>
                       </div>
-                      <div className="px-2">
-                        <div className="mb-4 flex justify-center text-cyan-400">
-                          <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.384-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
-                          </svg>
-                        </div>
-                        <h3 className="text-lg font-medium mb-2">Permeable & Safer</h3>
-                        <p className="text-xs text-slate-400 leading-relaxed">
-                          Millions of tiny voids allow water to drain through instead of puddling.
-                        </p>
+                      <h3 className="text-lg font-medium mb-2">Crack-Resistant</h3>
+                      <p className="text-xs text-slate-400 leading-relaxed">
+                        Resin flexes with the ground, unlike rigid concrete, which cracks.
+                      </p>
+                    </div>
+                    <div className="px-2">
+                      <div className="mb-4 flex justify-center text-cyan-400">
+                        <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.384-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+                        </svg>
                       </div>
-                      <div className="px-2">
-                        <div className="mb-4 flex justify-center text-cyan-400">
-                          <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
-                          </svg>
-                        </div>
-                        <h3 className="text-lg font-medium mb-2">High-End Look</h3>
-                        <p className="text-xs text-slate-400 leading-relaxed">
-                          Natural stone blends and a smooth, seamless finish give your home "custom-built" curb appeal.
-                        </p>
+                      <h3 className="text-lg font-medium mb-2">Permeable & Safer</h3>
+                      <p className="text-xs text-slate-400 leading-relaxed">
+                        Millions of tiny voids allow water to drain through instead of puddling.
+                      </p>
+                    </div>
+                    <div className="px-2">
+                      <div className="mb-4 flex justify-center text-cyan-400">
+                        <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                        </svg>
                       </div>
+                      <h3 className="text-lg font-medium mb-2">High-End Look</h3>
+                      <p className="text-xs text-slate-400 leading-relaxed">
+                        Natural stone blends and a smooth, seamless finish give your home "custom-built" curb appeal.
+                      </p>
                     </div>
                   </div>
                 </div>
-              </RevealOnScroll>
+              </div>
 
               {/* Right Column: Estimator */}
               <div>
