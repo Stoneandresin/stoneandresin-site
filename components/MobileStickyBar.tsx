@@ -158,7 +158,7 @@ export default function MobileStickyBar() {
           animation-play-state: paused;
         }
       `}</style>
-      <div className="max-w-[1100px] mx-auto px-4 py-3 pb-[calc(12px+env(safe-area-inset-bottom,0px))]">
+      <div className="w-full max-w-none mx-auto px-4 py-3 pb-[calc(12px+env(safe-area-inset-bottom,0px))]">
         <div className="grid grid-cols-2 gap-4 items-stretch">
           <a
             href="/#estimate"
