@@ -25,11 +25,11 @@ export default function Hero() {
       <div className="container mx-auto px-4 relative z-10 pt-20 pb-32">
         <div className="max-w-4xl">
           <h1 className="text-5xl md:text-7xl font-serif font-medium text-white leading-[1.1] mb-4">
-            STONE & RESIN
+            STONE & RESIN
           </h1>
           
           <p className="text-2xl md:text-3xl text-white font-medium mb-4">
-            Permeable Resin-Bound Driveways & Patios
+            Permeable Resin‑Bound Driveways & Patios
           </p>
           
           <p className="text-xl md:text-2xl text-white/90 mb-6 max-w-2xl leading-relaxed font-light">
@@ -47,13 +47,13 @@ export default function Hero() {
               <svg className="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                 <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
               </svg>
-              <span>Freeze-thaw durable</span>
+              <span>Freeze‑thaw durable</span>
             </li>
             <li className="flex items-center gap-2">
               <svg className="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                 <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
               </svg>
-              <span>Installed as a complete system — not a coating</span>
+              <span>Installed as a complete system — not a coating</span>
             </li>
           </ul>
 
