@@ -32,8 +32,12 @@ export default function Hero() {
             Permeable Resin-Bound Driveways & Patios
           </p>
           
+          <p className="text-xl md:text-2xl text-white/95 font-medium mb-4">
+            Cincinnati's permeable paving experts
+          </p>
+          
           <p className="text-xl md:text-2xl text-white/90 mb-6 max-w-2xl leading-relaxed font-light">
-            Upgrade worn concrete or asphalt with a seamless stone surface that drains water, resists cracking, and looks high-end for decades.
+            Premium resin-bound installation that combines the natural elegance of stone with superior performance—creating driveways and patios that look stunning and function flawlessly.
           </p>
 
           <ul className="text-lg md:text-xl text-white/95 mb-10 space-y-2 max-w-2xl">
