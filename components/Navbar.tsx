@@ -35,10 +35,10 @@ export default function Navbar() {
 
   return (
     <nav className="absolute top-0 left-0 right-0 z-50 bg-transparent border-b border-white/10">
-      <div className="container mx-auto px-4 flex items-center justify-between py-6">
-        <Link href="/" className="flex items-center gap-2 font-serif text-2xl text-white">
-          <span className="inline-block h-8 w-8 rounded-full bg-white/20 backdrop-blur-sm border border-white/30" />
-          Stone <span className="text-white/60">&</span> Resin
+      <div className="container mx-auto px-4 sm:px-6 flex items-center justify-between py-6 max-w-full">
+        <Link href="/" className="flex items-center gap-1.5 sm:gap-2 font-serif text-lg sm:text-2xl text-white min-w-0 flex-shrink">
+          <span className="inline-block h-6 w-6 sm:h-8 sm:w-8 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 flex-shrink-0" />
+          <span className="truncate">Stone <span className="text-white/60">&</span> Resin</span>
         </Link>
 
         <div className="hidden md:flex items-center gap-8">
@@ -62,7 +62,7 @@ export default function Navbar() {
           aria-label="Toggle menu"
           aria-expanded={open}
           aria-controls={menuId}
-          className="md:hidden text-white"
+          className="md:hidden text-white flex-shrink-0 ml-2"
           onClick={() => setOpen(o => !o)}
         >
           <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">

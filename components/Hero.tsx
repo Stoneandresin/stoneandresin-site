@@ -22,7 +22,7 @@ export default function Hero() {
         <div className="absolute inset-x-0 bottom-0 h-64 bg-gradient-to-t from-white via-white/90 to-transparent" />
       </div>
 
-      <div className="container mx-auto px-4 relative z-10 pt-20 pb-32">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10 pt-20 pb-32 max-w-full">
         <div className="max-w-4xl">
           <h1 className="text-5xl md:text-7xl font-serif font-medium text-white leading-[1.1] mb-4">
             STONE & RESIN

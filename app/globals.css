@@ -9,8 +9,17 @@
   --brand-blue-dark: #020617;
 }
 
-html { scroll-behavior: smooth; }
-body { @apply bg-white text-gray-900; }
+html { 
+  scroll-behavior: smooth; 
+  overflow-x: hidden;
+  width: 100%;
+}
+body { 
+  @apply bg-white text-gray-900; 
+  overflow-x: hidden;
+  width: 100%;
+  position: relative;
+}
 
 /* Primary CTA */
 .btn-accent {
@@ -112,8 +121,15 @@ body { @apply bg-white text-gray-900; }
   .link-invert { @apply text-slate-200 hover:text-white; }
 }
 /* Embla helpers */
-.embla { overflow: hidden; }
-.embla__container { will-change: transform; }
+.embla { 
+  overflow: hidden; 
+  width: 100%;
+  max-width: 100%;
+}
+.embla__container { 
+  will-change: transform; 
+  width: 100%;
+}
 
 /* Ensure dark slider cards keep readable text when the site is in light mode */
 .light-ui .embla article { @apply text-slate-200; }

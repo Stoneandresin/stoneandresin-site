@@ -14,7 +14,7 @@ export default function Home() {
       <main>
         {/* Trust Signals Bar */}
         <section className="bg-white py-10 shadow-[0_-20px_60px_-30px_rgba(0,0,0,0.25)]">
-          <div className="container mx-auto px-4">
+          <div className="container mx-auto px-4 sm:px-6 max-w-full">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center justify-items-center text-slate-900">
               <div className="flex items-center gap-3">
                 <div className="p-2 rounded-full border-2 border-slate-900">
@@ -55,7 +55,7 @@ export default function Home() {
 
         {/* Instant Price Estimator - Prominent Placement */}
         <section id="estimate" className="py-20 bg-slate-50 scroll-mt-24">
-          <div className="container mx-auto px-4">
+          <div className="container mx-auto px-4 sm:px-6 max-w-full">
             <div className="max-w-6xl mx-auto">
               <div className="text-center mb-12">
                 <h2 className="text-4xl md:text-5xl font-serif text-slate-900 mb-4">
@@ -74,7 +74,7 @@ export default function Home() {
 
         {/* Resources & Learning section */}
         <section className="py-12 bg-white">
-          <div className="container mx-auto px-4">
+          <div className="container mx-auto px-4 sm:px-6 max-w-full">
             <div className="max-w-4xl mx-auto text-center mb-8">
               <h2 className="text-2xl md:text-3xl font-extrabold mb-3">
                 Learn about resin‑bound surfaces
@@ -119,10 +119,10 @@ export default function Home() {
         </section>
 
         {/* Color Collection */}
-        <section className="py-20 bg-white">
-          <div className="container mx-auto px-4">
+        <section className="py-20 bg-white overflow-hidden">
+          <div className="container mx-auto px-4 sm:px-6 max-w-full">
             <RevealOnScroll className="reveal-fade">
-              <div className="text-center max-w-3xl mx-auto mb-12">
+              <div className="text-center max-w-3xl mx-auto mb-12 px-2">
                 <h2 className="text-3xl md:text-4xl font-serif text-slate-900 mb-4">
                   Explore Our Collection
                 </h2>
@@ -152,7 +152,7 @@ export default function Home() {
 
         {/* Why resin-bound section */}
         <section className="py-20 bg-white">
-          <div className="container mx-auto px-4">
+          <div className="container mx-auto px-4 sm:px-6 max-w-full">
             <div className="max-w-4xl mx-auto">
               <h2 className="text-4xl md:text-5xl font-serif text-slate-900 mb-8 leading-tight text-center">
                 Why Resin-Bound Beats Concrete
