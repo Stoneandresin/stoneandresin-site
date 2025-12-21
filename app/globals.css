@@ -9,8 +9,8 @@
   --brand-blue-dark: #020617;
 }
 
-html { scroll-behavior: smooth; }
-body { @apply bg-white text-gray-900; }
+html { scroll-behavior: smooth; overflow-x: hidden; }
+body { @apply bg-white text-gray-900; overflow-x: hidden; }
 
 /* Primary CTA */
 .btn-accent {
