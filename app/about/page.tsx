@@ -18,9 +18,17 @@ export const metadata = {
 export default function AboutPage(){
   return (
     <main>
+      <div className="bg-slate-900 pt-32 pb-12">
+        <div className="mx-auto max-w-6xl px-6">
+          <h1 className="text-4xl font-serif text-white mb-4">About Stone & Resin</h1>
+          <p className="text-xl text-white/80 max-w-2xl">
+            Family-run resin-bound surface contractor serving Amelia and Greater Cincinnati.
+          </p>
+        </div>
+      </div>
       
       <section className="container py-14 space-y-6">
-        <h1 className="section-title">Built in Amelia, serving Ohio</h1>
+        <h2 className="section-title">Built in Amelia, serving Ohio</h2>
         <p className="subtle max-w-3xl">
          We're a local, family-run contractor specializing in resin-bound surfaces—permeable, UV-stable systems that stand up to Ohio weather.
           We repair, prepare, and install with meticulous care. Community matters; so does craftsmanship.
