@@ -24,6 +24,11 @@ export const metadata: Metadata = {
     "Amelia OH",
     "Vuba certified installer",
   ],
+  viewport: {
+    width: "device-width",
+    initialScale: 1,
+    maximumScale: 5,
+  },
   openGraph: {
     type: "website",
     url: "https://www.stoneandresin.com",

@@ -51,17 +51,17 @@ export default function ColorsSlider({ showHeading = true, className = '' }: { s
       )}
 
       <div
-        className="embla"
+        className="embla w-full overflow-hidden"
         ref={emblaRef}
         style={{ touchAction: 'pan-y' }}
         onTouchMove={(e: TouchEvent) => e.stopPropagation()}
       >
-        <div className="embla__container flex gap-4">
+        <div className="embla__container flex gap-4 w-full">
           {vubaColors.map((c) => {
             const file = `/colors/vuba/${slugify(c.name)}.jpg`
             const src: string = (c as any).image || file
             return (
-              <div key={c.name} className="embla__slide basis-[75%] sm:basis-[45%] md:basis-[32%] lg:basis-[24%] shrink-0">
+              <div key={c.name} className="embla__slide flex-[0_0_75%] sm:flex-[0_0_45%] md:flex-[0_0_32%] lg:flex-[0_0_24%] shrink-0">
                 <a
                   href={c.href}
                   target="_blank"
@@ -116,13 +116,15 @@ export default function ColorsSlider({ showHeading = true, className = '' }: { s
   return (
     <Wrapper aria-labelledby={showHeading ? 'colors-heading' : undefined} className={['py-12', 'relative z-0', className].join(' ').trim()}>
       {showHeading ? (
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 sm:px-6 max-w-full">
           <div className="surface-1 rounded-2xl p-6 md:p-8">
             {content}
           </div>
         </div>
       ) : (
-        content
+        <div className="w-full max-w-full overflow-hidden">
+          {content}
+        </div>
       )}
     </Wrapper>
   )
