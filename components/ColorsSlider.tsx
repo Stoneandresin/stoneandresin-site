@@ -88,11 +88,11 @@ export default function ColorsSlider({ showHeading = true, className = '' }: { s
       </div>
 
       <div className="mt-4 flex items-center justify-between">
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 shrink-0">
           <button type="button" onClick={() => emblaApi?.scrollPrev()} disabled={!canPrev} className="btn-ghost h-9 px-3 disabled:opacity-40" aria-label="Previous">‹</button>
           <button type="button" onClick={() => emblaApi?.scrollNext()} disabled={!canNext} className="btn-ghost h-9 px-3 disabled:opacity-40" aria-label="Next">›</button>
         </div>
-        <div className="flex items-center gap-1">
+        <div className="flex flex-1 min-w-0 items-center flex-wrap justify-end gap-1 max-w-full">
           {scrollSnaps.map((_, i) => (
             <button
               key={i}
