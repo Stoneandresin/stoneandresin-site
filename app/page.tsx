@@ -138,14 +138,6 @@ export default function Home() {
         <section id="estimate" className="py-20 bg-slate-50 scroll-mt-24">
           <div className="container mx-auto px-4 sm:px-6 max-w-full">
             <div className="max-w-6xl mx-auto">
-              <div className="text-center mb-12">
-                <h2 className="text-4xl md:text-5xl font-serif text-slate-900 mb-4">
-                  Instant Price Estimator
-                </h2>
-                <p className="text-xl text-slate-600">
-                  Get a ballpark price in seconds
-                </p>
-              </div>
               <div className="flex justify-center">
                 <Estimator />
               </div>
