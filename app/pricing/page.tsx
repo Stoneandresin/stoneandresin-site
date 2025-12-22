@@ -21,15 +21,23 @@ export const metadata = {
 export default function PricingPage(){
   return (
     <main>
+      <div className="bg-slate-900 pt-32 pb-12">
+        <div className="mx-auto max-w-6xl px-6">
+          <h1 className="text-4xl font-serif text-white mb-4">Transparent Pricing</h1>
+          <p className="text-xl text-white/80 max-w-2xl">
+            Get instant estimates for resin-bound driveways, patios, and pool decks.
+          </p>
+        </div>
+      </div>
       
       <section className="container py-14">
-        <p className="text-sm font-semibold text-slate-600 mb-2">Transparent pricing</p>
-        <h1 className="section-title mb-4">Instant pricing for resin‑bound surfaces</h1>
-        <p className="subtle max-w-2xl">
+        <p className="text-sm font-semibold text-slate-600 mb-2">Instant Estimate</p>
+        <h2 className="section-title mb-4">Calculate your project cost</h2>
+        <p className="subtle max-w-2xl mb-8">
           Online estimates provide a realistic range; on‑site quotes finalize pricing after assessing prep, drainage, and final Vuba system requirements.
         </p>
 
-        <div className="grid md:grid-cols-[2fr_1fr] gap-6 mt-8">
+        <div className="grid md:grid-cols-[2fr_1fr] gap-6">
           {/* Left/Top: Instant Price Estimator */}
           <div className="card p-6 md:row-span-2">
             <Estimator />
