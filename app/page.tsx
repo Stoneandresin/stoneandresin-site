@@ -53,39 +53,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Color Collection */}
-        <section className="py-20 bg-white overflow-hidden">
-          <div className="container mx-auto px-4 sm:px-6 max-w-full">
-            <RevealOnScroll className="reveal-fade">
-              <div className="text-center max-w-3xl mx-auto mb-12 px-2">
-                <h2 className="text-3xl md:text-4xl font-serif text-slate-900 mb-4">
-                  Explore Our Collection
-                </h2>
-                <p className="text-slate-600">
-                  From natural golden tones to modern greys, find the perfect match for your home's architecture.
-                </p>
-              </div>
-              <ColorsSlider showHeading={false} className="py-0" />
-              <div className="text-center mt-8">
-                <a href="/colors" className="inline-block border-b-2 border-slate-900 text-slate-900 font-medium hover:text-slate-700 hover:border-slate-700 transition-colors">
-                  View all 24 blends →
-                </a>
-              </div>
-            </RevealOnScroll>
-          </div>
-
-          <section className="mt-8 flex justify-center">
-            <Image
-              src={certificateImage.src}
-              alt={certificateImage.alt}
-              width={certificateImage.width}
-              height={certificateImage.height}
-              className="rounded-md shadow"
-            />
-          </section>
-        </section>
-
-        {/* Why resin-bound section */}
+        {/* Why resin-bound section - moved up for better flow */}
         <section className="py-20 bg-white">
           <div className="container mx-auto px-4 sm:px-6 max-w-full">
             <div className="max-w-4xl mx-auto">
@@ -134,7 +102,42 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Instant Price Estimator */}
+        {/* Color Collection */}
+        <section className="py-20 bg-slate-50 overflow-hidden">
+          <div className="container mx-auto px-4 sm:px-6 max-w-full">
+            <RevealOnScroll className="reveal-fade">
+              <div className="text-center max-w-3xl mx-auto mb-12 px-2">
+                <h2 className="text-3xl md:text-4xl font-serif text-slate-900 mb-4">
+                  Explore Our Collection
+                </h2>
+                <p className="text-slate-600">
+                  From natural golden tones to modern greys, find the perfect match for your home's architecture.
+                </p>
+              </div>
+              <ColorsSlider showHeading={false} className="py-0" />
+              <div className="text-center mt-8">
+                <a href="/colors" className="inline-block border-b-2 border-slate-900 text-slate-900 font-medium hover:text-slate-700 hover:border-slate-700 transition-colors">
+                  View all 24 blends →
+                </a>
+              </div>
+            </RevealOnScroll>
+          </div>
+
+          <section className="mt-12 flex justify-center">
+            <Image
+              src={certificateImage.src}
+              alt={certificateImage.alt}
+              width={certificateImage.width}
+              height={certificateImage.height}
+              className="rounded-md shadow"
+            />
+          </section>
+        </section>
+
+        {/* Recent Projects - moved before Estimator for social proof */}
+        <RecentProjects />
+
+        {/* Instant Price Estimator - positioned after social proof for better conversion */}
         <section id="estimate" className="py-20 bg-slate-50 scroll-mt-24">
           <div className="container mx-auto px-4 sm:px-6 max-w-full">
             <div className="max-w-6xl mx-auto">
@@ -144,9 +147,6 @@ export default function Home() {
             </div>
           </div>
         </section>
-
-        {/* Recent Projects */}
-        <RecentProjects />
       </main>
     </>
   );
